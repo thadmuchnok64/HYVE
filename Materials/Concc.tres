@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bhlxo0yigxwyn"]
+
+[ext_resource type="Texture2D" uid="uid://ctcg6hv3v6pd3" path="res://Textures/BrickWall3.png" id="1_msihv"]
+
+[resource]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.07653103, 0.05660356, 0.016453007, 1)
+albedo_texture = ExtResource("1_msihv")

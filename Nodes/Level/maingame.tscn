@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://vldfak25ks71"]
+
+[ext_resource type="PackedScene" uid="uid://d0fwmchwkn8gt" path="res://Nodes/Level/webbiesworld.tscn" id="1_m4sq0"]
+[ext_resource type="PackedScene" uid="uid://d25ryu4rdfcm8" path="res://Meshes/Characters/Ray/Ray.fbx" id="2_ev4jx"]
+[ext_resource type="Script" uid="uid://buk0j8xd58q21" path="res://Scripts/PCStateMachine/PCStateMachine.cs" id="3_ev4jx"]
+[ext_resource type="Script" uid="uid://ksn7ug4pt852" path="res://Scripts/PCStateMachine/States/PC_Walk.cs" id="4_dm43g"]
+[ext_resource type="Script" uid="uid://c11mrxh4cl5ht" path="res://Scripts/PCStateMachine/States/PC_Idle.cs" id="5_m4sq0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dm43g"]
+radius = 0.23535156
+height = 1.7421875
+
+[node name="root" type="Node3D" unique_id=1832137787]
+
+[node name="Level" type="Node3D" parent="." unique_id=1474964025]
+
+[node name="webbiesworld" parent="Level" unique_id=1539476294 instance=ExtResource("1_m4sq0")]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=2009436672]
+
+[node name="Ray" parent="CharacterBody3D" unique_id=1584468144 instance=ExtResource("2_ev4jx")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1465090315]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8727839, 0)
+shape = SubResource("CapsuleShape3D_dm43g")
+
+[node name="StateMachine" type="Node3D" parent="CharacterBody3D" unique_id=395431911 node_paths=PackedStringArray("cb", "camPoint", "startingState")]
+script = ExtResource("3_ev4jx")
+cb = NodePath("..")
+camPoint = NodePath("../TempCam")
+startingState = NodePath("IdleState")
+
+[node name="WalkState" type="Node3D" parent="CharacterBody3D/StateMachine" unique_id=711760089 node_paths=PackedStringArray("idleState", "stateMachine")]
+script = ExtResource("4_dm43g")
+idleState = NodePath("../IdleState")
+maxSpeed = 2.0
+dragForce = 5.0
+stateMachine = NodePath("..")
+moveSpeed = 2.0
+
+[node name="IdleState" type="Node3D" parent="CharacterBody3D/StateMachine" unique_id=997002909 node_paths=PackedStringArray("walkState", "stateMachine")]
+script = ExtResource("5_m4sq0")
+walkState = NodePath("../WalkState")
+dragForce = 0.2
+stateMachine = NodePath("..")
+moveSpeed = 25.0
+
+[node name="TempCam" type="Node3D" parent="CharacterBody3D" unique_id=677937404]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.693445, 4.023912, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/TempCam" unique_id=672105331]
+transform = Transform3D(-1, -5.6340248e-08, 6.684698e-08, 0, 0.7646402, 0.64445734, -8.742278e-08, 0.64445734, -0.7646402, 0, 0, 0)
+fov = 50.0
+size = 3.6959093
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CharacterBody3D" unique_id=1939309520]
+transform = Transform3D(0.5037439, 0, 0.8638531, -0.8638531, -4.371139e-08, 0.5037439, 3.7760216e-08, -1, -2.2019343e-08, -0.31634897, 1.324074, -3.996803e-15)
+light_energy = 5.0
+light_specular = 0.0
+light_bake_mode = 0
+shadow_enabled = true
+spot_range = 37.232
