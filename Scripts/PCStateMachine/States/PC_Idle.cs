@@ -77,7 +77,7 @@ public partial class PC_Idle : PCState
 
 	public override void EntryAnimation()
 	{
-		//anim.Set("parameters/Ground/GroundBlend/transition_request", animationName);
+		anim.Set(animMeta, 0);
 	}
 
 	public override void ExitAnimation()

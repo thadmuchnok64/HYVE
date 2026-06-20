@@ -6,8 +6,13 @@ public partial class PCState : Node3D
 	[Export] protected PCStateMachine stateMachine;
 	Node3D camPoint;
 	[Export] float moveSpeed = 50;
+	[Export] protected string animMeta;
+	protected Node3D meshRoot;
+
+
 
 	protected CharacterBody3D cb;
+	protected AnimationTree anim;
 	public virtual PCState Enter()
 	{
 		return null;
@@ -41,6 +46,8 @@ public partial class PCState : Node3D
 	{
 		cb = stateMachine.cb;
 		camPoint = stateMachine.camPoint;
+		anim = stateMachine.anim;
+		meshRoot = stateMachine.meshRoot;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

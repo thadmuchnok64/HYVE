@@ -5,10 +5,11 @@ public partial class PCStateMachine : Node3D
 {
 	[Export] public CharacterBody3D cb;
 	[Export] public Node3D camPoint;
+    [Export] public AnimationTree anim;
+	[Export] public Node3D meshRoot;
 
 
-	[Export] PCState startingState;
-	[Export] AnimationTree anim;
+    [Export] PCState startingState;
 	[Export] AudioStreamPlayer3D aud;
 	[Export] bool debugState = false;
 	PCState currentState;

@@ -10,6 +10,7 @@ public partial class PC_Walk : PCState
 	[Export] float maxSpeed = 5f;
 
 	[Export] float dragForce;
+	[Export] float animLerpMod = 2;
 	// Called when the node enters the scene tree for the first time.
 	public override PCState ManageInput(InputEvent @event)
 	{
@@ -50,12 +51,14 @@ public partial class PC_Walk : PCState
 		var hVel = new Vector3(cb.Velocity.X, 0, cb.Velocity.Z);
 		if (hVel.Length() > .2f)
 		{
-			//cb.LookAt(cb.Position - hVel.Normalized() * 5, Vector3.Up);
-			//cb.Rotation = new Vector3(0, cb.Rotation.Y, 0);
+			meshRoot.LookAt(cb.Position - hVel.Normalized() * 5, Vector3.Up);
+			meshRoot.Rotation = new Vector3(0, meshRoot.Rotation.Y, 0);
 		}
-		if (cb.IsOnFloor())
-		{
-			if (Input.GetActionStrength("Sprint") > .1)
+		anim.Set(animMeta, Mathf.Clamp(hVel.Length()/animLerpMod,0,1));
+
+		//if (cb.IsOnFloor())
+		//{
+		if (Input.GetActionStrength("Sprint") > .1)
 			{
 				//return sprintState;
 			}
@@ -67,7 +70,7 @@ public partial class PC_Walk : PCState
 			{
 				return idleState;
 			}
-		}
+		//}
 
 		return null;
 
@@ -95,7 +98,7 @@ public partial class PC_Walk : PCState
 
 	public override void EntryAnimation()
 	{
-		//anim.Set("parameters/Ground/GroundBlend/transition_request", animationName);
+
 	}
 
 	public override void ExitAnimation()

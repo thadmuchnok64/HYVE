@@ -1,34 +1,58 @@
 [gd_scene format=3 uid="uid://vldfak25ks71"]
 
 [ext_resource type="PackedScene" uid="uid://d0fwmchwkn8gt" path="res://Nodes/Level/webbiesworld.tscn" id="1_m4sq0"]
-[ext_resource type="PackedScene" uid="uid://d25ryu4rdfcm8" path="res://Meshes/Characters/Ray/Ray.fbx" id="2_ev4jx"]
 [ext_resource type="Script" uid="uid://buk0j8xd58q21" path="res://Scripts/PCStateMachine/PCStateMachine.cs" id="3_ev4jx"]
 [ext_resource type="Script" uid="uid://ksn7ug4pt852" path="res://Scripts/PCStateMachine/States/PC_Walk.cs" id="4_dm43g"]
 [ext_resource type="Script" uid="uid://c11mrxh4cl5ht" path="res://Scripts/PCStateMachine/States/PC_Idle.cs" id="5_m4sq0"]
+[ext_resource type="PackedScene" uid="uid://uth3q2hrek3j" path="res://Nodes/rav.tscn" id="5_ox1qe"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dm43g"]
 radius = 0.23535156
 height = 1.7421875
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m4sq0"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m4sq0"]
+animation = &"root|Walk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ox1qe"]
+animation = &"root|Idle"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_vvlkb"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_erfjl"]
+graph_offset = Vector2(-1277.6162, -264.32312)
+nodes/output/position = Vector2(-180, -140)
+nodes/WalkState/node = SubResource("AnimationNodeBlend2_vvlkb")
+nodes/WalkState/position = Vector2(-340, -140)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_ox1qe")
+nodes/Animation/position = Vector2(-680, -100)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_m4sq0")
+"nodes/Animation 2/position" = Vector2(-680, 80)
+node_connections = [&"output", 0, &"WalkState", &"WalkState", 0, &"Animation", &"WalkState", 1, &"Animation 2"]
 
 [node name="root" type="Node3D" unique_id=1832137787]
 
 [node name="Level" type="Node3D" parent="." unique_id=1474964025]
 
 [node name="webbiesworld" parent="Level" unique_id=1539476294 instance=ExtResource("1_m4sq0")]
+transform = Transform3D(0.99999994, 0.00023441973, 5.7663034e-05, -0.00023442406, 0.99999994, 3.776736e-05, -5.7645353e-05, -3.7794347e-05, 1, 0, 0, 0)
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=2009436672]
-
-[node name="Ray" parent="CharacterBody3D" unique_id=1584468144 instance=ExtResource("2_ev4jx")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1465090315]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8727839, 0)
 shape = SubResource("CapsuleShape3D_dm43g")
 
-[node name="StateMachine" type="Node3D" parent="CharacterBody3D" unique_id=395431911 node_paths=PackedStringArray("cb", "camPoint", "startingState")]
+[node name="StateMachine" type="Node3D" parent="CharacterBody3D" unique_id=395431911 node_paths=PackedStringArray("cb", "camPoint", "anim", "meshRoot", "startingState")]
 script = ExtResource("3_ev4jx")
 cb = NodePath("..")
 camPoint = NodePath("../TempCam")
+anim = NodePath("../Rav/AnimationTree")
+meshRoot = NodePath("../Rav")
 startingState = NodePath("IdleState")
 
 [node name="WalkState" type="Node3D" parent="CharacterBody3D/StateMachine" unique_id=711760089 node_paths=PackedStringArray("idleState", "stateMachine")]
@@ -36,8 +60,10 @@ script = ExtResource("4_dm43g")
 idleState = NodePath("../IdleState")
 maxSpeed = 2.0
 dragForce = 5.0
+animLerpMod = 1.0
 stateMachine = NodePath("..")
 moveSpeed = 2.0
+animMeta = "parameters/WalkState/blend_amount"
 
 [node name="IdleState" type="Node3D" parent="CharacterBody3D/StateMachine" unique_id=997002909 node_paths=PackedStringArray("walkState", "stateMachine")]
 script = ExtResource("5_m4sq0")
@@ -45,6 +71,7 @@ walkState = NodePath("../WalkState")
 dragForce = 0.2
 stateMachine = NodePath("..")
 moveSpeed = 25.0
+animMeta = "parameters/WalkState/blend_amount"
 
 [node name="TempCam" type="Node3D" parent="CharacterBody3D" unique_id=677937404]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.693445, 4.023912, 0)
@@ -55,9 +82,29 @@ fov = 50.0
 size = 3.6959093
 
 [node name="SpotLight3D" type="SpotLight3D" parent="CharacterBody3D" unique_id=1939309520]
-transform = Transform3D(0.5037439, 0, 0.8638531, -0.8638531, -4.371139e-08, 0.5037439, 3.7760216e-08, -1, -2.2019343e-08, -0.31634897, 1.324074, -3.996803e-15)
+transform = Transform3D(0.99702734, 3.595138e-08, 0.07704964, -0.07704964, -2.4863292e-08, 0.99702734, 3.7760216e-08, -1, -2.201934e-08, -0.53167117, 2.7745798, -3.996803e-15)
 light_energy = 5.0
 light_specular = 0.0
 light_bake_mode = 0
 shadow_enabled = true
 spot_range = 37.232
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="CharacterBody3D" unique_id=554590590]
+transform = Transform3D(0.9975274, 3.921434e-08, -0.07027878, 0.07027878, -1.9311148e-08, 0.9975274, 3.7760216e-08, -1, -2.2019337e-08, 0.072211295, 3.711507, -3.996803e-15)
+light_specular = 0.0
+light_bake_mode = 0
+shadow_enabled = true
+spot_range = 37.232
+
+[node name="Rav" parent="CharacterBody3D" unique_id=272113284 instance=ExtResource("5_ox1qe")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="Rav" parent="CharacterBody3D/Rav/root/Skeleton3D" parent_id_path=PackedInt32Array(272113284, 1382327914) index="0" unique_id=588307148]
+material_override = SubResource("StandardMaterial3D_m4sq0")
+
+[node name="AnimationTree" type="AnimationTree" parent="CharacterBody3D/Rav" unique_id=1241428641]
+tree_root = SubResource("AnimationNodeBlendTree_erfjl")
+anim_player = NodePath("../AnimationPlayer")
+parameters/WalkState/blend_amount = 1.0
+
+[editable path="CharacterBody3D/Rav"]
