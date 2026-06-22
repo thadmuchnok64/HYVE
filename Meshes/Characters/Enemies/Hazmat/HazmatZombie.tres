@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ycqm4kubl51o"]
+
+[ext_resource type="Texture2D" uid="uid://8aa1n72rne3c" path="res://Meshes/Characters/Enemies/Hazmat/InfectedCompanyMerc_Skin_AlbedoTransparency.1001.png" id="1_rupsj"]
+[ext_resource type="Texture2D" uid="uid://cr5nwropdjbtq" path="res://Meshes/Characters/Enemies/Hazmat/InfectedCompanyMerc_Skin_MetallicSmoothness.1001.png" id="2_sy6wx"]
+
+[resource]
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_rupsj")
+roughness_texture = ExtResource("2_sy6wx")

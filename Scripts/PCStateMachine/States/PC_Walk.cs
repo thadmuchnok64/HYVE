@@ -58,10 +58,11 @@ public partial class PC_Walk : PCState
 
 		//if (cb.IsOnFloor())
 		//{
+		/*
 		if (Input.GetActionStrength("Sprint") > .1)
 			{
 				//return sprintState;
-			}
+			}*/
 			if (cb.Velocity.Length() > 0.05f)
 			{
 				return null;
@@ -71,6 +72,8 @@ public partial class PC_Walk : PCState
 				return idleState;
 			}
 		//}
+
+
 
 		return null;
 

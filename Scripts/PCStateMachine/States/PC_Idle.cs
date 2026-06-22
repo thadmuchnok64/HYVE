@@ -52,10 +52,10 @@ public partial class PC_Idle : PCState
 		}
 		if (cb.IsOnFloor())
 		{
-			if (Input.GetActionStrength("Sprint") > .1)
-			{
+			//if (Input.GetActionStrength("Sprint") > .1)
+			//{
 				//return sprintState;
-			}
+			//}
 
 		}
 
