@@ -5,11 +5,11 @@ public partial class PCStateMachine : Node3D
 {
 	[Export] public CharacterBody3D cb;
 	[Export] public Node3D camPoint;
-    [Export] public AnimationTree anim;
+	[Export] public AnimationTree anim;
 	[Export] public Node3D meshRoot;
 
 
-    [Export] PCState startingState;
+	[Export] PCState startingState;
 	[Export] AudioStreamPlayer3D aud;
 	[Export] bool debugState = false;
 	PCState currentState;
@@ -53,11 +53,9 @@ public partial class PCStateMachine : Node3D
 
 	public override void _Input(InputEvent @event)
 	{
-		var newState = currentState.ManageInput(@event);
-		if (newState != null)
-		{
-			ChangeState(newState);
-		}
+		PCState state = currentState.ManageInput(@event);
+		if(state!=null)
+		ChangeState(currentState.ManageInput(@event));
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

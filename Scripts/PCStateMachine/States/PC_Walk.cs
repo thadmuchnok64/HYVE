@@ -99,13 +99,4 @@ public partial class PC_Walk : PCState
 		cb.Velocity = cb.Velocity.Normalized() * newLen;
 	}
 
-	public override void EntryAnimation()
-	{
-
-	}
-
-	public override void ExitAnimation()
-	{
-		//base.ExitAnimation();
-	}
 }

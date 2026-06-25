@@ -6,6 +6,7 @@ public partial class PCState : Node3D
 	[Export] protected PCStateMachine stateMachine;
 	Node3D camPoint;
 	[Export] float moveSpeed = 50;
+	[Export] protected string animMetaState;
 	[Export] protected string animMeta;
 	protected Node3D meshRoot;
 
@@ -26,11 +27,14 @@ public partial class PCState : Node3D
 
 	public virtual void ExitAnimation()
 	{
+		anim.Set($"parameters/conditions/{animMetaState}", false);
 		//anim.Set($"parameters/conditions/{animationName}", false);
 	}
 
 	public virtual void EntryAnimation()
 	{
+		anim.Set($"parameters/conditions/{animMetaState}", true);
+
 		//anim.Set($"parameters/conditions/{animationName}", true);
 
 	}

@@ -5,18 +5,16 @@ public partial class PC_Idle : PCState
 {
 
 	[Export] PCState walkState;
+	[Export] PCState attackState;
 
 	[Export] float dragForce;
 	// Called when the node enters the scene tree for the first time.
 	public override PCState ManageInput(InputEvent @event)
 	{
-		/*
-		if (@event.IsActionPressed("Jump"))
+		if (@event.IsActionPressed("Attack"))
 		{
-			if (cb.IsOnFloor())
-				return jumpState;
+			return attackState;
 		}
-		*/
 		return null;
 	}
 	public override PCState PhysicsProcess(double delta)
@@ -75,13 +73,4 @@ public partial class PC_Idle : PCState
 		cb.Velocity = cb.Velocity.Normalized() * newLen;
 	}
 
-	public override void EntryAnimation()
-	{
-		anim.Set(animMeta, 0);
-	}
-
-	public override void ExitAnimation()
-	{
-		//base.ExitAnimation();
-	}
 }
