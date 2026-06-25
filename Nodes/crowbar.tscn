@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://durpl1p37mos3"]
+
+[ext_resource type="PackedScene" uid="uid://c75shw2582cms" path="res://Meshes/Weapons/Crowbar.fbx" id="1_1uqx8"]
+
+[node name="Crowbar" unique_id=314797480 instance=ExtResource("1_1uqx8")]
+
+[node name="Crowbar" parent="." index="0" unique_id=733699822]
+transform = Transform3D(100, 0, 0, 0, 86.25136, 50.603374, 0, -50.603374, 86.25136, 0, 0, 0)

@@ -5,6 +5,7 @@ public partial class PC_Walk : PCState
 {
 
 	[Export] PCState idleState;
+	[Export] PCState attackState;
 
 	[Export] float minSpeed = .05f;
 	[Export] float maxSpeed = 5f;
@@ -21,6 +22,8 @@ public partial class PC_Walk : PCState
 				return jumpState;
 		}
 		*/
+		if (@event.IsActionPressed("Attack"))
+			return attackState;
 		return null;
 	}
 	public override PCState PhysicsProcess(double delta)
