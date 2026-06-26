@@ -1,15 +1,17 @@
 using Godot;
 using System;
 
+public enum SwingDirection { RIGHT, LEFT, UP }
 public partial class Weapon : Node3D
 {
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
+	[Export] float baseDamage = 20;
+	protected SwingDirection swingDir;
+	public virtual void OnWeaponHit(Node3D body)
 	{
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
+		foreach(Node em in body.GetChildren())
+		{
+			if(em is Enemy)
+				(em as Enemy).HitEnemyFromDirection(baseDamage, swingDir);
+		}
 	}
 }

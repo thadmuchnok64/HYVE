@@ -55,5 +55,14 @@ public partial class Enemy : Entity
 
 	}
 
+	public void HitEnemyFromDirection(float damage, SwingDirection dir)
+	{
+		var state = currentState.HitEvent();
+		if(state != null)
+		{
+			SwitchState(state);
+		}
+	}
+
 
 }

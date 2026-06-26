@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Entity : Node
+public partial class Entity : Node3D
 {
 
 	[Export] protected int health;
@@ -14,4 +14,5 @@ public partial class Entity : Node
 	public override void _Process(double delta)
 	{
 	}
+
 }

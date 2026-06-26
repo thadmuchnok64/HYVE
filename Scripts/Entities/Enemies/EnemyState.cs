@@ -4,16 +4,21 @@ using System;
 public partial class EnemyState : Node
 {
 	protected Enemy enem;
+	AnimationTree anim;
+	[Export] protected string animMetaState;
 	[Export] protected string animMeta;
 	public virtual EnemyState Enter(Enemy enemy)
 	{
 		enem = enemy;
+		anim = enemy.anim;
+		anim.Set($"parameters/conditions/{animMetaState}", true);
 		return null;
 		//do animation here
 	}
 
 	public virtual EnemyState Exit()
 	{
+		anim.Set($"parameters/conditions/{animMetaState}", false);
 		return null;
 	}
 
@@ -33,4 +38,11 @@ public partial class EnemyState : Node
 	{
 		return null;
 	}
+
+	public virtual EnemyState HitEvent()
+	{
+		return null;
+	}
+
+
 }

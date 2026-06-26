@@ -5,6 +5,7 @@ public partial class IHE_Shamble : EnemyState
 {
 	[Export] float speed;
 	[Export] EnemyState idleState;
+	[Export] EnemyState recoilState;
 
 	public override EnemyState Enter(Enemy enemy)
 	{
@@ -34,5 +35,10 @@ public partial class IHE_Shamble : EnemyState
 		
 		enem.anim.Set(animMeta, Mathf.Clamp(enem.cb.Velocity.Length() / speed, 0, 1));
 		return null;
+	}
+
+	public override EnemyState HitEvent()
+	{
+		return recoilState;
 	}
 }
