@@ -7,6 +7,7 @@ public partial class PCStateMachine : Node3D
 	[Export] public Node3D camPoint;
 	[Export] public AnimationTree anim;
 	[Export] public Node3D meshRoot;
+	[Export] public Weapon currentWeapon;
 
 
 	[Export] PCState startingState;
@@ -66,6 +67,17 @@ public partial class PCStateMachine : Node3D
 		{
 			ChangeState(newState);
 		}
+
+	}
+
+	public void EnableWeapon()
+	{
+		currentWeapon.SetWeaponActive(true);
+	}
+
+	public void DisableWeapon()
+	{
+		currentWeapon.SetWeaponActive(false);
 
 	}
 

@@ -45,8 +45,8 @@ public partial class PC_Idle : PCState
 		var hVel = new Vector3(cb.Velocity.X, 0, cb.Velocity.Z);
 		if (hVel.Length() > .2f)
 		{
-			cb.LookAt(cb.Position - hVel.Normalized() * 5, Vector3.Up);
-			cb.Rotation = new Vector3(0, cb.Rotation.Y, 0);
+			//cb.LookAt(cb.Position - hVel.Normalized() * 5, Vector3.Up);
+			//cb.Rotation = new Vector3(0, cb.Rotation.Y, 0);
 		}
 		if (cb.IsOnFloor())
 		{

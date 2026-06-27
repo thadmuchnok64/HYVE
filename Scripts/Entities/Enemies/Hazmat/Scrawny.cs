@@ -9,4 +9,3 @@ public partial class Scrawny : Enemy
 		base._Process(delta);
 	}
 }
-

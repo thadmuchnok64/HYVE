@@ -6,10 +6,12 @@ public partial class IHE_Idle: EnemyState
 	[Export] float detectionDistance;
 	[Export] EnemyState seekingState;
 	[Export] EnemyState recoilState;
+    [Export] EnemyState postureBreakState;
 
 
 
-	public override EnemyState Enter(Enemy enemy)
+
+    public override EnemyState Enter(Enemy enemy)
 	{
 		return base.Enter(enemy);
 	}
@@ -22,6 +24,13 @@ public partial class IHE_Idle: EnemyState
 
 	public override EnemyState HitEvent()
 	{
-		return recoilState;
-	}
+		if(enem.posture <= 0)
+		{
+			return postureBreakState;
+		}
+		else
+        {
+            return recoilState;
+        }
+    }
 }

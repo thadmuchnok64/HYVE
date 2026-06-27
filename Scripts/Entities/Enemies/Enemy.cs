@@ -31,6 +31,7 @@ public partial class Enemy : Entity
 	public override void _Ready()
 	{
 		SwitchState(startingState);
+		base._Ready();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -57,8 +58,11 @@ public partial class Enemy : Entity
 
 	public void HitEnemyFromDirection(float damage, SwingDirection dir)
 	{
-		var state = currentState.HitEvent();
-		if(state != null)
+		TakeDamage(damage);
+		TakePostureDamage(damage);
+        var state = currentState.HitEvent();
+
+        if (state != null)
 		{
 			SwitchState(state);
 		}

@@ -6,8 +6,10 @@ public partial class IHE_Shamble : EnemyState
 	[Export] float speed;
 	[Export] EnemyState idleState;
 	[Export] EnemyState recoilState;
+	[Export] EnemyState postureBreakState;
 
-	public override EnemyState Enter(Enemy enemy)
+
+    public override EnemyState Enter(Enemy enemy)
 	{
 		base.Enter(enemy);
 		enem.nav.TargetPosition = enem.player.Position;
@@ -37,8 +39,15 @@ public partial class IHE_Shamble : EnemyState
 		return null;
 	}
 
-	public override EnemyState HitEvent()
-	{
-		return recoilState;
-	}
+    public override EnemyState HitEvent()
+    {
+        if (enem.posture <= 0)
+        {
+            return postureBreakState;
+        }
+        else
+        {
+            return recoilState;
+        }
+    }
 }
