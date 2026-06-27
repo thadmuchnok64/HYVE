@@ -7,6 +7,7 @@ public partial class PC_Attack : PCState
 	[Export] PCState walkState;
 	[Export] PCState idleState;
 	[Export] float tempLength = .8f;
+	bool crouching = false;
 	float timer;
 
 	[Export] float dragForce;

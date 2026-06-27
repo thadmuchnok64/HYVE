@@ -8,6 +8,8 @@ public partial class PC_Idle : PCState
 	[Export] PCState attackState;
 
 	[Export] float dragForce;
+
+	bool crouching = false;
 	// Called when the node enters the scene tree for the first time.
 	public override PCState ManageInput(InputEvent @event)
 	{
@@ -73,4 +75,18 @@ public partial class PC_Idle : PCState
 		cb.Velocity = cb.Velocity.Normalized() * newLen;
 	}
 
+	public override PCState Process(double delta)
+	{
+		crouching = Input.IsActionPressed("Crouch");
+		if (crouching)
+		{
+			anim.Set($"parameters/{animMetaState}/crouch/blend_amount", 1);
+		}
+		else
+		{
+			anim.Set($"parameters/{animMetaState}/crouch/blend_amount", 0);
+
+		}
+		return base.Process(delta);
+	}
 }

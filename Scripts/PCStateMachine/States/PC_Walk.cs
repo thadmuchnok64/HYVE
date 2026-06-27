@@ -12,6 +12,8 @@ public partial class PC_Walk : PCState
 
 	[Export] float dragForce;
 	[Export] float animLerpMod = 2;
+
+	bool crouching = false;
 	// Called when the node enters the scene tree for the first time.
 	public override PCState ManageInput(InputEvent @event)
 	{
@@ -87,7 +89,16 @@ public partial class PC_Walk : PCState
 
 		var timeScale = Mathf.Clamp((cb.Velocity.Length() - minSpeed) / (maxSpeed - minSpeed), 0, 1);
 		//anim.Set("parameters/Ground/RunTimeScale/scale", timeScale);
+		crouching = Input.IsActionPressed("Crouch");
+		if (crouching)
+		{
+			anim.Set($"parameters/{animMetaState}/crouch/blend_amount", 1);
+		}
+		else
+		{
+			anim.Set($"parameters/{animMetaState}/crouch/blend_amount", 0);
 
+		}
 		return null;
 	}
 
