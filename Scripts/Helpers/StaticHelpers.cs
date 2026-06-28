@@ -38,5 +38,16 @@ public static class StaticHelpers
 		return result;
 	}
 
+	public static T GetRandomElement<T>(this List<T> list)
+	{
+		Random rand = new Random();
+		return list[rand.Next(list.Count)];
+	}
+
+	public static Variant GetRandomElement<variant>(this Godot.Collections.Array<Variant> list)
+	{
+		Random rand = new Random();
+		return list[rand.Next(list.Count)];
+	}
 
 }

@@ -8,6 +8,7 @@ public partial class Entity : Node3D
 	[Export] protected int maxPosture;
 	public float health;
 	public float posture;
+	public bool alive = true;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -23,9 +24,9 @@ public partial class Entity : Node3D
 	public virtual void TakeDamage(float damage)
 	{
 		health -= damage;
-		if(health < 0)
+		if(alive && health < 0)
 		{
-			//die
+			Die();
 		}
 	}
 
@@ -38,4 +39,9 @@ public partial class Entity : Node3D
             //break
         }
     }
+
+	public virtual void Die()
+	{
+		alive = false;
+	}
 }

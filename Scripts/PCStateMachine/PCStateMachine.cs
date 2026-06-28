@@ -1,5 +1,7 @@
 using Godot;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 public partial class PCStateMachine : Node3D
 {
@@ -13,6 +15,7 @@ public partial class PCStateMachine : Node3D
 	[Export] PCState startingState;
 	[Export] AudioStreamPlayer3D aud;
 	[Export] bool debugState = false;
+	[Export] Godot.Collections.Array<AudioStream> footsteps;
 	PCState currentState;
 
 	// Called when the node enters the scene tree for the first time.
@@ -87,5 +90,15 @@ public partial class PCStateMachine : Node3D
 		return currentState.animationName;
 	}
 	*/
+
+	#region Anim Events
+
+	public void Footstep()
+	{
+		aud.Stream = footsteps.ToList().GetRandomElement();
+		aud.Play();
+	}
+
+	#endregion
 
 }

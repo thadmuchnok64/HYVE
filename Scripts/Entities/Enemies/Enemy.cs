@@ -11,6 +11,8 @@ public partial class Enemy : Entity
 	public Node3D player;
 	[Export] EnemyState startingState;
 	[Export] Area3D detectionSphere;
+	[Export] protected MeshInstance3D meshInstance;
+	[Export] Mesh headlessMesh;
 	protected EnemyState currentState;
 	// Called when the node enters the scene tree for the first time
 	// 
@@ -66,6 +68,12 @@ public partial class Enemy : Entity
 		{
 			SwitchState(state);
 		}
+	}
+
+	public override void Die()
+	{
+		base.Die();
+		meshInstance.Mesh = headlessMesh;
 	}
 
 

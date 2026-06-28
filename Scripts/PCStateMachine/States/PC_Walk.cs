@@ -6,6 +6,8 @@ public partial class PC_Walk : PCState
 
 	[Export] PCState idleState;
 	[Export] PCState attackState;
+	[Export] PCState attackLowState;
+
 
 	[Export] float minSpeed = .05f;
 	[Export] float maxSpeed = 5f;
@@ -17,15 +19,14 @@ public partial class PC_Walk : PCState
 	// Called when the node enters the scene tree for the first time.
 	public override PCState ManageInput(InputEvent @event)
 	{
-		/*
-		if (@event.IsActionPressed("Jump"))
-		{
-			if (cb.IsOnFloor())
-				return jumpState;
+
+		if (@event.IsActionPressed("Attack")) {
+
+			if (crouching)
+				return attackLowState;
+			else
+				return attackState;
 		}
-		*/
-		if (@event.IsActionPressed("Attack"))
-			return attackState;
 		return null;
 	}
 	public override PCState PhysicsProcess(double delta)
@@ -92,11 +93,11 @@ public partial class PC_Walk : PCState
 		crouching = Input.IsActionPressed("Crouch");
 		if (crouching)
 		{
-			anim.Set($"parameters/{animMetaState}/crouch/blend_amount", 1);
+			anim.Set($"parameters/{animMetaState}/Transition/transition_request", "crouch");
 		}
 		else
 		{
-			anim.Set($"parameters/{animMetaState}/crouch/blend_amount", 0);
+			anim.Set($"parameters/{animMetaState}/Transition/transition_request", "stand");
 
 		}
 		return null;

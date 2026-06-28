@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dkdbese7xo3qm"]
+
+[ext_resource type="Texture2D" uid="uid://fxvy7s6kwkel" path="res://Textures/splatter.png" id="1_8sutd"]
+
+[node name="BloodSplat" type="Decal" unique_id=804703935]
+texture_albedo = ExtResource("1_8sutd")
+modulate = Color(0.56709087, 0, 0.09699937, 1)

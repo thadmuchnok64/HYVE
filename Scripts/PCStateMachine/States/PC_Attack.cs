@@ -50,6 +50,8 @@ public partial class PC_Attack : PCState
 	public override PCState Enter()
 	{
 		timer = 0;
+		anim.Set($"parameters/{animMetaState}/Transition/transition_request", animMeta);
+		cb.Velocity = Vector3.Zero;
 		return base.Enter();
 	}
 

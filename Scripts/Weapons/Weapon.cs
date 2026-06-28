@@ -6,6 +6,8 @@ public enum SwingDirection { RIGHT, LEFT, UP }
 public partial class Weapon : Node3D
 {
 	[Export] float baseDamage = 20;
+	[Export] protected AudioStreamPlayer3D aud;
+
 	protected SwingDirection swingDir;
 	List<Enemy> hitEnemiesThisSwing;
 	bool active = false;
@@ -16,7 +18,7 @@ public partial class Weapon : Node3D
 		hitEnemiesThisSwing = new List<Enemy>();
 	}
 
-	public void SetWeaponActive(bool _active)
+	public virtual void SetWeaponActive(bool _active)
 	{
 		active = _active;
 		if (active)
@@ -32,11 +34,33 @@ public partial class Weapon : Node3D
 
 			if (em is Enemy)
 			{
-				if(!hitEnemiesThisSwing.Contains((Enemy)em))
-				(em as Enemy).HitEnemyFromDirection(baseDamage, swingDir);
-				hitEnemiesThisSwing.Add((Enemy)em);
+				if (((Enemy)em).alive)
+				{
+					if (!hitEnemiesThisSwing.Contains((Enemy)em))
+						(em as Enemy).HitEnemyFromDirection(baseDamage, swingDir);
+					if (((Enemy)em).alive)
+					{
+						if (hitEnemiesThisSwing.Count <= 0)
+							FirstHitEvent();
+					}
+					else
+					{
+						KillingBlow();
+					}
+						hitEnemiesThisSwing.Add((Enemy)em);
+				}
 
 			}
 		}
+	}
+
+	public virtual void FirstHitEvent()
+	{
+
+	}
+
+	public virtual void KillingBlow()
+	{
+
 	}
 }

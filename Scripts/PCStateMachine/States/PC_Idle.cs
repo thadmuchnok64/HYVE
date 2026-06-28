@@ -6,6 +6,8 @@ public partial class PC_Idle : PCState
 
 	[Export] PCState walkState;
 	[Export] PCState attackState;
+	[Export] PCState attackLowState;
+
 
 	[Export] float dragForce;
 
@@ -15,7 +17,10 @@ public partial class PC_Idle : PCState
 	{
 		if (@event.IsActionPressed("Attack"))
 		{
-			return attackState;
+			if (crouching)
+				return attackLowState;
+			else
+				return attackState;
 		}
 		return null;
 	}
@@ -80,11 +85,11 @@ public partial class PC_Idle : PCState
 		crouching = Input.IsActionPressed("Crouch");
 		if (crouching)
 		{
-			anim.Set($"parameters/{animMetaState}/crouch/blend_amount", 1);
+			anim.Set($"parameters/{animMetaState}/Transition/transition_request", "crouch");
 		}
 		else
 		{
-			anim.Set($"parameters/{animMetaState}/crouch/blend_amount", 0);
+			anim.Set($"parameters/{animMetaState}/Transition/transition_request", "stand");
 
 		}
 		return base.Process(delta);

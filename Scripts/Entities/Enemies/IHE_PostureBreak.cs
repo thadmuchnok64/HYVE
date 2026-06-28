@@ -5,6 +5,7 @@ public partial class IHE_PostureBreak : EnemyState
 {
 	[Export] float recoilTime = 3f;
 	[Export] EnemyState movingState;
+	[Export] EnemyState deadState;
 	//[Export] EnemyState recoilState;
 
 	float timer = 0;
@@ -32,7 +33,8 @@ public partial class IHE_PostureBreak : EnemyState
 	{
 		enem.anim.Set($"parameters/{animMetaState}/hit/request", (int)AnimationNodeOneShot.OneShotRequest.Fire);
         timer = 0;
-
+		if (!enem.alive)
+			return deadState;
         // if dead, return deadstate
         return null;
 		//return recoilState
