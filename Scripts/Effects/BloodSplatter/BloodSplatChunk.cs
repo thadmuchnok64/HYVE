@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class BloodSplatChunk : Node3D
+public partial class BloodSplatChunk : RigidBody3D
 {
 	[Export] PackedScene bloodSplatDecal;
 	// Called when the node enters the scene tree for the first time.
@@ -16,7 +16,6 @@ public partial class BloodSplatChunk : Node3D
 
 	public void Contact(Node body)
 	{
-		GD.Print("stuck");
 		var inst = bloodSplatDecal.Instantiate();
 		AddSibling(inst);
 		((Node3D)inst).GlobalPosition = GlobalPosition;

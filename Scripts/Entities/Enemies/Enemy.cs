@@ -13,7 +13,11 @@ public partial class Enemy : Entity
 	[Export] Area3D detectionSphere;
 	[Export] protected MeshInstance3D meshInstance;
 	[Export] Mesh headlessMesh;
-	protected EnemyState currentState;
+    [Export] PackedScene bloodSplat;
+    [Export] PackedScene bloodSplatSmall;
+
+    [Export] Node3D bloodPoint;
+    protected EnemyState currentState;
 	// Called when the node enters the scene tree for the first time
 	// 
 
@@ -62,8 +66,12 @@ public partial class Enemy : Entity
 	{
 		TakeDamage(damage);
 		TakePostureDamage(damage);
-        var state = currentState.HitEvent();
 
+        var inst = bloodSplatSmall.Instantiate();
+        cb.AddSibling(inst);
+        ((Node3D)inst).GlobalPosition = bloodPoint.GlobalPosition;
+
+        var state = currentState.HitEvent();
         if (state != null)
 		{
 			SwitchState(state);
@@ -73,7 +81,10 @@ public partial class Enemy : Entity
 	public override void Die()
 	{
 		base.Die();
-		meshInstance.Mesh = headlessMesh;
+        var inst = bloodSplat.Instantiate();
+        cb.AddSibling(inst);
+        ((Node3D)inst).GlobalPosition = bloodPoint.GlobalPosition;
+        meshInstance.Mesh = headlessMesh;
 	}
 
 

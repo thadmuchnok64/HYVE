@@ -50,4 +50,14 @@ public static class StaticHelpers
 		return list[rand.Next(list.Count)];
 	}
 
+	public static Vector3 RandomVector()
+	{
+		Random rand = new Random();
+		var x = (float)(rand.NextDouble() - .5f);
+        var y = (float)(rand.NextDouble() - .5f);
+        var z = (float)(rand.NextDouble() - .5f);
+		return new Vector3(x, y, z).Normalized();
+
+    }
+
 }

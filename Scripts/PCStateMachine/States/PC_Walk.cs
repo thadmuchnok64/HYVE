@@ -7,6 +7,9 @@ public partial class PC_Walk : PCState
 	[Export] PCState idleState;
 	[Export] PCState attackState;
 	[Export] PCState attackLowState;
+	[Export] PCState sprintState;
+	[Export] float attackStaminaCost = 25f;
+
 
 
 	[Export] float minSpeed = .05f;
@@ -22,10 +25,16 @@ public partial class PC_Walk : PCState
 
 		if (@event.IsActionPressed("Attack")) {
 
+			if (!stateMachine.ConsumeStamina(attackStaminaCost))
+				return null;
 			if (crouching)
 				return attackLowState;
 			else
 				return attackState;
+		}
+		if (@event.IsActionPressed("Sprint"))
+		{
+			return sprintState;
 		}
 		return null;
 	}

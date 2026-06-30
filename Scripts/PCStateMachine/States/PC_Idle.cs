@@ -7,7 +7,7 @@ public partial class PC_Idle : PCState
 	[Export] PCState walkState;
 	[Export] PCState attackState;
 	[Export] PCState attackLowState;
-
+	[Export] float attackStaminaCost = 25f;
 
 	[Export] float dragForce;
 
@@ -17,6 +17,8 @@ public partial class PC_Idle : PCState
 	{
 		if (@event.IsActionPressed("Attack"))
 		{
+			if (!stateMachine.ConsumeStamina(attackStaminaCost))
+				return null;
 			if (crouching)
 				return attackLowState;
 			else

@@ -10,17 +10,48 @@ public partial class PCStateMachine : Node3D
 	[Export] public AnimationTree anim;
 	[Export] public Node3D meshRoot;
 	[Export] public Weapon currentWeapon;
+	[Export] float maxStamina;
 
 
 	[Export] PCState startingState;
 	[Export] AudioStreamPlayer3D aud;
 	[Export] bool debugState = false;
 	[Export] Godot.Collections.Array<AudioStream> footsteps;
+	[Export] float staminaRecoveryPerSec = 50f;
+	[Export] float timeToRecoverStam = .5f;
 	PCState currentState;
 
+	public float stamina;
+	float staminaTimer = 0;
+
+	public bool ConsumeStamina(float cost)
+	{
+		if (stamina <= 0)
+			return false;
+		//stamina -= cost;
+		stamina = Mathf.Clamp(stamina - cost, 0, maxStamina);
+		HUDManager.instance.SetStamina(stamina, maxStamina);
+		staminaTimer = 0;
+		return true;
+	}
+
+	public void RecoverStamina(float val)
+	{
+		stamina = Mathf.Clamp(stamina + val, 0, maxStamina);
+		HUDManager.instance.SetStamina(stamina, maxStamina);
+	}
+
+	public void ManageStamina(double delta, float recoveryPerSec)
+	{
+		if (staminaTimer < timeToRecoverStam)
+			return;
+		if(stamina < maxStamina)
+		RecoverStamina((float)delta * recoveryPerSec);
+	}
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		stamina = maxStamina;
 		foreach (PCState state in GetChildren())
 		{
 			//state.camPoint = camPoint;
@@ -59,12 +90,14 @@ public partial class PCStateMachine : Node3D
 	{
 		PCState state = currentState.ManageInput(@event);
 		if(state!=null)
-		ChangeState(currentState.ManageInput(@event));
+		ChangeState(state);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		staminaTimer += (float)delta;
+		ManageStamina(delta,staminaRecoveryPerSec);
 		var newState = currentState.Process(delta);
 		if (newState != null)
 		{

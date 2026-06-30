@@ -1,0 +1,115 @@
+using Godot;
+using System;
+using System.Diagnostics;
+
+public partial class PC_Sprint : PCState
+{
+
+	[Export] PCState idleState;
+
+	[Export] PCState walkState;
+
+	[Export] float minSpeed = .05f;
+	[Export] float maxSpeed = 5f;
+
+	[Export] float dragForce;
+	[Export] float animLerpMod = 2;
+
+	[Export] string animMeta2;
+	// Called when the node enters the scene tree for the first time.
+	public override PCState ManageInput(InputEvent @event)
+	{
+		
+		if (@event.IsActionReleased("Sprint")) {
+			return walkState;
+		}
+		return null;
+	}
+
+	public override PCState Enter()
+	{
+		anim.Set($"parameters/{animMetaState}/Tran2/transition_request",animMeta);
+		return base.Enter();
+	}
+
+	public override PCState Exit()
+	{
+		anim.Set($"parameters/{animMetaState}/Tran2/transition_request", animMeta2);
+		return base.Exit();
+	}
+	public override PCState PhysicsProcess(double delta)
+	{
+		base._PhysicsProcess(delta);
+		/*
+		if (cb.Velocity.Y < 0.2f && !cb.IsOnFloor())
+		{
+			return fallState;
+		}
+		*/
+		//movement
+		Vector2 movement = new Vector2(Input.GetAxis("MoveRight", "MoveLeft"), Input.GetAxis("MoveDown", "MoveUp"));
+		if (movement.Length() > .1f)
+		{
+			_Move(movement, delta);
+		} 
+		else
+		{
+			_SlowGroundMovement(delta);
+		}
+		//Gravity
+		//_ApplyGravity(delta);
+
+		cb.MoveAndSlide();
+
+
+		var hVel = new Vector3(cb.Velocity.X, 0, cb.Velocity.Z);
+		if (hVel.Length() > .2f)
+		{
+			meshRoot.LookAt(cb.Position - hVel.Normalized() * 5, Vector3.Up);
+			meshRoot.Rotation = new Vector3(0, meshRoot.Rotation.Y, 0);
+		}
+		anim.Set(animMeta, Mathf.Clamp(hVel.Length()/animLerpMod,0,1));
+
+		//if (cb.IsOnFloor())
+		//{
+		/*
+		if (Input.GetActionStrength("Sprint") > .1)
+			{
+				//return sprintState;
+			}*/
+			if (cb.Velocity.Length() > 0.05f)
+			{
+				return null;
+			}
+			else
+			{
+				return idleState;
+			}
+		//}
+
+
+
+		return null;
+
+	}
+
+	public override PCState Process(double delta)
+	{
+
+		var timeScale = Mathf.Clamp((cb.Velocity.Length() - minSpeed) / (maxSpeed - minSpeed), 0, 1);
+		//anim.Set("parameters/Ground/RunTimeScale/scale", timeScale);
+		return null;
+	}
+
+	private void _SlowGroundMovement(double delta)
+	{
+		var newLen = (cb.Velocity.Length() - dragForce * (float)delta);
+		if (newLen <= 0)
+		{
+			cb.Velocity = new Vector3(0, cb.Velocity.Y, 0);
+			return;
+		}
+		cb.Velocity = cb.Velocity.Normalized() * newLen;
+	}
+
+}

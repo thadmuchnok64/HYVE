@@ -32,11 +32,11 @@ public partial class IHE_PostureBreak : EnemyState
 	public override EnemyState HitEvent()
 	{
 		enem.anim.Set($"parameters/{animMetaState}/hit/request", (int)AnimationNodeOneShot.OneShotRequest.Fire);
-        timer = 0;
+		timer = 0;
 		if (!enem.alive)
 			return deadState;
-        // if dead, return deadstate
-        return null;
+		// if dead, return deadstate
+		return null;
 		//return recoilState
 	}
 }
