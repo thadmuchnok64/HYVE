@@ -7,8 +7,7 @@ public partial class IHE_Shamble : EnemyState
 	[Export] EnemyState idleState;
 	[Export] EnemyState recoilState;
 	[Export] EnemyState postureBreakState;
-
-
+	[Export] IHE_Attack attackState;
     public override EnemyState Enter(Enemy enemy)
 	{
 		base.Enter(enemy);
@@ -49,5 +48,13 @@ public partial class IHE_Shamble : EnemyState
         {
             return recoilState;
         }
+    }
+
+    public override EnemyState Process(double delta)
+    {
+		if (attackState.IsAttackValid())
+			return attackState;
+		else
+        return base.Process(delta);
     }
 }
