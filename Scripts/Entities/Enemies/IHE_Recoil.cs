@@ -11,7 +11,7 @@ public partial class IHE_Recoil : EnemyState
 	{
 		base.Enter(enemy);
 		timer = 0;
-		enem.nav.TargetPosition = enem.player.Position;
+		enem.nav.TargetPosition = GameMaster.Instance.GetPlayer().Position;
 		// parameters/recoil/OneShot/request
 		enem.anim.Set($"parameters/{animMetaState}/{animMeta}/request", (int)AnimationNodeOneShot.OneShotRequest.Fire);
 		return null;

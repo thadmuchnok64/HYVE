@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class EnemyState : Node
+public partial class EnemyState : Node3D
 {
 	protected Enemy enem;
 	AnimationTree anim;

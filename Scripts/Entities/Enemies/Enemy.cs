@@ -8,7 +8,6 @@ public partial class Enemy : Entity
 	[Export] public CharacterBody3D cb;
 	[Export] public Node3D meshRoot;
 	[Export] public AnimationTree anim;
-	public Node3D player;
 	[Export] EnemyState startingState;
 	[Export] Area3D detectionSphere;
 	[Export] protected MeshInstance3D meshInstance;
@@ -56,7 +55,6 @@ public partial class Enemy : Entity
 	{
 		if (detectionSphere.HasOverlappingBodies())
 		{
-			player = detectionSphere.GetOverlappingBodies()[0];
 			SwitchState(currentState.DetectPlayerEvent());
 		}
 

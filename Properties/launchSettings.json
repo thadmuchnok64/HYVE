@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "HYVEGame": {
+      "commandName": "Project"
+    },
+    "Start in Godot": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Users\\Thad\\Desktop\\Godot_v4.6.1-stable_mono_win64\\Godot_v4.6.1-stable_mono_win64\\Godot_v4.6.1-stable_mono_win64.exe",
+      "commandLineArgs": "--path. --verbose"
+    }
+  }
+}

@@ -19,10 +19,14 @@ public partial class PCStateMachine : Node3D
 	[Export] Godot.Collections.Array<AudioStream> footsteps;
 	[Export] float staminaRecoveryPerSec = 50f;
 	[Export] float timeToRecoverStam = .5f;
+	[Export] float maxHealth = 100;
 	PCState currentState;
 
 	public float stamina;
 	float staminaTimer = 0;
+	public float health;
+
+	public bool alive { get { return health > 0; } set { health = maxHealth; } }
 
 	public bool ConsumeStamina(float cost)
 	{
@@ -52,6 +56,7 @@ public partial class PCStateMachine : Node3D
 	public override void _Ready()
 	{
 		stamina = maxStamina;
+		health = maxHealth;
 		foreach (PCState state in GetChildren())
 		{
 			//state.camPoint = camPoint;
@@ -115,6 +120,12 @@ public partial class PCStateMachine : Node3D
 	{
 		currentWeapon.SetWeaponActive(false);
 
+	}
+
+	public void HitByEnemy(float damage)
+	{
+		health -= damage;
+		HUDManager.instance.SetHealth(health, maxHealth);
 	}
 
 	/*

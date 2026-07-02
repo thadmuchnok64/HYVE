@@ -14,7 +14,7 @@ public partial class IHE_Attack: EnemyState
 
 	public virtual bool IsAttackValid()
 	{
-		return cooldownTimer <= 0;
+		return cooldownTimer <= 0 && GlobalPosition.DistanceTo(GameMaster.Instance.GetPlayer().GlobalPosition)<attackDistance;
 	}
 
 

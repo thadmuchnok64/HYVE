@@ -14,7 +14,7 @@ public partial class IHE_PostureBreak : EnemyState
 	{
 		base.Enter(enemy);
 		timer = 0;
-		enem.nav.TargetPosition = enem.player.Position;
+		enem.nav.TargetPosition = GameMaster.Instance.GetPlayer().Position;
 		enem.anim.Set($"parameters/{animMetaState}/fall/request",(int)AnimationNodeOneShot.OneShotRequest.Fire);
 
 		return null;

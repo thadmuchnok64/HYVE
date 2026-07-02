@@ -11,7 +11,7 @@ public partial class IHE_Shamble : EnemyState
     public override EnemyState Enter(Enemy enemy)
 	{
 		base.Enter(enemy);
-		enem.nav.TargetPosition = enem.player.Position;
+		enem.nav.TargetPosition = GameMaster.Instance.GetPlayer().Position;
 
 		return null;
 	}
