@@ -14,15 +14,15 @@ shape = SubResource("ConcavePolygonShape3D_wy5dc")
 
 [node name="Cube#StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=1916652394]
 
-[node name="Biology Exhibit" parent="." index="2" unique_id=1388957979]
+[node name="Biology Exhibit" parent="." index="2" unique_id=993542699]
 material_override = ExtResource("2_wy5dc")
 
-[node name="Entrance" parent="." index="4" unique_id=1727876722]
+[node name="Entrance" parent="." index="4" unique_id=1941120117]
 material_override = ExtResource("2_wy5dc")
 
-[node name="Foyer" parent="." index="5" unique_id=258597294]
+[node name="Foyer" parent="." index="5" unique_id=755957598]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -0.0110349655, 1.9073486e-06, -0.015669823)
 material_override = ExtResource("2_wy5dc")
 
-[node name="Science Area" parent="." index="7" unique_id=1017214395]
+[node name="Science Area" parent="." index="7" unique_id=827368814]
 material_override = ExtResource("2_wy5dc")
