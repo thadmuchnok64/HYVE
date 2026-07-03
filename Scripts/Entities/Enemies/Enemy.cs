@@ -14,6 +14,7 @@ public partial class Enemy : Entity
 	[Export] Mesh headlessMesh;
     [Export] PackedScene bloodSplat;
     [Export] PackedScene bloodSplatSmall;
+	[Export] Godot.Collections.Array<AudioStream> sfx;
 
     [Export] Node3D bloodPoint;
     protected EnemyState currentState;
@@ -83,6 +84,11 @@ public partial class Enemy : Entity
         cb.AddSibling(inst);
         ((Node3D)inst).GlobalPosition = bloodPoint.GlobalPosition;
         meshInstance.Mesh = headlessMesh;
+	}
+
+	public void PlaySound(int soundIndex)
+	{
+		SoundManager.Instance.RequesetSFXSoundAtLocation(sfx[soundIndex], GlobalPosition);
 	}
 
 

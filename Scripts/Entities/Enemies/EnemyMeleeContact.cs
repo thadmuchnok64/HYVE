@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public partial class EnemyMeleeContact : Node3D
+public partial class EnemyMeleeContact : Area3D
 {
 	[Export] float baseDamage = 25f;
 	[Export] AudioStream attackHitSFX;
@@ -24,6 +24,7 @@ public partial class EnemyMeleeContact : Node3D
 	public virtual void SetWeaponActive(bool _active)
 	{
 		active = _active;
+		Monitoring = active;
 		if (active)
 			hitEnemiesThisSwing.Clear();
 
@@ -31,6 +32,8 @@ public partial class EnemyMeleeContact : Node3D
 
 	public virtual void OnWeaponHit(Node3D body)
 	{
+		GD.Print(active);
+
 		if (!active)
 			return;
 		foreach (Node3D pc in body.GetChildren())
