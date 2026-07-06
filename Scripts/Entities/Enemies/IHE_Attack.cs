@@ -5,7 +5,8 @@ public partial class IHE_Attack: EnemyState
 {
 	[Export] float attackDistance;
 	[Export] EnemyState idleState;
-	
+	[Export] EnemyState recoilState;
+	[Export] EnemyState postureBreakState;
 
 	[Export] float cooldownBetweenAttack = -1f;
 	[Export] float attackOutTime = .5f;
@@ -16,9 +17,6 @@ public partial class IHE_Attack: EnemyState
 	{
 		return cooldownTimer <= 0 && GlobalPosition.DistanceTo(GameMaster.Instance.GetPlayer().GlobalPosition)<attackDistance;
 	}
-
-
-
 	public override void _Process(double delta)
 	{
 		base._Process(delta);
@@ -39,12 +37,7 @@ public partial class IHE_Attack: EnemyState
 		attackTimer = attackOutTime;
 		return base.Enter(enemy);
 	}
-	/*
-public override EnemyState DetectPlayerEvent()
-{
-	return seekingState;
 
-}
 
 public override EnemyState HitEvent()
 {
@@ -57,5 +50,4 @@ public override EnemyState HitEvent()
 		return recoilState;
 	}
 }
-*/
 }

@@ -22,7 +22,7 @@ public partial class IHE_PostureBreak : EnemyState
 	public override EnemyState Process(double delta)
 	{
 		timer += (float)delta;
-		if (timer>recoilTime)
+		if (enem.alive && timer>recoilTime)
 		{
 			return movingState;
 		}

@@ -7,6 +7,7 @@ public partial class PC_Attack : PCState
 	[Export] PCState walkState;
 	[Export] PCState idleState;
 	[Export] PCState attackFollowup;
+	[Export] PCState recoilState;
 	[Export] float followUpMinTime = -1; // -1 = cant followup
 	[Export] float tempLength = .8f;
 	[Export] float attackStaminaCost = 25f;
@@ -70,5 +71,9 @@ public partial class PC_Attack : PCState
 		return base.Enter();
 	}
 
+	public override PCState HitByEnemyEvent()
+	{
+		return recoilState;
+	}
 
 }

@@ -87,4 +87,8 @@ public partial class PCState : Node3D
 		//anim.Run();
 		//storedHForc 
 	}
+
+	public virtual PCState HitByEnemyEvent() {
+		return null;
+	}
 }

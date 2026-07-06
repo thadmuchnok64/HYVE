@@ -8,9 +8,11 @@ public partial class PC_Sprint : PCState
 	[Export] PCState idleState;
 
 	[Export] PCState walkState;
+	[Export] PCState recoilState;
 
 	[Export] float minSpeed = .05f;
 	[Export] float maxSpeed = 5f;
+
 
 	[Export] float dragForce;
 	[Export] float animLerpMod = 2;
@@ -110,6 +112,11 @@ public partial class PC_Sprint : PCState
 			return;
 		}
 		cb.Velocity = cb.Velocity.Normalized() * newLen;
+	}
+
+	public override PCState HitByEnemyEvent()
+	{
+		return recoilState;
 	}
 
 }

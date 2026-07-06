@@ -5,6 +5,8 @@ public partial class HUDManager : Control
 {
 	[Export] TextureProgressBar staminaBar;
 	[Export] TextureProgressBar healthBar;
+	[Export] TextureProgressBar posBar;
+
 
 	public static HUDManager instance;
 	// Called when the node enters the scene tree for the first time.
@@ -33,6 +35,12 @@ public partial class HUDManager : Control
 	{
 		healthBar.MaxValue = max;
 		healthBar.Value = current;
+	}
+
+	public void SetPosture(float current, float max)
+	{
+		posBar.MaxValue = max;
+		posBar.Value = current;
 	}
 	#endregion
 

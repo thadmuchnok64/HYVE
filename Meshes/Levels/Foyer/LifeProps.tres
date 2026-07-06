@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c2xf0cor7uqnq"]
+
+[ext_resource type="Texture2D" uid="uid://drgsmfo2w0rj5" path="res://Meshes/Levels/Foyer/Foyer_LifeProps_BaseMap.1001.png" id="1_jwmi8"]
+
+[resource]
+albedo_texture = ExtResource("1_jwmi8")
+emission_enabled = true

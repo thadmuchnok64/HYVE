@@ -8,6 +8,9 @@ public partial class PC_Walk : PCState
 	[Export] PCState attackState;
 	[Export] PCState attackLowState;
 	[Export] PCState sprintState;
+	[Export] PCState recoilState;
+	[Export] PCState blockState;
+
 	[Export] float attackStaminaCost = 25f;
 
 
@@ -35,6 +38,10 @@ public partial class PC_Walk : PCState
 		if (@event.IsActionPressed("Sprint"))
 		{
 			return sprintState;
+		}
+		if (@event.IsActionPressed("Block"))
+		{
+			return blockState;
 		}
 		return null;
 	}
@@ -71,13 +78,6 @@ public partial class PC_Walk : PCState
 		}
 		anim.Set(animMeta, Mathf.Clamp(hVel.Length()/animLerpMod,0,1));
 
-		//if (cb.IsOnFloor())
-		//{
-		/*
-		if (Input.GetActionStrength("Sprint") > .1)
-			{
-				//return sprintState;
-			}*/
 			if (cb.Velocity.Length() > 0.05f)
 			{
 				return null;
@@ -122,5 +122,8 @@ public partial class PC_Walk : PCState
 		}
 		cb.Velocity = cb.Velocity.Normalized() * newLen;
 	}
-
+	public override PCState HitByEnemyEvent()
+	{
+		return recoilState;
+	}
 }

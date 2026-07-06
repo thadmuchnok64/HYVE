@@ -6,6 +6,7 @@ public partial class EnemyMeleeContact : Area3D
 {
 	[Export] float baseDamage = 25f;
 	[Export] AudioStream attackHitSFX;
+	[Export] Enemy enemyRef;
 
 	List<PCStateMachine> hitEnemiesThisSwing;
 
@@ -32,7 +33,6 @@ public partial class EnemyMeleeContact : Area3D
 
 	public virtual void OnWeaponHit(Node3D body)
 	{
-		GD.Print(active);
 
 		if (!active)
 			return;
@@ -44,7 +44,7 @@ public partial class EnemyMeleeContact : Area3D
 				//if (((PCStateMachine)pc).alive)
 				//{
 					if (!hitEnemiesThisSwing.Contains((PCStateMachine)pc))
-						(pc as PCStateMachine).HitByEnemy(baseDamage);
+						(pc as PCStateMachine).HitByEnemy(baseDamage,enemyRef);
 					if (((PCStateMachine)pc).alive)
 					{
 						if (hitEnemiesThisSwing.Count <= 0)
@@ -70,7 +70,6 @@ public partial class EnemyMeleeContact : Area3D
 
 	public virtual void FirstHitEvent(Node3D pc)
 	{
-		GD.Print(pc.GlobalPosition);
 		SoundManager.Instance.RequesetSFXSoundAtLocation(attackHitSFX,pc.GlobalPosition);
 		//base.FirstHitEvent();
 		//aud.Stream = impactSFX;

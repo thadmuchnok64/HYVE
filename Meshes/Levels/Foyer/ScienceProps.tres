@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dwj0ljkaqpijl"]
+
+[ext_resource type="Texture2D" uid="uid://cwno5watolfyc" path="res://Meshes/Levels/Foyer/Foyer_ScienceProps_BaseMap.1001.png" id="1_6hqh6"]
+[ext_resource type="Texture2D" uid="uid://c4uhoxeryfejw" path="res://Meshes/Levels/Foyer/Foyer_ScienceProps_Emissive.1001.png" id="2_6x3e8"]
+
+[resource]
+cull_mode = 2
+albedo_texture = ExtResource("1_6hqh6")
+emission_enabled = true
+emission_texture = ExtResource("2_6x3e8")

@@ -1,16 +1,12 @@
 using Godot;
 using System;
 
-public partial class PC_Idle : PCState
+public partial class PC_Block : PCState
 {
 
 	[Export] PCState walkState;
-	[Export] PCState attackState;
-	[Export] PCState attackLowState;
+	[Export] PCState idleState;
 	[Export] PCState recoilState;
-	[Export] PCState blockState;
-
-	[Export] float attackStaminaCost = 25f;
 
 	[Export] float dragForce;
 
@@ -20,16 +16,11 @@ public partial class PC_Idle : PCState
 	{
 		if (@event.IsActionPressed("Attack"))
 		{
-			if (!stateMachine.ConsumeStamina(attackStaminaCost))
-				return null;
-			if (crouching)
-				return attackLowState;
-			else
-				return attackState;
+
 		}
-		if (@event.IsActionPressed("Block"))
+		if (@event.IsActionReleased("Block"))
 		{
-			return blockState;
+			return idleState;
 		}
 		return null;
 	}
@@ -43,6 +34,7 @@ public partial class PC_Idle : PCState
 		}
 		*/
 		//movement
+		/*
 		Vector2 movement = new Vector2(Input.GetAxis("MoveLeft", "MoveRight"), Input.GetAxis("MoveUp", "MoveDown"));
 		if (movement.Length() > .1f)
 		{
@@ -72,7 +64,7 @@ public partial class PC_Idle : PCState
 			//}
 
 		}
-
+		*/
 		return null;
 
 	}

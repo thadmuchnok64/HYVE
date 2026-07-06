@@ -3,10 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-public partial class PCStateMachine : Node3D
+public partial class PCStateMachine : Entity
 {
 	[Export] public CharacterBody3D cb;
 	[Export] public Node3D camPoint;
+	[Export] float camSensitivity = .5f;
 	[Export] public AnimationTree anim;
 	[Export] public Node3D meshRoot;
 	[Export] public Weapon currentWeapon;
@@ -14,19 +15,18 @@ public partial class PCStateMachine : Node3D
 
 
 	[Export] PCState startingState;
-	[Export] AudioStreamPlayer3D aud;
+	[Export] public AudioStreamPlayer3D aud;
 	[Export] bool debugState = false;
 	[Export] Godot.Collections.Array<AudioStream> footsteps;
 	[Export] float staminaRecoveryPerSec = 50f;
 	[Export] float timeToRecoverStam = .5f;
-	[Export] float maxHealth = 100;
+	[Export] float postureRecoveryPerSec = 10f;
+	[Export] float timeToRecoverPos = 1f;
 	PCState currentState;
 
 	public float stamina;
 	float staminaTimer = 0;
-	public float health;
-
-	public bool alive { get { return health > 0; } set { health = maxHealth; } }
+	float postureTimer = 0;
 
 	public bool ConsumeStamina(float cost)
 	{
@@ -52,11 +52,32 @@ public partial class PCStateMachine : Node3D
 		if(stamina < maxStamina)
 		RecoverStamina((float)delta * recoveryPerSec);
 	}
+
+	public void RecoverPosture(float val)
+	{
+		posture = Mathf.Clamp(posture + val, 0, maxPosture);
+		HUDManager.instance.SetPosture(posture, maxPosture);
+	}
+
+	public void ManagePosture(double delta, float recoveryPerSec)
+	{
+		if (postureTimer < timeToRecoverPos)
+			return;
+		if (posture < maxPosture)
+			RecoverPosture((float)delta * recoveryPerSec);
+	}
+
+	public override void TakePostureDamage(float damage)
+	{
+		postureTimer = 0;
+		base.TakePostureDamage(damage);
+	}
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		stamina = maxStamina;
 		health = maxHealth;
+		posture = maxPosture;
 		foreach (PCState state in GetChildren())
 		{
 			//state.camPoint = camPoint;
@@ -88,7 +109,6 @@ public partial class PCStateMachine : Node3D
 		{
 			ChangeState(newState);
 		}
-
 	}
 
 	public override void _Input(InputEvent @event)
@@ -102,12 +122,24 @@ public partial class PCStateMachine : Node3D
 	public override void _Process(double delta)
 	{
 		staminaTimer += (float)delta;
+		postureTimer += (float)delta;
 		ManageStamina(delta,staminaRecoveryPerSec);
+		ManagePosture(delta,postureRecoveryPerSec);
+		CamControl(delta);
 		var newState = currentState.Process(delta);
 		if (newState != null)
 		{
 			ChangeState(newState);
 		}
+
+	}
+
+	private void CamControl(double delta) // expected to be called on process
+	{
+		Vector2 camDelta = new Vector2(Input.GetAxis("CamRight", "CamLeft"), Input.GetAxis("CamDown", "CamUp"));
+		camPoint.RotateY(camDelta.X * camSensitivity * (float)delta);
+		camPoint.RotateZ(camDelta.Y * camSensitivity * (float)delta);
+		camPoint.Rotation = new Vector3(camPoint.Rotation.X, camPoint.Rotation.Y, Mathf.Clamp(camPoint.Rotation.Z, -30f, 30f));
 
 	}
 
@@ -119,13 +151,21 @@ public partial class PCStateMachine : Node3D
 	public void DisableWeapon()
 	{
 		currentWeapon.SetWeaponActive(false);
-
 	}
 
-	public void HitByEnemy(float damage)
+	public void HitByEnemy(float damage,Enemy enemyRef)
 	{
-		health -= damage;
+		if (currentState is not PC_Block)
+		{
+			TakeDamage(damage);
+			TakePostureDamage(damage);
+		}
+		ChangeState(currentState.HitByEnemyEvent());
+		meshRoot.LookAt(GlobalPosition-(enemyRef.GlobalPosition - GlobalPosition),Vector3.Up);
+		
 		HUDManager.instance.SetHealth(health, maxHealth);
+		HUDManager.instance.SetPosture(posture, maxPosture);
+
 	}
 
 	/*

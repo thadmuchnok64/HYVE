@@ -33,7 +33,6 @@ public partial class Entity : Node3D
     public virtual void TakePostureDamage(float damage)
     {
         posture -= damage;
-		GD.Print("posture " + posture);
         if (posture < 0)
         {
             //break
