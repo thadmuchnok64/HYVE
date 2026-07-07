@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dk6dodbe2cys8"]
+
+[ext_resource type="Texture2D" uid="uid://dxynl6goljlqi" path="res://Meshes/Levels/Foyer/Foyer_CommonProps_BaseMap.1001.png" id="1_3atyc"]
+[ext_resource type="Texture2D" uid="uid://bsu6kx88wfusy" path="res://Meshes/Levels/Foyer/Foyer_CommonProps_Emissive.1001.png" id="2_vplko"]
+
+[resource]
+albedo_texture = ExtResource("1_3atyc")
+emission_enabled = true
+emission_texture = ExtResource("2_vplko")

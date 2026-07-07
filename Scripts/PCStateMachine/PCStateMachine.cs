@@ -6,7 +6,7 @@ using System.Linq;
 public partial class PCStateMachine : Entity
 {
 	[Export] public CharacterBody3D cb;
-	[Export] public Node3D camPoint;
+	[Export] public Node3D camPoint, camPivot;
 	[Export] float camSensitivity = .5f;
 	[Export] public AnimationTree anim;
 	[Export] public Node3D meshRoot;
@@ -138,8 +138,8 @@ public partial class PCStateMachine : Entity
 	{
 		Vector2 camDelta = new Vector2(Input.GetAxis("CamRight", "CamLeft"), Input.GetAxis("CamDown", "CamUp"));
 		camPoint.RotateY(camDelta.X * camSensitivity * (float)delta);
-		camPoint.RotateZ(camDelta.Y * camSensitivity * (float)delta);
-		camPoint.Rotation = new Vector3(camPoint.Rotation.X, camPoint.Rotation.Y, Mathf.Clamp(camPoint.Rotation.Z, -30f, 30f));
+		camPivot.RotateZ(camDelta.Y * camSensitivity * (float)delta);
+		camPivot.Rotation = new Vector3(camPivot.Rotation.X, camPivot.Rotation.Y, Mathf.Clamp(camPivot.Rotation.Z, -30f, 30f));
 
 	}
 

@@ -5,5 +5,6 @@
 [resource]
 diffuse_mode = 3
 specular_mode = 1
-albedo_color = Color(0.07653103, 0.05660356, 0.016453007, 1)
+albedo_color = Color(0.12044797, 0.13352853, 0.07659482, 1)
 albedo_texture = ExtResource("1_msihv")
+uv1_scale = Vector3(1.56, 1.56, 1.56)

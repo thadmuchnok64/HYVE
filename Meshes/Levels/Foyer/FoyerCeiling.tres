@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d1nwrny3jn582"]
+
+[ext_resource type="Texture2D" uid="uid://d0hghk4g7fcvp" path="res://Meshes/Levels/Foyer/Foyer_CeilingFoyer_BaseMap.1001.png" id="1_1kk5p"]
+
+[resource]
+albedo_texture = ExtResource("1_1kk5p")
+emission_enabled = true

@@ -5,6 +5,8 @@ public partial class PCState : Node3D
 {
 	[Export] protected PCStateMachine stateMachine;
 	Node3D camPoint;
+	Node3D camPivot;
+
 	[Export] float moveSpeed = 50;
 	[Export] protected string animMetaState;
 	[Export] protected string animMeta;
@@ -50,6 +52,7 @@ public partial class PCState : Node3D
 	{
 		cb = stateMachine.cb;
 		camPoint = stateMachine.camPoint;
+		camPivot = stateMachine.camPivot;
 		anim = stateMachine.anim;
 		meshRoot = stateMachine.meshRoot;
 	}
@@ -71,7 +74,7 @@ public partial class PCState : Node3D
 	{
 		var force = forw.Normalized() * moveSpeed;
 		var addedForce = new Vector3(force.X, 0, force.Y);
-		addedForce = addedForce.Rotated(new Vector3(0, 1, 0), camPoint.GlobalRotation.Y);
+		addedForce = addedForce.Rotated(new Vector3(0, 1, 0), camPivot.GlobalRotation.Y);
 		var dot = addedForce.Normalized().Dot((cb.Velocity * new Vector3(1, 0, 1)).Normalized());
 		if (dot > 0)
 		{

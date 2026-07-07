@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c772rujwnxig"]
+
+[ext_resource type="Texture2D" uid="uid://dtsjmkcfq2h8d" path="res://Meshes/Levels/Foyer/Foyer_Foyer_BaseMap.1001.png" id="1_btyjv"]
+[ext_resource type="Texture2D" uid="uid://cc2t6co1xacbn" path="res://Meshes/Levels/Foyer/Foyer_Foyer_Height.1001.png" id="2_6qwt0"]
+[ext_resource type="Texture2D" uid="uid://dkok1wck4lcai" path="res://Meshes/Levels/Foyer/Foyer_Foyer_Normal.1001.png" id="3_m4hjp"]
+
+[resource]
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_btyjv")
+emission_enabled = true
+normal_enabled = true
+normal_scale = 2.14
+normal_texture = ExtResource("3_m4hjp")
+heightmap_scale = 0.1
+heightmap_texture = ExtResource("2_6qwt0")

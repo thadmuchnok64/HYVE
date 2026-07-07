@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cmw14m7iqnj46"]
+
+[ext_resource type="PackedScene" uid="uid://jmss3iy8u8wi" path="res://Meshes/Characters/Enemies/Scrawny/Scrawny.fbx" id="1_mr7rd"]
+[ext_resource type="Material" uid="uid://bgh251lhiru36" path="res://Meshes/Characters/Enemies/Scrawny/Scrawny.tres" id="2_ge41o"]
+
+[node name="Scrawny" unique_id=1384273446 instance=ExtResource("1_mr7rd")]
+
+[node name="Scratcher" parent="root/Skeleton3D" parent_id_path=PackedInt32Array(1318310620) index="0" unique_id=620086434]
+material_override = ExtResource("2_ge41o")
