@@ -9,6 +9,7 @@ public partial class PC_Idle : PCState
 	[Export] PCState attackLowState;
 	[Export] PCState recoilState;
 	[Export] PCState blockState;
+	[Export] PCState interactState;
 
 	[Export] float attackStaminaCost = 25f;
 
@@ -18,7 +19,12 @@ public partial class PC_Idle : PCState
 	// Called when the node enters the scene tree for the first time.
 	public override PCState ManageInput(InputEvent @event)
 	{
-		if (@event.IsActionPressed("Attack"))
+        if (@event.IsActionPressed("Interact"))
+        {
+			if (stateMachine.CanInteract())
+				return interactState;
+        }
+        if (@event.IsActionPressed("Attack"))
 		{
 			if (!stateMachine.ConsumeStamina(attackStaminaCost))
 				return null;

@@ -12,6 +12,7 @@ public partial class PCStateMachine : Entity
 	[Export] public Node3D meshRoot;
 	[Export] public Weapon currentWeapon;
 	[Export] float maxStamina;
+	[Export] RayCast3D interactionRay;
 
 
 	[Export] PCState startingState;
@@ -141,6 +142,28 @@ public partial class PCStateMachine : Entity
 		camPivot.RotateZ(camDelta.Y * camSensitivity * (float)delta);
 		camPivot.Rotation = new Vector3(camPivot.Rotation.X, camPivot.Rotation.Y, Mathf.Clamp(camPivot.Rotation.Z, -30f, 30f));
 
+	}
+
+	public bool CanInteract()
+	{
+        if (interactionRay.IsColliding())
+        {
+            if (interactionRay.GetCollider() is GizmoTrigger)
+            {
+				return true;
+            }
+        }
+		return false;
+    }
+
+	public InteractableObject TryInteraction()
+	{
+		if (CanInteract()) {
+			var giz = (GizmoTrigger)interactionRay.GetCollider();
+			giz.TryTriggerGizmo(this);
+			return giz.interactable;
+		}
+		return null;
 	}
 
 	public void EnableWeapon()

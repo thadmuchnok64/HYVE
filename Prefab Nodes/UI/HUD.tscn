@@ -1,0 +1,241 @@
+[gd_scene format=3 uid="uid://dyj2ypiopnj2q"]
+
+[ext_resource type="Script" uid="uid://cwidmccyyf7ex" path="res://Scripts/UI/HUDManager.cs" id="1_07sgc"]
+[ext_resource type="FontFile" uid="uid://wuq1cy3olt2k" path="res://Materials/Font/Dongle-Regular.ttf" id="2_2pel7"]
+
+[sub_resource type="Gradient" id="Gradient_omhik"]
+colors = PackedColorArray(0, 0, 0, 1, 0.22670749, 0.22670749, 0.22670746, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6mp8t"]
+gradient = SubResource("Gradient_omhik")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_2npry"]
+colors = PackedColorArray(0.4964097, 1.2032688e-06, 2.4065375e-07, 1, 0.99999994, 0.022353027, 0.28693026, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_teq5n"]
+gradient = SubResource("Gradient_2npry")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_3wuny"]
+offsets = PackedFloat32Array(0.008038585, 1)
+colors = PackedColorArray(0.14195096, 0.37756613, 0.31316406, 1, 0.28939453, 0.645853, 0.25796407, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2npry"]
+gradient = SubResource("Gradient_3wuny")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_j7cva"]
+colors = PackedColorArray(0.49560577, 0.2641982, 2.8878452e-07, 1, 0.9381065, 0.70219654, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kjdm0"]
+gradient = SubResource("Gradient_j7cva")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="Theme" id="Theme_dpc2c"]
+default_font = ExtResource("2_2pel7")
+default_font_size = 37
+
+[sub_resource type="Animation" id="Animation_1iqsm"]
+resource_name = "DialogueIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.12165653, 0.20000002),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.8, 0.8), Vector2(0.922, 0.82), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.20000002),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dpc2c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dpc2c"]
+_data = {
+&"DialogueIn": SubResource("Animation_1iqsm"),
+&"RESET": SubResource("Animation_dpc2c")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2pel7"]
+animation = &"DialogueIn"
+play_mode = 1
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_07sgc"]
+input_0/name = "in"
+input_0/auto_advance = false
+input_0/break_loop_at_end = false
+input_0/reset = true
+input_1/name = "out"
+input_1/auto_advance = false
+input_1/break_loop_at_end = false
+input_1/reset = true
+input_2/name = "idle"
+input_2/auto_advance = false
+input_2/break_loop_at_end = false
+input_2/reset = true
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_07sgc"]
+animation = &"DialogueIn"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_2pel7"]
+graph_offset = Vector2(-1069, -10.299988)
+nodes/output/position = Vector2(240, 140)
+nodes/DialogueIn/node = SubResource("AnimationNodeAnimation_07sgc")
+nodes/DialogueIn/position = Vector2(-560, 60)
+nodes/Dialogue/node = SubResource("AnimationNodeTransition_07sgc")
+nodes/Dialogue/position = Vector2(-100, 140)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_2pel7")
+nodes/Animation/position = Vector2(-560, 280)
+node_connections = [&"output", 0, &"Dialogue", &"Dialogue", 0, &"DialogueIn", &"Dialogue", 1, &"Animation"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6edwv"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_645e3"]
+states/Main/node = SubResource("AnimationNodeBlendTree_2pel7")
+states/Main/position = Vector2(352, 91)
+states/Start/position = Vector2(200, 91)
+transitions = ["Start", "Main", SubResource("AnimationNodeStateMachineTransition_6edwv")]
+graph_offset = Vector2(-308, -72)
+
+[node name="Control" type="Control" unique_id=593094546 node_paths=PackedStringArray("anim", "dialogueBox", "staminaBar", "healthBar", "posBar")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_07sgc")
+anim = NodePath("AnimationTree")
+dialogueBox = NodePath("Panel/RichTextLabel")
+staminaBar = NodePath("StaminaBar")
+healthBar = NodePath("HPBar")
+posBar = NodePath("PostureBar")
+
+[node name="Container" type="Container" parent="." unique_id=1702806090]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -283.0
+offset_top = -73.0
+offset_right = 283.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="HPBar" type="TextureProgressBar" parent="." unique_id=427969215]
+layout_mode = 1
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 351.0
+offset_bottom = 14.0
+value = 100.0
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture2D_6mp8t")
+texture_progress = SubResource("GradientTexture2D_teq5n")
+
+[node name="StaminaBar" type="TextureProgressBar" parent="." unique_id=431439518]
+layout_mode = 1
+offset_left = 3.0
+offset_top = 14.0
+offset_right = 330.0
+offset_bottom = 25.0
+value = 100.0
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture2D_6mp8t")
+texture_progress = SubResource("GradientTexture2D_2npry")
+
+[node name="PostureBar" type="TextureProgressBar" parent="." unique_id=528049090]
+layout_mode = 1
+offset_left = 3.0
+offset_top = 25.0
+offset_right = 314.0
+offset_bottom = 36.0
+value = 100.0
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture2D_6mp8t")
+texture_progress = SubResource("GradientTexture2D_kjdm0")
+
+[node name="Panel" type="Panel" parent="." unique_id=818163467]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.24000001
+anchor_top = 0.768
+anchor_right = 0.762
+anchor_bottom = 1.0
+offset_left = -0.480011
+offset_top = 0.33599854
+offset_right = -6.1035156e-05
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=1551213275]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 4.0
+offset_right = -4.8239746
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_dpc2c")
+theme_override_colors/default_color = Color(0.36150184, 0.40902737, 0.47500587, 1)
+theme_override_constants/line_separation = -32
+text = "pingas"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=853196942]
+libraries/ = SubResource("AnimationLibrary_dpc2c")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1556062741]
+tree_root = SubResource("AnimationNodeStateMachine_645e3")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Main/Dialogue/current_state = ""
+parameters/Main/Dialogue/transition_request = "idle"
+parameters/Main/Dialogue/current_index = -1

@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cgw8hwpvilkn8" path="res://Meshes/Characters/Ray/Rav_1.png" id="2_r867g"]
 
 [resource]
+diffuse_mode = 3
+specular_mode = 1
 albedo_texture = ExtResource("1_5xnoy")
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
