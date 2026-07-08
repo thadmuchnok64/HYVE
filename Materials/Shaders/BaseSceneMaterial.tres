@@ -1,7 +1,9 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://dwx2echydimvu"]
 
 [ext_resource type="Shader" uid="uid://itrnkg3h08cb" path="res://Materials/Shaders/BaseSceneShader.tres" id="1_c37pa"]
+[ext_resource type="Texture2D" uid="uid://c7e1umltnq5h0" path="res://Meshes/Levels/Foyer/Foyer_Substance_Foyer_BaseMap.1001.png" id="2_u2cft"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_c37pa")
+shader_parameter/MainTex2 = ExtResource("2_u2cft")
