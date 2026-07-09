@@ -60,4 +60,17 @@ public static class StaticHelpers
 
     }
 
+	public static Vector3 ReplaceX(this Vector3 vec,float val)
+	{
+		return new Vector3(val, vec.Y, vec.Z);
+	}
+
+    public static Vector3 ReplaceY(this Vector3 vec, float val)
+    {
+        return new Vector3(vec.X, val, vec.Z);
+    }
+    public static Vector3 ReplaceZ(this Vector3 vec, float val)
+    {
+        return new Vector3(vec.X, vec.Y, val);
+    }
 }
