@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://0t8wbl46pinl" path="res://Meshes/Levels/webbiesworld.fbx" id="1_wy5dc"]
 [ext_resource type="Material" uid="uid://bhlxo0yigxwyn" path="res://Materials/Concc.tres" id="2_wy5dc"]
-[ext_resource type="PackedScene" uid="uid://b1ae2wbklfyb1" path="res://Meshes/Levels/ScienceHub/ScienceHub.fbx" id="3_knh72"]
 [ext_resource type="PackedScene" uid="uid://cuget6kdt5gdr" path="res://Prefab Nodes/Level/foyer_chunk.tscn" id="4_41q34"]
+[ext_resource type="PackedScene" uid="uid://bfkneivelesgn" path="res://Prefab Nodes/Level/science_hub.tscn" id="4_l6ol3"]
 
 [sub_resource type="Environment" id="Environment_eh2h0"]
 sdfgi_enabled = true
@@ -39,23 +39,10 @@ visible = false
 visible = false
 material_override = ExtResource("2_wy5dc")
 
-[node name="ScienceHub" parent="." index="6" unique_id=1899934318 instance=ExtResource("3_knh72")]
-
-[node name="Cube_006" parent="ScienceHub" index="1" unique_id=1182129070]
-visible = false
-
-[node name="DNA Strand" parent="ScienceHub" index="2" unique_id=703967410]
-transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 4.437818, 3.4931455, -3.9978428)
-
-[node name="InfirmaryEntrance" parent="ScienceHub" index="4" unique_id=469828261]
-transform = Transform3D(1.1920929e-05, -100, -1.4901161e-05, -2.9802322e-06, -1.1920929e-05, 99.99999, -100, -5.9604645e-06, 0, 10.678939, 0.12152362, -14.223476)
-
-[node name="Science Area" parent="ScienceHub" index="5" unique_id=735654867]
-transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0, 0, 0)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="7" unique_id=933197714]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="6" unique_id=933197714]
 environment = SubResource("Environment_eh2h0")
 
-[node name="Foyer2" parent="." index="8" unique_id=1853759377 instance=ExtResource("4_41q34")]
+[node name="Foyer2" parent="." index="7" unique_id=1853759377 instance=ExtResource("4_41q34")]
 
-[editable path="ScienceHub"]
+[node name="ScienceHub" parent="." index="8" unique_id=2006222443 instance=ExtResource("4_l6ol3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5199965, -0.9584491, 1.1995991)
