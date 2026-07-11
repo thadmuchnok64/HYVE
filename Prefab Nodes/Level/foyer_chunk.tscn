@@ -42,89 +42,90 @@ size = Vector3(5.371643, 2.9518433, 5.9866943)
 [node name="Foyer" type="Node3D" unique_id=1853759377]
 
 [node name="Foyer2" parent="." unique_id=1853604356 instance=ExtResource("1_qm628")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.935, 1.004, -0.788)
 
-[node name="Beaker" parent="Foyer2" index="0" unique_id=1715284396]
+[node name="Beaker" parent="Foyer2" index="0" unique_id=1343523297]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -2.215488, 0.8437189, -6.558773)
 material_override = ExtResource("2_3moxy")
 
-[node name="BeakerInner" parent="Foyer2" index="1" unique_id=1307864011]
+[node name="BeakerInner" parent="Foyer2" index="1" unique_id=697731731]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -2.2173598, 0.8527409, -6.55603)
 material_override = ExtResource("3_vywq4")
 
-[node name="Books" parent="Foyer2" index="2" unique_id=1793726052]
+[node name="Books" parent="Foyer2" index="2" unique_id=1330408593]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -2.5874844, 0.13295603, 6.019302)
 material_override = ExtResource("6_ck1pf")
 
-[node name="CardboardCloud" parent="Foyer2" index="3" unique_id=629664574]
+[node name="CardboardCloud" parent="Foyer2" index="3" unique_id=1648380732]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -3.723258, 2.9066777, 7.853116)
 material_override = ExtResource("6_ck1pf")
 
-[node name="CardboardSword" parent="Foyer2" index="4" unique_id=601818526]
+[node name="CardboardSword" parent="Foyer2" index="4" unique_id=1022366582]
 transform = Transform3D(104.456, 66.404396, 43.547516, 3.6034274, -75.84561, 107.01141, 79.32809, -83.99337, -62.20252, 0.8154577, 2.4660728, 3.941382)
 material_override = ExtResource("6_ck1pf")
 
-[node name="CeilingLight" parent="Foyer2" index="5" unique_id=329892607]
+[node name="CeilingLight" parent="Foyer2" index="5" unique_id=1123885392]
 transform = Transform3D(100.000015, -1.2049568e-06, 4.4290196e-06, -4.4290196e-06, -50.66209, 86.2169, 1.2049572e-06, -86.2169, -50.66209, 1.4148891, 6.4076447, 0.28552663)
 material_override = ExtResource("4_eo7lt")
 
-[node name="CeilingLightSupport" parent="Foyer2" index="6" unique_id=1318747727]
+[node name="CeilingLightSupport" parent="Foyer2" index="6" unique_id=1028328305]
 material_override = ExtResource("4_eo7lt")
 
-[node name="CeilingShafts" parent="Foyer2" index="7" unique_id=558492229]
+[node name="CeilingShafts" parent="Foyer2" index="7" unique_id=1237911049]
 material_override = ExtResource("5_delvv")
 
-[node name="Cube" parent="Foyer2" index="8" unique_id=1239191219]
+[node name="Cube" parent="Foyer2" index="8" unique_id=304848418]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -0.5129022, -1.9565539, -0.0072310567)
 visible = false
 layers = 4
 
-[node name="Cube_001" parent="Foyer2" index="9" unique_id=1575580238]
+[node name="Cube_001" parent="Foyer2" index="9" unique_id=1546281378]
 transform = Transform3D(69.14274, 71.834465, -7.687386, -1.2753005, 11.852727, 99.2869, 72.233376, -68.55164, 9.1114025, 0.0705507, 2.9291992, 5.237946)
 material_override = ExtResource("6_ck1pf")
 
-[node name="Cube_009" parent="Foyer2" index="11" unique_id=633128712]
+[node name="Cube_009" parent="Foyer2" index="11" unique_id=1838158098]
 transform = Transform3D(70.71119, 70.710014, 0.14449058, -0.39435622, 0.19001961, 99.99903, 70.70905, -70.71108, 0.41321513, 0.120908, 3.053875, -5.212839)
 material_override = ExtResource("3_vywq4")
 
-[node name="Cube_012" parent="Foyer2" index="12" unique_id=1910054441]
+[node name="Cube_012" parent="Foyer2" index="12" unique_id=2136824616]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 4.144563, 3.8857055, 3.2536774)
 material_override = ExtResource("7_is6q0")
 
-[node name="Foyer" parent="Foyer2" index="13" unique_id=1530459414]
-transform = Transform3D(100.000015, 0, 0, 0, -4.3711393e-06, 100, 0, -100.00001, -4.371139e-06, -0.0029230118, 0, -0.0023970604)
+[node name="Foyer" parent="Foyer2" index="13" unique_id=1434361126]
+transform = Transform3D(100.000015, 0, 0, 0, -4.3711393e-06, 100, 0, -100.00001, -4.371139e-06, 0, 0, 0)
 material_override = ExtResource("8_3moxy")
 
-[node name="Foyer_001" parent="Foyer2" index="14" unique_id=9275646]
+[node name="Foyer_001" parent="Foyer2" index="14" unique_id=1898862281]
 transform = Transform3D(70.710686, 70.710686, 5.9604645e-06, 0, -1.192093e-05, 100.000015, 70.710686, -70.710686, -1.1920929e-05, 0.10082283, 1.1224468, 5.2040668)
 material_override = ExtResource("8_eg27v")
 gi_lightmap_texel_scale = 2.0752
 script = ExtResource("9_bhu1e")
 failureMessage = "The door is stuck and I dont see a handle. Might be able to pry it open with something..."
 
-[node name="FoyerUpper" parent="Foyer2" index="16" unique_id=1351936890]
+[node name="FoyerUpper" parent="Foyer2" index="16" unique_id=1685447619]
 transform = Transform3D(100.000015, -0.028425442, 0.008278188, -0.008282796, -0.014948343, 100.00001, -0.028424103, -99.99999, -0.014950895, 0, 0, 0)
 material_override = ExtResource("10_end7w")
 
-[node name="Railing" parent="Foyer2" index="17" unique_id=558799311]
+[node name="Railing" parent="Foyer2" index="17" unique_id=2036825113]
 transform = Transform3D(1.1920929e-05, 100, 1.4901161e-05, 2.9802322e-06, -1.1920929e-05, 99.99999, 100, -5.9604645e-06, 0, -3.5379832, -0.0105006695, 2.019149)
 material_override = ExtResource("8_3moxy")
 
-[node name="Saturn" parent="Foyer2" index="18" unique_id=1018879584]
+[node name="Saturn" parent="Foyer2" index="18" unique_id=894395608]
 transform = Transform3D(66.40488, 44.61381, 1.9501313e-06, 1.3690091e-13, -3.496911e-06, 80, 44.61381, -66.40488, -2.9026492e-06, 0.35915276, 0.823, -2.6988826)
 material_override = ExtResource("3_vywq4")
 
-[node name="ScienceSignWire" parent="Foyer2" index="19" unique_id=1692693097]
+[node name="ScienceSignWire" parent="Foyer2" index="19" unique_id=1043609925]
 transform = Transform3D(70.710686, -70.710686, -5.9604645e-06, 0, -1.192093e-05, 100.000015, -70.710686, -70.710686, -1.1920929e-05, 0.41757625, 3.6243885, -4.8036814)
 material_override = ExtResource("3_vywq4")
 
-[node name="Sphere" parent="Foyer2" index="20" unique_id=532633390]
+[node name="Sphere" parent="Foyer2" index="20" unique_id=962105037]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -2.6599798, 3.4620821, -5.3480964)
 material_override = ExtResource("3_vywq4")
 
-[node name="Sphere_001" parent="Foyer2" index="21" unique_id=42997541]
+[node name="Sphere_001" parent="Foyer2" index="21" unique_id=1129179454]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 6.5000668, 3.5451026, -2.5267828)
 
-[node name="TrashCan" parent="Foyer2" index="22" unique_id=1562789333]
+[node name="TrashCan" parent="Foyer2" index="22" unique_id=1112069625]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 4.9210925, -0.0076887608, 2.9791417)
 material_override = ExtResource("4_eo7lt")
 
