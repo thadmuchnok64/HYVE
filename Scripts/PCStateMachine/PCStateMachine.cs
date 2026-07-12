@@ -11,6 +11,7 @@ public partial class PCStateMachine : Entity
 	[Export] public AnimationTree anim;
 	[Export] public Node3D meshRoot;
 	[Export] public Weapon currentWeapon;
+	[Export] public InventoryManager inventory;
 	[Export] float maxStamina;
 	[Export] RayCast3D interactionRay;
 

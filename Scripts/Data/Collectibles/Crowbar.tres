@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Collectable" format=3 uid="uid://cil3x3kqvjc4i"]
+
+[ext_resource type="Script" uid="uid://crmcnabb76ixv" path="res://Scripts/Data/Collectibles/Collectable.cs" id="1_vi8yf"]
+
+[resource]
+script = ExtResource("1_vi8yf")
+DisplayName = "Crowbar"
+itemCode = 1
+metadata/_custom_type_script = "uid://crmcnabb76ixv"

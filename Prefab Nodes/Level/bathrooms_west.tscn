@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bax53t8rkxthc"]
+
+[ext_resource type="PackedScene" uid="uid://b7so7ekpup52s" path="res://Meshes/Levels/ScienceHub/BathroomWest.fbx" id="1_h5url"]
+[ext_resource type="PackedScene" uid="uid://c75shw2582cms" path="res://Meshes/Weapons/Crowbar.fbx" id="2_3rni6"]
+[ext_resource type="Material" uid="uid://bkgehhliamt20" path="res://Meshes/Weapons/Crowbar.tres" id="3_na8v6"]
+[ext_resource type="Script" uid="uid://cfgt0c0c2bq8l" path="res://Scripts/Gizmos/CollectablePickup.cs" id="3_romi1"]
+[ext_resource type="Resource" uid="uid://cil3x3kqvjc4i" path="res://Scripts/Data/Collectibles/Crowbar.tres" id="4_ml1s4"]
+[ext_resource type="Script" uid="uid://c6igaenalehqd" path="res://Scripts/Gizmos/GizmoTrigger.cs" id="5_ml1s4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bfipd"]
+size = Vector3(1.5529175, 0.97436523, 0.79589844)
+
+[node name="BathroomsWest" type="Node3D" unique_id=159575775]
+
+[node name="BathroomWest" parent="." unique_id=823725155 instance=ExtResource("1_h5url")]
+
+[node name="Crowbar" parent="." unique_id=314797480 instance=ExtResource("2_3rni6")]
+transform = Transform3D(-4.371139e-08, -0.7485045, 0.6631297, 1, -3.271817e-08, 2.898632e-08, 0, 0.6631297, 0.7485045, -1.5390375, 1.823416, -29.344505)
+script = ExtResource("3_romi1")
+heldCollectable = ExtResource("4_ml1s4")
+
+[node name="Crowbar" parent="Crowbar" index="0" unique_id=733699822]
+material_override = ExtResource("3_na8v6")
+
+[node name="Area3D" type="Area3D" parent="Crowbar" unique_id=1123787085 node_paths=PackedStringArray("interactable")]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("5_ml1s4")
+interactable = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Crowbar/Area3D" unique_id=1283654712]
+transform = Transform3D(1, 8.941059e-13, -4.4719518e-13, 0, 1, 0, 0, 0, 1, -0.33145142, 0.5343056, 1.9073486e-06)
+shape = SubResource("BoxShape3D_bfipd")
+debug_color = Color(0.45031464, 1, 0.48679012, 1)
+
+[editable path="Crowbar"]
