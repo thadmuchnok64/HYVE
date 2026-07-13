@@ -45,7 +45,7 @@ public partial class PC_Interact : PCState
         interactable = stateMachine.TryInteraction();
 		if (interactable == null)
 			return idleState;
-        anim.Set($"parameters/{animMetaState}/Transition/transition_request", animMeta);
+        anim.Set($"parameters/{animMetaState}/Transition/transition_request", interactable.animationMeta);
 		/*
 		if (animMeta2 != null)
 		{
