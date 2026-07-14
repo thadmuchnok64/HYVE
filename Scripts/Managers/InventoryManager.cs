@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public partial class InventoryManager : Node3D
 {
@@ -22,5 +23,10 @@ public partial class InventoryManager : Node3D
 		}
 		items.Add(item);
 		GD.Print($"added {item.DisplayName}");
+	}
+
+	public bool DoesHaveItem(string itemName)
+	{
+		return items.Select(i => i.DisplayName == itemName).Count() > 0;
 	}
 }

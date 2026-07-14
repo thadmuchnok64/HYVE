@@ -94,4 +94,9 @@ public partial class PCState : Node3D
 	public virtual PCState HitByEnemyEvent() {
 		return null;
 	}
+
+	public virtual PCState BreakInteractEvent()
+	{
+		return null;
+	}
 }

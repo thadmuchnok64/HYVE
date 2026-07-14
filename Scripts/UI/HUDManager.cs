@@ -28,6 +28,7 @@ public partial class HUDManager : Control
 		}
 		else { instance = this; }
 		pendingDialogues = new Queue<string>();
+		AnimateOutDialogue();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

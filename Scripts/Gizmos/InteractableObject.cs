@@ -6,9 +6,12 @@ public partial class InteractableObject : Node3D
 
     [Export] protected string failureMessage;
 	[Export] public string animationMeta; // used by main character animator
+    public bool interactSuccess = false;
 
-	public virtual void TriggerGizmo(PCStateMachine pc)
+
+    public virtual void TriggerGizmo(PCStateMachine pc)
     {
+        interactSuccess = true;
         GD.Print("pizza");
     }
 

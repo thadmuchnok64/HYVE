@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 public partial class PCStateMachine : Entity
@@ -157,6 +158,12 @@ public partial class PCStateMachine : Entity
 		return false;
     }
 
+	public void RotateMesh(Vector3 newRot) // global space
+	{
+		meshRoot.GlobalRotation = newRot;
+        meshRoot.Rotation = new Vector3(0, meshRoot.Rotation.Y, 0);
+    }
+
 	public InteractableObject TryInteraction()
 	{
 		if (CanInteract()) {
@@ -166,6 +173,11 @@ public partial class PCStateMachine : Entity
 		}
 		return null;
 	}
+
+	public void ForceUninteract()
+	{
+		ChangeState(currentState.BreakInteractEvent());
+    }
 
 	public void EnableWeapon()
 	{

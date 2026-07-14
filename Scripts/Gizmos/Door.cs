@@ -4,11 +4,42 @@ using System;
 public partial class Door : InteractableObject
 {
     [Export] Node3D playerWarpPosition;
+    [Export] CollisionShape3D colliderToDisable;
+    [Export] AnimationPlayer anim;
+    [Export] float timeToFreePlayer = 2f;
+    [Export] AudioStream prySfx,pryOpenSfx;
+    [Export] string itemNeededToProgress = "Crowbar";
+
+    PCStateMachine pc;
+
+    float activeTimer = 0;
+    bool active = false;
+    bool used = false;
     public override void TriggerGizmo(PCStateMachine pc)
     {
-        HUDManager.instance.QueueDialogue(failureMessage);
-        pc.cb.GlobalPosition = playerWarpPosition.GlobalPosition;
-        pc.cb.GlobalRotation = playerWarpPosition.GlobalRotation;
+        if (used)
+        {
+            pc.ForceUninteract();
+            return;
+        }
+        if (pc.inventory.DoesHaveItem(itemNeededToProgress)) // check inventory for object here
+        {
+            used = true;
+            interactSuccess = true;
+            colliderToDisable.Disabled = true;
+            activeTimer = 0;
+            active = true;
+            anim.Active = true;
+            anim.Play("PryOpen");
+            this.pc = pc;
+            pc.cb.GlobalPosition = playerWarpPosition.GlobalPosition;
+            pc.RotateMesh(playerWarpPosition.GlobalRotation);
+        }
+        else
+        {
+            interactSuccess = false;
+            HUDManager.instance.QueueDialogue(failureMessage);
+        }
     }
 
     public override bool ManageInput(InputEvent @event)
@@ -19,4 +50,30 @@ public partial class Door : InteractableObject
         }
         return false;
     }
+
+    public override void _Process(double delta)
+    {
+        if (active)
+        {
+            activeTimer += (float)delta;
+            if (activeTimer > timeToFreePlayer)
+            {
+                pc.ForceUninteract();
+                active = false;
+            }
+        }
+    }
+
+    public void PlayPrySFX()
+    {
+        SoundManager.Instance.RequesetSFXSoundAtLocation(prySfx, GlobalPosition);
+    }
+
+
+    public void PlayPryOpenSFX()
+    {
+        SoundManager.Instance.RequesetSFXSoundAtLocation(pryOpenSfx, GlobalPosition);
+    }
+
+
 }

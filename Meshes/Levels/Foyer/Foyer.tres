@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://c772rujwnxig"]
 
-[ext_resource type="Texture2D" uid="uid://c7e1umltnq5h0" path="res://Meshes/Levels/Foyer/Foyer_Substance_Foyer_BaseMap.1001.png" id="1_6qwt0"]
+[ext_resource type="Texture2D" uid="uid://bhk73pt3fw3m2" path="res://Meshes/Levels/Foyer/Foyer_Substance_Foyer_BaseMap.1001.png" id="1_6qwt0"]
 [ext_resource type="Texture2D" uid="uid://cc2t6co1xacbn" path="res://Meshes/Levels/Foyer/Foyer_Foyer_Height.1001.png" id="2_6qwt0"]
 [ext_resource type="Texture2D" uid="uid://dkok1wck4lcai" path="res://Meshes/Levels/Foyer/Foyer_Foyer_Normal.1001.png" id="3_m4hjp"]
 

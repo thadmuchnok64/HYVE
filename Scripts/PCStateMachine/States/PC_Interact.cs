@@ -45,6 +45,7 @@ public partial class PC_Interact : PCState
         interactable = stateMachine.TryInteraction();
 		if (interactable == null)
 			return idleState;
+		if(interactable.interactSuccess)
         anim.Set($"parameters/{animMetaState}/Transition/transition_request", interactable.animationMeta);
 		/*
 		if (animMeta2 != null)
@@ -56,5 +57,10 @@ public partial class PC_Interact : PCState
 		return base.Enter();
 	}
 
+
+    public override PCState BreakInteractEvent()
+    {
+		return idleState;
+    }
 
 }

@@ -64,7 +64,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_dpc2c"]
-length = 0.001
+length = 0.16666667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -236,6 +236,6 @@ libraries/ = SubResource("AnimationLibrary_dpc2c")
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=1556062741]
 tree_root = SubResource("AnimationNodeStateMachine_645e3")
 anim_player = NodePath("../AnimationPlayer")
-parameters/Main/Dialogue/current_state = ""
-parameters/Main/Dialogue/transition_request = "idle"
-parameters/Main/Dialogue/current_index = -1
+parameters/Main/Dialogue/current_state = "idle"
+parameters/Main/Dialogue/transition_request = ""
+parameters/Main/Dialogue/current_index = 2
