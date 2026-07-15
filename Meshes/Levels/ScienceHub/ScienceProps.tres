@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://drtmrja226gul"]
+
+[ext_resource type="Shader" uid="uid://itrnkg3h08cb" path="res://Materials/Shaders/BaseSceneShader.tres" id="1_acjr6"]
+[ext_resource type="Texture2D" uid="uid://dsxsslnpxhe4s" path="res://Meshes/Levels/ScienceHub/ScienceHubProps_Base_color.png" id="2_2j051"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_acjr6")
+shader_parameter/MainTex2 = ExtResource("2_2j051")

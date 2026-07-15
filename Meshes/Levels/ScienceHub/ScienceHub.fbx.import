@@ -37,7 +37,46 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"meshes": {
+"Cube_015": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "",
+"save_to_file/path": ""
+},
+"Cylinder_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Meshes/Levels/ScienceHub/BigHamsterWheel.tres",
+"save_to_file/path": "uid://ba3x55awbj506"
+},
+"Cylinder_003": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Meshes/Levels/ScienceHub/Cogwheel.tres",
+"save_to_file/path": "uid://bh8klekudiqub"
+},
+"Cylinder_005": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Meshes/Levels/ScienceHub/SmallCogWheel.tres",
+"save_to_file/path": "uid://c68qsb2spcyvh"
+}
+}
+}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1
