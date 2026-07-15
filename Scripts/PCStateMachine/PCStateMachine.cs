@@ -15,7 +15,7 @@ public partial class PCStateMachine : Entity
 	[Export] public InventoryManager inventory;
 	[Export] float maxStamina;
 	[Export] RayCast3D interactionRay;
-
+	[Export] Area3D lockOnArea;
 
 	[Export] PCState startingState;
 	[Export] public AudioStreamPlayer3D aud;
@@ -30,6 +30,9 @@ public partial class PCStateMachine : Entity
 	public float stamina;
 	float staminaTimer = 0;
 	float postureTimer = 0;
+	Node3D trackingObject;
+	public bool tracking = false;
+
 
 	public bool ConsumeStamina(float cost)
 	{
@@ -202,6 +205,21 @@ public partial class PCStateMachine : Entity
 		HUDManager.instance.SetHealth(health, maxHealth);
 		HUDManager.instance.SetPosture(posture, maxPosture);
 
+	}
+
+	public Node3D AttemptTracking()
+	{
+		if (tracking)
+		{
+			tracking = false;
+			return null;
+		}
+		var potentialBodies = lockOnArea.GetOverlappingBodies();
+		if (potentialBodies.Count <= 0)
+			return null;
+		tracking = true;
+		trackingObject = potentialBodies.MinBy(b => lockOnArea.GlobalPosition.DistanceTo(b.GlobalPosition));
+		return trackingObject;
 	}
 
 	/*

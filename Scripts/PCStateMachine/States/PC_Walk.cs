@@ -11,9 +11,11 @@ public partial class PC_Walk : PCState
 	[Export] PCState recoilState;
 	[Export] PCState blockState;
     [Export] PCState interactState;
+	[Export] PCState trackingState;
 
 
-    [Export] float attackStaminaCost = 25f;
+
+	[Export] float attackStaminaCost = 25f;
 
 
 
@@ -48,6 +50,13 @@ public partial class PC_Walk : PCState
 		if (@event.IsActionPressed("Block"))
 		{
 			return blockState;
+		}
+		if (@event.IsActionPressed("LockOn"))
+		{
+			if (stateMachine.AttemptTracking() != null)
+			{
+				return trackingState;
+			}
 		}
 		return null;
 	}

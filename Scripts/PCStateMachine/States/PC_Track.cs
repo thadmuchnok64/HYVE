@@ -1,38 +1,52 @@
 using Godot;
 using System;
 
-public partial class PC_Idle : PCState
+public partial class PC_Track : PCState
 {
 
-	[Export] PCState walkState;
+	[Export] PCState idleState;
 	[Export] PCState attackState;
 	[Export] PCState attackLowState;
+	[Export] PCState sprintState;
 	[Export] PCState recoilState;
 	[Export] PCState blockState;
 	[Export] PCState interactState;
 	[Export] PCState trackingState;
 
+
+
 	[Export] float attackStaminaCost = 25f;
 
+
+
+	[Export] float minSpeed = .05f;
+	[Export] float maxSpeed = 5f;
+
 	[Export] float dragForce;
+	[Export] float animLerpMod = 2;
 
 	bool crouching = false;
 	// Called when the node enters the scene tree for the first time.
 	public override PCState ManageInput(InputEvent @event)
 	{
-        if (@event.IsActionPressed("Interact"))
-        {
+		if (@event.IsActionPressed("Interact"))
+		{
 			if (stateMachine.CanInteract())
 				return interactState;
-        }
-        if (@event.IsActionPressed("Attack"))
+		}
+		if (@event.IsActionPressed("Attack"))
 		{
+
 			if (!stateMachine.ConsumeStamina(attackStaminaCost))
 				return null;
 			if (crouching)
 				return attackLowState;
 			else
 				return attackState;
+		}
+		if (@event.IsActionPressed("Sprint"))
+		{
+			return sprintState;
 		}
 		if (@event.IsActionPressed("Block"))
 		{
@@ -57,10 +71,10 @@ public partial class PC_Idle : PCState
 		}
 		*/
 		//movement
-		Vector2 movement = new Vector2(Input.GetAxis("MoveLeft", "MoveRight"), Input.GetAxis("MoveUp", "MoveDown"));
+		Vector2 movement = new Vector2(Input.GetAxis("MoveRight", "MoveLeft"), Input.GetAxis("MoveDown", "MoveUp"));
 		if (movement.Length() > .1f)
 		{
-			return walkState;
+			_Move(movement, delta);
 		}
 		else
 		{
@@ -75,22 +89,44 @@ public partial class PC_Idle : PCState
 		var hVel = new Vector3(cb.Velocity.X, 0, cb.Velocity.Z);
 		if (hVel.Length() > .2f)
 		{
-			//cb.LookAt(cb.Position - hVel.Normalized() * 5, Vector3.Up);
-			//cb.Rotation = new Vector3(0, cb.Rotation.Y, 0);
+			meshRoot.LookAt(cb.Position - hVel.Normalized() * 5, Vector3.Up);
+			meshRoot.Rotation = new Vector3(0, meshRoot.Rotation.Y, 0);
 		}
-		if (cb.IsOnFloor())
-		{
-			//if (Input.GetActionStrength("Sprint") > .1)
-			//{
-				//return sprintState;
-			//}
+		anim.Set(animMeta, Mathf.Clamp(hVel.Length() / animLerpMod, 0, 1));
 
+		if (cb.Velocity.Length() > 0.05f)
+		{
+			return null;
 		}
+		else
+		{
+			return idleState;
+		}
+		//}
+
+
 
 		return null;
 
 	}
 
+	public override PCState Process(double delta)
+	{
+
+		var timeScale = Mathf.Clamp((cb.Velocity.Length() - minSpeed) / (maxSpeed - minSpeed), 0, 1);
+		//anim.Set("parameters/Ground/RunTimeScale/scale", timeScale);
+		crouching = Input.IsActionPressed("Crouch");
+		if (crouching)
+		{
+			anim.Set($"parameters/{animMetaState}/Transition/transition_request", "crouch");
+		}
+		else
+		{
+			anim.Set($"parameters/{animMetaState}/Transition/transition_request", "stand");
+
+		}
+		return null;
+	}
 
 	private void _SlowGroundMovement(double delta)
 	{
@@ -102,22 +138,6 @@ public partial class PC_Idle : PCState
 		}
 		cb.Velocity = cb.Velocity.Normalized() * newLen;
 	}
-
-	public override PCState Process(double delta)
-	{
-		crouching = Input.IsActionPressed("Crouch");
-		if (crouching)
-		{
-			anim.Set($"parameters/{animMetaState}/Transition/transition_request", "crouch");
-		}
-		else
-		{
-			anim.Set($"parameters/{animMetaState}/Transition/transition_request", "stand");
-
-		}
-		return base.Process(delta);
-	}
-
 	public override PCState HitByEnemyEvent()
 	{
 		return recoilState;
