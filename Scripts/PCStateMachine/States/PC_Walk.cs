@@ -84,16 +84,12 @@ public partial class PC_Walk : PCState
 		//Gravity
 		//_ApplyGravity(delta);
 
-		cb.MoveAndSlide();
-
-
 		var hVel = new Vector3(cb.Velocity.X, 0, cb.Velocity.Z);
 		if (stateMachine.tracking)
 		{
             meshRoot.LookAt(stateMachine.trackingObject.GlobalPosition, Vector3.Up);
             meshRoot.Rotation = new Vector3(0, meshRoot.Rotation.Y + MathF.PI, 0);
 			var vec = new Vector2(meshRoot.Basis.X.Dot(cb.Velocity), meshRoot.Basis.Z.Dot(cb.Velocity)).Normalized();
-			GD.Print(vec);
 			anim.Set(animWalkBlendMeta, vec);
         } else if (hVel.Length() > .2f)
 		{
@@ -103,7 +99,10 @@ public partial class PC_Walk : PCState
 		}
 		anim.Set(animMeta, Mathf.Clamp(hVel.Length()/animLerpMod,0,1));
 
-			if (cb.Velocity.Length() > 0.05f)
+
+		cb.MoveAndSlide();
+
+		if (cb.Velocity.Length() > 0.05f)
 			{
 				return null;
 			}
@@ -111,11 +110,6 @@ public partial class PC_Walk : PCState
 			{
 				return idleState;
 			}
-		//}
-
-
-
-		return null;
 
 	}
 

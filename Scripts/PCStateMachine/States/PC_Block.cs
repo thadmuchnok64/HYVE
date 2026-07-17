@@ -10,6 +10,8 @@ public partial class PC_Block : PCState
 
 	[Export] float dragForce;
 
+	[Export] string animWalkBlendMeta;
+
 	bool crouching = false;
 	// Called when the node enters the scene tree for the first time.
 	public override PCState ManageInput(InputEvent @event)
@@ -27,18 +29,12 @@ public partial class PC_Block : PCState
 	public override PCState PhysicsProcess(double delta)
 	{
 		base._PhysicsProcess(delta);
-		/*
-		if (cb.Velocity.Y < 0.2f && !cb.IsOnFloor())
-		{
-			return fallState;
-		}
-		*/
-		//movement
-		/*
-		Vector2 movement = new Vector2(Input.GetAxis("MoveLeft", "MoveRight"), Input.GetAxis("MoveUp", "MoveDown"));
+
+
+		Vector2 movement = new Vector2(Input.GetAxis("MoveRight", "MoveLeft"), Input.GetAxis("MoveDown", "MoveUp"));
 		if (movement.Length() > .1f)
 		{
-			return walkState;
+			_Move(movement, delta);
 		}
 		else
 		{
@@ -47,24 +43,25 @@ public partial class PC_Block : PCState
 		//Gravity
 		//_ApplyGravity(delta);
 
-		cb.MoveAndSlide();
-
-
 		var hVel = new Vector3(cb.Velocity.X, 0, cb.Velocity.Z);
-		if (hVel.Length() > .2f)
+		if (stateMachine.tracking)
 		{
-			//cb.LookAt(cb.Position - hVel.Normalized() * 5, Vector3.Up);
-			//cb.Rotation = new Vector3(0, cb.Rotation.Y, 0);
+			meshRoot.LookAt(stateMachine.trackingObject.GlobalPosition, Vector3.Up);
+			meshRoot.Rotation = new Vector3(0, meshRoot.Rotation.Y + MathF.PI, 0);
+			var vec = new Vector2(meshRoot.Basis.X.Dot(cb.Velocity), meshRoot.Basis.Z.Dot(cb.Velocity)).Normalized();
+			GD.Print(vec);
+			anim.Set(animWalkBlendMeta, vec);
 		}
-		if (cb.IsOnFloor())
+		else if (hVel.Length() > .2f)
 		{
-			//if (Input.GetActionStrength("Sprint") > .1)
-			//{
-				//return sprintState;
-			//}
+			anim.Set(animWalkBlendMeta, new Vector2(0, 1));
+			meshRoot.LookAt(cb.Position - hVel.Normalized() * 5, Vector3.Up);
+			meshRoot.Rotation = new Vector3(0, meshRoot.Rotation.Y, 0);
+		}
+		//anim.Set(animMeta, Mathf.Clamp(hVel.Length() / animLerpMod, 0, 1));
 
-		}
-		*/
+
+		cb.MoveAndSlide();
 		return null;
 
 	}
