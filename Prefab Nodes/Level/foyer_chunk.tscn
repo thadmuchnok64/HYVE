@@ -9,6 +9,8 @@
 [ext_resource type="Material" uid="uid://dwx2echydimvu" path="res://Materials/Shaders/BaseFoyer.tres" id="8_3moxy"]
 [ext_resource type="ArrayMesh" uid="uid://btqwig8iidoek" path="res://Meshes/Levels/Foyer/LeftCultureDoorFoyer.tres" id="9_3moxy"]
 [ext_resource type="Script" uid="uid://dowaorsnpxlrp" path="res://Scripts/Gizmos/Door.cs" id="9_bhu1e"]
+[ext_resource type="AudioStream" uid="uid://do1fp0gjlsa7a" path="res://Sound/SFX/GizmoSFX/Prying.wav" id="9_eo7lt"]
+[ext_resource type="AudioStream" uid="uid://bb5iuk3e55xvb" path="res://Sound/SFX/GizmoSFX/CultureDoorPry.wav" id="10_delvv"]
 [ext_resource type="Material" uid="uid://d1nwrny3jn582" path="res://Meshes/Levels/Foyer/FoyerCeiling.tres" id="10_end7w"]
 [ext_resource type="ArrayMesh" uid="uid://cflnoe52enlkr" path="res://Meshes/Levels/Foyer/RightCultureDoorFoyer.tres" id="10_vywq4"]
 [ext_resource type="PackedScene" uid="uid://ml1x0ebtustx" path="res://Prefab Nodes/Decor/ceiling_light.tscn" id="11_risvt"]
@@ -1024,6 +1026,8 @@ playerWarpPosition = NodePath("PlayerPivot")
 colliderToDisable = NodePath("StaticBody3D5/CollisionShape3D")
 anim = NodePath("AnimationPlayer")
 timeToFreePlayer = 2.8
+prySfx = ExtResource("9_eo7lt")
+pryOpenSfx = ExtResource("10_delvv")
 failureMessage = "The door is stuck and I dont see a handle. Might be able to pry it open with something..."
 animationMeta = "pry"
 

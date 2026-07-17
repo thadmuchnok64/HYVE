@@ -9,9 +9,12 @@ public partial class HamsterWheel : AreaInteractable
 	[Export] Node3D pivot;
     [Export] Godot.Collections.Array<Node3D> extraPivots;
     [Export] Godot.Collections.Array<float> extraRatios;
+	[Export] AudioStreamPlayer3D aud;
+	[Export] AudioStream clickSFX;
 
     [Export] float speedLossPerSec = .25f;
 	float speed = 0;
+	float currentSubangle = 0;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -45,8 +48,13 @@ public partial class HamsterWheel : AreaInteractable
 		foreach(Node3D p in extraPivots)
 		{
 			p.Rotation = new Vector3(newRot * extraRatios[i], pivot.Rotation.Y, pivot.Rotation.Z);
-
             i++;
 		}
+		if(Mathf.Floor(pivot.RotationDegrees.X/45f) != currentSubangle)
+		{
+			currentSubangle = Mathf.Floor(pivot.RotationDegrees.X / 45f);
+			aud.Stream = clickSFX;
+			aud.Play();
+        }
     }
 }

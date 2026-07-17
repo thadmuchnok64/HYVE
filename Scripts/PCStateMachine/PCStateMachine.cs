@@ -16,6 +16,7 @@ public partial class PCStateMachine : Entity
 	[Export] float maxStamina;
 	[Export] RayCast3D interactionRay;
 	[Export] Area3D lockOnArea;
+	[Export] Camera3D camRef;
 
 	[Export] PCState startingState;
 	[Export] public AudioStreamPlayer3D aud;
@@ -30,7 +31,7 @@ public partial class PCStateMachine : Entity
 	public float stamina;
 	float staminaTimer = 0;
 	float postureTimer = 0;
-	Node3D trackingObject;
+	public Node3D trackingObject;
 	public bool tracking = false;
 
 
@@ -96,6 +97,8 @@ public partial class PCStateMachine : Entity
 
 	public void ChangeState(PCState state)
 	{
+		if (state == null)
+			return;
 		if (currentState != null)
 		{
 			currentState.Exit();
@@ -132,6 +135,10 @@ public partial class PCStateMachine : Entity
 		ManageStamina(delta,staminaRecoveryPerSec);
 		ManagePosture(delta,postureRecoveryPerSec);
 		CamControl(delta);
+		if (tracking)
+		{
+			HUDManager.instance.SnapTrackerToPoint(trackingObject.GetNode<Enemy>("Enemy").trackingPoint.GlobalPosition, camRef);
+		}
 		var newState = currentState.Process(delta);
 		if (newState != null)
 		{
@@ -151,21 +158,21 @@ public partial class PCStateMachine : Entity
 
 	public bool CanInteract()
 	{
-        if (interactionRay.IsColliding())
-        {
-            if (interactionRay.GetCollider() is GizmoTrigger)
-            {
+		if (interactionRay.IsColliding())
+		{
+			if (interactionRay.GetCollider() is GizmoTrigger)
+			{
 				return true;
-            }
-        }
+			}
+		}
 		return false;
-    }
+	}
 
 	public void RotateMesh(Vector3 newRot) // global space
 	{
 		meshRoot.GlobalRotation = newRot;
-        meshRoot.Rotation = new Vector3(0, meshRoot.Rotation.Y, 0);
-    }
+		meshRoot.Rotation = new Vector3(0, meshRoot.Rotation.Y, 0);
+	}
 
 	public InteractableObject TryInteraction()
 	{
@@ -180,7 +187,7 @@ public partial class PCStateMachine : Entity
 	public void ForceUninteract()
 	{
 		ChangeState(currentState.BreakInteractEvent());
-    }
+	}
 
 	public void EnableWeapon()
 	{
@@ -212,12 +219,14 @@ public partial class PCStateMachine : Entity
 		if (tracking)
 		{
 			tracking = false;
+			HUDManager.instance.ShowTracker(tracking);
 			return null;
 		}
 		var potentialBodies = lockOnArea.GetOverlappingBodies();
 		if (potentialBodies.Count <= 0)
 			return null;
 		tracking = true;
+		HUDManager.instance.ShowTracker(tracking);
 		trackingObject = potentialBodies.MinBy(b => lockOnArea.GlobalPosition.DistanceTo(b.GlobalPosition));
 		return trackingObject;
 	}

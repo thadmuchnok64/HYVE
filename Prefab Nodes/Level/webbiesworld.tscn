@@ -20,25 +20,25 @@ fog_depth_end = 50.0
 [node name="webbiesworld" unique_id=1219178865 instance=ExtResource("1_wy5dc")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Biology Exhibit" parent="." index="0" unique_id=993542699]
+[node name="Biology Exhibit" parent="." index="0" unique_id=1388957979]
 visible = false
 material_override = ExtResource("2_wy5dc")
 
-[node name="DNA Strand" parent="." index="1" unique_id=1652022597]
+[node name="DNA Strand" parent="." index="1" unique_id=231693703]
 visible = false
 
-[node name="Entrance" parent="." index="2" unique_id=1941120117]
+[node name="Entrance" parent="." index="2" unique_id=1727876722]
 material_override = ExtResource("2_wy5dc")
 
-[node name="Foyer" parent="." index="3" unique_id=755957598]
+[node name="Foyer" parent="." index="3" unique_id=258597294]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -0.0110349655, 1.9073486e-06, -0.015669823)
 visible = false
 material_override = ExtResource("2_wy5dc")
 
-[node name="Saturn" parent="." index="4" unique_id=1096866155]
+[node name="Saturn" parent="." index="4" unique_id=1450302877]
 visible = false
 
-[node name="Science Area" parent="." index="5" unique_id=827368814]
+[node name="Science Area" parent="." index="5" unique_id=1017214395]
 visible = false
 material_override = ExtResource("2_wy5dc")
 

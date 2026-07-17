@@ -24,8 +24,10 @@ public partial class PC_Walk : PCState
 
 	[Export] float dragForce;
 	[Export] float animLerpMod = 2;
+	[Export] string animWalkBlendMeta = "parameters/moving/WalkingBlend/blend_position";
 
-	bool crouching = false;
+
+    bool crouching = false;
 	// Called when the node enters the scene tree for the first time.
 	public override PCState ManageInput(InputEvent @event)
 	{
@@ -86,9 +88,17 @@ public partial class PC_Walk : PCState
 
 
 		var hVel = new Vector3(cb.Velocity.X, 0, cb.Velocity.Z);
-		if (hVel.Length() > .2f)
+		if (stateMachine.tracking)
 		{
-			meshRoot.LookAt(cb.Position - hVel.Normalized() * 5, Vector3.Up);
+            meshRoot.LookAt(stateMachine.trackingObject.GlobalPosition, Vector3.Up);
+            meshRoot.Rotation = new Vector3(0, meshRoot.Rotation.Y + MathF.PI, 0);
+			var vec = new Vector2(meshRoot.Basis.X.Dot(cb.Velocity), meshRoot.Basis.Z.Dot(cb.Velocity)).Normalized();
+			GD.Print(vec);
+			anim.Set(animWalkBlendMeta, vec);
+        } else if (hVel.Length() > .2f)
+		{
+            anim.Set(animWalkBlendMeta, new Vector2(0, 1));
+            meshRoot.LookAt(cb.Position - hVel.Normalized() * 5, Vector3.Up);
 			meshRoot.Rotation = new Vector3(0, meshRoot.Rotation.Y, 0);
 		}
 		anim.Set(animMeta, Mathf.Clamp(hVel.Length()/animLerpMod,0,1));

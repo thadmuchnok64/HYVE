@@ -17,6 +17,7 @@ public partial class Enemy : Entity
 	[Export] Godot.Collections.Array<AudioStream> sfx;
 
     [Export] Node3D bloodPoint;
+	[Export] public Node3D trackingPoint;
     protected EnemyState currentState;
 	// Called when the node enters the scene tree for the first time
 	// 

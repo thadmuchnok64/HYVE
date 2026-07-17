@@ -13,6 +13,10 @@ public partial class HUDManager : Control
 	[Export] TextureProgressBar healthBar;
 	[Export] TextureProgressBar posBar;
 
+	[Export] float trackerOffset = 32;
+
+	[Export] Control tracker;
+
 	Queue<string> pendingDialogues;
 	bool dialoguePending = false;
 
@@ -73,8 +77,22 @@ public partial class HUDManager : Control
         }
 		return true;
     }
-    #region Bars
-    public void SetStamina(float current, float max)
+	
+	public void SnapTrackerToPoint(Vector3 globalPos,Camera3D cam)
+	{
+		tracker.Position = cam.UnprojectPosition(globalPos)-(tracker.Size/2f) - new Vector2(0,trackerOffset);
+	}
+
+	public void ShowTracker(bool showing)
+	{
+		if (showing)
+			anim.Set("parameters/Main/LockOn/transition_request", "in");
+		else
+			anim.Set("parameters/Main/LockOn/transition_request", "out");
+	}
+
+            #region Bars
+            public void SetStamina(float current, float max)
 	{
 		staminaBar.MaxValue = max;
 		staminaBar.Value = current;
