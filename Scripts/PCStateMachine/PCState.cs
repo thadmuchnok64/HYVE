@@ -7,7 +7,7 @@ public partial class PCState : Node3D
 	Node3D camPoint;
 	Node3D camPivot;
 
-	[Export] float moveSpeed = 50;
+	[Export] protected float moveSpeed = 50;
 	[Export] protected string animMetaState;
 	[Export] protected string animMeta;
 	protected Node3D meshRoot;

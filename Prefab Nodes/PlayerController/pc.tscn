@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://uth3q2hrek3j" path="res://Prefab Nodes/rav.tscn" id="14_yt233"]
 [ext_resource type="Material" uid="uid://guitsb6ognur" path="res://Meshes/Characters/Ray/Ray.tres" id="15_5kor6"]
 [ext_resource type="PackedScene" uid="uid://durpl1p37mos3" path="res://Prefab Nodes/crowbar.tscn" id="16_ek053"]
-[ext_resource type="ArrayMesh" uid="uid://dkxcokobiqrim" path="res://Meshes/Characters/Ray/rav2.res" id="16_irxgg"]
+[ext_resource type="ArrayMesh" uid="uid://bam6bfk7h8m8m" path="res://Meshes/Characters/Ray/rav2.res" id="16_irxgg"]
 [ext_resource type="Material" uid="uid://bkgehhliamt20" path="res://Meshes/Weapons/Crowbar.tres" id="17_08yj3"]
 [ext_resource type="Script" uid="uid://qq3ol76jqs0q" path="res://Scripts/Weapons/MeleeWeapon.cs" id="18_4n3wl"]
 [ext_resource type="AudioStream" uid="uid://d3n7qkmrfgxb3" path="res://Sound/SFX/WeaponSFX/swoosh.wav" id="19_1xtsu"]
@@ -3420,12 +3420,26 @@ node_connections = [&"output", 0, &"Transition", &"Transition", 0, &"HighReset",
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_amm4f"]
 animation = &"RavBlockRecoil"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_irxgg"]
+animation = &"RavBlock"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pkmck"]
 animation = &"RavBlock"
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_irxgg"]
 filter_enabled = true
-filters = ["root/Skeleton3D:arm_stretch.l", "root/Skeleton3D:arm_stretch.r", "root/Skeleton3D:arm_twist.l", "root/Skeleton3D:arm_twist.r", "root/Skeleton3D:forearm_stretch.l", "root/Skeleton3D:forearm_stretch.r", "root/Skeleton3D:forearm_twist.l", "root/Skeleton3D:forearm_twist.r", "root/Skeleton3D:hand.l", "root/Skeleton3D:hand.r", "root/Skeleton3D:head.x", "root/Skeleton3D:neck.x", "root/Skeleton3D:pinky1.l", "root/Skeleton3D:pinky1.r", "root/Skeleton3D:pinky1_base.l", "root/Skeleton3D:pinky1_base.r", "root/Skeleton3D:pinky2.l", "root/Skeleton3D:pinky2.r", "root/Skeleton3D:pinky3.l", "root/Skeleton3D:pinky3.r", "root/Skeleton3D:ring1.l", "root/Skeleton3D:ring1.r", "root/Skeleton3D:ring1_base.r", "root/Skeleton3D:ring2.l", "root/Skeleton3D:ring2.r", "root/Skeleton3D:ring3.l", "root/Skeleton3D:ring3.r", "root/Skeleton3D:shoulder.l", "root/Skeleton3D:shoulder.r", "root/Skeleton3D:spine_02.x", "root/Skeleton3D:spine_03.x", "root/Skeleton3D:thumb1.l", "root/Skeleton3D:thumb1.r", "root/Skeleton3D:thumb2.l", "root/Skeleton3D:thumb2.r", "root/Skeleton3D:thumb3.l", "root/Skeleton3D:thumb3.r"]
+filters = ["root/Skeleton3D:arm_stretch.l", "root/Skeleton3D:arm_stretch.r", "root/Skeleton3D:arm_twist.l", "root/Skeleton3D:arm_twist.r", "root/Skeleton3D:forearm_stretch.l", "root/Skeleton3D:forearm_stretch.r", "root/Skeleton3D:forearm_twist.l", "root/Skeleton3D:forearm_twist.r", "root/Skeleton3D:hand.l", "root/Skeleton3D:hand.r", "root/Skeleton3D:pinky1.l", "root/Skeleton3D:pinky1.r", "root/Skeleton3D:pinky1_base.l", "root/Skeleton3D:pinky1_base.r", "root/Skeleton3D:pinky2.l", "root/Skeleton3D:pinky2.r", "root/Skeleton3D:pinky3.l", "root/Skeleton3D:pinky3.r", "root/Skeleton3D:ring1.l", "root/Skeleton3D:ring1.r", "root/Skeleton3D:ring1_base.r", "root/Skeleton3D:ring2.l", "root/Skeleton3D:ring2.r", "root/Skeleton3D:ring3.l", "root/Skeleton3D:ring3.r", "root/Skeleton3D:shoulder.l", "root/Skeleton3D:shoulder.r", "root/Skeleton3D:spine_02.x", "root/Skeleton3D:spine_03.x", "root/Skeleton3D:thumb1.l", "root/Skeleton3D:thumb1.r", "root/Skeleton3D:thumb2.l", "root/Skeleton3D:thumb2.r", "root/Skeleton3D:thumb3.l", "root/Skeleton3D:thumb3.r"]
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_wy6od"]
+xfade_time = 0.3
+input_0/name = "walking"
+input_0/auto_advance = false
+input_0/break_loop_at_end = false
+input_0/reset = true
+input_1/name = "still"
+input_1/auto_advance = false
+input_1/break_loop_at_end = false
+input_1/reset = true
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wy6od"]
 animation = &"root|WalkHold"
@@ -3439,9 +3453,6 @@ animation = &"StrafeLeft"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xla81"]
 animation = &"StrafeRight"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lrxcn"]
-animation = &"RavBlock"
-
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_tac2n"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_wy6od")
 blend_point_0/pos = Vector2(0, 1)
@@ -3451,26 +3462,32 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_ekrd7")
 blend_point_2/pos = Vector2(-1, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_xla81")
 blend_point_3/pos = Vector2(1, 0)
-blend_point_4/node = SubResource("AnimationNodeAnimation_lrxcn")
-blend_point_4/pos = Vector2(0, 0)
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_irxgg"]
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_ujwx6"]
 fadein_time = 0.1
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_mi4ly"]
-graph_offset = Vector2(-839.5615, -81.1528)
-nodes/output/position = Vector2(386.66666, 266.66666)
+graph_offset = Vector2(-1052.2913, 71.707306)
+nodes/output/position = Vector2(360, 240)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_pkmck")
-nodes/Animation/position = Vector2(-440, 240)
+nodes/Animation/position = Vector2(-560, 280)
 nodes/recoil/node = SubResource("AnimationNodeOneShot_ujwx6")
-nodes/recoil/position = Vector2(186.66667, 240)
+nodes/recoil/position = Vector2(180, 240)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_amm4f")
 "nodes/Animation 2/position" = Vector2(-200, 466.66666)
 nodes/WalkBlend/node = SubResource("AnimationNodeBlendSpace2D_tac2n")
-nodes/WalkBlend/position = Vector2(-453.33334, -13.333333)
+nodes/WalkBlend/position = Vector2(-920, -140)
 nodes/Blend2/node = SubResource("AnimationNodeBlend2_irxgg")
 nodes/Blend2/position = Vector2(-133.33333, 13.333333)
-node_connections = [&"output", 0, &"recoil", &"recoil", 0, &"Blend2", &"recoil", 1, &"Animation 2", &"Blend2", 0, &"WalkBlend", &"Blend2", 1, &"Animation"]
+nodes/WalkSpeed/node = SubResource("AnimationNodeTimeScale_irxgg")
+nodes/WalkSpeed/position = Vector2(-640, -180)
+nodes/IsWalking/node = SubResource("AnimationNodeTransition_wy6od")
+nodes/IsWalking/position = Vector2(-440, -40)
+"nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_irxgg")
+"nodes/Animation 3/position" = Vector2(-760, 120)
+node_connections = [&"output", 0, &"recoil", &"recoil", 0, &"Blend2", &"recoil", 1, &"Animation 2", &"Blend2", 0, &"IsWalking", &"Blend2", 1, &"Animation", &"WalkSpeed", 0, &"WalkBlend", &"IsWalking", 0, &"WalkSpeed", &"IsWalking", 1, &"Animation 3"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7tye7"]
 animation = &"Crouch"
@@ -3779,7 +3796,7 @@ states/Start/position = Vector2(190, 205)
 states/attack/node = SubResource("AnimationNodeBlendTree_jvevb")
 states/attack/position = Vector2(466, 334)
 states/block/node = SubResource("AnimationNodeBlendTree_mi4ly")
-states/block/position = Vector2(951.7078, 54.185184)
+states/block/position = Vector2(951.7078, 54.333332)
 states/idle/node = SubResource("AnimationNodeBlendTree_8legv")
 states/idle/position = Vector2(318, 212.33333)
 states/interact/node = SubResource("AnimationNodeBlendTree_2ei22")
@@ -3789,7 +3806,7 @@ states/moving/position = Vector2(458, 54.333332)
 states/recoil/node = SubResource("AnimationNodeBlendTree_u2y3q")
 states/recoil/position = Vector2(865.47186, 204.92593)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_0d6os"), "idle", "moving", SubResource("AnimationNodeStateMachineTransition_8a44h"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_ap8ag"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_kq7tj"), "moving", "idle", SubResource("AnimationNodeStateMachineTransition_adnnf"), "moving", "attack", SubResource("AnimationNodeStateMachineTransition_1drrj"), "attack", "moving", SubResource("AnimationNodeStateMachineTransition_0hq4f"), "moving", "recoil", SubResource("AnimationNodeStateMachineTransition_tp8mu"), "idle", "recoil", SubResource("AnimationNodeStateMachineTransition_j7cva"), "attack", "recoil", SubResource("AnimationNodeStateMachineTransition_kjdm0"), "recoil", "moving", SubResource("AnimationNodeStateMachineTransition_u2y3q"), "idle", "block", SubResource("AnimationNodeStateMachineTransition_pkmck"), "moving", "block", SubResource("AnimationNodeStateMachineTransition_ad84j"), "block", "idle", SubResource("AnimationNodeStateMachineTransition_mi4ly"), "block", "moving", SubResource("AnimationNodeStateMachineTransition_amm4f"), "idle", "interact", SubResource("AnimationNodeStateMachineTransition_kkr4s"), "moving", "interact", SubResource("AnimationNodeStateMachineTransition_pltrg"), "interact", "idle", SubResource("AnimationNodeStateMachineTransition_1c0as"), "interact", "moving", SubResource("AnimationNodeStateMachineTransition_6176l")]
-graph_offset = Vector2(429, -84)
+graph_offset = Vector2(67, -75)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8a44h"]
 size = Vector3(0.46191698, 0.30578613, 0.9511719)
@@ -3941,6 +3958,7 @@ script = ExtResource("11_6koxg")
 walkState = NodePath("../WalkState")
 idleState = NodePath("../IdleState")
 recoilState = NodePath("../BlockRecoilState")
+dragForce = 5.0
 animWalkBlendMeta = "parameters/block/WalkBlend/blend_position"
 stateMachine = NodePath("..")
 moveSpeed = 1.0
@@ -3971,7 +3989,7 @@ spot_range = 37.232
 [node name="Rav" parent="." unique_id=848185395 instance=ExtResource("14_yt233")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
-[node name="Skeleton3D" parent="Rav/root" parent_id_path=PackedInt32Array(848185395, 761719391) index="0" unique_id=852646260]
+[node name="Skeleton3D" parent="Rav/root" parent_id_path=PackedInt32Array(848185395, 1226475156) index="0" unique_id=1729765928]
 bones/0/position = Vector3(0.020629296, -0.008469028, 0.73845667)
 bones/0/rotation = Quaternion(0.8946004, 0.02505385, -0.027084084, 0.44534138)
 bones/1/position = Vector3(0.008911796, 0.13477111, -0.00065855565)
@@ -4127,7 +4145,7 @@ bones/51/position = Vector3(2.4376092e-08, 0.1759435, 2.1752204e-08)
 bones/51/rotation = Quaternion(-1.1951431e-07, 0.0472383, 1.6135665e-07, 0.99888366)
 bones/51/scale = Vector3(1, 1.0000001, 1.0000001)
 
-[node name="Rav" parent="Rav/root/Skeleton3D" index="0" unique_id=517832236]
+[node name="Rav" parent="Rav/root/Skeleton3D" index="0" unique_id=1793808885]
 layers = 2
 mesh = ExtResource("16_irxgg")
 surface_material_override/0 = ExtResource("15_5kor6")
@@ -4139,7 +4157,7 @@ bone_idx = 11
 
 [node name="Crowbar" parent="Rav/root/Skeleton3D/BoneAttachment3D" unique_id=314797480 instance=ExtResource("16_ek053")]
 
-[node name="Crowbar" parent="Rav/root/Skeleton3D/BoneAttachment3D/Crowbar" index="0" unique_id=733699822 node_paths=PackedStringArray("aud")]
+[node name="Crowbar" parent="Rav/root/Skeleton3D/BoneAttachment3D/Crowbar" index="0" unique_id=296029345 node_paths=PackedStringArray("aud")]
 transform = Transform3D(52.772285, -54.95557, 64.7686, -46.52418, 45.0955, 76.17017, -71.06749, -70.32979, -1.7696872, -0.044602305, 0.036626656, -0.05592452)
 material_override = ExtResource("17_08yj3")
 script = ExtResource("18_4n3wl")
@@ -4152,7 +4170,7 @@ aud = NodePath("AudioStreamPlayer3D")
 unit_size = 5.0
 bus = &"SFX"
 
-[node name="AnimationPlayer" parent="Rav" index="1" unique_id=754642221]
+[node name="AnimationPlayer" parent="Rav" index="1" unique_id=1225193023]
 libraries/ = SubResource("AnimationLibrary_4l45e")
 
 [node name="AnimationTree2" type="AnimationTree" parent="Rav" unique_id=620349236]
@@ -4181,8 +4199,12 @@ parameters/attack/High2Reset/request = 0
 parameters/block/recoil/active = false
 parameters/block/recoil/internal_active = false
 parameters/block/recoil/request = 0
-parameters/block/WalkBlend/blend_position = Vector2(0, 0)
+parameters/block/WalkBlend/blend_position = Vector2(0, 1)
 parameters/block/Blend2/blend_amount = 1.0
+parameters/block/WalkSpeed/scale = 1.0
+parameters/block/IsWalking/current_state = "still"
+parameters/block/IsWalking/transition_request = ""
+parameters/block/IsWalking/current_index = 1
 parameters/idle/Transition/current_state = "stand"
 parameters/idle/Transition/transition_request = ""
 parameters/idle/Transition/current_index = 0
