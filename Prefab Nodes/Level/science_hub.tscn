@@ -9,7 +9,7 @@
 [ext_resource type="ArrayMesh" uid="uid://buxi0weu60hqh" path="res://Meshes/Levels/ScienceHub/BigHamsterWheel.tres" id="6_qrf1v"]
 [ext_resource type="ArrayMesh" uid="uid://dwqtx2ib1qi28" path="res://Meshes/Levels/ScienceHub/Cogwheel.tres" id="7_03jnw"]
 [ext_resource type="AudioStream" uid="uid://bmepdsdcgemkb" path="res://Sound/SFX/GizmoSFX/GearTurn.wav" id="7_hpfbv"]
-[ext_resource type="AudioStream" uid="uid://dthj24b346nnt" path="res://Sound/Ambeince/ScienceZone.wav" id="10_7y3m2"]
+[ext_resource type="AudioStream" uid="uid://vk3u7i48blsd" path="res://Sound/Ambeince/ScienceZone.wav" id="10_7y3m2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yticp"]
 size = Vector3(6.39917, 0.26745605, 1.6421204)
@@ -40,80 +40,80 @@ data = PackedVector3Array(-0.0121, 0.1192, 0.00059999997, -0.0121, 0.111899994, 
 [node name="ScienceHub" parent="." unique_id=1790514566 instance=ExtResource("3_vn5ho")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.935, 1.004, -0.788)
 
-[node name="BigHamsterWheel" parent="ScienceHub" index="1" unique_id=72489073]
+[node name="BigHamsterWheel" parent="ScienceHub" index="1" unique_id=27275174]
 transform = Transform3D(0, -100, -2.9802322e-06, -2.9802322e-06, 0, 100, -100, 2.9802322e-06, 0, 4.1813984, -2.1504395, -25.193064)
 
-[node name="Chair" parent="ScienceHub" index="2" unique_id=663298334]
+[node name="Chair" parent="ScienceHub" index="2" unique_id=1841860579]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 6.7662296, 0.11197558, -14.616526)
 
-[node name="Cogwheel" parent="ScienceHub" index="3" unique_id=2121093741]
+[node name="Cogwheel" parent="ScienceHub" index="3" unique_id=1070421913]
 transform = Transform3D(-1.1920928e-05, -100, -1.490116e-05, 55.174526, -2.3841858e-05, 83.40127, -83.40127, 2.9802322e-06, 55.17452, 3.344401, -2.8520162, -29.002302)
 
-[node name="Cube_002" parent="ScienceHub" index="4" unique_id=609987620]
+[node name="Cube_002" parent="ScienceHub" index="4" unique_id=1253205859]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 16.510895, 3.2212558, -26.69569)
 material_override = ExtResource("2_2o6r7")
 
-[node name="CyberZoneEntrance" parent="ScienceHub" index="6" unique_id=1830713330]
+[node name="CyberZoneEntrance" parent="ScienceHub" index="6" unique_id=113339172]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 17.729939, 0.098361365, -25.486177)
 material_override = ExtResource("2_2o6r7")
 
-[node name="DNA Strand" parent="ScienceHub" index="7" unique_id=1555680058]
+[node name="DNA Strand" parent="ScienceHub" index="7" unique_id=1406853165]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 3.9787974, 4.19646, -4.848666)
 material_override = ExtResource("6_03jnw")
 
-[node name="DNA Strand_001" parent="ScienceHub" index="8" unique_id=1855091525]
+[node name="DNA Strand_001" parent="ScienceHub" index="8" unique_id=417051936]
 visible = false
 
-[node name="InfirmaryEntrance" parent="ScienceHub" index="9" unique_id=68917916]
+[node name="InfirmaryEntrance" parent="ScienceHub" index="9" unique_id=1278242134]
 transform = Transform3D(1.1920929e-05, -100, -1.4901161e-05, -2.9802322e-06, -1.1920929e-05, 99.99999, -100, -5.9604645e-06, 0, 11.015193, 0.037781954, -14.081584)
 
-[node name="Plug" parent="ScienceHub" index="10" unique_id=2059662880]
+[node name="Plug" parent="ScienceHub" index="10" unique_id=72641144]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 15.943298, 0.5631863, -22.318089)
 
-[node name="Plug_001" parent="ScienceHub" index="11" unique_id=921002429]
+[node name="Plug_001" parent="ScienceHub" index="11" unique_id=909762163]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 15.943298, 0.5631863, -22.318089)
 
-[node name="PulleyBridge" parent="ScienceHub" index="12" unique_id=466920274]
+[node name="PulleyBridge" parent="ScienceHub" index="12" unique_id=2011855125]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 4.8690276, -0.29113248, -32.92614)
 
-[node name="Science Area" parent="ScienceHub" index="14" unique_id=1877692477]
+[node name="Science Area" parent="ScienceHub" index="14" unique_id=642000070]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0.0041770935, -4.7683716e-07, -0.0048713684)
 material_override = ExtResource("2_pneyf")
 
-[node name="ScienceBathrooms" parent="ScienceHub" index="16" unique_id=251626136]
+[node name="ScienceBathrooms" parent="ScienceHub" index="16" unique_id=1796151616]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0.005, 0.009, -0.003)
 
-[node name="ScienceCatwalk" parent="ScienceHub" index="17" unique_id=1241995687]
+[node name="ScienceCatwalk" parent="ScienceHub" index="17" unique_id=1704607809]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 16.480476, 4.2271795, -23.506407)
 
-[node name="ScienceCatwalkDoor" parent="ScienceHub" index="18" unique_id=1739524888]
+[node name="ScienceCatwalkDoor" parent="ScienceHub" index="18" unique_id=1937451166]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 15.332886, 4.2859354, -23.047287)
 
-[node name="ScienceCatwalkGlass" parent="ScienceHub" index="20" unique_id=1400645432]
+[node name="ScienceCatwalkGlass" parent="ScienceHub" index="20" unique_id=153462076]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 15.330103, 5.264991, -29.513788)
 
-[node name="ScienceCatwalkGlassFrame" parent="ScienceHub" index="21" unique_id=607390121]
+[node name="ScienceCatwalkGlassFrame" parent="ScienceHub" index="21" unique_id=1359028312]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 15.331526, 5.264991, -29.513788)
 
-[node name="SpaceZoneEntrance" parent="ScienceHub" index="23" unique_id=1506594522]
+[node name="SpaceZoneEntrance" parent="ScienceHub" index="23" unique_id=246143502]
 transform = Transform3D(70.710686, -70.710686, -5.9604645e-06, 0, -1.192093e-05, 100.000015, -70.710686, -70.710686, -1.1920929e-05, 17.764097, 2.3810833, -35.639862)
 material_override = ExtResource("2_2o6r7")
 
-[node name="SpaceZoneEntrance_001" parent="ScienceHub" index="24" unique_id=1244333549]
+[node name="SpaceZoneEntrance_001" parent="ScienceHub" index="24" unique_id=76191889]
 transform = Transform3D(70.710686, -70.710686, -5.9604645e-06, 0, -1.192093e-05, 100.000015, -70.710686, -70.710686, -1.1920929e-05, 17.764097, 2.3810833, -35.639862)
 material_override = ExtResource("2_2o6r7")
 
-[node name="SpaceZoneEntrance_002" parent="ScienceHub" index="25" unique_id=642167085]
+[node name="SpaceZoneEntrance_002" parent="ScienceHub" index="25" unique_id=1754085060]
 transform = Transform3D(70.710686, -70.710686, -5.9604645e-06, 0, -1.192093e-05, 100.000015, -70.710686, -70.710686, -1.1920929e-05, 17.764097, 2.3810833, -35.639862)
 material_override = ExtResource("2_2o6r7")
 
-[node name="Stairs" parent="ScienceHub" index="27" unique_id=1760040512]
+[node name="Stairs" parent="ScienceHub" index="27" unique_id=1571365349]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 10.64739, 0.031369597, -23.050362)
 
-[node name="Table" parent="ScienceHub" index="28" unique_id=233563155]
+[node name="Table" parent="ScienceHub" index="28" unique_id=1178348032]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 6.7599134, 0.11205116, -15.336862)
 
-[node name="Wall Outlet" parent="ScienceHub" index="29" unique_id=2071742065]
+[node name="Wall Outlet" parent="ScienceHub" index="29" unique_id=2102566016]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 15.943298, 0.5631863, -22.318089)
 
 [node name="Gizmos" type="Node3D" parent="." unique_id=1430527195]
