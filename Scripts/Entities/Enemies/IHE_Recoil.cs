@@ -5,7 +5,9 @@ public partial class IHE_Recoil : EnemyState
 {
 	[Export] float recoilTime = .3f;
 	[Export] EnemyState movingState;
-	float timer = 0;
+    [Export] EnemyState deadState;
+
+    float timer = 0;
 
 	public override EnemyState Enter(Enemy enemy)
 	{
@@ -28,6 +30,8 @@ public partial class IHE_Recoil : EnemyState
 
 	public override EnemyState HitEvent()
 	{
+		if (!enem.alive)
+			return deadState;
 		Enter(enem); // reset recoil
 		return base.HitEvent();
 

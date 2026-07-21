@@ -7,6 +7,7 @@ public partial class IHE_Attack: EnemyState
 	[Export] EnemyState idleState;
 	[Export] EnemyState recoilState;
 	[Export] EnemyState postureBreakState;
+	[Export] EnemyState deadState;
 
 	[Export] float cooldownBetweenAttack = -1f;
 	[Export] float attackOutTime = .5f;
@@ -41,6 +42,8 @@ public partial class IHE_Attack: EnemyState
 
 public override EnemyState HitEvent()
 {
+		if (!enem.alive)
+			return deadState;
 	if(enem.posture <= 0)
 	{
 		return postureBreakState;

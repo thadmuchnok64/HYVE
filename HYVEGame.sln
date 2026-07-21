@@ -1,6 +1,6 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HYVEGame", "HYVEGame.csproj", "{45362D5B-65D9-4067-861F-1D5202D42936}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HYVEGame", "HYVEGame.csproj", "{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,11 +9,11 @@ Global
 	ExportRelease|Any CPU = ExportRelease|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{45362D5B-65D9-4067-861F-1D5202D42936}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{45362D5B-65D9-4067-861F-1D5202D42936}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{45362D5B-65D9-4067-861F-1D5202D42936}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
-		{45362D5B-65D9-4067-861F-1D5202D42936}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
-		{45362D5B-65D9-4067-861F-1D5202D42936}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
-		{45362D5B-65D9-4067-861F-1D5202D42936}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+		{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
 	EndGlobalSection
 EndGlobal

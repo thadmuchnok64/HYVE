@@ -1,0 +1,14 @@
+Panel
+AspectRatioContainer
+BoneAttachment3D
+Marker3D
+TextureRect
+AudioStreamPlayer3D
+LightmapGI
+VoxelGI
+Node3D
+SubViewport
+AnimationPlayer
+SpotLight3D
+CollisionShape3D
+StaticBody3D

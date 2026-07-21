@@ -1,0 +1,477 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\Projects\\HYVE\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|f:\\projects\\hyve\\scripts\\entities\\enemies\\ihe_death.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|solutionrelative:scripts\\entities\\enemies\\ihe_death.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|f:\\projects\\hyve\\scripts\\entities\\enemies\\ihe_shamble.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|solutionrelative:scripts\\entities\\enemies\\ihe_shamble.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|f:\\projects\\hyve\\scripts\\entities\\enemies\\ihe_recoil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|solutionrelative:scripts\\entities\\enemies\\ihe_recoil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|f:\\projects\\hyve\\scripts\\entities\\enemies\\ihe_idle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|solutionrelative:scripts\\entities\\enemies\\ihe_idle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|f:\\projects\\hyve\\scripts\\entities\\enemies\\ihe_attack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|solutionrelative:scripts\\entities\\enemies\\ihe_attack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|f:\\projects\\hyve\\scripts\\entities\\enemies\\enemystate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|solutionrelative:scripts\\entities\\enemies\\enemystate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|f:\\projects\\hyve\\scripts\\entities\\enemies\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|solutionrelative:scripts\\entities\\enemies\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|f:\\projects\\hyve\\scripts\\entities\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|solutionrelative:scripts\\entities\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|f:\\projects\\hyve\\scripts\\entities\\enemies\\hazmat\\scrawny.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|solutionrelative:scripts\\entities\\enemies\\hazmat\\scrawny.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|f:\\projects\\hyve\\scripts\\pcstatemachine\\states\\pc_block.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|solutionrelative:scripts\\pcstatemachine\\states\\pc_block.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|f:\\projects\\hyve\\scripts\\pcstatemachine\\pcstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|solutionrelative:scripts\\pcstatemachine\\pcstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|f:\\projects\\hyve\\scripts\\pcstatemachine\\states\\pc_attack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|solutionrelative:scripts\\pcstatemachine\\states\\pc_attack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|f:\\projects\\hyve\\scripts\\pcstatemachine\\pcstatemachine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|solutionrelative:scripts\\pcstatemachine\\pcstatemachine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|f:\\projects\\hyve\\scripts\\managers\\inventorymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|solutionrelative:scripts\\managers\\inventorymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|f:\\projects\\hyve\\scripts\\helpers\\statichelpers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|solutionrelative:scripts\\helpers\\statichelpers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|f:\\projects\\hyve\\scripts\\gizmos\\hamsterwheel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|solutionrelative:scripts\\gizmos\\hamsterwheel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|f:\\projects\\hyve\\scripts\\pcstatemachine\\states\\pc_interact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|solutionrelative:scripts\\pcstatemachine\\states\\pc_interact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|f:\\projects\\hyve\\scripts\\gizmos\\door.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|solutionrelative:scripts\\gizmos\\door.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|f:\\projects\\hyve\\scripts\\gizmos\\gizmotrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|solutionrelative:scripts\\gizmos\\gizmotrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|f:\\projects\\hyve\\scripts\\gizmos\\interactableobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|solutionrelative:scripts\\gizmos\\interactableobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|f:\\projects\\hyve\\scripts\\ui\\hudmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|solutionrelative:scripts\\ui\\hudmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|f:\\projects\\hyve\\scripts\\pcstatemachine\\states\\pc_sprint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|solutionrelative:scripts\\pcstatemachine\\states\\pc_sprint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|f:\\projects\\hyve\\scripts\\effects\\bloodsplatter\\bloodsplatchunk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|solutionrelative:scripts\\effects\\bloodsplatter\\bloodsplatchunk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|f:\\projects\\hyve\\scripts\\effects\\bloodsplatter\\physicalparticlelauncher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|solutionrelative:scripts\\effects\\bloodsplatter\\physicalparticlelauncher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|f:\\projects\\hyve\\scripts\\weapons\\weapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|solutionrelative:scripts\\weapons\\weapon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|f:\\projects\\hyve\\scripts\\entities\\enemies\\ihe_posturebreak.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|solutionrelative:scripts\\entities\\enemies\\ihe_posturebreak.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|f:\\projects\\hyve\\scripts\\pcstatemachine\\states\\pc_walk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|solutionrelative:scripts\\pcstatemachine\\states\\pc_walk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|f:\\projects\\hyve\\scripts\\pcstatemachine\\states\\pc_idle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F5EAA3D-E0EF-4DE0-A709-B6F7C2F72389}|HYVEGame.csproj|solutionrelative:scripts\\pcstatemachine\\states\\pc_idle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 208,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "IHE_Death.cs",
+              "DocumentMoniker": "F:\\Projects\\HYVE\\Scripts\\Entities\\Enemies\\IHE_Death.cs",
+              "RelativeDocumentMoniker": "Scripts\\Entities\\Enemies\\IHE_Death.cs",
+              "ToolTip": "F:\\Projects\\HYVE\\Scripts\\Entities\\Enemies\\IHE_Death.cs",
+              "RelativeToolTip": "Scripts\\Entities\\Enemies\\IHE_Death.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-21T23:50:15.243Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "PC_Block.cs",
+              "DocumentMoniker": "F:\\Projects\\HYVE\\Scripts\\PCStateMachine\\States\\PC_Block.cs",
+              "RelativeDocumentMoniker": "Scripts\\PCStateMachine\\States\\PC_Block.cs",
+              "ToolTip": "F:\\Projects\\HYVE\\Scripts\\PCStateMachine\\States\\PC_Block.cs",
+              "RelativeToolTip": "Scripts\\PCStateMachine\\States\\PC_Block.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-17T22:02:08.349Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Scrawny.cs",
+              "DocumentMoniker": "F:\\Projects\\HYVE\\Scripts\\Entities\\Enemies\\Hazmat\\Scrawny.cs",
+              "RelativeDocumentMoniker": "Scripts\\Entities\\Enemies\\Hazmat\\Scrawny.cs",
+              "ToolTip": "F:\\Projects\\HYVE\\Scripts\\Entities\\Enemies\\Hazmat\\Scrawny.cs",
+              "RelativeToolTip": "Scripts\\Entities\\Enemies\\Hazmat\\Scrawny.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-17T04:52:05.66Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "InventoryManager.cs",
+              "DocumentMoniker": "F:\\Projects\\HYVE\\Scripts\\Managers\\InventoryManager.cs",
+              "RelativeDocumentMoniker": "Scripts\\Managers\\InventoryManager.cs",
+              "ToolTip": "F:\\Projects\\HYVE\\Scripts\\Managers\\InventoryManager.cs",
+              "RelativeToolTip": "Scripts\\Managers\\InventoryManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T20:04:03.859Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "StaticHelpers.cs",
+              "DocumentMoniker": "F:\\Projects\\HYVE\\Scripts\\Helpers\\StaticHelpers.cs",
+              "RelativeDocumentMoniker": "Scripts\\Helpers\\StaticHelpers.cs",
+              "ToolTip": "F:\\Projects\\HYVE\\Scripts\\Helpers\\StaticHelpers.cs",
+              "RelativeToolTip": "Scripts\\Helpers\\StaticHelpers.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAswEQAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T15:43:14.27Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "HamsterWheel.cs",
+              "DocumentMoniker": "F:\\Projects\\HYVE\\Scripts\\Gizmos\\HamsterWheel.cs",
+              "RelativeDocumentMoniker": "Scripts\\Gizmos\\HamsterWheel.cs",
+              "ToolTip": "F:\\Projects\\HYVE\\Scripts\\Gizmos\\HamsterWheel.cs",
+              "RelativeToolTip": "Scripts\\Gizmos\\HamsterWheel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T15:43:14.316Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "PC_Interact.cs",
+              "DocumentMoniker": "F:\\Projects\\HYVE\\Scripts\\PCStateMachine\\States\\PC_Interact.cs",
+              "RelativeDocumentMoniker": "Scripts\\PCStateMachine\\States\\PC_Interact.cs",
+              "ToolTip": "F:\\Projects\\HYVE\\Scripts\\PCStateMachine\\States\\PC_Interact.cs",
+              "RelativeToolTip": "Scripts\\PCStateMachine\\States\\PC_Interact.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAowDQAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T15:43:14.318Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Door.cs",
+              "DocumentMoniker": "F:\\Projects\\HYVE\\Scripts\\Gizmos\\Door.cs",
+              "RelativeDocumentMoniker": "Scripts\\Gizmos\\Door.cs",
+              "ToolTip": "F:\\Projects\\HYVE\\Scripts\\Gizmos\\Door.cs",
+              "RelativeToolTip": "Scripts\\Gizmos\\Door.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAqwB4AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T15:43:14.32Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "GizmoTrigger.cs",
+              "DocumentMoniker": "F:\\Projects\\HYVE\\Scripts\\Gizmos\\GizmoTrigger.cs",
+              "RelativeDocumentMoniker": "Scripts\\Gizmos\\GizmoTrigger.cs",
+              "ToolTip": "F:\\Projects\\HYVE\\Scripts\\Gizmos\\GizmoTrigger.cs",
+              "RelativeToolTip": "Scripts\\Gizmos\\GizmoTrigger.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T15:43:14.331Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "InteractableObject.cs",
+              "DocumentMoniker": "F:\\Projects\\HYVE\\Scripts\\Gizmos\\InteractableObject.cs",
+              "RelativeDocumentMoniker": "Scripts\\Gizmos\\InteractableObject.cs",
+              "ToolTip": "F:\\Projects\\HYVE\\Scripts\\Gizmos\\InteractableObject.cs",
+              "RelativeToolTip": "Scripts\\Gizmos\\InteractableObject.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T15:43:14.332Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IHE_Attack.cs",
+              "DocumentMoniker": "F:\\Projects\\HYVE\\Scripts\\Entities\\Enemies\\IHE_Attack.cs",
+              "RelativeDocumentMoniker": "Scripts\\Entities\\Enemies\\IHE_Attack.cs",
+              "ToolTip": "F:\\Projects\\HYVE\\Scripts\\Entities\\Enemies\\IHE_Attack.cs",
+              "RelativeToolTip": "Scripts\\Entities\\Enemies\\IHE_Attack.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwC0AAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T15:43:14.334Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "HUDManager.cs",
+              "DocumentMoniker": "F:\\Projects\\HYVE\\Scripts\\UI\\HUDManager.cs",
+              "RelativeDocumentMoniker": "Scripts\\UI\\HUDManager.cs",
+              "ToolTip": "F:\\Projects\\HYVE\\Scripts\\UI\\HUDManager.cs",
+              "RelativeToolTip": "Scripts\\UI\\HUDManager.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAgwFcAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T15:43:14.337Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "PC_Sprint.cs",
+              "DocumentMoniker": "F:\\Projects\\HYVE\\Scripts\\PCStateMachine\\States\\PC_Sprint.cs",
+              "RelativeDocumentMoniker": "Scripts\\PCStateMachine\\States\\PC_Sprint.cs",
+              "ToolTip": "F:\\Projects\\HYVE\\Scripts\\PCStateMachine\\States\\PC_Sprint.cs",
+              "RelativeToolTip": "Scripts\\PCStateMachine\\States\\PC_Sprint.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAQwBgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T15:43:14.338Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "BloodSplatChunk.cs",
+              "DocumentMoniker": "F:\\Projects\\HYVE\\Scripts\\Effects\\BloodSplatter\\BloodSplatChunk.cs",
+              "RelativeDocumentMoniker": "Scripts\\Effects\\BloodSplatter\\BloodSplatChunk.cs",
+              "ToolTip": "F:\\Projects\\HYVE\\Scripts\\Effects\\BloodSplatter\\BloodSplatChunk.cs",
+              "RelativeToolTip": "Scripts\\Effects\\BloodSplatter\\BloodSplatChunk.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T15:43:14.34Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "PhysicalParticleLauncher.cs",
+              "DocumentMoniker": "F:\\Projects\\HYVE\\Scripts\\Effects\\BloodSplatter\\PhysicalParticleLauncher.cs",
+              "RelativeDocumentMoniker": "Scripts\\Effects\\BloodSplatter\\PhysicalParticleLauncher.cs",
+              "ToolTip": "F:\\Projects\\HYVE\\Scripts\\Effects\\BloodSplatter\\PhysicalParticleLauncher.cs",
+              "RelativeToolTip": "Scripts\\Effects\\BloodSplatter\\PhysicalParticleLauncher.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T15:43:14.342Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EnemyState.cs",
+              "DocumentMoniker": "F:\\Projects\\HYVE\\Scripts\\Entities\\Enemies\\EnemyState.cs",
+              "RelativeDocumentMoniker": "Scripts\\Entities\\Enemies\\EnemyState.cs",
+              "ToolTip": "F:\\Projects\\HYVE\\Scripts\\Entities\\Enemies\\EnemyState.cs",
+              "RelativeToolTip": "Scripts\\Entities\\Enemies\\EnemyState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T15:43:14.344Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Weapon.cs",
+              "DocumentMoniker": "F:\\Projects\\HYVE\\Scripts\\Weapons\\Weapon.cs",
+              "RelativeDocumentMoniker": "Scripts\\Weapons\\Weapon.cs",
+              "ToolTip": "F:\\Projects\\HYVE\\Scripts\\Weapons\\Weapon.cs",
+              "RelativeToolTip": "Scripts\\Weapons\\Weapon.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T15:43:14.345Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "IHE_PostureBreak.cs",
+              "DocumentMoniker": "F:\\Projects\\HYVE\\Scripts\\Entities\\Enemies\\IHE_PostureBreak.cs",
+              "RelativeDocumentMoniker": "Scripts\\Entities\\Enemies\\IHE_PostureBreak.cs",
+              "ToolTip": "F:\\Projects\\HYVE\\Scripts\\Entities\\Enemies\\IHE_PostureBreak.cs",
+              "RelativeToolTip": "Scripts\\Entities\\Enemies\\IHE_PostureBreak.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T15:43:14.347Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IHE_Recoil.cs",
+              "DocumentMoniker": "F:\\Projects\\HYVE\\Scripts\\Entities\\Enemies\\IHE_Recoil.cs",
+              "RelativeDocumentMoniker": "Scripts\\Entities\\Enemies\\IHE_Recoil.cs",
+              "ToolTip": "F:\\Projects\\HYVE\\Scripts\\Entities\\Enemies\\IHE_Recoil.cs",
+              "RelativeToolTip": "Scripts\\Entities\\Enemies\\IHE_Recoil.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T15:43:14.349Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IHE_Shamble.cs",
+              "DocumentMoniker": "F:\\Projects\\HYVE\\Scripts\\Entities\\Enemies\\IHE_Shamble.cs",
+              "RelativeDocumentMoniker": "Scripts\\Entities\\Enemies\\IHE_Shamble.cs",
+              "ToolTip": "F:\\Projects\\HYVE\\Scripts\\Entities\\Enemies\\IHE_Shamble.cs",
+              "RelativeToolTip": "Scripts\\Entities\\Enemies\\IHE_Shamble.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAowDgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T15:43:14.35Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IHE_Idle.cs",
+              "DocumentMoniker": "F:\\Projects\\HYVE\\Scripts\\Entities\\Enemies\\IHE_Idle.cs",
+              "RelativeDocumentMoniker": "Scripts\\Entities\\Enemies\\IHE_Idle.cs",
+              "ToolTip": "F:\\Projects\\HYVE\\Scripts\\Entities\\Enemies\\IHE_Idle.cs",
+              "RelativeToolTip": "Scripts\\Entities\\Enemies\\IHE_Idle.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAA1wCYAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T15:43:14.352Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Entity.cs",
+              "DocumentMoniker": "F:\\Projects\\HYVE\\Scripts\\Entities\\Entity.cs",
+              "RelativeDocumentMoniker": "Scripts\\Entities\\Entity.cs",
+              "ToolTip": "F:\\Projects\\HYVE\\Scripts\\Entities\\Entity.cs",
+              "RelativeToolTip": "Scripts\\Entities\\Entity.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAjwBwAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T15:43:14.354Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Enemy.cs",
+              "DocumentMoniker": "F:\\Projects\\HYVE\\Scripts\\Entities\\Enemies\\Enemy.cs",
+              "RelativeDocumentMoniker": "Scripts\\Entities\\Enemies\\Enemy.cs",
+              "ToolTip": "F:\\Projects\\HYVE\\Scripts\\Entities\\Enemies\\Enemy.cs",
+              "RelativeToolTip": "Scripts\\Entities\\Enemies\\Enemy.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAD4v0kAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T15:43:14.355Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "PC_Attack.cs",
+              "DocumentMoniker": "F:\\Projects\\HYVE\\Scripts\\PCStateMachine\\States\\PC_Attack.cs",
+              "RelativeDocumentMoniker": "Scripts\\PCStateMachine\\States\\PC_Attack.cs",
+              "ToolTip": "F:\\Projects\\HYVE\\Scripts\\PCStateMachine\\States\\PC_Attack.cs",
+              "RelativeToolTip": "Scripts\\PCStateMachine\\States\\PC_Attack.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T15:43:14.357Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "PC_Walk.cs",
+              "DocumentMoniker": "F:\\Projects\\HYVE\\Scripts\\PCStateMachine\\States\\PC_Walk.cs",
+              "RelativeDocumentMoniker": "Scripts\\PCStateMachine\\States\\PC_Walk.cs",
+              "ToolTip": "F:\\Projects\\HYVE\\Scripts\\PCStateMachine\\States\\PC_Walk.cs",
+              "RelativeToolTip": "Scripts\\PCStateMachine\\States\\PC_Walk.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAgwFwAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T15:43:14.359Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "PCState.cs",
+              "DocumentMoniker": "F:\\Projects\\HYVE\\Scripts\\PCStateMachine\\PCState.cs",
+              "RelativeDocumentMoniker": "Scripts\\PCStateMachine\\PCState.cs",
+              "ToolTip": "F:\\Projects\\HYVE\\Scripts\\PCStateMachine\\PCState.cs",
+              "RelativeToolTip": "Scripts\\PCStateMachine\\PCState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T15:43:14.36Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "PC_Idle.cs",
+              "DocumentMoniker": "F:\\Projects\\HYVE\\Scripts\\PCStateMachine\\States\\PC_Idle.cs",
+              "RelativeDocumentMoniker": "Scripts\\PCStateMachine\\States\\PC_Idle.cs",
+              "ToolTip": "F:\\Projects\\HYVE\\Scripts\\PCStateMachine\\States\\PC_Idle.cs",
+              "RelativeToolTip": "Scripts\\PCStateMachine\\States\\PC_Idle.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T15:43:14.362Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "PCStateMachine.cs",
+              "DocumentMoniker": "F:\\Projects\\HYVE\\Scripts\\PCStateMachine\\PCStateMachine.cs",
+              "RelativeDocumentMoniker": "Scripts\\PCStateMachine\\PCStateMachine.cs",
+              "ToolTip": "F:\\Projects\\HYVE\\Scripts\\PCStateMachine\\PCStateMachine.cs",
+              "RelativeToolTip": "Scripts\\PCStateMachine\\PCStateMachine.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-13T15:43:14.364Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -9,6 +9,7 @@ public partial class IHE_Death : EnemyState
 	public override EnemyState Enter(Enemy enemy)
 	{
 		base.Enter(enemy);
+		enem.anim.Set("parameters/dead/Transition/transition_request", animMeta);
 		//enem.nav.TargetPosition = enem.player.Position;
 		//enem.anim.Set($"parameters/{animMetaState}/fall/request",(int)AnimationNodeOneShot.OneShotRequest.Fire);
 

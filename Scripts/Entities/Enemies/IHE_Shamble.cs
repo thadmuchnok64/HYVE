@@ -9,7 +9,9 @@ public partial class IHE_Shamble : EnemyState
 	[Export] EnemyState recoilState;
 	[Export] EnemyState postureBreakState;
 	[Export] IHE_Attack attackState;
-	[Export] float optimalDistance = 2f;
+    [Export] EnemyState deadState;
+
+    [Export] float optimalDistance = 2f;
 	[Export] float maxTurnPerSec = 90f;
     public override EnemyState Enter(Enemy enemy)
 	{
@@ -21,8 +23,8 @@ public partial class IHE_Shamble : EnemyState
 	public override EnemyState PhysicsProcess(double delta)
 	{
 
-		float desiredAngle = enem.meshRoot.Basis.Z.SignedAngleTo((enem.nav.GetNextPathPosition() - enem.meshRoot.GlobalPosition).Normalized(), Vector3.Up);
-		float clampedAngle = Mathf.Clamp(desiredAngle, -(float)delta * maxTurnPerSec*Mathf.Pi, (float)delta * maxTurnPerSec * Mathf.Pi);
+        float desiredAngle = enem.meshRoot.Basis.Z.SignedAngleTo((GameMaster.Instance.GetPlayer().GlobalPosition.ReplaceY(0) - enem.meshRoot.GlobalPosition.ReplaceY(0)).Normalized(), Vector3.Up);
+        float clampedAngle = Mathf.Clamp(desiredAngle, -(float)delta * maxTurnPerSec*Mathf.Pi, (float)delta * maxTurnPerSec * Mathf.Pi);
 		enem.meshRoot.RotateY(clampedAngle);
 		enem.cb.Velocity = enem.meshRoot.Basis.Z* speed * speedMod;
         enem.cb.MoveAndSlide();
@@ -41,6 +43,10 @@ public partial class IHE_Shamble : EnemyState
 
     public override EnemyState HitEvent()
     {
+		if (!enem.alive)
+		{
+			return deadState;
+		}
         if (enem.posture <= 0)
         {
             return postureBreakState;

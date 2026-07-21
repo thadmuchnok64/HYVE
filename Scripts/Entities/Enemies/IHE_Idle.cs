@@ -8,7 +8,9 @@ public partial class IHE_Idle: EnemyState
 	[Export] EnemyState recoilState;
     [Export] EnemyState postureBreakState;
 	[Export] IHE_Attack attackState;
-	[Export] float distanceToFollow = 3f;
+    [Export] EnemyState deadState;
+
+    [Export] float distanceToFollow = 3f;
 	[Export] float maxTurnPerSec = 1f;
 
 
@@ -32,6 +34,10 @@ public partial class IHE_Idle: EnemyState
 
 	public override EnemyState HitEvent()
 	{
+		if (!enem.alive)
+		{
+			return deadState;
+		}
 		if(enem.posture <= 0)
 		{
 			return postureBreakState;
@@ -44,9 +50,10 @@ public partial class IHE_Idle: EnemyState
 
 	public override EnemyState PhysicsProcess(double delta)
 	{
-		float desiredAngle = enem.meshRoot.Basis.Z.SignedAngleTo((GameMaster.Instance.GetPlayer().GlobalPosition - enem.meshRoot.GlobalPosition).Normalized(), Vector3.Up);
+		float desiredAngle = enem.meshRoot.Basis.Z.SignedAngleTo((GameMaster.Instance.GetPlayer().GlobalPosition.ReplaceY(0) - enem.meshRoot.GlobalPosition.ReplaceY(0)).Normalized(), Vector3.Up);
 		float clampedAngle = Mathf.Clamp(desiredAngle, -(float)delta * maxTurnPerSec * Mathf.Pi, (float)delta * maxTurnPerSec * Mathf.Pi);
-		enem.meshRoot.RotateY(clampedAngle);
+        if (clampedAngle > .05)
+            enem.meshRoot.RotateY(clampedAngle);
 		return base.PhysicsProcess(delta);
 
 	}
