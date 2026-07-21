@@ -53,8 +53,11 @@ public partial class IHE_Idle: EnemyState
 
 	public override EnemyState Process(double delta)
 	{
-		if (attackState.IsAttackValid())
-			return attackState;
+		if (attackState != null)
+		{
+			if (attackState.IsAttackValid())
+				return attackState;
+		}
 		if (enem.GlobalPosition.DistanceTo(GameMaster.Instance.GetPlayer().GlobalPosition) >= distanceToFollow)
 		{
 			return seekingState;

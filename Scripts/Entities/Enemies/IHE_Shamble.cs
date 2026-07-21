@@ -4,6 +4,7 @@ using System;
 public partial class IHE_Shamble : EnemyState
 {
 	[Export] float speed;
+	[Export] float speedMod = 1;
 	[Export] EnemyState idleState;
 	[Export] EnemyState recoilState;
 	[Export] EnemyState postureBreakState;
@@ -23,7 +24,7 @@ public partial class IHE_Shamble : EnemyState
 		float desiredAngle = enem.meshRoot.Basis.Z.SignedAngleTo((enem.nav.GetNextPathPosition() - enem.meshRoot.GlobalPosition).Normalized(), Vector3.Up);
 		float clampedAngle = Mathf.Clamp(desiredAngle, -(float)delta * maxTurnPerSec*Mathf.Pi, (float)delta * maxTurnPerSec * Mathf.Pi);
 		enem.meshRoot.RotateY(clampedAngle);
-		enem.cb.Velocity = enem.meshRoot.Basis.Z* speed;
+		enem.cb.Velocity = enem.meshRoot.Basis.Z* speed * speedMod;
         enem.cb.MoveAndSlide();
 
 
@@ -52,8 +53,11 @@ public partial class IHE_Shamble : EnemyState
 
     public override EnemyState Process(double delta)
     {
-		if (attackState.IsAttackValid())
-			return attackState;
+		if (attackState != null)
+		{
+			if (attackState.IsAttackValid())
+				return attackState;
+		}
 		if (enem.nav.TargetPosition.DistanceTo(GameMaster.Instance.GetPlayer().GlobalPosition) > optimalDistance)
 		{
             enem.nav.TargetPosition = GameMaster.Instance.GetPlayer().Position;
