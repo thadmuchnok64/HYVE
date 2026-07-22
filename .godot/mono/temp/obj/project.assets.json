@@ -88,19 +88,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\thadm\\.nuget\\packages\\": {}
+    "C:\\Users\\Thad\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Projects\\HYVE\\HYVEGame.csproj",
+      "projectUniqueName": "C:\\USERS\\THAD\\DOCUMENTS\\HYVE-GAME\\HYVEGame.csproj",
       "projectName": "HYVEGame",
-      "projectPath": "F:\\Projects\\HYVE\\HYVEGame.csproj",
-      "packagesPath": "C:\\Users\\thadm\\.nuget\\packages\\",
-      "outputPath": "F:\\Projects\\HYVE\\.godot\\mono\\temp\\obj\\",
+      "projectPath": "C:\\USERS\\THAD\\DOCUMENTS\\HYVE-GAME\\HYVEGame.csproj",
+      "packagesPath": "C:\\Users\\Thad\\.nuget\\packages\\",
+      "outputPath": "C:\\USERS\\THAD\\DOCUMENTS\\HYVE-GAME\\.godot\\mono\\temp\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\thadm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Thad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -126,7 +131,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "10.0.200"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net8.0": {
@@ -164,7 +169,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.312/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

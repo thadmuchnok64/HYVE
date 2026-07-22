@@ -4,13 +4,17 @@ using System;
 public partial class PhysicalParticleLauncher : Node3D
 {
 	[Export] float force;
+	[Export] float randomSpread = MathF.PI;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 
 		foreach(RigidBody3D rb in GetChildren())
 		{
-			rb.LinearVelocity = StaticHelpers.RandomVector() * force;
+			Vector3 direction = Basis.Z;
+			Random rand = new Random();
+			rb.LinearVelocity = rb.Basis.Z.AddSpreadToDirection(randomSpread) * force;
+
 			//rb.ApplyCentralForce(
 		}
 	}

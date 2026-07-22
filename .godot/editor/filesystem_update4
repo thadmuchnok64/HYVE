@@ -1,18 +1,7 @@
-res://default_bus_layout.tres
-res://Prefab Nodes/Enemies/scrawny_grunt.tscn
-res://Materials/Shaders/BaseSceneShader.tres
-res://Meshes/Levels/Foyer/LeftCultureDoorFoyer.tres
-res://Meshes/Levels/Foyer/RightCultureDoorFoyer.tres
-res://Meshes/Levels/ScienceHub/BigHamsterWheel.tres
-res://Meshes/Levels/ScienceHub/Cogwheel.tres
-res://Meshes/Levels/ScienceHub/SmallCogWheel.tres
-res://Meshes/Characters/Enemies/Scrawny/Scrawny.tres
-res://Meshes/Characters/Enemies/Scrawny/ScrawnyHeadless.tres
-res://Scripts/Entities/Enemies/EnemyState.cs
-res://Scripts/Entities/Enemies/IHE_Attack.cs
-res://Scripts/Entities/Enemies/IHE_Idle.cs
-res://Scripts/Entities/Enemies/IHE_Recoil.cs
-res://Scripts/Entities/Enemies/IHE_Shamble.cs
+res://Meshes/Characters/Enemies/Scrawny/Death2.anim
+res://Meshes/Characters/Enemies/Scrawny/SmashHeadStanding.anim
+res://Scripts/Entities/Enemies/Enemy.cs
+res://Scripts/Entities/Enemies/Hazmat/Scrawny.cs
 res://Scripts/Managers/SoundManager.cs
 res://Scripts/Managers/GameMaster.cs
 res://Scripts/Entities/Enemies/Hazmat/TorsoCrawler.cs
@@ -35,10 +24,13 @@ res://Scripts/PCStateMachine/PCStateMachine.cs
 res://Scripts/Effects/BloodSplatter/BloodSplatChunk.cs
 res://Scripts/Effects/BloodSplatter/PhysicalParticleLauncher.cs
 res://Scripts/Entities/Enemies/EnemyMeleeContact.cs
-res://Scripts/Entities/Enemies/Enemy.cs
-res://Scripts/Entities/Enemies/Hazmat/Scrawny.cs
+res://Scripts/Entities/Enemies/EnemyState.cs
+res://Scripts/Entities/Enemies/IHE_Attack.cs
 res://Scripts/Entities/Enemies/IHE_PostureBreak.cs
 res://Scripts/Entities/Enemies/IHE_Death.cs
+res://Scripts/Entities/Enemies/IHE_Recoil.cs
+res://Scripts/Entities/Enemies/IHE_Shamble.cs
+res://Scripts/Entities/Enemies/IHE_Idle.cs
 res://Scripts/Data/Collectibles/Collectable.cs
 res://Scripts/Gizmos/InteractableObject.cs
 res://Scripts/Gizmos/CollectablePickup.cs
@@ -46,4 +38,14 @@ res://Scripts/Gizmos/AreaInteractable.cs
 res://Scripts/Gizmos/HamsterWheel.cs
 res://Scripts/Gizmos/GizmoTrigger.cs
 res://Scripts/Gizmos/Door.cs
-res://Prefab Nodes/Level/maingame.tscn
+res://Prefab Nodes/Enemies/scrawny_grunt.tscn
+res://Materials/Shaders/BaseSceneShader.tres
+res://Meshes/Levels/Foyer/LeftCultureDoorFoyer.tres
+res://Meshes/Levels/Foyer/RightCultureDoorFoyer.tres
+res://Meshes/Levels/ScienceHub/BigHamsterWheel.tres
+res://Meshes/Levels/ScienceHub/Cogwheel.tres
+res://Meshes/Levels/ScienceHub/SmallCogWheel.tres
+res://Meshes/Characters/Enemies/Scrawny/Scrawny.tres
+res://Meshes/Characters/Enemies/Scrawny/ScrawnyHeadless.tres
+res://Prefab Nodes/Effects/blood_chunks_small.tscn
+res://Prefab Nodes/Effects/blood_chunks_Single_narrow.tscn

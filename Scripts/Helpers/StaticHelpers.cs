@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using static Godot.TextServer;
 
 public static class StaticHelpers
 {
@@ -50,7 +51,7 @@ public static class StaticHelpers
 		return list[rand.Next(list.Count)];
 	}
 
-	public static Vector3 RandomVector()
+	public static Vector3 RandomVector( )
 	{
 		Random rand = new Random();
 		var x = (float)(rand.NextDouble() - .5f);
@@ -59,6 +60,16 @@ public static class StaticHelpers
 		return new Vector3(x, y, z).Normalized();
 
     }
+
+	public static Vector3 AddSpreadToDirection(this Vector3 vec, float spreadRadians)
+	{
+		Random rand = new Random();
+		var direction = vec.Rotated(Vector3.Up, spreadRadians* (float)((rand.NextDouble() - .5f) * 2));
+		direction = direction.Rotated(Vector3.Right, spreadRadians* (float)((rand.NextDouble() - .5f) * 2));
+		direction = direction.Rotated(Vector3.Forward, spreadRadians* (float)((rand.NextDouble() - .5f) * 2));
+
+		return direction;
+	}
 
 	public static Vector3 ReplaceX(this Vector3 vec,float val)
 	{

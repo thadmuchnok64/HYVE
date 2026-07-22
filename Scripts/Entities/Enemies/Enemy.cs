@@ -12,11 +12,11 @@ public partial class Enemy : Entity
 	[Export] Area3D detectionSphere;
 	[Export] protected MeshInstance3D meshInstance;
 	[Export] Mesh headlessMesh;
-    [Export] PackedScene bloodSplat;
-    [Export] PackedScene bloodSplatSmall;
+    [Export] protected PackedScene bloodSplat;
+    [Export] protected PackedScene bloodSplatSmall;
 	[Export] Godot.Collections.Array<AudioStream> sfx;
 
-    [Export] Node3D bloodPoint;
+    [Export] protected Node3D bloodPoint;
 	[Export] public Node3D trackingPoint;
     protected EnemyState currentState;
 	// Called when the node enters the scene tree for the first time

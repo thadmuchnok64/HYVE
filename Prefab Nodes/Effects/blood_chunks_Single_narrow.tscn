@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://b78xs5awfq6e7"]
+
+[ext_resource type="Script" uid="uid://cwmc2cqj36b6r" path="res://Scripts/Effects/BloodSplatter/PhysicalParticleLauncher.cs" id="1_m07p4"]
+[ext_resource type="Script" uid="uid://tuhebbbw3okh" path="res://Scripts/Effects/BloodSplatter/BloodSplatChunk.cs" id="2_nnmme"]
+[ext_resource type="PackedScene" uid="uid://bnd2rkg4wcmwh" path="res://Prefab Nodes/Effects/blood_splat_small.tscn" id="3_1k4j1"]
+[ext_resource type="Material" uid="uid://b21mb6fxi1pr0" path="res://Materials/Organic/Flesh/Flesh.tres" id="4_ilg3l"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_teq5n"]
+material = ExtResource("4_ilg3l")
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_teq5n"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="BloodChunks" type="Node3D" unique_id=1043282470]
+script = ExtResource("1_m07p4")
+force = 2.0
+randomSpread = 0.393
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=2069152545]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+contact_monitor = true
+script = ExtResource("2_nnmme")
+bloodSplatDecal = ExtResource("3_1k4j1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=1891651353]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+mesh = SubResource("BoxMesh_teq5n")
+
+[node name="Area3D" type="Area3D" parent="RigidBody3D" unique_id=177329484]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/Area3D" unique_id=708848722]
+shape = SubResource("BoxShape3D_teq5n")
+
+[connection signal="body_entered" from="RigidBody3D/Area3D" to="RigidBody3D" method="Contact"]
