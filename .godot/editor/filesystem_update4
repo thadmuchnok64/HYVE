@@ -1,44 +1,5 @@
-res://Meshes/Characters/Enemies/Scrawny/Death2.anim
-res://Meshes/Characters/Enemies/Scrawny/SmashHeadStanding.anim
-res://Scripts/Entities/Enemies/Enemy.cs
-res://Scripts/Entities/Enemies/Hazmat/Scrawny.cs
-res://Scripts/Managers/SoundManager.cs
-res://Scripts/Managers/GameMaster.cs
-res://Scripts/Entities/Enemies/Hazmat/TorsoCrawler.cs
-res://Scripts/UI/HUDManager.cs
-res://Scripts/Entities/Enemies/Hazmat/InfectedHazmat.cs
-res://Scripts/Managers/InventoryManager.cs
-res://Scripts/Weapons/Weapon.cs
-res://Scripts/Weapons/MeleeWeapon.cs
-res://Scripts/PCStateMachine/PCState.cs
-res://Scripts/PCStateMachine/States/PC_BlockRecoil.cs
-res://Scripts/PCStateMachine/States/PC_Block.cs
-res://Scripts/PCStateMachine/States/PC_Recoil.cs
-res://Scripts/PCStateMachine/States/PC_Attack.cs
-res://Scripts/PCStateMachine/States/PC_Idle.cs
-res://Scripts/PCStateMachine/States/PC_Interact.cs
-res://Scripts/PCStateMachine/States/PC_Sprint.cs
-res://Scripts/PCStateMachine/States/PC_Walk.cs
-res://Scripts/Entities/Entity.cs
-res://Scripts/PCStateMachine/PCStateMachine.cs
-res://Scripts/Effects/BloodSplatter/BloodSplatChunk.cs
-res://Scripts/Effects/BloodSplatter/PhysicalParticleLauncher.cs
-res://Scripts/Entities/Enemies/EnemyMeleeContact.cs
-res://Scripts/Entities/Enemies/EnemyState.cs
-res://Scripts/Entities/Enemies/IHE_Attack.cs
-res://Scripts/Entities/Enemies/IHE_PostureBreak.cs
-res://Scripts/Entities/Enemies/IHE_Death.cs
-res://Scripts/Entities/Enemies/IHE_Recoil.cs
-res://Scripts/Entities/Enemies/IHE_Shamble.cs
-res://Scripts/Entities/Enemies/IHE_Idle.cs
-res://Scripts/Data/Collectibles/Collectable.cs
-res://Scripts/Gizmos/InteractableObject.cs
-res://Scripts/Gizmos/CollectablePickup.cs
-res://Scripts/Gizmos/AreaInteractable.cs
-res://Scripts/Gizmos/HamsterWheel.cs
-res://Scripts/Gizmos/GizmoTrigger.cs
-res://Scripts/Gizmos/Door.cs
-res://Prefab Nodes/Enemies/scrawny_grunt.tscn
+res://default_bus_layout.tres
+res://Prefab Nodes/PlayerController/pc.tscn
 res://Materials/Shaders/BaseSceneShader.tres
 res://Meshes/Levels/Foyer/LeftCultureDoorFoyer.tres
 res://Meshes/Levels/Foyer/RightCultureDoorFoyer.tres
@@ -47,5 +8,70 @@ res://Meshes/Levels/ScienceHub/Cogwheel.tres
 res://Meshes/Levels/ScienceHub/SmallCogWheel.tres
 res://Meshes/Characters/Enemies/Scrawny/Scrawny.tres
 res://Meshes/Characters/Enemies/Scrawny/ScrawnyHeadless.tres
-res://Prefab Nodes/Effects/blood_chunks_small.tscn
-res://Prefab Nodes/Effects/blood_chunks_Single_narrow.tscn
+res://Materials/Organic/Flesh/Viscera.tres
+res://Meshes/Effects/GoreFX/BloodParticle.tres
+res://Prefab Nodes/Level/maingame.tscn
+res://Prefab Nodes/Enemies/scrawny_grunt.tscn
+res://Scripts/PCStateMachine/States/PC_Attack.cs
+res://Scripts/Managers/SoundManager.cs
+res://Scripts/Managers/GameMaster.cs
+res://Scripts/Entities/Enemies/Hazmat/TorsoCrawler.cs
+res://Scripts/UI/HUDManager.cs
+res://Scripts/Entities/Enemies/Hazmat/InfectedHazmat.cs
+res://Scripts/Managers/InventoryManager.cs
+res://Scripts/Weapons/Weapon.cs
+res://Scripts/Weapons/MeleeWeapon.cs
+res://Scripts/Weapons/Crowbar.cs
+res://Scripts/PCStateMachine/PCState.cs
+res://Scripts/PCStateMachine/States/PC_BlockRecoil.cs
+res://Scripts/PCStateMachine/States/PC_Block.cs
+res://Scripts/PCStateMachine/States/PC_Recoil.cs
+res://Scripts/PCStateMachine/States/PC_Idle.cs
+res://Scripts/PCStateMachine/States/PC_Interact.cs
+res://Scripts/PCStateMachine/States/PC_Sprint.cs
+res://Scripts/PCStateMachine/States/PC_Walk.cs
+res://Scripts/PCStateMachine/PCStateMachine.cs
+res://Scripts/Gizmos/ChainParticleTrigger.cs
+res://Scripts/Effects/BloodSplatter/DecalEffect.cs
+res://Scripts/Effects/BloodSplatter/BloodSplatChunk.cs
+res://Scripts/Effects/BloodSplatter/PhysicalParticleLauncher.cs
+res://Scripts/Entities/Enemies/EnemyMeleeContact.cs
+res://Scripts/Entities/Entity.cs
+res://Scripts/Entities/Enemies/Enemy.cs
+res://Scripts/Entities/Enemies/Hazmat/Scrawny.cs
+res://Scripts/Entities/Enemies/EnemyState.cs
+res://Scripts/Entities/Enemies/IHE_Attack.cs
+res://Scripts/Entities/Enemies/IHE_PostureBreak.cs
+res://Scripts/Entities/Enemies/IHE_Death.cs
+res://Scripts/Entities/Enemies/IHE_Recoil.cs
+res://Scripts/Entities/Enemies/IHE_Shamble.cs
+res://Scripts/Entities/Enemies/IHE_Idle.cs
+res://Scripts/Data/Collectibles/Collectable.cs
+res://Scripts/Gizmos/CollectablePickup.cs
+res://Scripts/Gizmos/AreaInteractable.cs
+res://Scripts/Gizmos/HamsterWheel.cs
+res://Scripts/Gizmos/GizmoTrigger.cs
+res://Scripts/Gizmos/InteractableObject.cs
+res://Scripts/Gizmos/Door.cs
+res://Meshes/Levels/ScienceHub/BathroomProps.tres
+res://Prefab Nodes/Level/bathrooms_west.tscn
+res://Meshes/Levels/ScienceHub/Bathroom.tres
+res://Meshes/Levels/ScienceHub/CommonProps2.tres
+res://Meshes/Levels/ScienceHub/BathroomMeshes/BathroomSink.tres
+res://Meshes/Levels/ScienceHub/BathroomMeshes/BathroomDivider.tres
+res://Meshes/Levels/ScienceHub/BathroomMeshes/BathroomMirror.tres
+res://Meshes/Levels/ScienceHub/BathroomMeshes/WetFloorSign.tres
+res://Meshes/Levels/ScienceHub/BathroomMeshes/FakeWindow.tres
+res://Meshes/Levels/ScienceHub/BathroomMeshes/FluorescentLamp.tres
+res://Meshes/Levels/ScienceHub/BathroomMeshes/BathroomWestMen.tres
+res://Meshes/Levels/ScienceHub/BathroomMeshes/PlasticTrashcan.tres
+res://Meshes/Levels/ScienceHub/BathroomMeshes/Radiator.tres
+res://Meshes/Levels/ScienceHub/BathroomMeshes/ScienceBathroom.tres
+res://Meshes/Levels/ScienceHub/BathroomMeshes/BathroomStall.tres
+res://Meshes/Levels/ScienceHub/BathroomMeshes/Toilet.tres
+res://Meshes/Levels/ScienceHub/BathroomMeshes/Urinal.tres
+res://Meshes/Levels/ScienceHub/BathroomMeshes/Vent.tres
+res://Meshes/Levels/ScienceHub/BathroomMeshes/BathroomWestWomen.tres
+res://Prefab Nodes/Level/GI/bathrooms_west.exr
+res://Prefab Nodes/Level/GI/bathrooms_west.lmbake
+res://Prefab Nodes/Level/webbiesworld.tscn

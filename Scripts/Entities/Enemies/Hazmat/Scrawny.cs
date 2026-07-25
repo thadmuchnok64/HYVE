@@ -7,9 +7,14 @@ public partial class Scrawny : Enemy
 	[Export] Godot.Collections.Array<AudioStream> footsteps;
 	[Export] Node3D neckPoint;
 	[Export] protected PackedScene bloodSplatNeck;
+    [Export] protected ChainParticleTrigger bloodMistNeck;
+    [Export] protected PackedScene headNode;
+	[Export] Node3D headPoint;
 
 
-	public void Footstep()
+
+
+    public void Footstep()
 	{
 		SoundManager.Instance.RequesetSFXSoundAtLocation(footsteps.PickRandom(), GlobalPosition);
 	}
@@ -27,4 +32,14 @@ public partial class Scrawny : Enemy
 		((Node3D)inst).GlobalRotation = bloodPoint.GlobalRotation;
 
 	}
+
+	public void BloodMistNeck()
+	{
+		bloodMistNeck.Launch();
+        var inst = headNode.Instantiate();
+        cb.AddSibling(inst);
+        ((Node3D)inst).GlobalPosition = headPoint.GlobalPosition;
+        ((Node3D)inst).GlobalRotation = headPoint.GlobalRotation;
+		((PhysicalParticleLauncher)inst).Launch();
+    }
 }

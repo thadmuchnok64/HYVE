@@ -1,25 +1,41 @@
 [gd_scene format=3 uid="uid://bax53t8rkxthc"]
 
-[ext_resource type="PackedScene" uid="uid://b7so7ekpup52s" path="res://Meshes/Levels/ScienceHub/BathroomWest.fbx" id="1_h5url"]
 [ext_resource type="PackedScene" uid="uid://c75shw2582cms" path="res://Meshes/Weapons/Crowbar.fbx" id="2_3rni6"]
 [ext_resource type="Material" uid="uid://bkgehhliamt20" path="res://Meshes/Weapons/Crowbar.tres" id="3_na8v6"]
 [ext_resource type="Script" uid="uid://cfgt0c0c2bq8l" path="res://Scripts/Gizmos/CollectablePickup.cs" id="3_romi1"]
 [ext_resource type="Resource" uid="uid://cil3x3kqvjc4i" path="res://Scripts/Data/Collectibles/Crowbar.tres" id="4_ml1s4"]
 [ext_resource type="Script" uid="uid://c6igaenalehqd" path="res://Scripts/Gizmos/GizmoTrigger.cs" id="5_ml1s4"]
+[ext_resource type="ArrayMesh" uid="uid://cij2qqy042ihp" path="res://Meshes/Levels/ScienceHub/BathroomMeshes/BathroomDivider.tres" id="7_2ngou"]
+[ext_resource type="Material" uid="uid://1kumagr8vrer" path="res://Meshes/Levels/ScienceHub/BathroomProps.tres" id="7_2w5wg"]
+[ext_resource type="Material" uid="uid://bg33ierl50nxf" path="res://Meshes/Levels/ScienceHub/Bathroom.tres" id="7_bfipd"]
+[ext_resource type="Material" uid="uid://7fkhth6g44pf" path="res://Meshes/Levels/ScienceHub/CommonProps2.tres" id="8_2ngou"]
+[ext_resource type="ArrayMesh" uid="uid://b1s2qg68mt6wp" path="res://Meshes/Levels/ScienceHub/BathroomMeshes/BathroomMirror.tres" id="8_jhlgp"]
+[ext_resource type="ArrayMesh" uid="uid://cj4uravksh4nw" path="res://Meshes/Levels/ScienceHub/BathroomMeshes/BathroomSink.tres" id="9_8j8wa"]
+[ext_resource type="ArrayMesh" uid="uid://tkdt8j5rk1mc" path="res://Meshes/Levels/ScienceHub/BathroomMeshes/WetFloorSign.tres" id="10_8j8wa"]
+[ext_resource type="ArrayMesh" uid="uid://3i2t3sk310yf" path="res://Meshes/Levels/ScienceHub/BathroomMeshes/FakeWindow.tres" id="12_2ufme"]
+[ext_resource type="ArrayMesh" uid="uid://pjhy54lhfv6x" path="res://Meshes/Levels/ScienceHub/BathroomMeshes/FluorescentLamp.tres" id="13_qdefa"]
+[ext_resource type="ArrayMesh" uid="uid://dp8j5m4iq0m6f" path="res://Meshes/Levels/ScienceHub/BathroomMeshes/BathroomWestMen.tres" id="15_bc2iw"]
+[ext_resource type="ArrayMesh" uid="uid://cpi75qs7hnus3" path="res://Meshes/Levels/ScienceHub/BathroomMeshes/PlasticTrashcan.tres" id="16_kbb0o"]
+[ext_resource type="ArrayMesh" uid="uid://b30kxsv3yvxpf" path="res://Meshes/Levels/ScienceHub/BathroomMeshes/Radiator.tres" id="17_dehcb"]
+[ext_resource type="ArrayMesh" uid="uid://btx2ig4y6m307" path="res://Meshes/Levels/ScienceHub/BathroomMeshes/ScienceBathroom.tres" id="18_6y7fc"]
+[ext_resource type="ArrayMesh" uid="uid://b0wdeancw31gw" path="res://Meshes/Levels/ScienceHub/BathroomMeshes/BathroomStall.tres" id="19_onvgr"]
+[ext_resource type="ArrayMesh" uid="uid://wfsw518m4cel" path="res://Meshes/Levels/ScienceHub/BathroomMeshes/Toilet.tres" id="20_bx6c0"]
+[ext_resource type="ArrayMesh" uid="uid://bas3r6mwea3gc" path="res://Meshes/Levels/ScienceHub/BathroomMeshes/Urinal.tres" id="21_d422r"]
+[ext_resource type="ArrayMesh" uid="uid://cf5tanyexneuk" path="res://Meshes/Levels/ScienceHub/BathroomMeshes/Vent.tres" id="22_k87w0"]
+[ext_resource type="ArrayMesh" uid="uid://duhaws00ldpyg" path="res://Meshes/Levels/ScienceHub/BathroomMeshes/BathroomWestWomen.tres" id="23_83byv"]
+[ext_resource type="LightmapGIData" uid="uid://bxpyo7bjjurc1" path="res://Prefab Nodes/Level/GI/bathrooms_west.lmbake" id="24_6y7fc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bfipd"]
 size = Vector3(1.5529175, 0.97436523, 0.79589844)
 
 [node name="BathroomsWest" type="Node3D" unique_id=159575775]
 
-[node name="BathroomWest" parent="." unique_id=823725155 instance=ExtResource("1_h5url")]
-
 [node name="Crowbar" parent="." unique_id=314797480 instance=ExtResource("2_3rni6")]
 transform = Transform3D(-4.371139e-08, -0.7485045, 0.6631297, 1, -3.271817e-08, 2.898632e-08, 0, 0.6631297, 0.7485045, -1.5390375, 1.823416, -29.344505)
 script = ExtResource("3_romi1")
 heldCollectable = ExtResource("4_ml1s4")
 
-[node name="Crowbar" parent="Crowbar" index="0" unique_id=733699822]
+[node name="Crowbar" parent="Crowbar" index="0" unique_id=296029345]
 material_override = ExtResource("3_na8v6")
 
 [node name="Area3D" type="Area3D" parent="Crowbar" unique_id=1123787085 node_paths=PackedStringArray("interactable")]
@@ -32,5 +48,155 @@ interactable = NodePath("..")
 transform = Transform3D(1, 8.941059e-13, -4.4719518e-13, 0, 1, 0, 0, 0, 1, -0.33145142, 0.5343056, 1.9073486e-06)
 shape = SubResource("BoxShape3D_bfipd")
 debug_color = Color(0.45031464, 1, 0.48679012, 1)
+
+[node name="BathroomWest" type="Node3D" parent="." unique_id=466430794]
+
+[node name="Bathroom Divider" type="MeshInstance3D" parent="BathroomWest" unique_id=942516076]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -3.9877236, 1.9677321, -26.376238)
+material_override = ExtResource("7_2w5wg")
+mesh = ExtResource("7_2ngou")
+
+[node name="BathroomMirror" type="MeshInstance3D" parent="BathroomWest" unique_id=9260871]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -0.63741636, 2.8228316, -28.007292)
+material_override = ExtResource("7_2w5wg")
+mesh = ExtResource("8_jhlgp")
+
+[node name="BathroomSink" type="MeshInstance3D" parent="BathroomWest" unique_id=312744813]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -0.6181903, 1.9664116, -27.994179)
+material_override = ExtResource("7_2w5wg")
+mesh = ExtResource("9_8j8wa")
+
+[node name="BathroomMirror2" type="MeshInstance3D" parent="BathroomWest" unique_id=789627421]
+transform = Transform3D(-100.000015, -8.742278e-06, -1.0421607e-12, 0, -1.1920929e-05, 100.00001, -8.742279e-06, 100.00001, 1.1920929e-05, -0.19689077, 2.8228316, -28.665522)
+material_override = ExtResource("7_2w5wg")
+mesh = ExtResource("8_jhlgp")
+
+[node name="BathroomSink2" type="MeshInstance3D" parent="BathroomWest" unique_id=764359194]
+transform = Transform3D(-100.000015, -8.742278e-06, -1.0421607e-12, 0, -1.1920929e-05, 100.00001, -8.742279e-06, 100.00001, 1.1920929e-05, -0.21611685, 1.9664116, -28.678635)
+material_override = ExtResource("7_2w5wg")
+mesh = ExtResource("9_8j8wa")
+
+[node name="BathroomMirror3" type="MeshInstance3D" parent="BathroomWest" unique_id=925334392]
+transform = Transform3D(-100.000015, -8.742278e-06, -1.0421607e-12, 0, -1.1920929e-05, 100.00001, -8.742279e-06, 100.00001, 1.1920929e-05, -0.19689077, 2.8228316, -29.714298)
+material_override = ExtResource("7_2w5wg")
+mesh = ExtResource("8_jhlgp")
+
+[node name="BathroomSink3" type="MeshInstance3D" parent="BathroomWest" unique_id=1168334386]
+transform = Transform3D(-100.000015, -8.742278e-06, -1.0421607e-12, 0, -1.1920929e-05, 100.00001, -8.742279e-06, 100.00001, 1.1920929e-05, -0.21611685, 1.9664116, -29.727411)
+material_override = ExtResource("7_2w5wg")
+mesh = ExtResource("9_8j8wa")
+
+[node name="Cube_006" type="MeshInstance3D" parent="BathroomWest" unique_id=778931598]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -1.3809475, 1.864529, -23.563343)
+mesh = ExtResource("10_8j8wa")
+
+[node name="FakeWindow" type="MeshInstance3D" parent="BathroomWest" unique_id=205259615]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -1.639286, 2.6884484, -30.681816)
+material_override = ExtResource("8_2ngou")
+mesh = ExtResource("12_2ufme")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="BathroomWest/FakeWindow" unique_id=1488317286]
+transform = Transform3D(0.010000001, 0, 0, 0, -4.371138e-10, 0.010000002, 0, -0.010000002, -4.371138e-10, 0, -0.0019501746, -1.8626451e-09)
+light_color = Color(0.27061334, 0.49556094, 0.65201616, 1)
+light_bake_mode = 1
+spot_range = 2.356
+spot_attenuation = 1.18
+spot_angle = 82.33767
+spot_angle_attenuation = 0.40612686
+
+[node name="Fluorescent Lamp" type="MeshInstance3D" parent="BathroomWest" unique_id=87662871]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -2.0635269, 3.989256, -28.205626)
+material_override = ExtResource("7_2w5wg")
+mesh = ExtResource("13_qdefa")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="BathroomWest/Fluorescent Lamp" unique_id=1702747796]
+transform = Transform3D(0.010000001, 0, 0, 0, 0.010000002, -1.110223e-16, 0, 1.110223e-16, 0.010000002, 0, 0, -0.0057214685)
+light_color = Color(0.6047947, 0.49247724, 0.2647636, 1)
+light_energy = 0.5
+light_bake_mode = 1
+
+[node name="Fluorescent Lamp2" type="MeshInstance3D" parent="BathroomWest" unique_id=1102650385]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 1.1694093, 3.989256, -28.205626)
+material_override = ExtResource("7_2w5wg")
+mesh = ExtResource("13_qdefa")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="BathroomWest/Fluorescent Lamp2" unique_id=857324843]
+transform = Transform3D(0.010000001, 0, 0, 0, 0.010000002, -1.110223e-16, 0, 1.110223e-16, 0.010000002, 0, 0, -0.0057214685)
+light_color = Color(0.6047947, 0.49247724, 0.2647636, 1)
+light_energy = 0.5
+light_bake_mode = 1
+
+[node name="Mens Bathrooms West" type="MeshInstance3D" parent="BathroomWest" unique_id=1346076213]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -2.0322037, 2.4498222, -27.302395)
+material_override = ExtResource("7_bfipd")
+mesh = ExtResource("15_bc2iw")
+
+[node name="PlasticTrashcan" type="MeshInstance3D" parent="BathroomWest" unique_id=934541768]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -0.94181883, 1.098331, -25.920727)
+material_override = ExtResource("7_2w5wg")
+mesh = ExtResource("16_kbb0o")
+
+[node name="PlasticTrashcan2" type="MeshInstance3D" parent="BathroomWest" unique_id=602955157]
+transform = Transform3D(-4.3711393e-06, -100.00001, -1.1920929e-05, 0, -1.1920929e-05, 100.00001, -100.000015, 4.371139e-06, 5.210804e-13, 2.341999, 1.098331, -25.672232)
+material_override = ExtResource("7_2w5wg")
+mesh = ExtResource("16_kbb0o")
+
+[node name="Radiator" type="MeshInstance3D" parent="BathroomWest" unique_id=1178820005]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -2.149333, 1.3937382, -30.426033)
+material_override = ExtResource("8_2ngou")
+mesh = ExtResource("17_dehcb")
+
+[node name="ScienceBathrooms" type="MeshInstance3D" parent="BathroomWest" unique_id=951331444]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0.9351004, 1.0044868, -0.7879559)
+mesh = ExtResource("18_6y7fc")
+
+[node name="Stall_001" type="MeshInstance3D" parent="BathroomWest" unique_id=1923525099]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -3.2246947, 1.8766528, -29.755198)
+material_override = ExtResource("7_2w5wg")
+mesh = ExtResource("19_onvgr")
+
+[node name="Toilet" type="MeshInstance3D" parent="BathroomWest" unique_id=538446435]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -3.390645, 1.098315, -30.441473)
+material_override = ExtResource("7_2w5wg")
+mesh = ExtResource("20_bx6c0")
+
+[node name="Stall_002" type="MeshInstance3D" parent="BathroomWest" unique_id=1668858108]
+transform = Transform3D(-4.3711393e-06, 100.00001, 1.1920929e-05, 0, -1.1920929e-05, 100.00001, 100.000015, 4.371139e-06, 5.210804e-13, 1.9448539, 1.8766528, -29.904251)
+material_override = ExtResource("7_2w5wg")
+mesh = ExtResource("19_onvgr")
+
+[node name="Toilet2" type="MeshInstance3D" parent="BathroomWest" unique_id=1934959116]
+transform = Transform3D(-4.3711393e-06, 100.00001, 1.1920929e-05, 0, -1.1920929e-05, 100.00001, 100.000015, 4.371139e-06, 5.210804e-13, 2.6311293, 1.098315, -30.070202)
+material_override = ExtResource("7_2w5wg")
+mesh = ExtResource("20_bx6c0")
+
+[node name="Stall_003" type="MeshInstance3D" parent="BathroomWest" unique_id=185555782]
+transform = Transform3D(-4.3711393e-06, 100.00001, 1.1920929e-05, 0, -1.1920929e-05, 100.00001, 100.000015, 4.371139e-06, 5.210804e-13, 1.9448539, 1.8766528, -28.66342)
+material_override = ExtResource("7_2w5wg")
+mesh = ExtResource("19_onvgr")
+
+[node name="Toilet3" type="MeshInstance3D" parent="BathroomWest" unique_id=93258834]
+transform = Transform3D(-4.3711393e-06, 100.00001, 1.1920929e-05, 0, -1.1920929e-05, 100.00001, 100.000015, 4.371139e-06, 5.210804e-13, 2.6311293, 1.098315, -28.82937)
+material_override = ExtResource("7_2w5wg")
+mesh = ExtResource("20_bx6c0")
+
+[node name="Urinal" type="MeshInstance3D" parent="BathroomWest" unique_id=1025069725]
+transform = Transform3D(-100, 1.509958e-05, -1.4210855e-12, 0, 5.9604645e-06, 100, 1.509958e-05, 100, -1.1920929e-05, -4.0031037, 1.7716813, -25.944067)
+material_override = ExtResource("7_2w5wg")
+mesh = ExtResource("21_d422r")
+
+[node name="Vent" type="MeshInstance3D" parent="BathroomWest" unique_id=202656607]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -0.544099, 1.4363407, -26.979542)
+material_override = ExtResource("8_2ngou")
+mesh = ExtResource("22_k87w0")
+
+[node name="WomansBathroomsWest" type="MeshInstance3D" parent="BathroomWest" unique_id=1366254507]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0.9082905, 2.4495955, -27.302391)
+material_override = ExtResource("7_bfipd")
+mesh = ExtResource("23_83byv")
+
+[node name="LightmapGI" type="LightmapGI" parent="." unique_id=875476575]
+environment_mode = 0
+light_data = ExtResource("24_6y7fc")
 
 [editable path="Crowbar"]

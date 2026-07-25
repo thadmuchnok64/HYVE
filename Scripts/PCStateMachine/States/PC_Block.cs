@@ -10,7 +10,13 @@ public partial class PC_Block : PCState
 	[Export] string animWalkBlendMeta;
 	bool crouching = false;
 
-	public override PCState ManageInput(InputEvent @event)
+
+    public override PCState Enter()
+    {
+        anim.Set($"parameters/{animMetaState}/{animMeta}/request", (int)AnimationNodeOneShot.OneShotRequest.FadeOut);
+        return base.Enter();
+    }
+    public override PCState ManageInput(InputEvent @event)
 	{
 		if (@event.IsActionPressed("Attack"))
 		{
@@ -91,6 +97,7 @@ public partial class PC_Block : PCState
 
 	public override PCState HitByEnemyEvent()
 	{
+		stateMachine.currentWeapon.Block();
 		return recoilState;
 	}
 }

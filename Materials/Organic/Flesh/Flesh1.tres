@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://o1o0yxqnpt0p"]
+
+[ext_resource type="Texture2D" uid="uid://dtwigbioafjv5" path="res://Materials/Organic/Flesh/meatmask.png" id="1_2hjfo"]
+
+[resource]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.9957219, 0.22638854, 0.23059222, 1)
+albedo_texture = ExtResource("1_2hjfo")

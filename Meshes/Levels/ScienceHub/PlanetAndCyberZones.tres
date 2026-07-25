@@ -1,8 +1,8 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://b0kidayskod7"]
 
 [ext_resource type="Shader" uid="uid://itrnkg3h08cb" path="res://Materials/Shaders/BaseSceneShader.tres" id="1_yyqgw"]
-[ext_resource type="Texture2D" uid="uid://bhvvm48nfc6lg" path="res://Meshes/Levels/ScienceHub/CyberSpaceMat_Emissive.png" id="2_yyqgw"]
-[ext_resource type="Texture2D" uid="uid://whuc4ug7gvlo" path="res://Meshes/Levels/ScienceHub/CyberSpaceMat_Base_color.png" id="3_mlu50"]
+[ext_resource type="Texture2D" uid="uid://bhvvm48nfc6lg" path="res://Meshes/Levels/ScienceHub/Textures/CyberSpaceMat_Emissive.png" id="2_yyqgw"]
+[ext_resource type="Texture2D" uid="uid://whuc4ug7gvlo" path="res://Meshes/Levels/ScienceHub/Textures/CyberSpaceMat_Base_color.png" id="3_mlu50"]
 
 [resource]
 render_priority = 0

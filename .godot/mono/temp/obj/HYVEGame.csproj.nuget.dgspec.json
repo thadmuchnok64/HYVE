@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Thad\\Documents\\hyve-game\\HYVEGame.csproj": {}
+    "F:\\Projects\\HYVE\\HYVEGame.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Thad\\Documents\\hyve-game\\HYVEGame.csproj": {
+    "F:\\Projects\\HYVE\\HYVEGame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Thad\\Documents\\hyve-game\\HYVEGame.csproj",
+        "projectUniqueName": "F:\\Projects\\HYVE\\HYVEGame.csproj",
         "projectName": "HYVEGame",
-        "projectPath": "C:\\Users\\Thad\\Documents\\hyve-game\\HYVEGame.csproj",
-        "packagesPath": "C:\\Users\\Thad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Thad\\Documents\\hyve-game\\.godot\\mono\\temp\\obj\\",
+        "projectPath": "F:\\Projects\\HYVE\\HYVEGame.csproj",
+        "packagesPath": "C:\\Users\\thadm\\.nuget\\packages\\",
+        "outputPath": "F:\\Projects\\HYVE\\.godot\\mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Thad\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\thadm\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -44,7 +40,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -82,7 +78,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.312/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

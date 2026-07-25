@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://1kumagr8vrer"]
+
+[ext_resource type="Shader" uid="uid://itrnkg3h08cb" path="res://Materials/Shaders/BaseSceneShader.tres" id="1_mwngi"]
+[ext_resource type="Texture2D" uid="uid://vmdxy4l33x23" path="res://Meshes/Levels/ScienceHub/Textures/ScienceHubSubstance_BathroomProps_Emissive.png" id="2_mwngi"]
+[ext_resource type="Texture2D" uid="uid://d10dram0t86ew" path="res://Meshes/Levels/ScienceHub/Textures/ScienceHubSubstance_BathroomProps_Texture.png" id="3_lcfi6"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_mwngi")
+shader_parameter/MainTex2 = ExtResource("3_lcfi6")
+shader_parameter/Emission = ExtResource("2_mwngi")

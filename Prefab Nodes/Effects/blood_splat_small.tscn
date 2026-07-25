@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bnd2rkg4wcmwh"]
 
 [ext_resource type="Texture2D" uid="uid://fxvy7s6kwkel" path="res://Textures/splatter.png" id="1_bvjb0"]
+[ext_resource type="Script" uid="uid://liwexy8aekid" path="res://Scripts/Effects/BloodSplatter/DecalEffect.cs" id="2_h7vr5"]
 
 [sub_resource type="Gradient" id="Gradient_2npry"]
 offsets = PackedFloat32Array(0, 0.25194806)
@@ -9,9 +10,15 @@ colors = PackedColorArray(1, 0.87058824, 0.7647059, 1, 1, 0.87058824, 0.7647059,
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_teq5n"]
 gradient = SubResource("Gradient_2npry")
 
+[sub_resource type="Curve" id="Curve_6t0xp"]
+_data = [Vector2(0, 0), 0.0, 1.3726089, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="BloodSplat" type="Decal" unique_id=804703935]
 size = Vector3(0.6, 2, 0.6)
 texture_albedo = ExtResource("1_bvjb0")
 texture_orm = SubResource("GradientTexture1D_teq5n")
-modulate = Color(0.32156864, 0.05490196, 0.05882353, 1)
-cull_mask = 1048573
+modulate = Color(0.60784316, 0.14117648, 0.14509805, 1)
+cull_mask = 1048569
+script = ExtResource("2_h7vr5")
+spawnCurve = SubResource("Curve_6t0xp")

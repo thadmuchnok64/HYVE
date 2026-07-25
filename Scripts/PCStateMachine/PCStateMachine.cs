@@ -22,10 +22,14 @@ public partial class PCStateMachine : Entity
 	[Export] public AudioStreamPlayer3D aud;
 	[Export] bool debugState = false;
 	[Export] Godot.Collections.Array<AudioStream> footsteps;
-	[Export] float staminaRecoveryPerSec = 50f;
+    [Export] Godot.Collections.Array<AudioStream> sfx;
+
+    [Export] float staminaRecoveryPerSec = 50f;
 	[Export] float timeToRecoverStam = .5f;
 	[Export] float postureRecoveryPerSec = 10f;
 	[Export] float timeToRecoverPos = 1f;
+
+	[Export] Godot.Collections.Array<GpuParticles3D> slidingParticles;
 	PCState currentState;
 
 	public float stamina;
@@ -231,12 +235,26 @@ public partial class PCStateMachine : Entity
 		return trackingObject;
 	}
 
+	public void Slide()
+	{
+		PlaySound(0); // slide fx
+		foreach(GpuParticles3D part in slidingParticles)
+		{
+			part.Emitting = true;
+		}
+	}
+
 	/*
 	public string getAnimationName()
 	{
 		return currentState.animationName;
 	}
 	*/
+
+	public void PlaySound(int index)
+	{
+        SoundManager.Instance.RequesetSFXSoundAtLocation(sfx[index], GlobalPosition);
+	}
 
 	#region Anim Events
 

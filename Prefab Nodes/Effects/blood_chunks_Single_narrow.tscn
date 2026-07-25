@@ -3,11 +3,7 @@
 [ext_resource type="Script" uid="uid://cwmc2cqj36b6r" path="res://Scripts/Effects/BloodSplatter/PhysicalParticleLauncher.cs" id="1_m07p4"]
 [ext_resource type="Script" uid="uid://tuhebbbw3okh" path="res://Scripts/Effects/BloodSplatter/BloodSplatChunk.cs" id="2_nnmme"]
 [ext_resource type="PackedScene" uid="uid://bnd2rkg4wcmwh" path="res://Prefab Nodes/Effects/blood_splat_small.tscn" id="3_1k4j1"]
-[ext_resource type="Material" uid="uid://b21mb6fxi1pr0" path="res://Materials/Organic/Flesh/Flesh.tres" id="4_ilg3l"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_teq5n"]
-material = ExtResource("4_ilg3l")
-size = Vector3(0.1, 0.1, 0.1)
+[ext_resource type="ArrayMesh" uid="uid://bckq4b5k7clx3" path="res://Meshes/Effects/GoreFX/BloodParticle.tres" id="4_m07p4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_teq5n"]
 size = Vector3(0.1, 0.1, 0.1)
@@ -25,7 +21,7 @@ bloodSplatDecal = ExtResource("3_1k4j1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=1891651353]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
-mesh = SubResource("BoxMesh_teq5n")
+mesh = ExtResource("4_m07p4")
 
 [node name="Area3D" type="Area3D" parent="RigidBody3D" unique_id=177329484]
 

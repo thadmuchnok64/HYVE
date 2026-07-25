@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b7so7ekpup52s"
+uid="uid://bj8m5vy85iffk"
 path="res://.godot/imported/BathroomWest.fbx-7a22d485f41b6231b0403972abb86f93.scn"
 
 [deps]
@@ -37,7 +37,145 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"meshes": {
+"Cube_036": {
+"generate/lightmap_uv": 1,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Meshes/Levels/ScienceHub/BathroomMeshes/ScienceBathroom.tres",
+"save_to_file/path": "uid://hsd6qgyit2hu"
+},
+"Cube_054": {
+"generate/lightmap_uv": 1,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Meshes/Levels/ScienceHub/BathroomMeshes/BathroomStall.tres",
+"save_to_file/path": "uid://cwqxvx4qspghb"
+},
+"Cube_055": {
+"generate/lightmap_uv": 1,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Meshes/Levels/ScienceHub/BathroomMeshes/Urinal.tres",
+"save_to_file/path": "uid://c2omau0yu2we7"
+},
+"Cube_058": {
+"generate/lightmap_uv": 1,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Meshes/Levels/ScienceHub/BathroomMeshes/BathroomDivider.tres",
+"save_to_file/path": "uid://bviawvxdpxhq2"
+},
+"Cube_059": {
+"generate/lightmap_uv": 1,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Meshes/Levels/ScienceHub/BathroomMeshes/FakeWindow.tres",
+"save_to_file/path": "uid://dmk1eumg288x7"
+},
+"Cube_060": {
+"generate/lightmap_uv": 1,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Meshes/Levels/ScienceHub/BathroomMeshes/BathroomSink.tres",
+"save_to_file/path": "uid://qlh831jtkqm8"
+},
+"Cube_061": {
+"generate/lightmap_uv": 1,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Meshes/Levels/ScienceHub/BathroomMeshes/PlasticTrashcan.tres",
+"save_to_file/path": "uid://bmcgsy0ntrspb"
+},
+"Cube_062": {
+"generate/lightmap_uv": 1,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Meshes/Levels/ScienceHub/BathroomMeshes/BathroomMirror.tres",
+"save_to_file/path": "uid://b7cfiy8radq43"
+},
+"Cube_066": {
+"generate/lightmap_uv": 1,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Meshes/Levels/ScienceHub/BathroomMeshes/Radiator.tres",
+"save_to_file/path": "uid://cpsmr76bdw8i1"
+},
+"Cube_067": {
+"generate/lightmap_uv": 1,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Meshes/Levels/ScienceHub/BathroomMeshes/Vent.tres",
+"save_to_file/path": "uid://wumqs42tjunx"
+},
+"Cube_068": {
+"generate/lightmap_uv": 1,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Meshes/Levels/ScienceHub/BathroomMeshes/BathroomWestMen.tres",
+"save_to_file/path": "uid://qldy0d50c2fl"
+},
+"Cube_069": {
+"generate/lightmap_uv": 1,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Meshes/Levels/ScienceHub/BathroomMeshes/WetFloorSign.tres",
+"save_to_file/path": "uid://ce33xkjtt64o0"
+},
+"Cube_071": {
+"generate/lightmap_uv": 1,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Meshes/Levels/ScienceHub/BathroomMeshes/BathroomWestWomen.tres",
+"save_to_file/path": "uid://c0lyp3d2fpuki"
+},
+"Cylinder_004": {
+"generate/lightmap_uv": 1,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Meshes/Levels/ScienceHub/BathroomMeshes/Toilet.tres",
+"save_to_file/path": "uid://irklbafybifq"
+},
+"Cylinder_008": {
+"generate/lightmap_uv": 1,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Meshes/Levels/ScienceHub/BathroomMeshes/FluorescentLamp.tres",
+"save_to_file/path": "uid://cvqohsonvx8a2"
+}
+}
+}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1

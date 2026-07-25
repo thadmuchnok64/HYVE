@@ -35,7 +35,39 @@ public partial class PC_Attack : PCState
 	public override PCState PhysicsProcess(double delta)
 	{
 		base._PhysicsProcess(delta);
-		return null;
+
+        Vector2 movement = new Vector2(Input.GetAxis("MoveRight", "MoveLeft"), Input.GetAxis("MoveDown", "MoveUp"));
+        if (movement.Length() > .1f)
+        {
+            _Move(movement, delta);
+        }
+        else
+        {
+            _SlowGroundMovement(delta);
+        }
+        //Gravity
+        //_ApplyGravity(delta);
+
+        var hVel = new Vector3(cb.Velocity.X, 0, cb.Velocity.Z);
+        if (stateMachine.tracking)
+        {
+            meshRoot.LookAt(stateMachine.trackingObject.GlobalPosition, Vector3.Up);
+            meshRoot.Rotation = new Vector3(0, meshRoot.Rotation.Y + MathF.PI, 0);
+            var vec = new Vector2(meshRoot.Basis.X.Dot(cb.Velocity), meshRoot.Basis.Z.Dot(cb.Velocity)).Normalized();
+           // anim.Set(animWalkBlendMeta, vec);
+        }
+        else if (hVel.Length() > .2f)
+        {
+            //anim.Set(animWalkBlendMeta, new Vector2(0, 1));
+            meshRoot.LookAt(cb.Position - hVel.Normalized() * 5, Vector3.Up);
+            //meshRoot.Rotation = new Vector3(0, meshRoot.Rotation.Y, 0);
+        }
+      //  anim.Set(animMeta, Mathf.Clamp(hVel.Length() / animLerpMod, 0, 1));
+
+
+        cb.MoveAndSlide();
+
+        return null;
 
 	}
 

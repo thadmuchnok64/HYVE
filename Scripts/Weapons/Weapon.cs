@@ -63,4 +63,9 @@ public partial class Weapon : Node3D
 	{
 
 	}
+
+	public virtual void Block()
+	{
+
+	}
 }

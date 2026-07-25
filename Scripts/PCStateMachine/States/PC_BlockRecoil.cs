@@ -19,8 +19,9 @@ public partial class PC_BlockRecoil : PCState
 		isBlocking = true;
 		timer = 0;
 		anim.Set($"parameters/{animMetaState}/{animMeta}/request", (int)AnimationNodeOneShot.OneShotRequest.Fire);
-
-		return base.Enter();
+		base.Enter();
+		stateMachine.Slide();
+		return null;
 	}
 	// Called when the node enters the scene tree for the first time.
 	public override PCState ManageInput(InputEvent @event)
@@ -46,7 +47,6 @@ public partial class PC_BlockRecoil : PCState
 		base._PhysicsProcess(delta);
 		cb.MoveAndSlide();
 		return null;
-
 	}
 
 	public override PCState Process(double delta)
@@ -54,7 +54,8 @@ public partial class PC_BlockRecoil : PCState
 		timer += (float)delta;
 		if (timer > timeToTransition)
 		{
-			if (isBlocking)
+            anim.Set($"parameters/{animMetaState}/{animMeta}/request", (int)AnimationNodeOneShot.OneShotRequest.FadeOut);
+            if (isBlocking)
 				return blockState;
 			else
 				return idleState;

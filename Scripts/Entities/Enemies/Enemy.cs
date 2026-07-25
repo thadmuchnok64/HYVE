@@ -18,6 +18,7 @@ public partial class Enemy : Entity
 
     [Export] protected Node3D bloodPoint;
 	[Export] public Node3D trackingPoint;
+	[Export] public bool agrod = false;
     protected EnemyState currentState;
 	// Called when the node enters the scene tree for the first time
 	// 
@@ -57,6 +58,7 @@ public partial class Enemy : Entity
 	{
 		if (detectionSphere.HasOverlappingBodies())
 		{
+			agrod = true;
 			SwitchState(currentState.DetectPlayerEvent());
 		}
 
@@ -85,9 +87,10 @@ public partial class Enemy : Entity
         cb.AddSibling(inst);
         ((Node3D)inst).GlobalPosition = bloodPoint.GlobalPosition;
         meshInstance.Mesh = headlessMesh;
-	}
 
-	public void PlaySound(int soundIndex)
+    }
+
+    public void PlaySound(int soundIndex)
 	{
 		SoundManager.Instance.RequesetSFXSoundAtLocation(sfx[soundIndex], GlobalPosition);
 	}
