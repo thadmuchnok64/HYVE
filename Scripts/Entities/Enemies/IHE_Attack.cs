@@ -8,6 +8,7 @@ public partial class IHE_Attack: EnemyState
 	[Export] EnemyState recoilState;
 	[Export] EnemyState postureBreakState;
 	[Export] EnemyState deadState;
+	[Export] IHE_Attack followUpAttack; 
 
 	[Export] float cooldownBetweenAttack = -1f;
 	[Export] float attackOutTime = .5f;
@@ -28,7 +29,12 @@ public partial class IHE_Attack: EnemyState
 	{
 		attackTimer -= (float)delta;
 		if (attackTimer <= 0)
-			return idleState;
+		{
+			if (followUpAttack != null && followUpAttack.IsAttackValid())
+				return followUpAttack;
+			else
+				return idleState;
+		}
 		return base.Process(delta);
 	}
 
@@ -36,11 +42,14 @@ public partial class IHE_Attack: EnemyState
 	{
 		cooldownTimer = cooldownBetweenAttack;
 		attackTimer = attackOutTime;
-		return base.Enter(enemy);
+		base.Enter(enemy);
+		enem.anim.Set("parameters/attack/Transition/transition_request", animMeta);
+		return this;
+
 	}
 
 
-public override EnemyState HitEvent()
+	public override EnemyState HitEvent()
 {
 		if (!enem.alive)
 			return deadState;

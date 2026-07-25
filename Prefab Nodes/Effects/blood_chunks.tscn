@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cwmc2cqj36b6r" path="res://Scripts/Effects/BloodSplatter/PhysicalParticleLauncher.cs" id="1_2qlfx"]
 [ext_resource type="Script" uid="uid://tuhebbbw3okh" path="res://Scripts/Effects/BloodSplatter/BloodSplatChunk.cs" id="2_ljtwx"]
 [ext_resource type="PackedScene" uid="uid://dkdbese7xo3qm" path="res://Prefab Nodes/Effects/blood_splat.tscn" id="3_66stf"]
+[ext_resource type="Material" uid="uid://b21mb6fxi1pr0" path="res://Materials/Organic/Flesh/Flesh.tres" id="4_bwj1r"]
 [ext_resource type="ArrayMesh" uid="uid://bckq4b5k7clx3" path="res://Meshes/Effects/GoreFX/BloodParticle.tres" id="4_j50j1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_teq5n"]
@@ -18,6 +19,7 @@ script = ExtResource("2_ljtwx")
 bloodSplatDecal = ExtResource("3_66stf")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=1891651353]
+material_override = ExtResource("4_bwj1r")
 mesh = ExtResource("4_j50j1")
 
 [node name="Area3D" type="Area3D" parent="RigidBody3D" unique_id=177329484]
@@ -31,6 +33,7 @@ script = ExtResource("2_ljtwx")
 bloodSplatDecal = ExtResource("3_66stf")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D2" unique_id=840863520]
+material_override = ExtResource("4_bwj1r")
 mesh = ExtResource("4_j50j1")
 
 [node name="Area3D" type="Area3D" parent="RigidBody3D2" unique_id=1144070249]
@@ -44,6 +47,7 @@ script = ExtResource("2_ljtwx")
 bloodSplatDecal = ExtResource("3_66stf")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D3" unique_id=139530604]
+material_override = ExtResource("4_bwj1r")
 mesh = ExtResource("4_j50j1")
 
 [node name="Area3D" type="Area3D" parent="RigidBody3D3" unique_id=1743808029]

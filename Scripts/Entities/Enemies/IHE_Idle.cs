@@ -7,7 +7,7 @@ public partial class IHE_Idle: EnemyState
 	[Export] EnemyState seekingState;
 	[Export] EnemyState recoilState;
     [Export] EnemyState postureBreakState;
-	[Export] IHE_Attack attackState;
+	[Export] Godot.Collections.Array<IHE_Attack> attacks;
     [Export] EnemyState deadState;
 
     [Export] float distanceToFollow = 3f;
@@ -62,10 +62,10 @@ public partial class IHE_Idle: EnemyState
 	{
 		if (enem.agrod)
 		{
-			if (attackState != null)
+			foreach (IHE_Attack atk in attacks)
 			{
-				if (attackState.IsAttackValid())
-					return attackState;
+					if (atk.IsAttackValid())
+						return atk;
 			}
 			if (enem.GlobalPosition.DistanceTo(GameMaster.Instance.GetPlayer().GlobalPosition) >= distanceToFollow)
 			{

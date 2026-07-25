@@ -34,6 +34,12 @@ input_name = "node_position_world"
 
 [sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_gdp4a"]
 
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_ddq34"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_c6201"]
+constant = 3.0
+
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_hk6hb"]
 noise_type = 2
 
@@ -70,11 +76,11 @@ default_input_values = [0, 0.0, 1, 0.5]
 operator = 5
 
 [resource]
-nodes/vertex/0/position = Vector2(900, 460)
+nodes/vertex/0/position = Vector2(1106.6666, 346.66666)
 nodes/vertex/2/node = SubResource("VisualShaderNodeTexture_bfxhd")
 nodes/vertex/2/position = Vector2(-420, 160)
 nodes/vertex/3/node = SubResource("VisualShaderNodeInput_gdp4a")
-nodes/vertex/3/position = Vector2(-2120, 260)
+nodes/vertex/3/position = Vector2(-2440, 146.66667)
 nodes/vertex/4/node = SubResource("VisualShaderNodeVectorDecompose_ddq34")
 nodes/vertex/4/position = Vector2(-1520, 260)
 nodes/vertex/5/node = SubResource("VisualShaderNodeVectorCompose_c6201")
@@ -96,10 +102,14 @@ nodes/vertex/12/position = Vector2(260, 280)
 nodes/vertex/14/node = SubResource("VisualShaderNodeVectorOp_bfxhd")
 nodes/vertex/14/position = Vector2(680, 280)
 nodes/vertex/15/node = SubResource("VisualShaderNodeInput_u603r")
-nodes/vertex/15/position = Vector2(-2100, 480)
+nodes/vertex/15/position = Vector2(-2413.3333, 360)
 nodes/vertex/16/node = SubResource("VisualShaderNodeVectorOp_gdp4a")
-nodes/vertex/16/position = Vector2(-1760, 340)
-nodes/vertex/connections = PackedInt32Array(4, 1, 5, 1, 4, 0, 6, 0, 4, 2, 7, 0, 6, 0, 8, 0, 7, 0, 8, 1, 8, 0, 9, 0, 9, 0, 5, 0, 5, 0, 2, 0, 2, 1, 10, 0, 10, 0, 11, 0, 12, 0, 14, 0, 11, 0, 14, 1, 14, 0, 0, 0, 3, 0, 16, 0, 15, 0, 16, 1, 16, 0, 4, 0)
+nodes/vertex/16/position = Vector2(-2080, 226.66667)
+nodes/vertex/17/node = SubResource("VisualShaderNodeVectorOp_ddq34")
+nodes/vertex/17/position = Vector2(-1815.4637, 461.90036)
+nodes/vertex/18/node = SubResource("VisualShaderNodeFloatConstant_c6201")
+nodes/vertex/18/position = Vector2(-2106.6667, 640)
+nodes/vertex/connections = PackedInt32Array(4, 1, 5, 1, 4, 0, 6, 0, 4, 2, 7, 0, 6, 0, 8, 0, 7, 0, 8, 1, 8, 0, 9, 0, 9, 0, 5, 0, 5, 0, 2, 0, 2, 1, 10, 0, 10, 0, 11, 0, 12, 0, 14, 0, 11, 0, 14, 1, 14, 0, 0, 0, 3, 0, 16, 0, 15, 0, 16, 1, 16, 0, 17, 0, 17, 0, 4, 0, 18, 0, 17, 1)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_gdp4a")
 nodes/fragment/2/position = Vector2(-320, 240)
 nodes/fragment/4/node = SubResource("VisualShaderNodeColorParameter_c6201")

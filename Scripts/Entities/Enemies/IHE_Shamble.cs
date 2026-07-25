@@ -8,8 +8,8 @@ public partial class IHE_Shamble : EnemyState
 	[Export] EnemyState idleState;
 	[Export] EnemyState recoilState;
 	[Export] EnemyState postureBreakState;
-	[Export] IHE_Attack attackState;
-    [Export] EnemyState deadState;
+	[Export] Godot.Collections.Array<IHE_Attack> attacks;
+	[Export] EnemyState deadState;
 
     [Export] float optimalDistance = 2f;
 	[Export] float maxTurnPerSec = 90f;
@@ -57,13 +57,12 @@ public partial class IHE_Shamble : EnemyState
         }
     }
 
-    public override EnemyState Process(double delta)
-    {
-		if (attackState != null)
-		{
-			if (attackState.IsAttackValid())
-				return attackState;
-		}
+	public override EnemyState Process(double delta)
+	{
+		foreach (IHE_Attack atk in attacks) { 
+			if (atk.IsAttackValid())
+				return atk;
+	}
 		if (enem.nav.TargetPosition.DistanceTo(GameMaster.Instance.GetPlayer().GlobalPosition) > optimalDistance)
 		{
             enem.nav.TargetPosition = GameMaster.Instance.GetPlayer().Position;
