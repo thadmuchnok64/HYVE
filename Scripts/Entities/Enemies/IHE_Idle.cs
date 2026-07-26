@@ -62,10 +62,13 @@ public partial class IHE_Idle: EnemyState
 	{
 		if (enem.agrod)
 		{
-			foreach (IHE_Attack atk in attacks)
+			if (attacks.Count > 0)
 			{
+				foreach (IHE_Attack atk in attacks)
+				{
 					if (atk.IsAttackValid())
 						return atk;
+				}
 			}
 			if (enem.GlobalPosition.DistanceTo(GameMaster.Instance.GetPlayer().GlobalPosition) >= distanceToFollow)
 			{

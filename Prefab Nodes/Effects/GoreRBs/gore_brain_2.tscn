@@ -1,0 +1,59 @@
+[gd_scene format=4 uid="uid://cvq50sqoi64if"]
+
+[ext_resource type="Material" uid="uid://d018q0ibx13fi" path="res://Materials/Organic/Flesh/Gore.tres" id="1_ndclx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4rab1"]
+resource_name = "Gore"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vsdmx"]
+_surfaces = [{
+"aabb": AABB(-0.00035101152, -0.00019275509, -1.1107451e-05, 0.0006488217, 0.0005261999, 0.00065911346),
+"format": 34359742465,
+"index_count": 108,
+"index_data": PackedByteArray("CwAMAA0ADAALAAIADQAOAAsADwALAA4AAgALAA8AAQAOAA0ADgAEAA8ABAAOAAEADwAEAAMAAQADAAQAAwAAAA8AAAADAAEAAAAFAA8ADwAFAAIAAgAFAAAAAAAQAAIAAQAQAAAAEQACABAAAgARAAwAEAABABIADQASAAEAEAATABEAEgATABAADAARAAcABwARABMACgANAAwAEgANAAoABwAJAAwADAAJAAoAEwAGAAcABwAGAAkAEwASAAgACgAIABIACAAGABMACAAKAAkACQAGAAgA"),
+"lods": [8.543291e-05, PackedByteArray("AAABAAIAAAADAAEAAwAAAAQAAQADAAQAAAAFAAQAAgAFAAAABAAFAAIAAQAGAAIABwACAAYABAACAAcACAAGAAEABAAIAAEABwAGAAkABwAJAAQACQAGAAgACAAEAAoABAAJAAoACAAKAAkA")],
+"name": "Gore",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("RF9juRs5jDi7VBE65qqIueBmPrkPPgg6phXAtz+Wejl39fM5+Ae4uU0eSrkPICU6aCOcObynRLny3ik6jHBguDPSrjmPRxM6+J2iuA7DUTgpPDg268mJtzwt8DimOF44jDoDuRjGkriWkjE3ZruSOBQybjYkWjq38QLiOO+0k7hkl9E2qc9EOYHCmbh3hQc6TbcSOejai7iU9305fR1KOQHcGbmU9305jzWHORYJOrkLCQw62+RMOc3sfrgFWhk6QawUuXu98DdlHAE6KdqbtzTeNTmU9305lI9RuQHcGbmU93052grluJoRYDeU9305")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3ab42"]
+resource_name = "Cube_008"
+_surfaces = [{
+"aabb": AABB(-0.00035101152, -0.00019275509, -1.1107451e-05, 0.0006488217, 0.0005261999, 0.00065911346),
+"attribute_data": PackedByteArray("lXMWPVQKGD+GsMY8ZJYSPyEHcz043hk/hAdXPKdwFD/FZWY9TNQcP1y2IT6oMfA+lJg4Puxs6T6Mj1E+ENj/PoyPUT5umuM+C3sXPvTryz7zZxs+BHnSPlvHED6AhtQ+W8cQPtZDyj6GsMY8ZJYSPzjanT0GvQ8/IQdzPTjeGT/qc6I9MOQRPww8jT1Z0w0/DDyNPVnTDT+EB1c8qx8FP8LqiT0lvgg/hrDGPGSWEj+EB1c8p3AUP7RomD2LLAQ/wCyUPQl1Bz+EB1c8qx8FP8LqiT0lvgg/cXJLPSz4+j7ROj89vD/1PkSnIj6sz88+82cbPgR50j4Lexc+9OvLPi4N8zyKzAM/FUFOPbwkBj9RTz0938kHP541uzzJ+wU/2UowPSxjFj8kw1A+sij4PpEwdD3FoBI/yb9JPXLBDz/ZSjA9LGMWP5EwdD3FoBI/1gOQPTSUFT+4MYE9CgkBPxVBTj28JAY/Lg3zPIrMAz+VcxY9VAoYP9lKMD0sYxY/lJg4Puxs6T4kw1A+sij4Psm/ST1ywQ8/UU89Pd/JBz8VQU49vCQGP7gxgT0KCQE/njW7PMn7BT9RTz0938kHP8m/ST1ywQ8/1gOQPTSUFT+RMHQ9xaASPzjanT0GvQ8/2UowPSxjFj/Jv0k9csEPP5EwdD3FoBI/njW7PMn7BT+GsMY8ZJYSP1FPPT3fyQc/FUFOPbwkBj/ALJQ9CXUHP8LRzDzl6gI/Lg3zPIrMAz+eNbs8yfsFP8LRzDzl6gI/cXJLPSz4+j4uDfM8iswDPw=="),
+"format": 34359742487,
+"index_count": 108,
+"index_data": PackedByteArray("IAAhACIAIgAjACAAAAAkAAIAAgAEAAAABQAGACUAJQAHAAUAEQAOACYAJgAnABEACQAKAAsACwAMAAkAKAApACoAKgAPACgAGwArACwALAAtABsALgADAAEAAQAvAC4AMAAIADEAFAASADIAMgAzABQAFwAYADQANAA1ABcAFQA2ADcANwA4ABUAEAA5ADoAOgA7ABAAHQAeAB8APAANAD0APQA+ADwAEwA/AEAAQAAWABMAGgBBAEIAQgBDABoARABFAEYARgAZAEQARwAcAEgASABJAEcA"),
+"lods": [8.543291e-05, PackedByteArray("AAABAAIAAAADAAEAAgAEAAAABQAGAAcABgAIAAcACQAKAAsACwAMAAkADQAOAA8AEAAPAA4AEQAOAA0AEgATABQAEwASABUAFQAWABMAFwAYABkAGQAYABoAGQAbABcAGQAcABsAHQAeAB8A")],
+"material": SubResource("StandardMaterial3D_4rab1"),
+"name": "Gore",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 74,
+"vertex_data": PackedByteArray("RF9juRs5jDi7VBE65qqIueBmPrkPPgg6phXAtz+Wejl39fM5+Ae4uU0eSrkPICU6jHBguDPSrjmPRxM6+Ae4uU0eSrkPICU6RF9juRs5jDi7VBE6aCOcObynRLny3ik6jHBguDPSrjmPRxM6ZruSOBQybjYkWjq3+J2iuA7DUTgpPDg2jDoDuRjGkriWkjE38QLiOO+0k7hkl9E25qqIueBmPrkPPgg6+J2iuA7DUTgpPDg2phXAtz+Wejl39fM568mJtzwt8DimOF44jDoDuRjGkriWkjE3jDoDuRjGkriWkjE3aCOcObynRLny3ik68QLiOO+0k7hkl9E25qqIueBmPrkPPgg6+Ae4uU0eSrkPICU668mJtzwt8DimOF44ZruSOBQybjYkWjq3aCOcObynRLny3ik68QLiOO+0k7hkl9E2phXAtz+Wejl39fM5jHBguDPSrjmPRxM668mJtzwt8DimOF44+J2iuA7DUTgpPDg2ZruSOBQybjYkWjq3qc9EOYHCmbh3hQc6TbcSOejai7iU9305fR1KOQHcGbmU9305jzWHORYJOrkLCQw6QawUuXu98DdlHAE62+RMOc3sfrgFWhk62grluJoRYDeU9305lI9RuQHcGbmU9305QawUuXu98DdlHAE62grluJoRYDeU9305KdqbtzTeNTmU9305KdqbtzTeNTmU9305TbcSOejai7iU9305qc9EOYHCmbh3hQc6RF9juRs5jDi7VBE6QawUuXu98DdlHAE6RF9juRs5jDi7VBE62+RMOc3sfrgFWhk6lI9RuQHcGbmU9305fR1KOQHcGbmU9305TbcSOejai7iU9305KdqbtzTeNTmU9305jzWHORYJOrkLCQw6fR1KOQHcGbmU9305lI9RuQHcGbmU9305KdqbtzTeNTmU93052grluJoRYDeU9305+J2iuA7DUTgpPDg2QawUuXu98DdlHAE6lI9RuQHcGbmU93052grluJoRYDeU9305jzWHORYJOrkLCQw65qqIueBmPrkPPgg6fR1KOQHcGbmU9305TbcSOejai7iU9305ZruSOBQybjYkWjq32+RMOc3sfrgFWhk6qc9EOYHCmbh3hQc6jzWHORYJOrkLCQw62+RMOc3sfrgFWhk6phXAtz+Wejl39fM5qc9EOYHCmbh3hQc6JRoJ0K3hQ+J0EQfJU9pQ5iUaCdDr4TridBEHySzYr+YlGgnQAuI34pN/sKEh1fbck3+woR/V+NyTf7ChKNXx3Md3voFQyp3Ynw3SBt2Ovv+fDdIG0o7E/58N0gbXjsH/nw3SBuGOvP94KSy17tnK8Ekn6a+60vPxBinQtdHW5u9rMYu5Qdjv7kkn6a/G0vXxOGBJADYePv38izsBrgoN/zhgSQDdHHr63Y26AJILd/j8izsB+/Vd+jjOD7t5H0DwOM4Pu5QfOfCE1Hm9Jhwf7lvVd7X7IYvxBdKPuaQdvfDN1TG83RrI7hLQovcUgf/lEtCi9xSB/+US0KL3FIH/5cbRRLnDG2HxxtFEufId6PDG0US5TB0M8cbRRLk/G33xJRoJ0IjhSOKTf7ChJtXz3Ekn6a/Q0vbxSSfpr9nS+PEGKdC10Nbm7wYp0LXO1ubvBinQtdDW5u8F0o+5kx6L8AXSj7lSHc/wBdKPuaYc8vB0EQfJ9d9Y5XQRB8kR487kx3e+gVDKndjHd76BUMqd2DhgSQAZHfX6OGBJAC0cEvk4zg+7dx9A8DjOD7tgH0bw3Y26AB/zPf7djboAdwyP/N2NugBiCgTzazGLuUDY7+5rMYu5Qdjv7msxi7lB2O/ueCkstV/YhvB4KSy1uNdp8HgpLLXP1RXw/Is7AW0KuP38izsB4vUB+1vVd7WQIm/xW9V3tXMidPFb1Xe13CGR8YTUeb2MGl3uhNR5vWwZiO6E1Hm9cxs67s3VMbzbGsjuzdUxvN0ayO7N1TG82hrI7g==")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_vsdmx")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_vqoxx"]
+points = PackedVector3Array(0, -0.005, 0, 0.03, 0.06, 0.02, -0.035, 0.06, 0.02, -0.005, 0.055, -0.03)
+
+[node name="Gore_Brain_2" type="RigidBody3D" unique_id=67746569]
+collision_layer = 0
+
+[node name="BrainMatter2" type="MeshInstance3D" parent="." unique_id=538637214]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0, 0, 0)
+material_override = ExtResource("1_ndclx")
+mesh = SubResource("ArrayMesh_3ab42")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1442617991]
+shape = SubResource("ConvexPolygonShape3D_vqoxx")

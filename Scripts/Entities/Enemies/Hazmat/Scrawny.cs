@@ -41,5 +41,8 @@ public partial class Scrawny : Enemy
         ((Node3D)inst).GlobalPosition = headPoint.GlobalPosition;
         ((Node3D)inst).GlobalRotation = headPoint.GlobalRotation;
 		((PhysicalParticleLauncher)inst).Launch();
-    }
+		GoreManager.Instance.RequestGoreAtLocation(GoreType.BRAIN, bloodPoint.GlobalPosition);
+		GoreManager.Instance.RequestGoreAtLocation(GoreType.BRAIN, bloodPoint.GlobalPosition);
+
+	}
 }

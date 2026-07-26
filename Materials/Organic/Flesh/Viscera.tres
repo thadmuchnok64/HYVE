@@ -17,6 +17,13 @@ operator = 2
 
 [sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_u603r"]
 
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_u603r"]
+parameter_name = "Texture2DParameter"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_u603r"]
+source = 5
+texture = ExtResource("1_u603r")
+
 [sub_resource type="VisualShaderNodeRemap" id="VisualShaderNodeRemap_hk6hb"]
 default_input_values = [1, 0.0, 2, 1.0, 3, -1.0, 4, 1.0]
 
@@ -76,6 +83,7 @@ default_input_values = [0, 0.0, 1, 0.5]
 operator = 5
 
 [resource]
+preview_params/Texture2DParameter = "Resource(\"uid://dtwigbioafjv5\", \"res://Materials/Organic/Flesh/meatmask.png\")"
 nodes/vertex/0/position = Vector2(1106.6666, 346.66666)
 nodes/vertex/2/node = SubResource("VisualShaderNodeTexture_bfxhd")
 nodes/vertex/2/position = Vector2(-420, 160)
@@ -118,4 +126,8 @@ nodes/fragment/5/node = SubResource("VisualShaderNodeVectorOp_u603r")
 nodes/fragment/5/position = Vector2(0, 660)
 nodes/fragment/6/node = SubResource("VisualShaderNodeFloatConstant_u603r")
 nodes/fragment/6/position = Vector2(80, 300)
-nodes/fragment/connections = PackedInt32Array(2, 0, 5, 0, 4, 0, 5, 1, 5, 0, 0, 0, 6, 0, 0, 4)
+nodes/fragment/7/node = SubResource("VisualShaderNodeTexture2DParameter_u603r")
+nodes/fragment/7/position = Vector2(-720, 53.333332)
+nodes/fragment/8/node = SubResource("VisualShaderNodeTexture_u603r")
+nodes/fragment/8/position = Vector2(-333.33334, 0)
+nodes/fragment/connections = PackedInt32Array(4, 0, 5, 1, 5, 0, 0, 0, 6, 0, 0, 4, 7, 0, 8, 2, 8, 0, 5, 0)

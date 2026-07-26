@@ -59,10 +59,14 @@ public partial class IHE_Shamble : EnemyState
 
 	public override EnemyState Process(double delta)
 	{
-		foreach (IHE_Attack atk in attacks) { 
-			if (atk.IsAttackValid())
-				return atk;
-	}
+		if (attacks.Count > 0)
+		{
+			foreach (IHE_Attack atk in attacks)
+			{
+				if (atk.IsAttackValid())
+					return atk;
+			}
+		}
 		if (enem.nav.TargetPosition.DistanceTo(GameMaster.Instance.GetPlayer().GlobalPosition) > optimalDistance)
 		{
             enem.nav.TargetPosition = GameMaster.Instance.GetPlayer().Position;
