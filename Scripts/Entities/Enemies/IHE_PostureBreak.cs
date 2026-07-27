@@ -27,6 +27,7 @@ public partial class IHE_PostureBreak : EnemyState
 		timer += (float)delta;
 		if (enem.alive && timer>recoilTime)
 		{
+			enem.FillPosture();
 			return movingState;
 		}
 		if(!rising && timer>= timeToStartRise)

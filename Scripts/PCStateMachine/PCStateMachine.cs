@@ -127,6 +127,8 @@ public partial class PCStateMachine : Entity
 	public override void _Input(InputEvent @event)
 	{
 		PCState state = currentState.ManageInput(@event);
+		if (@event.IsActionPressed("Inventory"))
+			HUDManager.instance.ToggleInventory();
 		if(state!=null)
 		ChangeState(state);
 	}
@@ -226,8 +228,9 @@ public partial class PCStateMachine : Entity
 			HUDManager.instance.ShowTracker(tracking);
 			return null;
 		}
-		var potentialBodies = lockOnArea.GetOverlappingBodies();
-		if (potentialBodies.Count <= 0)
+		var potentialBodies = lockOnArea.GetOverlappingBodies().ToList();
+		var bodies = potentialBodies.Where(e => ((Enemy)e.GetChild(0)).alive).ToList();
+		if (bodies.Count <= 0)
 			return null;
 		tracking = true;
 		HUDManager.instance.ShowTracker(tracking);

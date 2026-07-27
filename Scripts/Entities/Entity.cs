@@ -39,6 +39,11 @@ public partial class Entity : Node3D
         }
     }
 
+	public virtual void FillPosture()
+	{
+		posture = maxPosture;
+	}
+
 	public virtual void Die()
 	{
 		alive = false;

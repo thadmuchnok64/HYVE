@@ -5,13 +5,17 @@ using System.Collections.Generic;
 public partial class HUDManager : Control
 {
 	[Export] AnimationTree anim;
+	[Export] AudioStreamPlayer2D aud;
 
 	[Export] RichTextLabel dialogueBox;
+
+	bool inventoryOpen = false;
 
 
 	[Export] TextureProgressBar staminaBar;
 	[Export] TextureProgressBar healthBar;
 	[Export] TextureProgressBar posBar;
+	[Export] AudioStream inventoryInSFX, inventoryOutSFX;
 
 	[Export] float trackerOffset = 32;
 
@@ -91,6 +95,23 @@ public partial class HUDManager : Control
 			anim.Set("parameters/Main/LockOn/transition_request", "out");
 	}
 
+	public void ToggleInventory()
+	{
+		inventoryOpen = !inventoryOpen;
+		if (inventoryOpen)
+		{
+			aud.Stream = inventoryInSFX;
+			aud.Play();
+			anim.Set("parameters/Main/Inventory/transition_request", "in");
+		}
+		else
+		{
+			aud.Stream = inventoryOutSFX;
+			aud.Play();
+			anim.Set("parameters/Main/Inventory/transition_request", "out");
+
+		}
+	}
             #region Bars
             public void SetStamina(float current, float max)
 	{

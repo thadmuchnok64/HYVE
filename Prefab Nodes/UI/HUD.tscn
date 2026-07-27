@@ -3,6 +3,11 @@
 [ext_resource type="Script" uid="uid://cwidmccyyf7ex" path="res://Scripts/UI/HUDManager.cs" id="1_07sgc"]
 [ext_resource type="FontFile" uid="uid://wuq1cy3olt2k" path="res://Materials/Font/Dongle-Regular.ttf" id="2_2pel7"]
 [ext_resource type="Texture2D" uid="uid://do3thhekjhbhp" path="res://Textures/LockonIndicator_Small.png" id="2_6edwv"]
+[ext_resource type="AudioStream" uid="uid://dnj6c1eo5ljam" path="res://Sound/SFX/UISounds/InventoryIN.wav" id="2_645e3"]
+[ext_resource type="AudioStream" uid="uid://c2miio3fhmad0" path="res://Sound/SFX/UISounds/InventoryOut.wav" id="3_s8js7"]
+[ext_resource type="PackedScene" uid="uid://vj8h1ijhircq" path="res://Prefab Nodes/UI/inventory_slot.tscn" id="4_6edwv"]
+[ext_resource type="Script" uid="uid://cs1oyd2rva8mr" path="res://Scripts/UI/InventorySlot.cs" id="6_4stpt"]
+[ext_resource type="Texture2D" uid="uid://ctcg6hv3v6pd3" path="res://Textures/BrickWall3.png" id="6_645e3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_07sgc"]
 content_margin_left = 0.0
@@ -61,6 +66,47 @@ fill_from = Vector2(1, 1)
 default_font = ExtResource("2_2pel7")
 default_font_size = 37
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6edwv"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbk5n"]
+content_margin_left = 10.0
+content_margin_top = 4.0
+content_margin_right = 10.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+border_width_left = 1
+border_width_right = 1
+border_color = Color(0.175, 0.175, 0.175, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_645e3"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="Theme" id="Theme_6edwv"]
+
 [sub_resource type="Animation" id="Animation_1iqsm"]
 resource_name = "DialogueIn"
 length = 0.3
@@ -87,6 +133,86 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lbk5n"]
+resource_name = "InventoryIn"
+length = 0.23333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Inventory:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Inventory:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.12970686, 0.23333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(68, 82), Vector2(68, 70), Vector2(68, 82)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Inventory:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.9, 0.9), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_645e3"]
+resource_name = "InventoryOut"
+length = 0.23333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Inventory:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Inventory:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.12970686, 0.23333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(68, 82), Vector2(68, 70), Vector2(68, 82)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Inventory:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.9, 0.9)]
 }
 
 [sub_resource type="Animation" id="Animation_dpc2c"]
@@ -151,6 +277,42 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(0.72156864, 0.14117648, 0.2, 0)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Inventory:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Inventory:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(68, 82)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Inventory:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_6edwv"]
 resource_name = "TrackingReticleIn"
@@ -195,9 +357,13 @@ tracks/2/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dpc2c"]
 _data = {
 &"DialogueIn": SubResource("Animation_1iqsm"),
+&"InventoryIn": SubResource("Animation_lbk5n"),
+&"InventoryOut": SubResource("Animation_645e3"),
 &"RESET": SubResource("Animation_dpc2c"),
 &"TrackingReticleIn": SubResource("Animation_6edwv")
 }
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_6edwv"]
 
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_lbk5n"]
 
@@ -207,6 +373,12 @@ animation = &"TrackingReticleIn"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6edwv"]
 animation = &"TrackingReticleIn"
 play_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lbk5n"]
+animation = &"InventoryIn"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s8js7"]
+animation = &"InventoryOut"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2pel7"]
 animation = &"DialogueIn"
@@ -229,6 +401,16 @@ input_2/reset = true
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_07sgc"]
 animation = &"DialogueIn"
 
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_6edwv"]
+input_0/name = "in"
+input_0/auto_advance = false
+input_0/break_loop_at_end = false
+input_0/reset = true
+input_1/name = "out"
+input_1/auto_advance = false
+input_1/break_loop_at_end = false
+input_1/reset = true
+
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_s8js7"]
 input_0/name = "in"
 input_0/auto_advance = false
@@ -240,14 +422,14 @@ input_1/break_loop_at_end = false
 input_1/reset = true
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_2pel7"]
-graph_offset = Vector2(-1025.2941, -102.07847)
-nodes/output/position = Vector2(440, -120)
+graph_offset = Vector2(-405.50284, -68.82615)
+nodes/output/position = Vector2(493.33334, 40)
 nodes/DialogueIn/node = SubResource("AnimationNodeAnimation_07sgc")
-nodes/DialogueIn/position = Vector2(-560, 60)
+nodes/DialogueIn/position = Vector2(-573.3333, 80)
 nodes/Dialogue/node = SubResource("AnimationNodeTransition_07sgc")
-nodes/Dialogue/position = Vector2(-100, 140)
+nodes/Dialogue/position = Vector2(-106.666664, 160)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_2pel7")
-nodes/Animation/position = Vector2(-560, 280)
+nodes/Animation/position = Vector2(-573.3333, 293.33334)
 nodes/Add2/node = SubResource("AnimationNodeAdd2_lbk5n")
 nodes/Add2/position = Vector2(80, -100)
 nodes/LockOn/node = SubResource("AnimationNodeTransition_s8js7")
@@ -256,31 +438,43 @@ nodes/LockOn/position = Vector2(-140, -320)
 "nodes/Animation 2/position" = Vector2(-540, -400)
 "nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_6edwv")
 "nodes/Animation 3/position" = Vector2(-500, -160)
-node_connections = [&"output", 0, &"Add2", &"Dialogue", 0, &"DialogueIn", &"Dialogue", 1, &"Animation", &"Add2", 0, &"LockOn", &"Add2", 1, &"Dialogue", &"LockOn", 0, &"Animation 2", &"LockOn", 1, &"Animation 3"]
+nodes/Inventory/node = SubResource("AnimationNodeTransition_6edwv")
+nodes/Inventory/position = Vector2(-146.66667, 626.6667)
+"nodes/Animation 4/node" = SubResource("AnimationNodeAnimation_lbk5n")
+"nodes/Animation 4/position" = Vector2(-453.33334, 560)
+"nodes/Animation 5/node" = SubResource("AnimationNodeAnimation_s8js7")
+"nodes/Animation 5/position" = Vector2(-466.66666, 760)
+"nodes/Add2 2/node" = SubResource("AnimationNodeAdd2_6edwv")
+"nodes/Add2 2/position" = Vector2(320, 40)
+node_connections = [&"output", 0, &"Add2 2", &"Dialogue", 0, &"DialogueIn", &"Dialogue", 1, &"Animation", &"Add2", 0, &"LockOn", &"Add2", 1, &"Dialogue", &"LockOn", 0, &"Animation 2", &"LockOn", 1, &"Animation 3", &"Inventory", 0, &"Animation 4", &"Inventory", 1, &"Animation 5", &"Add2 2", 0, &"Add2", &"Add2 2", 1, &"Inventory"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6edwv"]
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_645e3"]
 states/Main/node = SubResource("AnimationNodeBlendTree_2pel7")
-states/Main/position = Vector2(352, 91)
+states/Main/position = Vector2(443.33334, 100.74943)
 states/Start/position = Vector2(200, 91)
 transitions = ["Start", "Main", SubResource("AnimationNodeStateMachineTransition_6edwv")]
 graph_offset = Vector2(-308, -72)
 
-[node name="Control" type="Control" unique_id=593094546 node_paths=PackedStringArray("anim", "dialogueBox", "staminaBar", "healthBar", "posBar", "tracker")]
+[node name="Control" type="Control" unique_id=593094546 node_paths=PackedStringArray("anim", "aud", "dialogueBox", "staminaBar", "healthBar", "posBar", "tracker")]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_right = 1.7310001
+anchor_bottom = 2.538
+offset_right = -0.11206055
+offset_bottom = 0.37597656
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_07sgc")
 anim = NodePath("AnimationTree")
+aud = NodePath("AudioStreamPlayer2D")
 dialogueBox = NodePath("Panel/RichTextLabel")
 staminaBar = NodePath("StaminaBar")
 healthBar = NodePath("HPBar")
 posBar = NodePath("PostureBar")
+inventoryInSFX = ExtResource("2_645e3")
+inventoryOutSFX = ExtResource("3_s8js7")
 tracker = NodePath("PhyiscalUI/Panel")
 
 [node name="PhyiscalUI" type="Panel" parent="." unique_id=1942192926]
@@ -395,16 +589,162 @@ theme_override_colors/default_color = Color(0.36150184, 0.40902737, 0.47500587, 
 theme_override_constants/line_separation = -32
 text = "pingas"
 
+[node name="Inventory" type="Panel" parent="." unique_id=1676778026]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.041
+anchor_right = 0.23400001
+anchor_bottom = 0.342
+offset_left = -13.754005
+offset_top = 82.0
+offset_right = -14.596039
+offset_bottom = 0.40997314
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_6edwv")
+
+[node name="TabContainer" type="TabContainer" parent="Inventory" unique_id=165147739]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Inventory" unique_id=124957283]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 18.0
+offset_right = 106.0
+offset_bottom = 36.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.6156863, 0, 0.18431373, 1)
+theme_override_colors/font_shadow_color = Color(0.2979585, 0, 0.075866185, 1)
+theme_override_fonts/font = ExtResource("2_2pel7")
+theme_override_font_sizes/font_size = 24
+text = "BACKPACK"
+horizontal_alignment = 1
+
+[node name="TabBar" type="TabBar" parent="Inventory" unique_id=1147522626]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.23600002
+anchor_right = 0.93500006
+anchor_bottom = 0.059000004
+offset_left = -0.03200531
+offset_right = 0.14111328
+offset_bottom = 0.20199776
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_lbk5n")
+current_tab = 0
+tab_count = 2
+tab_0/title = "Weapons"
+tab_1/title = "Consumables"
+
+[node name="PanelContainer" type="PanelContainer" parent="Inventory" unique_id=575611268]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.042000003
+anchor_top = 0.095000006
+anchor_right = 0.957
+anchor_bottom = 0.92300004
+offset_left = 0.3115921
+offset_top = 0.69499207
+offset_right = -0.025634766
+offset_bottom = -0.037109375
+pivot_offset_ratio = Vector2(0.5, 0)
+
+[node name="GridContainer" type="GridContainer" parent="Inventory/PanelContainer" unique_id=114329769]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 5
+
+[node name="InventorySlot" type="Panel" parent="Inventory/PanelContainer/GridContainer" unique_id=301320801 node_paths=PackedStringArray("icon")]
+clip_contents = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_645e3")
+script = ExtResource("6_4stpt")
+icon = NodePath("MarginContainer/Tex")
+
+[node name="MarginContainer" type="MarginContainer" parent="Inventory/PanelContainer/GridContainer/InventorySlot" unique_id=981108663]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.039
+anchor_top = 0.039
+anchor_right = 0.961
+anchor_bottom = 0.961
+offset_left = -0.15500069
+offset_right = 0.15496826
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Tex" type="TextureRect" parent="Inventory/PanelContainer/GridContainer/InventorySlot/MarginContainer" unique_id=414661753]
+layout_mode = 2
+theme = SubResource("Theme_6edwv")
+texture = ExtResource("6_645e3")
+expand_mode = 4
+
+[node name="InventorySlot2" parent="Inventory/PanelContainer/GridContainer" unique_id=2059074070 instance=ExtResource("4_6edwv")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlot3" parent="Inventory/PanelContainer/GridContainer" unique_id=1633449032 instance=ExtResource("4_6edwv")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlot4" parent="Inventory/PanelContainer/GridContainer" unique_id=346072475 instance=ExtResource("4_6edwv")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlot5" parent="Inventory/PanelContainer/GridContainer" unique_id=635497459 instance=ExtResource("4_6edwv")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlot6" parent="Inventory/PanelContainer/GridContainer" unique_id=1928077851 instance=ExtResource("4_6edwv")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlot7" parent="Inventory/PanelContainer/GridContainer" unique_id=370788373 instance=ExtResource("4_6edwv")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlot8" parent="Inventory/PanelContainer/GridContainer" unique_id=1121097471 instance=ExtResource("4_6edwv")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=853196942]
 libraries/ = SubResource("AnimationLibrary_dpc2c")
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=1556062741]
 tree_root = SubResource("AnimationNodeStateMachine_645e3")
 anim_player = NodePath("../AnimationPlayer")
-parameters/Main/Dialogue/current_state = "idle"
+parameters/Main/Dialogue/current_state = "out"
 parameters/Main/Dialogue/transition_request = ""
-parameters/Main/Dialogue/current_index = 2
+parameters/Main/Dialogue/current_index = 1
 parameters/Main/Add2/add_amount = 1.0
 parameters/Main/LockOn/current_state = "in"
 parameters/Main/LockOn/transition_request = ""
 parameters/Main/LockOn/current_index = 0
+parameters/Main/Inventory/current_state = "out"
+parameters/Main/Inventory/transition_request = ""
+parameters/Main/Inventory/current_index = 1
+"parameters/Main/Add2 2/add_amount" = 1.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1852951004]
+bus = &"UI"

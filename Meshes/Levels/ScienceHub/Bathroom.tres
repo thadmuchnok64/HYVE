@@ -2,10 +2,8 @@
 
 [ext_resource type="Shader" uid="uid://itrnkg3h08cb" path="res://Materials/Shaders/BaseSceneShader.tres" id="1_op6a4"]
 [ext_resource type="Texture2D" uid="uid://5r4jnypgxgaj" path="res://Meshes/Levels/ScienceHub/Textures/ScienceHubSubstance_BathroomsWest_Texture.png" id="2_7858q"]
-[ext_resource type="Texture2D" uid="uid://vmdxy4l33x23" path="res://Meshes/Levels/ScienceHub/Textures/ScienceHubSubstance_BathroomProps_Emissive.png" id="2_n7o5i"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_op6a4")
 shader_parameter/MainTex2 = ExtResource("2_7858q")
-shader_parameter/Emission = ExtResource("2_n7o5i")
