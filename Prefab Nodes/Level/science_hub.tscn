@@ -5,9 +5,9 @@
 [ext_resource type="Script" uid="uid://dipg3042aik5" path="res://Scripts/Gizmos/HamsterWheel.cs" id="2_yticp"]
 [ext_resource type="Script" uid="uid://c6igaenalehqd" path="res://Scripts/Gizmos/GizmoTrigger.cs" id="3_tsnj0"]
 [ext_resource type="Material" uid="uid://drtmrja226gul" path="res://Meshes/Levels/ScienceHub/ScienceProps.tres" id="6_03jnw"]
-[ext_resource type="ArrayMesh" uid="uid://dtc5lme2fgmpt" path="res://Meshes/Levels/ScienceHub/SmallCogWheel.tres" id="6_7y3m2"]
-[ext_resource type="ArrayMesh" uid="uid://buxi0weu60hqh" path="res://Meshes/Levels/ScienceHub/BigHamsterWheel.tres" id="6_qrf1v"]
-[ext_resource type="ArrayMesh" uid="uid://dwqtx2ib1qi28" path="res://Meshes/Levels/ScienceHub/Cogwheel.tres" id="7_03jnw"]
+[ext_resource type="ArrayMesh" uid="uid://c68qsb2spcyvh" path="res://Meshes/Levels/ScienceHub/SmallCogWheel.tres" id="6_7y3m2"]
+[ext_resource type="ArrayMesh" uid="uid://ba3x55awbj506" path="res://Meshes/Levels/ScienceHub/BigHamsterWheel.tres" id="6_qrf1v"]
+[ext_resource type="ArrayMesh" uid="uid://bh8klekudiqub" path="res://Meshes/Levels/ScienceHub/Cogwheel.tres" id="7_03jnw"]
 [ext_resource type="AudioStream" uid="uid://bmepdsdcgemkb" path="res://Sound/SFX/GizmoSFX/GearTurn.wav" id="7_hpfbv"]
 [ext_resource type="AudioStream" uid="uid://vk3u7i48blsd" path="res://Sound/Ambeince/ScienceZone.wav" id="10_7y3m2"]
 
@@ -1163,6 +1163,7 @@ stream = ExtResource("10_7y3m2")
 volume_db = -10.0
 autoplay = true
 max_distance = 17.89
+bus = &"Ambience"
 
 [connection signal="body_entered" from="Gizmos/RigidBody3D/Area3D" to="Gizmos/RigidBody3D" method="BodyEntered"]
 [connection signal="body_exited" from="Gizmos/RigidBody3D/Area3D" to="Gizmos/RigidBody3D" method="BodyExited"]

@@ -1,21 +1,43 @@
 res://default_bus_layout.tres
-res://Prefab Nodes/PlayerController/pc.tscn
+res://Prefab Nodes/Level/maingame.tscn
 res://Materials/Shaders/BaseSceneShader.tres
 res://Meshes/Levels/Foyer/LeftCultureDoorFoyer.tres
 res://Meshes/Levels/Foyer/RightCultureDoorFoyer.tres
+res://Meshes/Levels/ScienceHub/SmallCogWheel.tres
 res://Meshes/Levels/ScienceHub/BigHamsterWheel.tres
 res://Meshes/Levels/ScienceHub/Cogwheel.tres
-res://Meshes/Levels/ScienceHub/SmallCogWheel.tres
+res://Meshes/Levels/ScienceHub/BathroomMeshes/BathroomDivider.tres
+res://Meshes/Levels/ScienceHub/BathroomMeshes/BathroomMirror.tres
+res://Meshes/Levels/ScienceHub/BathroomMeshes/BathroomSink.tres
+res://Meshes/Levels/ScienceHub/BathroomMeshes/WetFloorSign.tres
+res://Materials/Shaders/ScreenShader.tres
+res://Meshes/Levels/ScienceHub/BathroomMeshes/FakeWindow.tres
+res://Meshes/Levels/ScienceHub/BathroomMeshes/FluorescentLamp.tres
+res://Meshes/Levels/ScienceHub/BathroomMeshes/BathroomWestMen.tres
+res://Meshes/Levels/ScienceHub/BathroomMeshes/PlasticTrashcan.tres
+res://Meshes/Levels/ScienceHub/BathroomMeshes/Radiator.tres
+res://Meshes/Levels/ScienceHub/BathroomMeshes/ScienceBathroom.tres
+res://Meshes/Levels/ScienceHub/BathroomMeshes/BathroomStall.tres
+res://Meshes/Levels/ScienceHub/BathroomMeshes/Toilet.tres
+res://Meshes/Levels/ScienceHub/BathroomMeshes/Urinal.tres
+res://Meshes/Levels/ScienceHub/BathroomMeshes/Vent.tres
+res://Meshes/Levels/ScienceHub/BathroomMeshes/BathroomWestWomen.tres
 res://Meshes/Characters/Enemies/Scrawny/Scrawny.tres
 res://Meshes/Characters/Enemies/Scrawny/ScrawnyHeadless.tres
-res://Materials/Organic/Flesh/Viscera.tres
 res://Meshes/Effects/GoreFX/BloodParticle.tres
-res://Prefab Nodes/Level/maingame.tscn
-res://Prefab Nodes/Enemies/scrawny_grunt.tscn
-res://Scripts/PCStateMachine/States/PC_Attack.cs
+res://Materials/Organic/Flesh/Viscera.tres
+res://Meshes/Characters/Ray/rav2.res
+res://Prefab Nodes/PlayerController/pc.tscn
+res://Scripts/PCStateMachine/PCStateMachine.cs
+res://Scripts/PCStateMachine/States/PC_Idle.cs
+res://Scripts/PCStateMachine/States/PC_Walk.cs
+res://Scripts/PCStateMachine/States/PC_Inventory.cs
 res://Scripts/Managers/SoundManager.cs
 res://Scripts/Managers/GameMaster.cs
+res://Scripts/Managers/CameraController.cs
+res://Scripts/Managers/GoreManager.cs
 res://Scripts/Entities/Enemies/Hazmat/TorsoCrawler.cs
+res://Scripts/UI/InventorySlot.cs
 res://Scripts/UI/HUDManager.cs
 res://Scripts/Entities/Enemies/Hazmat/InfectedHazmat.cs
 res://Scripts/Managers/InventoryManager.cs
@@ -26,11 +48,9 @@ res://Scripts/PCStateMachine/PCState.cs
 res://Scripts/PCStateMachine/States/PC_BlockRecoil.cs
 res://Scripts/PCStateMachine/States/PC_Block.cs
 res://Scripts/PCStateMachine/States/PC_Recoil.cs
-res://Scripts/PCStateMachine/States/PC_Idle.cs
+res://Scripts/PCStateMachine/States/PC_Attack.cs
 res://Scripts/PCStateMachine/States/PC_Interact.cs
 res://Scripts/PCStateMachine/States/PC_Sprint.cs
-res://Scripts/PCStateMachine/States/PC_Walk.cs
-res://Scripts/PCStateMachine/PCStateMachine.cs
 res://Scripts/Gizmos/ChainParticleTrigger.cs
 res://Scripts/Effects/BloodSplatter/DecalEffect.cs
 res://Scripts/Effects/BloodSplatter/BloodSplatChunk.cs
@@ -53,25 +73,3 @@ res://Scripts/Gizmos/HamsterWheel.cs
 res://Scripts/Gizmos/GizmoTrigger.cs
 res://Scripts/Gizmos/InteractableObject.cs
 res://Scripts/Gizmos/Door.cs
-res://Meshes/Levels/ScienceHub/BathroomProps.tres
-res://Prefab Nodes/Level/bathrooms_west.tscn
-res://Meshes/Levels/ScienceHub/Bathroom.tres
-res://Meshes/Levels/ScienceHub/CommonProps2.tres
-res://Meshes/Levels/ScienceHub/BathroomMeshes/BathroomSink.tres
-res://Meshes/Levels/ScienceHub/BathroomMeshes/BathroomDivider.tres
-res://Meshes/Levels/ScienceHub/BathroomMeshes/BathroomMirror.tres
-res://Meshes/Levels/ScienceHub/BathroomMeshes/WetFloorSign.tres
-res://Meshes/Levels/ScienceHub/BathroomMeshes/FakeWindow.tres
-res://Meshes/Levels/ScienceHub/BathroomMeshes/FluorescentLamp.tres
-res://Meshes/Levels/ScienceHub/BathroomMeshes/BathroomWestMen.tres
-res://Meshes/Levels/ScienceHub/BathroomMeshes/PlasticTrashcan.tres
-res://Meshes/Levels/ScienceHub/BathroomMeshes/Radiator.tres
-res://Meshes/Levels/ScienceHub/BathroomMeshes/ScienceBathroom.tres
-res://Meshes/Levels/ScienceHub/BathroomMeshes/BathroomStall.tres
-res://Meshes/Levels/ScienceHub/BathroomMeshes/Toilet.tres
-res://Meshes/Levels/ScienceHub/BathroomMeshes/Urinal.tres
-res://Meshes/Levels/ScienceHub/BathroomMeshes/Vent.tres
-res://Meshes/Levels/ScienceHub/BathroomMeshes/BathroomWestWomen.tres
-res://Prefab Nodes/Level/GI/bathrooms_west.exr
-res://Prefab Nodes/Level/GI/bathrooms_west.lmbake
-res://Prefab Nodes/Level/webbiesworld.tscn

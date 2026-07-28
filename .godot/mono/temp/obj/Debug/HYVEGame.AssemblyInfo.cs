@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HYVEGame")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d781730a8d0a782b42ee9194d46c66540ccea333")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bc80365476f7a92bbf152fac41c3de140339a933")]
 [assembly: System.Reflection.AssemblyProductAttribute("HYVEGame")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HYVEGame")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

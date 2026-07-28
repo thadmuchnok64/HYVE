@@ -4,6 +4,7 @@ using System;
 public partial class GameMaster : Node3D
 {
 	[Export] CharacterBody3D player;
+	[Export] public Camera3D mainCamRef;
 
 
 

@@ -16,7 +16,6 @@ public partial class PCStateMachine : Entity
 	[Export] float maxStamina;
 	[Export] RayCast3D interactionRay;
 	[Export] Area3D lockOnArea;
-	[Export] Camera3D camRef;
 
 	[Export] PCState startingState;
 	[Export] public AudioStreamPlayer3D aud;
@@ -28,6 +27,10 @@ public partial class PCStateMachine : Entity
 	[Export] float timeToRecoverStam = .5f;
 	[Export] float postureRecoveryPerSec = 10f;
 	[Export] float timeToRecoverPos = 1f;
+
+    [Export] CameraController cam;
+	[Export] Node3D mainCamPoint, inventoryCamPoint;
+
 
 	[Export] Godot.Collections.Array<GpuParticles3D> slidingParticles;
 	PCState currentState;
@@ -89,7 +92,9 @@ public partial class PCStateMachine : Entity
 		stamina = maxStamina;
 		health = maxHealth;
 		posture = maxPosture;
-		foreach (PCState state in GetChildren())
+		cam.SetTrackingObject(mainCamPoint);
+
+        foreach (PCState state in GetChildren())
 		{
 			//state.camPoint = camPoint;
 			//state.SetAnimationTree(anim);
@@ -127,9 +132,7 @@ public partial class PCStateMachine : Entity
 	public override void _Input(InputEvent @event)
 	{
 		PCState state = currentState.ManageInput(@event);
-		if (@event.IsActionPressed("Inventory"))
-			HUDManager.instance.ToggleInventory();
-		if(state!=null)
+        if (state!=null)
 		ChangeState(state);
 	}
 
@@ -143,7 +146,7 @@ public partial class PCStateMachine : Entity
 		CamControl(delta);
 		if (tracking)
 		{
-			HUDManager.instance.SnapTrackerToPoint(trackingObject.GetNode<Enemy>("Enemy").trackingPoint.GlobalPosition, camRef);
+			HUDManager.instance.SnapTrackerToPoint(trackingObject.GetNode<Enemy>("Enemy").trackingPoint.GlobalPosition, GameMaster.Instance.mainCamRef);
 		}
 		var newState = currentState.Process(delta);
 		if (newState != null)
@@ -246,6 +249,20 @@ public partial class PCStateMachine : Entity
 			part.Emitting = true;
 		}
 	}
+
+	public bool TriggerInventory()
+	{
+        bool open = HUDManager.instance.ToggleInventory();
+        if (open)
+        {
+            cam.SetTrackingObject(inventoryCamPoint);
+        }
+        else
+        {
+            cam.SetTrackingObject(mainCamPoint);
+        }
+		return open;
+    }
 
 	/*
 	public string getAnimationName()

@@ -95,7 +95,7 @@ public partial class HUDManager : Control
 			anim.Set("parameters/Main/LockOn/transition_request", "out");
 	}
 
-	public void ToggleInventory()
+	public bool ToggleInventory()
 	{
 		inventoryOpen = !inventoryOpen;
 		if (inventoryOpen)
@@ -111,6 +111,7 @@ public partial class HUDManager : Control
 			anim.Set("parameters/Main/Inventory/transition_request", "out");
 
 		}
+		return inventoryOpen;
 	}
             #region Bars
             public void SetStamina(float current, float max)

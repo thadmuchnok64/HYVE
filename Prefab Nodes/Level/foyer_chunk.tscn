@@ -1142,6 +1142,7 @@ transform = Transform3D(-100, 8.74228e-06, -8.742278e-06, 8.7422795e-06, 100, 7.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05667375e-07, 3.420557, -1.2086939)
 stream = ExtResource("12_2vcjp")
 autoplay = true
+bus = &"Ambience"
 
 [node name="Area3D" type="Area3D" parent="Foyer2" unique_id=1927052036 node_paths=PackedStringArray("interactable")]
 transform = Transform3D(0.7238589, 0, -0.68994814, 0, 1, 0, 0.68994814, 0, 0.7238589, 0.13148722, 0.5135977, 5.171466)

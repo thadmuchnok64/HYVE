@@ -141,7 +141,7 @@ length = 0.23333333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Inventory:modulate")
+tracks/0/path = NodePath("VSplitContainer:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -153,7 +153,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Inventory:position")
+tracks/1/path = NodePath("VSplitContainer:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -165,7 +165,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Inventory:scale")
+tracks/2/path = NodePath("VSplitContainer:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -181,7 +181,7 @@ length = 0.23333333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Inventory:modulate")
+tracks/0/path = NodePath("VSplitContainer:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -193,7 +193,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Inventory:position")
+tracks/1/path = NodePath("VSplitContainer:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -205,7 +205,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Inventory:scale")
+tracks/2/path = NodePath("VSplitContainer:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -280,7 +280,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Inventory:modulate")
+tracks/5/path = NodePath("VSplitContainer:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -292,19 +292,19 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Inventory:position")
+tracks/6/path = NodePath("VSplitContainer:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(68, 82)]
+"values": [Vector2(71, 53)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Inventory:scale")
+tracks/7/path = NodePath("VSplitContainer:scale")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -589,23 +589,42 @@ theme_override_colors/default_color = Color(0.36150184, 0.40902737, 0.47500587, 
 theme_override_constants/line_separation = -32
 text = "pingas"
 
-[node name="Inventory" type="Panel" parent="." unique_id=1676778026]
+[node name="VSplitContainer" type="VSplitContainer" parent="." unique_id=907738956]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.041
-anchor_right = 0.23400001
-anchor_bottom = 0.342
-offset_left = -13.754005
-offset_top = 82.0
-offset_right = -14.596039
-offset_bottom = 0.40997314
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset_ratio = Vector2(0.5, 0.5)
+anchor_left = 0.036000002
+anchor_right = 0.3
+anchor_bottom = 0.39400002
+offset_left = -0.7840042
+offset_top = 53.0
+offset_right = -143.20001
+offset_bottom = -74.130066
+split_offsets = PackedInt32Array(200)
+split_offset = 200
+
+[node name="Inventory2" type="Panel" parent="VSplitContainer" unique_id=35615355]
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_6edwv")
 
-[node name="TabContainer" type="TabContainer" parent="Inventory" unique_id=165147739]
+[node name="Label" type="Label" parent="VSplitContainer/Inventory2" unique_id=994989892]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 24.0
+offset_right = 168.0
+offset_bottom = 36.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.6156863, 0, 0.18431373, 1)
+theme_override_colors/font_shadow_color = Color(0.2979585, 0, 0.075866185, 1)
+theme_override_fonts/font = ExtResource("2_2pel7")
+theme_override_font_sizes/font_size = 24
+text = "EQUIPPED GEAR"
+
+[node name="Inventory" type="Panel" parent="VSplitContainer" unique_id=1676778026]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6edwv")
+
+[node name="TabContainer" type="TabContainer" parent="VSplitContainer/Inventory" unique_id=165147739]
 visible = false
 layout_mode = 1
 anchors_preset = 10
@@ -613,7 +632,7 @@ anchor_right = 1.0
 offset_bottom = 40.0
 grow_horizontal = 2
 
-[node name="Label" type="Label" parent="Inventory" unique_id=124957283]
+[node name="Label" type="Label" parent="VSplitContainer/Inventory" unique_id=124957283]
 layout_mode = 1
 anchors_preset = -1
 offset_left = 18.0
@@ -627,15 +646,15 @@ theme_override_font_sizes/font_size = 24
 text = "BACKPACK"
 horizontal_alignment = 1
 
-[node name="TabBar" type="TabBar" parent="Inventory" unique_id=1147522626]
+[node name="TabBar" type="TabBar" parent="VSplitContainer/Inventory" unique_id=1147522626]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.23600002
+anchor_left = 0.28800002
 anchor_right = 0.93500006
-anchor_bottom = 0.059000004
-offset_left = -0.03200531
-offset_right = 0.14111328
-offset_bottom = 0.20199776
+anchor_bottom = 0.089
+offset_left = -0.17743683
+offset_right = -7.040039
+offset_bottom = -0.1499958
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_lbk5n")
@@ -644,27 +663,27 @@ tab_count = 2
 tab_0/title = "Weapons"
 tab_1/title = "Consumables"
 
-[node name="PanelContainer" type="PanelContainer" parent="Inventory" unique_id=575611268]
+[node name="PanelContainer" type="PanelContainer" parent="VSplitContainer/Inventory" unique_id=575611268]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.042000003
-anchor_top = 0.095000006
+anchor_left = 0.043
+anchor_top = 0.117000006
 anchor_right = 0.957
 anchor_bottom = 0.92300004
-offset_left = 0.3115921
-offset_top = 0.69499207
+offset_left = -0.07240677
+offset_top = 0.049987793
 offset_right = -0.025634766
 offset_bottom = -0.037109375
 pivot_offset_ratio = Vector2(0.5, 0)
 
-[node name="GridContainer" type="GridContainer" parent="Inventory/PanelContainer" unique_id=114329769]
+[node name="GridContainer" type="GridContainer" parent="VSplitContainer/Inventory/PanelContainer" unique_id=114329769]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/h_separation = 5
 theme_override_constants/v_separation = 5
 columns = 5
 
-[node name="InventorySlot" type="Panel" parent="Inventory/PanelContainer/GridContainer" unique_id=301320801 node_paths=PackedStringArray("icon")]
+[node name="InventorySlot" type="Panel" parent="VSplitContainer/Inventory/PanelContainer/GridContainer" unique_id=1750431659 node_paths=PackedStringArray("icon")]
 clip_contents = true
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
@@ -674,7 +693,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_645e3")
 script = ExtResource("6_4stpt")
 icon = NodePath("MarginContainer/Tex")
 
-[node name="MarginContainer" type="MarginContainer" parent="Inventory/PanelContainer/GridContainer/InventorySlot" unique_id=981108663]
+[node name="MarginContainer" type="MarginContainer" parent="VSplitContainer/Inventory/PanelContainer/GridContainer/InventorySlot" unique_id=981108663]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 1
 anchors_preset = -1
@@ -683,47 +702,49 @@ anchor_top = 0.039
 anchor_right = 0.961
 anchor_bottom = 0.961
 offset_left = -0.15500069
-offset_right = 0.15496826
+offset_top = -3.9959984
+offset_right = -0.53900146
+offset_bottom = 2.9959984
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="Tex" type="TextureRect" parent="Inventory/PanelContainer/GridContainer/InventorySlot/MarginContainer" unique_id=414661753]
+[node name="Tex" type="TextureRect" parent="VSplitContainer/Inventory/PanelContainer/GridContainer/InventorySlot/MarginContainer" unique_id=414661753]
 layout_mode = 2
 theme = SubResource("Theme_6edwv")
 texture = ExtResource("6_645e3")
 expand_mode = 4
 
-[node name="InventorySlot2" parent="Inventory/PanelContainer/GridContainer" unique_id=2059074070 instance=ExtResource("4_6edwv")]
+[node name="InventorySlot2" parent="VSplitContainer/Inventory/PanelContainer/GridContainer" unique_id=2059074070 instance=ExtResource("4_6edwv")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="InventorySlot3" parent="Inventory/PanelContainer/GridContainer" unique_id=1633449032 instance=ExtResource("4_6edwv")]
+[node name="InventorySlot3" parent="VSplitContainer/Inventory/PanelContainer/GridContainer" unique_id=1633449032 instance=ExtResource("4_6edwv")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="InventorySlot4" parent="Inventory/PanelContainer/GridContainer" unique_id=346072475 instance=ExtResource("4_6edwv")]
+[node name="InventorySlot4" parent="VSplitContainer/Inventory/PanelContainer/GridContainer" unique_id=346072475 instance=ExtResource("4_6edwv")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="InventorySlot5" parent="Inventory/PanelContainer/GridContainer" unique_id=635497459 instance=ExtResource("4_6edwv")]
+[node name="InventorySlot5" parent="VSplitContainer/Inventory/PanelContainer/GridContainer" unique_id=635497459 instance=ExtResource("4_6edwv")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="InventorySlot6" parent="Inventory/PanelContainer/GridContainer" unique_id=1928077851 instance=ExtResource("4_6edwv")]
+[node name="InventorySlot6" parent="VSplitContainer/Inventory/PanelContainer/GridContainer" unique_id=1928077851 instance=ExtResource("4_6edwv")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="InventorySlot7" parent="Inventory/PanelContainer/GridContainer" unique_id=370788373 instance=ExtResource("4_6edwv")]
+[node name="InventorySlot7" parent="VSplitContainer/Inventory/PanelContainer/GridContainer" unique_id=370788373 instance=ExtResource("4_6edwv")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="InventorySlot8" parent="Inventory/PanelContainer/GridContainer" unique_id=1121097471 instance=ExtResource("4_6edwv")]
+[node name="InventorySlot8" parent="VSplitContainer/Inventory/PanelContainer/GridContainer" unique_id=1121097471 instance=ExtResource("4_6edwv")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

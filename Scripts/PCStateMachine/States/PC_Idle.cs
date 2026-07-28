@@ -11,6 +11,7 @@ public partial class PC_Idle : PCState
 	[Export] PCState blockState;
 	[Export] PCState interactState;
 	[Export] PCState trackingState;
+	[Export] PCState inventoryState;
 
 	[Export] float attackStaminaCost = 25f;
 
@@ -44,8 +45,14 @@ public partial class PC_Idle : PCState
 			{
 				return trackingState;
 			}
-		}
-		return null;
+        }
+        if (@event.IsActionPressed("Inventory"))
+        {
+			bool open = stateMachine.TriggerInventory();
+			if (open)
+				return inventoryState;
+        }
+        return null;
 	}
 	public override PCState PhysicsProcess(double delta)
 	{
