@@ -6,7 +6,7 @@ using System.Linq;
 public partial class InventoryManager : Node3D
 {
 
-	List<Collectable> items;
+	public List<Collectable> items;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{

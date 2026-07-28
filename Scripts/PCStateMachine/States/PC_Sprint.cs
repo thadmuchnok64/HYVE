@@ -18,6 +18,7 @@ public partial class PC_Sprint : PCState
 	[Export] float animLerpMod = 2;
 
 	[Export] string animMeta2;
+	[Export] float staminaLossPerSec = 10;
 	// Called when the node enters the scene tree for the first time.
 	public override PCState ManageInput(InputEvent @event)
 	{
@@ -99,6 +100,9 @@ public partial class PC_Sprint : PCState
 	{
 
 		var timeScale = Mathf.Clamp((cb.Velocity.Length() - minSpeed) / (maxSpeed - minSpeed), 0, 1);
+		stateMachine.ConsumeStamina(((float)delta) * staminaLossPerSec);
+		if (stateMachine.stamina <= 0)
+			return walkState;
 		//anim.Set("parameters/Ground/RunTimeScale/scale", timeScale);
 		return null;
 	}

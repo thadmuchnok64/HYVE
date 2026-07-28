@@ -146,6 +146,9 @@ public partial class PCStateMachine : Entity
 		CamControl(delta);
 		if (tracking)
 		{
+			if (!trackingObject.GetNode<Enemy>("Enemy").alive){
+				AttemptTracking();
+			}
 			HUDManager.instance.SnapTrackerToPoint(trackingObject.GetNode<Enemy>("Enemy").trackingPoint.GlobalPosition, GameMaster.Instance.mainCamRef);
 		}
 		var newState = currentState.Process(delta);
@@ -252,7 +255,7 @@ public partial class PCStateMachine : Entity
 
 	public bool TriggerInventory()
 	{
-        bool open = HUDManager.instance.ToggleInventory();
+        bool open = HUDManager.instance.ToggleInventory(inventory);
         if (open)
         {
             cam.SetTrackingObject(inventoryCamPoint);

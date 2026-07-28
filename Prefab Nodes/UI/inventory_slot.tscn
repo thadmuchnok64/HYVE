@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://vj8h1ijhircq"]
 
 [ext_resource type="Script" uid="uid://cs1oyd2rva8mr" path="res://Scripts/UI/InventorySlot.cs" id="1_jqeea"]
-[ext_resource type="Texture2D" uid="uid://ctcg6hv3v6pd3" path="res://Textures/BrickWall3.png" id="2_fc8x0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_645e3"]
 content_margin_left = 0.0
@@ -21,13 +20,20 @@ corner_detail = 5
 
 [sub_resource type="Theme" id="Theme_6edwv"]
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6ddj3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jqeea"]
+
+[sub_resource type="MeshTexture" id="MeshTexture_fc8x0"]
+mesh = SubResource("BoxMesh_jqeea")
+base_texture = SubResource("PlaceholderTexture2D_6ddj3")
+image_size = Vector2(35, 140)
+
 [node name="InventorySlot" type="Panel" unique_id=301320801 node_paths=PackedStringArray("icon")]
 clip_contents = true
 custom_minimum_size = Vector2(64, 64)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -16.0
+offset_right = 64.0
+offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_645e3")
@@ -51,5 +57,10 @@ grow_vertical = 2
 [node name="Tex" type="TextureRect" parent="MarginContainer" unique_id=414661753]
 layout_mode = 2
 theme = SubResource("Theme_6edwv")
-texture = ExtResource("2_fc8x0")
 expand_mode = 1
+
+[node name="Tex2" type="TextureRect" parent="MarginContainer" unique_id=174306652]
+layout_mode = 2
+theme = SubResource("Theme_6edwv")
+texture = SubResource("MeshTexture_fc8x0")
+expand_mode = 2

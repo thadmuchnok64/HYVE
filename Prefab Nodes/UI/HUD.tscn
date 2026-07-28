@@ -6,8 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://dnj6c1eo5ljam" path="res://Sound/SFX/UISounds/InventoryIN.wav" id="2_645e3"]
 [ext_resource type="AudioStream" uid="uid://c2miio3fhmad0" path="res://Sound/SFX/UISounds/InventoryOut.wav" id="3_s8js7"]
 [ext_resource type="PackedScene" uid="uid://vj8h1ijhircq" path="res://Prefab Nodes/UI/inventory_slot.tscn" id="4_6edwv"]
-[ext_resource type="Script" uid="uid://cs1oyd2rva8mr" path="res://Scripts/UI/InventorySlot.cs" id="6_4stpt"]
-[ext_resource type="Texture2D" uid="uid://ctcg6hv3v6pd3" path="res://Textures/BrickWall3.png" id="6_645e3"]
+[ext_resource type="Script" uid="uid://dvtoai47x8tv5" path="res://Scripts/UI/EquipmentScreen.cs" id="6_s8js7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_07sgc"]
 content_margin_left = 0.0
@@ -78,34 +77,44 @@ corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 corner_detail = 5
 
+[sub_resource type="LabelSettings" id="LabelSettings_4stpt"]
+font = ExtResource("2_2pel7")
+font_size = 22
+font_color = Color(0.5316505, 0.19008958, 0.23198739, 1)
+shadow_color = Color(0.1664061, 0.07978571, 0.052952193, 1)
+shadow_offset = Vector2(0.5, 0.3)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbk5n"]
 content_margin_left = 10.0
 content_margin_top = 4.0
 content_margin_right = 10.0
 content_margin_bottom = 4.0
-bg_color = Color(0, 0, 0, 0.6)
+bg_color = Color(0.29803923, 0, 0.07450981, 1)
 border_width_left = 1
 border_width_right = 1
 border_color = Color(0.175, 0.175, 0.175, 1)
 corner_detail = 1
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_645e3"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8c5fg"]
+content_margin_left = 10.0
+content_margin_top = 4.0
+content_margin_right = 10.0
+content_margin_bottom = 4.0
+bg_color = Color(0.23709932, 0.2162708, 0.18964222, 1)
 border_width_left = 1
-border_width_top = 1
 border_width_right = 1
-border_width_bottom = 1
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
+border_color = Color(0.175, 0.175, 0.175, 1)
+corner_detail = 1
 
-[sub_resource type="Theme" id="Theme_6edwv"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4stpt"]
+content_margin_left = 10.0
+content_margin_top = 4.0
+content_margin_right = 10.0
+content_margin_bottom = 4.0
+bg_color = Color(0.06666667, 0.06666667, 0.06666667, 1)
+border_width_top = 2
+border_color = Color(1, 1, 1, 0.75)
+corner_detail = 1
 
 [sub_resource type="Animation" id="Animation_1iqsm"]
 resource_name = "DialogueIn"
@@ -458,8 +467,9 @@ states/Start/position = Vector2(200, 91)
 transitions = ["Start", "Main", SubResource("AnimationNodeStateMachineTransition_6edwv")]
 graph_offset = Vector2(-308, -72)
 
-[node name="Control" type="Control" unique_id=593094546 node_paths=PackedStringArray("anim", "aud", "dialogueBox", "staminaBar", "healthBar", "posBar", "tracker")]
+[node name="Control" type="Control" unique_id=593094546 node_paths=PackedStringArray("anim", "aud", "dialogueBox", "staminaBar", "healthBar", "posBar", "equipmentScreen", "tracker")]
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -473,6 +483,7 @@ healthBar = NodePath("HPBar")
 posBar = NodePath("PostureBar")
 inventoryInSFX = ExtResource("2_645e3")
 inventoryOutSFX = ExtResource("3_s8js7")
+equipmentScreen = NodePath("VSplitContainer")
 tracker = NodePath("PhyiscalUI/Panel")
 
 [node name="PhyiscalUI" type="Panel" parent="." unique_id=1942192926]
@@ -587,19 +598,21 @@ theme_override_colors/default_color = Color(0.36150184, 0.40902737, 0.47500587, 
 theme_override_constants/line_separation = -32
 text = "pingas"
 
-[node name="VSplitContainer" type="VSplitContainer" parent="." unique_id=907738956]
+[node name="VSplitContainer" type="VSplitContainer" parent="." unique_id=907738956 node_paths=PackedStringArray("inventoryBacklog")]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.036000002
-anchor_right = 0.3
-anchor_bottom = 0.39400002
+anchor_right = 0.39100003
+anchor_bottom = 1.0
 offset_left = 29.527996
 offset_top = 53.0
-offset_right = -112.88794
-offset_bottom = -74.130066
+offset_right = 2.5679626
+offset_bottom = -90.0
 split_offsets = PackedInt32Array(200)
 split_offset = 200
+script = ExtResource("6_s8js7")
+inventoryBacklog = NodePath("Inventory/PanelContainer/MarginContainer/GridContainer")
 
 [node name="Inventory2" type="Panel" parent="VSplitContainer" unique_id=35615355]
 layout_mode = 2
@@ -617,6 +630,32 @@ theme_override_colors/font_shadow_color = Color(0.2979585, 0, 0.075866185, 1)
 theme_override_fonts/font = ExtResource("2_2pel7")
 theme_override_font_sizes/font_size = 24
 text = "EQUIPPED GEAR"
+
+[node name="SplitContainer" type="SplitContainer" parent="VSplitContainer/Inventory2" unique_id=1731530834]
+layout_mode = 0
+offset_left = 34.44445
+offset_top = 57.7778
+offset_right = 358.88892
+offset_bottom = 158.7778
+split_offsets = PackedInt32Array(0, 0, 0)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VSplitContainer/Inventory2/SplitContainer" unique_id=2131750403]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VSplitContainer/Inventory2/SplitContainer/VBoxContainer" unique_id=1948336166]
+layout_mode = 2
+text = "WEAPON"
+label_settings = SubResource("LabelSettings_4stpt")
+horizontal_alignment = 1
+
+[node name="InventorySlot3" parent="VSplitContainer/Inventory2/SplitContainer/VBoxContainer" unique_id=301320801 instance=ExtResource("4_6edwv")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="VSplitContainer/Inventory2/SplitContainer" unique_id=840997898]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Inventory" type="Panel" parent="VSplitContainer" unique_id=1676778026]
 layout_mode = 2
@@ -652,14 +691,19 @@ anchor_right = 0.93500006
 anchor_bottom = 0.089
 offset_left = -0.17743683
 offset_right = -7.040039
-offset_bottom = -0.1499958
+offset_bottom = -2.2649994
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_selected_color = Color(0.83568025, 0.82148975, 0.83140415, 1)
+theme_override_colors/font_hovered_color = Color(0.5188962, 0, 0.1501782, 1)
+theme_override_fonts/font = ExtResource("2_2pel7")
 theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_lbk5n")
+theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_8c5fg")
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_4stpt")
 current_tab = 0
 tab_count = 2
-tab_0/title = "Weapons"
-tab_1/title = "Consumables"
+tab_0/title = "WEAPONS"
+tab_1/title = "CONSUMABLES"
 
 [node name="PanelContainer" type="PanelContainer" parent="VSplitContainer/Inventory" unique_id=575611268]
 layout_mode = 1
@@ -674,75 +718,66 @@ offset_right = -0.025634766
 offset_bottom = -0.037109375
 pivot_offset_ratio = Vector2(0.5, 0)
 
-[node name="GridContainer" type="GridContainer" parent="VSplitContainer/Inventory/PanelContainer" unique_id=114329769]
+[node name="MarginContainer" type="MarginContainer" parent="VSplitContainer/Inventory/PanelContainer" unique_id=1580782000]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="GridContainer" type="GridContainer" parent="VSplitContainer/Inventory/PanelContainer/MarginContainer" unique_id=114329769]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/h_separation = 5
 theme_override_constants/v_separation = 5
 columns = 5
 
-[node name="InventorySlot" type="Panel" parent="VSplitContainer/Inventory/PanelContainer/GridContainer" unique_id=1750431659 node_paths=PackedStringArray("icon")]
-clip_contents = true
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_645e3")
-script = ExtResource("6_4stpt")
-icon = NodePath("MarginContainer/Tex")
-
-[node name="MarginContainer" type="MarginContainer" parent="VSplitContainer/Inventory/PanelContainer/GridContainer/InventorySlot" unique_id=981108663]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.039
-anchor_top = 0.039
-anchor_right = 0.961
-anchor_bottom = 0.961
-offset_left = -0.15500069
-offset_top = -3.9959984
-offset_right = -0.53900146
-offset_bottom = 2.9959984
-grow_horizontal = 0
-grow_vertical = 2
-
-[node name="Tex" type="TextureRect" parent="VSplitContainer/Inventory/PanelContainer/GridContainer/InventorySlot/MarginContainer" unique_id=414661753]
-layout_mode = 2
-theme = SubResource("Theme_6edwv")
-texture = ExtResource("6_645e3")
-expand_mode = 4
-
-[node name="InventorySlot2" parent="VSplitContainer/Inventory/PanelContainer/GridContainer" unique_id=2059074070 instance=ExtResource("4_6edwv")]
+[node name="InventorySlot3" parent="VSplitContainer/Inventory/PanelContainer/MarginContainer/GridContainer" unique_id=1633449032 instance=ExtResource("4_6edwv")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="InventorySlot3" parent="VSplitContainer/Inventory/PanelContainer/GridContainer" unique_id=1633449032 instance=ExtResource("4_6edwv")]
+[node name="InventorySlot4" parent="VSplitContainer/Inventory/PanelContainer/MarginContainer/GridContainer" unique_id=346072475 instance=ExtResource("4_6edwv")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="InventorySlot4" parent="VSplitContainer/Inventory/PanelContainer/GridContainer" unique_id=346072475 instance=ExtResource("4_6edwv")]
+[node name="InventorySlot5" parent="VSplitContainer/Inventory/PanelContainer/MarginContainer/GridContainer" unique_id=635497459 instance=ExtResource("4_6edwv")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="InventorySlot5" parent="VSplitContainer/Inventory/PanelContainer/GridContainer" unique_id=635497459 instance=ExtResource("4_6edwv")]
+[node name="InventorySlot6" parent="VSplitContainer/Inventory/PanelContainer/MarginContainer/GridContainer" unique_id=1653406141 instance=ExtResource("4_6edwv")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="InventorySlot6" parent="VSplitContainer/Inventory/PanelContainer/GridContainer" unique_id=1928077851 instance=ExtResource("4_6edwv")]
+[node name="InventorySlot7" parent="VSplitContainer/Inventory/PanelContainer/MarginContainer/GridContainer" unique_id=1483650769 instance=ExtResource("4_6edwv")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="InventorySlot7" parent="VSplitContainer/Inventory/PanelContainer/GridContainer" unique_id=370788373 instance=ExtResource("4_6edwv")]
+[node name="InventorySlot8" parent="VSplitContainer/Inventory/PanelContainer/MarginContainer/GridContainer" unique_id=1853196447 instance=ExtResource("4_6edwv")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="InventorySlot8" parent="VSplitContainer/Inventory/PanelContainer/GridContainer" unique_id=1121097471 instance=ExtResource("4_6edwv")]
+[node name="InventorySlot9" parent="VSplitContainer/Inventory/PanelContainer/MarginContainer/GridContainer" unique_id=695954986 instance=ExtResource("4_6edwv")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlot10" parent="VSplitContainer/Inventory/PanelContainer/MarginContainer/GridContainer" unique_id=658471938 instance=ExtResource("4_6edwv")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlot11" parent="VSplitContainer/Inventory/PanelContainer/MarginContainer/GridContainer" unique_id=1693309745 instance=ExtResource("4_6edwv")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventorySlot12" parent="VSplitContainer/Inventory/PanelContainer/MarginContainer/GridContainer" unique_id=483003288 instance=ExtResource("4_6edwv")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

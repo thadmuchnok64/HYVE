@@ -16,6 +16,7 @@ public partial class HUDManager : Control
 	[Export] TextureProgressBar healthBar;
 	[Export] TextureProgressBar posBar;
 	[Export] AudioStream inventoryInSFX, inventoryOutSFX;
+	[Export] EquipmentScreen equipmentScreen;
 
 	[Export] float trackerOffset = 32;
 
@@ -95,7 +96,7 @@ public partial class HUDManager : Control
 			anim.Set("parameters/Main/LockOn/transition_request", "out");
 	}
 
-	public bool ToggleInventory()
+	public bool ToggleInventory(InventoryManager inventoryToOpen)
 	{
 		inventoryOpen = !inventoryOpen;
 		if (inventoryOpen)
@@ -103,6 +104,7 @@ public partial class HUDManager : Control
 			aud.Stream = inventoryInSFX;
 			aud.Play();
 			anim.Set("parameters/Main/Inventory/transition_request", "in");
+			equipmentScreen.RefreshInventory(inventoryToOpen);
 		}
 		else
 		{
