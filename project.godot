@@ -22,6 +22,8 @@ buses/default_bus_layout="uid://d4b3r8cupuudt"
 [display]
 
 window/size/mode=2
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [dotnet]
 

@@ -460,10 +460,8 @@ graph_offset = Vector2(-308, -72)
 
 [node name="Control" type="Control" unique_id=593094546 node_paths=PackedStringArray("anim", "aud", "dialogueBox", "staminaBar", "healthBar", "posBar", "tracker")]
 layout_mode = 3
-anchor_right = 1.7310001
-anchor_bottom = 2.538
-offset_right = -0.11206055
-offset_bottom = 0.37597656
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_07sgc")
@@ -596,9 +594,9 @@ anchors_preset = -1
 anchor_left = 0.036000002
 anchor_right = 0.3
 anchor_bottom = 0.39400002
-offset_left = -0.7840042
+offset_left = 29.527996
 offset_top = 53.0
-offset_right = -143.20001
+offset_right = -112.88794
 offset_bottom = -74.130066
 split_offsets = PackedInt32Array(200)
 split_offset = 200
