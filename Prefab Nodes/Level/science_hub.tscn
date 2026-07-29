@@ -9,7 +9,10 @@
 [ext_resource type="ArrayMesh" uid="uid://ba3x55awbj506" path="res://Meshes/Levels/ScienceHub/BigHamsterWheel.tres" id="6_qrf1v"]
 [ext_resource type="ArrayMesh" uid="uid://bh8klekudiqub" path="res://Meshes/Levels/ScienceHub/Cogwheel.tres" id="7_03jnw"]
 [ext_resource type="AudioStream" uid="uid://bmepdsdcgemkb" path="res://Sound/SFX/GizmoSFX/GearTurn.wav" id="7_hpfbv"]
+[ext_resource type="PackedScene" uid="uid://c75shw2582cms" path="res://Meshes/Weapons/Crowbar.fbx" id="7_x0owy"]
+[ext_resource type="Script" uid="uid://8ry54pwer51n" path="res://Scripts/Gizmos/CollectableNote.cs" id="8_y8edc"]
 [ext_resource type="AudioStream" uid="uid://vk3u7i48blsd" path="res://Sound/Ambeince/ScienceZone.wav" id="10_7y3m2"]
+[ext_resource type="Material" uid="uid://bkgehhliamt20" path="res://Meshes/Weapons/Crowbar.tres" id="10_efecf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i6ae5"]
 resource_name = "CommonProps2"
@@ -926,6 +929,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_nhjo7")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_y55o2"]
+size = Vector3(1.5529175, 0.97436523, 0.79589844)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_yticp"]
 size = Vector3(6.39917, 0.26745605, 1.6421204)
 
@@ -1075,6 +1081,24 @@ mesh = SubResource("ArrayMesh_fb31v")
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 9.464801, 1.9735333, -12.351716)
 mesh = SubResource("ArrayMesh_mtcc8")
 
+[node name="Crowbar" parent="ScienceHub" unique_id=2138362320 instance=ExtResource("7_x0owy")]
+transform = Transform3D(-4.371139e-08, -0.7485045, 0.6631297, 1, -3.271817e-08, 2.898632e-08, 0, 0.6631297, 0.7485045, 17.636978, 0.7782109, -9.684813)
+script = ExtResource("8_y8edc")
+
+[node name="Crowbar" parent="ScienceHub/Crowbar" index="0" unique_id=1743716423]
+material_override = ExtResource("10_efecf")
+
+[node name="Area3D" type="Area3D" parent="ScienceHub/Crowbar" unique_id=1333049203 node_paths=PackedStringArray("interactable")]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("3_tsnj0")
+interactable = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ScienceHub/Crowbar/Area3D" unique_id=1600905055]
+transform = Transform3D(1, 8.941059e-13, -4.4719518e-13, 0, 1, 0, 0, 0, 1, -0.33145142, 0.5343056, 1.9073486e-06)
+shape = SubResource("BoxShape3D_y55o2")
+debug_color = Color(0.45031464, 1, 0.48679012, 1)
+
 [node name="Gizmos" type="Node3D" parent="." unique_id=1430527195]
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Gizmos" unique_id=1064543629]
@@ -1167,3 +1191,5 @@ bus = &"Ambience"
 
 [connection signal="body_entered" from="Gizmos/RigidBody3D/Area3D" to="Gizmos/RigidBody3D" method="BodyEntered"]
 [connection signal="body_exited" from="Gizmos/RigidBody3D/Area3D" to="Gizmos/RigidBody3D" method="BodyExited"]
+
+[editable path="ScienceHub/Crowbar"]

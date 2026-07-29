@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="LoreNote" format=3 uid="uid://32y2q17pd602"]
+
+[ext_resource type="Script" uid="uid://b20t20u0agdbd" path="res://Scripts/Data/Notes/LoreNote.cs" id="1_7u1tb"]
+
+[resource]
+script = ExtResource("1_7u1tb")
+NoteContent = "I understand "
+metadata/_custom_type_script = "uid://b20t20u0agdbd"
