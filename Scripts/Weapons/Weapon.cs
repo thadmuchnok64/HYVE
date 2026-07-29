@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 
 public enum SwingDirection { RIGHT, LEFT, UP }
+public enum AttackType { LIGHT, HEAVY}
 public partial class Weapon : Node3D
 {
 	[Export] float baseDamage = 20;
@@ -25,7 +26,22 @@ public partial class Weapon : Node3D
 			hitEnemiesThisSwing.Clear();
 
 	}
-	public virtual void OnWeaponHit(Node3D body)
+
+	public virtual void SetAttackType(AttackType type)
+	{
+
+	}
+
+	public virtual float NetDamage()
+	{
+		return baseDamage;
+	}
+
+    public virtual float NetPosture()
+    {
+        return baseDamage;
+    }
+    public virtual void OnWeaponHit(Node3D body)
 	{
 		if (!active)
 			return;
@@ -37,7 +53,7 @@ public partial class Weapon : Node3D
 				if (((Enemy)em).alive)
 				{
 					if (!hitEnemiesThisSwing.Contains((Enemy)em))
-						(em as Enemy).HitEnemyFromDirection(baseDamage, swingDir);
+						(em as Enemy).HitEnemyFromDirection(NetDamage(),NetPosture(), swingDir);
 					if (((Enemy)em).alive)
 					{
 						if (hitEnemiesThisSwing.Count <= 0)

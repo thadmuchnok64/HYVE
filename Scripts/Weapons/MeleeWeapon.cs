@@ -8,6 +8,11 @@ public partial class MeleeWeapon : Weapon
     [Export] Godot.Collections.Array<AudioStream> impactSFX;
     [Export] AudioStream killingSFX;
 	[Export] GpuParticles3D blockSparks;
+	[Export] float heavyDamage = 50;
+    [Export] float heavyPosture = 120;
+
+
+    AttackType currentAttack = AttackType.LIGHT;
 	public override void OnWeaponHit(Node3D body)
 	{
 		base.OnWeaponHit(body);
@@ -41,4 +46,38 @@ public partial class MeleeWeapon : Weapon
 	{
 		blockSparks.Emitting = true;
 	}
+
+    public override void SetAttackType(AttackType type)
+    {
+		currentAttack = type;
+    }
+
+    public override float NetDamage()
+    {
+		switch (currentAttack) {
+			case AttackType.LIGHT:
+				return base.NetDamage();
+			case AttackType.HEAVY:
+
+					return heavyDamage;
+
+		}
+        return base.NetDamage();
+
+    }
+
+    public override float NetPosture()
+    {
+        switch (currentAttack)
+        {
+            case AttackType.LIGHT:
+                return base.NetDamage();
+            case AttackType.HEAVY:
+
+                return heavyPosture;
+
+        }
+        return base.NetDamage();
+
+    }
 }

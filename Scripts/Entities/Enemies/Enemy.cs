@@ -64,10 +64,10 @@ public partial class Enemy : Entity
 
 	}
 
-	public void HitEnemyFromDirection(float damage, SwingDirection dir)
+	public void HitEnemyFromDirection(float damage, float postureDamage, SwingDirection dir)
 	{
 		TakeDamage(damage);
-		TakePostureDamage(damage);
+		TakePostureDamage(postureDamage);
 
         var inst = bloodSplatSmall.Instantiate();
         cb.AddSibling(inst);

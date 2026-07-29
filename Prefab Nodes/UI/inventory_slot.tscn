@@ -29,16 +29,74 @@ mesh = SubResource("BoxMesh_jqeea")
 base_texture = SubResource("PlaceholderTexture2D_6ddj3")
 image_size = Vector2(35, 140)
 
-[node name="InventorySlot" type="Panel" unique_id=301320801 node_paths=PackedStringArray("icon")]
+[sub_resource type="Animation" id="Animation_6ddj3"]
+resource_name = "Hover"
+length = 0.23333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1)]
+}
+
+[sub_resource type="Animation" id="Animation_fc8x0"]
+resource_name = "HoverOut"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jqeea"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fc8x0"]
+_data = {
+&"Hover": SubResource("Animation_6ddj3"),
+&"HoverOut": SubResource("Animation_fc8x0"),
+&"RESET": SubResource("Animation_jqeea")
+}
+
+[node name="InventorySlot" type="Panel" unique_id=301320801 node_paths=PackedStringArray("icon", "anim")]
 clip_contents = true
 custom_minimum_size = Vector2(64, 64)
 offset_right = 64.0
 offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_styles/panel = SubResource("StyleBoxFlat_645e3")
 script = ExtResource("1_jqeea")
 icon = NodePath("MarginContainer/Tex")
+anim = NodePath("AnimationPlayer")
+animMetaHighlight = "Hover"
+animMetaHighlightOut = "HoverOut"
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=981108663]
 layout_mode = 1
@@ -64,3 +122,6 @@ layout_mode = 2
 theme = SubResource("Theme_6edwv")
 texture = SubResource("MeshTexture_fc8x0")
 expand_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1345935918]
+libraries/ = SubResource("AnimationLibrary_fc8x0")

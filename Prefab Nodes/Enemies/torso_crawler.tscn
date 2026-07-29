@@ -3,15 +3,16 @@
 [ext_resource type="PackedScene" uid="uid://dxal1wx87r2ct" path="res://Meshes/Characters/Enemies/TorsoCrawler/TorsoCrawler.fbx" id="1_772lt"]
 [ext_resource type="Material" uid="uid://bmvww404k8uu4" path="res://Meshes/Characters/Enemies/TorsoCrawler/TorsoCrawler.tres" id="2_d67fp"]
 [ext_resource type="ArrayMesh" uid="uid://b0tslyfi4qenj" path="res://Meshes/Characters/Enemies/TorsoCrawler/TorsoCrawlerDead.tres" id="2_iol04"]
-[ext_resource type="Script" uid="uid://bnvcvyycw37db" path="res://Scripts/Entities/Enemies/Hazmat/TorsoCrawler.cs" id="3_dm33d"]
+[ext_resource type="Script" uid="uid://bnvcvyycw37db" path="res://Scripts/Entities/Enemies/TorsoCrawler/TorsoCrawler.cs" id="3_dm33d"]
 [ext_resource type="Script" uid="uid://dn60qksmgdtgc" path="res://Scripts/Entities/Enemies/IHE_Idle.cs" id="4_rgqds"]
 [ext_resource type="Script" uid="uid://xh1sunvigxw0" path="res://Scripts/Entities/Enemies/IHE_Shamble.cs" id="5_mvgh8"]
 [ext_resource type="Script" uid="uid://cx2mdb18nwimt" path="res://Scripts/Entities/Enemies/IHE_Recoil.cs" id="6_iol04"]
-[ext_resource type="Script" uid="uid://b7buriel0y11c" path="res://Scripts/Entities/Enemies/IHE_Death.cs" id="7_ajuya"]
+[ext_resource type="Script" uid="uid://qdcvjr65aggv" path="res://Scripts/Entities/Enemies/TorsoCrawler/TorsoCrawler_Death.cs" id="8_ajuya"]
 [ext_resource type="Script" uid="uid://bi6kqr4gj8u17" path="res://Scripts/Entities/Enemies/IHE_PostureBreak.cs" id="8_t3c0v"]
 [ext_resource type="PackedScene" uid="uid://crat431nw3eln" path="res://Prefab Nodes/Effects/blood_chunks.tscn" id="9_2jigd"]
 [ext_resource type="Script" uid="uid://b8snm5xkoqgnw" path="res://Scripts/Entities/Enemies/IHE_Attack.cs" id="9_3w72a"]
 [ext_resource type="PackedScene" uid="uid://c2bpajyvfiufj" path="res://Prefab Nodes/Effects/blood_chunks_small.tscn" id="10_wtii4"]
+[ext_resource type="PackedScene" uid="uid://cfi035g1ieqqq" path="res://Prefab Nodes/Effects/blood_mist.tscn" id="13_ajuya"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vvlkb"]
 radius = 0.29003906
@@ -2228,13 +2229,25 @@ nodes/Animation/node = SubResource("AnimationNodeAnimation_t3c0v")
 nodes/Animation/position = Vector2(106.666664, 146.66667)
 node_connections = [&"output", 0, &"Animation"]
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8wose"]
+animation = &"root|Idle"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ajuya"]
 animation = &"root|Impact"
 
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_nd8ga"]
+fadeout_time = 0.1
+
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_fk7ek"]
+graph_offset = Vector2(-211.5, -142.9)
+nodes/output/position = Vector2(480, 80)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_ajuya")
-nodes/Animation/position = Vector2(66.666664, 133.33333)
-node_connections = [&"output", 0, &"Animation"]
+nodes/Animation/position = Vector2(40, 260)
+nodes/OneShot/node = SubResource("AnimationNodeOneShot_nd8ga")
+nodes/OneShot/position = Vector2(280, 60)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_8wose")
+"nodes/Animation 2/position" = Vector2(0, 0)
+node_connections = [&"output", 0, &"OneShot", &"OneShot", 0, &"Animation 2", &"OneShot", 1, &"Animation"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t3c0v"]
 advance_mode = 2
@@ -2316,8 +2329,10 @@ graph_offset = Vector2(-335, -21)
 collision_layer = 4
 collision_mask = 5
 
-[node name="Enemy" type="Node3D" parent="." unique_id=43244516 node_paths=PackedStringArray("nav", "cb", "meshRoot", "anim", "startingState", "detectionSphere", "meshInstance", "bloodPoint", "trackingPoint")]
+[node name="Enemy" type="Node3D" parent="." unique_id=43244516 node_paths=PackedStringArray("backBone", "bloodMist", "nav", "cb", "meshRoot", "anim", "startingState", "detectionSphere", "meshInstance", "bloodPoint", "trackingPoint")]
 script = ExtResource("3_dm33d")
+backBone = NodePath("../TorsoCrawler/root/Skeleton3D/BackBone/BackBloodPoint")
+bloodMist = NodePath("../TorsoCrawler/root/Skeleton3D/BackBone/BloodMist")
 nav = NodePath("../NavigationAgent3D")
 cb = NodePath("..")
 meshRoot = NodePath("../TorsoCrawler")
@@ -2331,7 +2346,7 @@ bloodSplatSmall = ExtResource("10_wtii4")
 bloodPoint = NodePath("../TorsoCrawler/root/Skeleton3D/NeckBone/Tracker")
 trackingPoint = NodePath("../TorsoCrawler/root/Skeleton3D/NeckBone/Tracker")
 maxHealth = 120
-maxPosture = 80
+maxPosture = 99999
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1407275791]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.28998095, -2.1293966e-08)
@@ -2372,16 +2387,17 @@ optimalDistance = 1.5
 animMetaState = "moving"
 animMeta = "parameters/WalkState/blend_amount"
 
-[node name="RecoilState" type="Node3D" parent="States" unique_id=357704994 node_paths=PackedStringArray("movingState")]
+[node name="RecoilState" type="Node3D" parent="States" unique_id=357704994 node_paths=PackedStringArray("movingState", "deadState")]
 script = ExtResource("6_iol04")
 recoilTime = 0.9
 movingState = NodePath("../ShambleState")
+deadState = NodePath("../DeadState")
 animMetaState = "recoil"
 animMeta = "OneShot"
 
 [node name="DeadState" type="Node3D" parent="States" unique_id=2090303365]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0429201, 0.3158307, -0.78162146)
-script = ExtResource("7_ajuya")
+script = ExtResource("8_ajuya")
 animMetaState = "death"
 
 [node name="ProneState" type="Node3D" parent="States" unique_id=1262121797 node_paths=PackedStringArray("movingState", "deadState")]
@@ -2413,29 +2429,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46303707, 0.18756586, 0)
 bones/0/position = Vector3(-0.037526116, 0.14544788, 0.13003875)
 bones/0/rotation = Quaternion(0.9103157, 0.4007551, -0.06309623, 0.0820948)
 bones/0/scale = Vector3(1.0000001, 0.99999994, 0.99999994)
-bones/1/position = Vector3(-0.005192294, 0.17649645, -0.015397688)
+bones/1/position = Vector3(-0.0038498193, 0.17576165, -0.00812667)
 bones/1/rotation = Quaternion(0.06223108, 0.05535993, 0.4085683, 0.90891945)
 bones/1/scale = Vector3(1, 0.9999999, 0.9999999)
 bones/2/position = Vector3(-0.014670837, 0.18260384, 0.10110512)
 bones/2/rotation = Quaternion(-0.17128257, -0.123383805, 0.007988493, 0.97743285)
 bones/2/scale = Vector3(1, 0.99999994, 1)
 bones/3/position = Vector3(-6.1321294e-16, 0.16883884, -2.78542e-09)
-bones/3/rotation = Quaternion(0.4502782, -0.019173078, 0.33611938, 0.82698596)
+bones/3/rotation = Quaternion(0.44767824, -0.020188082, 0.31747273, 0.83569604)
 bones/3/scale = Vector3(0.9999999, 1, 0.99999994)
 bones/4/position = Vector3(1.9366858e-12, 0.06746795, -7.2078386e-08)
 bones/4/rotation = Quaternion(-0.21186513, -4.6100795e-06, -6.164422e-06, 0.9772989)
 bones/4/scale = Vector3(1, 0.99999994, 1)
 bones/5/position = Vector3(-0.027581183, 0.021448255, -0.016056547)
-bones/5/rotation = Quaternion(-0.03554157, 0.6538079, 0.08301178, 0.7512531)
+bones/5/rotation = Quaternion(-0.044383038, 0.6521751, 0.105111875, 0.7494326)
 bones/5/scale = Vector3(0.99999994, 0.9999999, 0.9999999)
 bones/6/position = Vector3(1.9212925e-08, 0.13867834, 6.752612e-08)
-bones/6/rotation = Quaternion(-0.09837318, 0.15593757, 0.03598037, 0.9821974)
+bones/6/rotation = Quaternion(-0.080941744, 0.15608448, 0.03027776, 0.983956)
 bones/6/scale = Vector3(1.0000001, 1.0000001, 1)
 bones/7/position = Vector3(0.027581906, 0.021448478, -0.016056638)
-bones/7/rotation = Quaternion(-0.15201725, -0.60622185, -0.07897676, 0.7766264)
+bones/7/rotation = Quaternion(-0.15775809, -0.60543114, -0.08270354, 0.7757098)
 bones/7/scale = Vector3(1, 1, 1)
 bones/8/position = Vector3(5.7137273e-09, 0.13867833, 3.5008747e-09)
-bones/8/rotation = Quaternion(0.17244329, 0.09857157, -0.022626637, 0.9798139)
+bones/8/rotation = Quaternion(0.16140227, 0.09876533, -0.022773761, 0.98167014)
 bones/8/scale = Vector3(1.0000001, 1.0000001, 1)
 bones/9/position = Vector3(-1.4305115e-08, -0.011292844, -0.042008117)
 bones/9/rotation = Quaternion(0.21647815, 0.00032997373, -0.08925311, 0.97219914)
@@ -2446,22 +2462,22 @@ bones/10/scale = Vector3(1, 1, 1)
 bones/11/position = Vector3(-9.880752e-14, 0.08845077, -1.4783995e-10)
 bones/11/rotation = Quaternion(0.055372465, 0.06517428, 0.04674125, 0.9952395)
 bones/11/scale = Vector3(1, 0.99999994, 1)
-bones/12/position = Vector3(0.044835936, -0.23868874, 0.14697409)
+bones/12/position = Vector3(0.044835936, -0.23868874, 0.13954377)
 bones/12/rotation = Quaternion(0.49626297, -0.2679484, 0.40059182, 0.722117)
 bones/13/position = Vector3(-4.499824e-09, 0.097135015, -1.5261836e-07)
-bones/13/rotation = Quaternion(-0.2935402, -0.45703638, 0.0141367605, 0.8394951)
+bones/13/rotation = Quaternion(-0.25310734, -0.4831884, 0.027254937, 0.83768904)
 bones/13/scale = Vector3(1, 0.99999994, 0.99999994)
 bones/14/position = Vector3(-2.1784796e-12, -1.4340151e-07, 5.3009636e-08)
-bones/14/rotation = Quaternion(1.2801229e-07, 0.2059086, -2.9678963e-08, 0.97857124)
+bones/14/rotation = Quaternion(6.106444e-08, 0.24432194, 9.809589e-09, 0.9696942)
 bones/14/scale = Vector3(0.99999994, 0.9999999, 0.9999998)
 bones/15/position = Vector3(8.905191e-10, 0.24368654, 5.237027e-08)
-bones/15/rotation = Quaternion(-4.6284114e-07, -6.9852106e-08, 0.78510237, 0.6193661)
+bones/15/rotation = Quaternion(-4.6310197e-07, -7.417771e-08, 0.7909045, 0.6119396)
 bones/15/scale = Vector3(0.99999994, 0.99999994, 0.9999999)
 bones/16/position = Vector3(-2.633686e-08, 0.14635599, -3.2801967e-08)
-bones/16/rotation = Quaternion(1.1317118e-07, -0.5287765, -4.136885e-08, 0.8487611)
+bones/16/rotation = Quaternion(1.1094921e-07, -0.5135963, -1.5714534e-08, 0.8580319)
 bones/16/scale = Vector3(1.0000001, 1, 1.0000002)
 bones/17/position = Vector3(-2.6824596e-08, 0.292712, -1.4096256e-08)
-bones/17/rotation = Quaternion(0.6372215, 0.00036868872, 0.540327, 0.5495411)
+bones/17/rotation = Quaternion(0.6730941, 0.0018536651, 0.52289504, 0.5229931)
 bones/17/scale = Vector3(1.0000001, 0.99999994, 1)
 bones/18/position = Vector3(-0.016896915, 0.018396286, -0.020876396)
 bones/18/rotation = Quaternion(-0.07903717, 0.8709662, -0.2784121, -0.39706138)
@@ -2523,22 +2539,22 @@ bones/36/scale = Vector3(1.0000001, 0.99999994, 1.0000001)
 bones/37/position = Vector3(0.07671934, 0.09812889, 4.677781e-05)
 bones/37/rotation = Quaternion(0.52892995, -0.5001736, -0.08292071, 0.68057597)
 bones/37/scale = Vector3(1.0000001, 1, 1.0000001)
-bones/38/position = Vector3(0.12042147, -0.24506138, 0.12886076)
+bones/38/position = Vector3(0.12042147, -0.24506138, 0.121430494)
 bones/38/rotation = Quaternion(0.40984076, 0.38686505, -0.5625271, 0.60492086)
 bones/39/position = Vector3(4.499824e-09, 0.097135015, -1.5261836e-07)
-bones/39/rotation = Quaternion(-0.40240318, 0.55900156, 0.20875189, 0.6942707)
+bones/39/rotation = Quaternion(-0.34577942, 0.6026507, 0.16192761, 0.7007341)
 bones/39/scale = Vector3(0.99999994, 0.99999994, 1)
 bones/40/position = Vector3(3.9097275e-10, -1.4725694e-07, 4.4295625e-08)
-bones/40/rotation = Quaternion(8.50315e-08, -0.17023635, -4.6820023e-08, 0.98540324)
+bones/40/rotation = Quaternion(6.636458e-08, -0.24118587, 8.453132e-09, 0.970479)
 bones/40/scale = Vector3(1, 0.9999999, 0.99999994)
 bones/41/position = Vector3(1.8009304e-09, 0.24368653, 1.7557802e-08)
-bones/41/rotation = Quaternion(-1.5120303e-07, 8.653157e-08, -0.8838403, 0.4677889)
+bones/41/rotation = Quaternion(-7.1478254e-08, 8.7236884e-08, -0.88662684, 0.46248555)
 bones/41/scale = Vector3(0.99999994, 0.99999994, 0.9999999)
 bones/42/position = Vector3(-2.3313278e-08, 0.14635609, 8.838556e-09)
-bones/42/rotation = Quaternion(1.4026008e-07, 0.62996143, -6.791846e-08, 0.77662635)
+bones/42/rotation = Quaternion(-1.164669e-08, 0.5997416, 2.0242156e-08, 0.8001937)
 bones/42/scale = Vector3(1, 0.99999994, 1)
 bones/43/position = Vector3(-2.470383e-08, 0.29271215, 1.0254732e-09)
-bones/43/rotation = Quaternion(0.6491777, 0.15007989, -0.5900416, 0.45595548)
+bones/43/rotation = Quaternion(0.7070444, 0.16566156, -0.5524456, 0.40920463)
 bones/43/scale = Vector3(1, 0.99999994, 0.9999999)
 bones/44/position = Vector3(0.016896952, 0.018396161, -0.020876508)
 bones/44/rotation = Quaternion(0.07903711, 0.8709661, -0.2784121, 0.39706156)
@@ -2602,15 +2618,27 @@ bones/63/rotation = Quaternion(0.38993198, 0.54630345, 0.24928196, 0.69811475)
 bones/63/scale = Vector3(1.0000001, 1, 1.0000001)
 
 [node name="Hound" parent="TorsoCrawler/root/Skeleton3D" index="0" unique_id=1598990637]
+layers = 4
 material_override = ExtResource("2_d67fp")
 
 [node name="NeckBone" type="BoneAttachment3D" parent="TorsoCrawler/root/Skeleton3D" index="1" unique_id=246938104]
-transform = Transform3D(0.67389965, -0.73098767, 0.10731329, -0.6852253, -0.5640707, 0.4607495, -0.2762699, -0.38403273, -0.8810183, 0.07547261, -0.31556016, 0.13397908)
+transform = Transform3D(0.7011612, -0.70776075, 0.08629914, -0.6569754, -0.59428453, 0.46390617, -0.2770483, -0.38196945, -0.8816706, 0.07547262, -0.31556016, 0.12654874)
 bone_name = "neck.x"
 bone_idx = 3
 
 [node name="Tracker" type="Node3D" parent="TorsoCrawler/root/Skeleton3D/NeckBone" unique_id=2112166637]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9849193e-10, 0.13079293, -0.16108122)
+
+[node name="BackBone" type="BoneAttachment3D" parent="TorsoCrawler/root/Skeleton3D" index="2" unique_id=1061084960]
+transform = Transform3D(0.969216, 0.012299111, -0.24590455, -0.08171355, -0.9260742, -0.36838716, -0.23225673, 0.37714043, -0.8965609, 0.07339606, -0.15920284, 0.06287279)
+bone_name = "spine_02.x"
+bone_idx = 2
+
+[node name="BackBloodPoint" type="Node3D" parent="TorsoCrawler/root/Skeleton3D/BackBone" unique_id=836333075]
+transform = Transform3D(0.9999999, 7.450581e-09, 3.7252903e-09, 0, 0.9999999, 0, -1.1175871e-08, 2.9802322e-08, 0.9999999, -0.008631192, -0.015364155, -0.18293266)
+
+[node name="BloodMist" parent="TorsoCrawler/root/Skeleton3D/BackBone" unique_id=707862322 instance=ExtResource("13_ajuya")]
+transform = Transform3D(0.71299165, -0.61758643, -0.3320094, 0.5629725, 0.22195597, 0.7961139, -0.41797796, -0.7545345, 0.5059367, -0.038052075, -0.057923667, -0.16155015)
 
 [node name="AnimationPlayer" parent="TorsoCrawler" index="1" unique_id=939472716]
 libraries/ = SubResource("AnimationLibrary_nd8ga")
@@ -2626,5 +2654,8 @@ parameters/conditions/recoil = false
 parameters/death/OneShot/active = false
 parameters/death/OneShot/internal_active = false
 parameters/death/OneShot/request = 0
+parameters/recoil/OneShot/active = false
+parameters/recoil/OneShot/internal_active = false
+parameters/recoil/OneShot/request = 0
 
 [editable path="TorsoCrawler"]

@@ -203,10 +203,17 @@ public partial class PCStateMachine : Entity
 
 	public void EnableWeapon()
 	{
-		currentWeapon.SetWeaponActive(true);
+        currentWeapon.SetAttackType(AttackType.LIGHT);
+        currentWeapon.SetWeaponActive(true);
 	}
 
-	public void DisableWeapon()
+	public void EnableWeaponHeavyAttack()
+	{
+		currentWeapon.SetAttackType(AttackType.HEAVY);
+        currentWeapon.SetWeaponActive(true);
+    }
+
+    public void DisableWeapon()
 	{
 		currentWeapon.SetWeaponActive(false);
 	}

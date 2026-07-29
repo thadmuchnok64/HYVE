@@ -8,6 +8,7 @@ public partial class HUDManager : Control
 	[Export] AudioStreamPlayer2D aud;
 
 	[Export] RichTextLabel dialogueBox;
+	[Export] UIState currentState;
 
 	bool inventoryOpen = false;
 
@@ -105,15 +106,16 @@ public partial class HUDManager : Control
 			aud.Play();
 			anim.Set("parameters/Main/Inventory/transition_request", "in");
 			equipmentScreen.RefreshInventory(inventoryToOpen);
+			SwitchState(equipmentScreen);
 		}
 		else
 		{
 			aud.Stream = inventoryOutSFX;
 			aud.Play();
 			anim.Set("parameters/Main/Inventory/transition_request", "out");
-
-		}
-		return inventoryOpen;
+            SwitchState(null);
+        }
+        return inventoryOpen;
 	}
             #region Bars
             public void SetStamina(float current, float max)
@@ -133,6 +135,27 @@ public partial class HUDManager : Control
 		posBar.MaxValue = max;
 		posBar.Value = current;
 	}
-	#endregion
+    #endregion
 
+
+    #region State Machine Functions
+    public void SwitchState(UIState deltaState)
+	{
+		if (currentState != null)
+			currentState.Exit();
+		if(deltaState != null)
+		{
+			currentState = deltaState.Enter();
+		}
+	}
+
+    public override void _Input(InputEvent @event)
+    {
+		if (currentState == null)
+			return;
+        UIState state = currentState.ManageInput(@event);
+        if (state != null)
+            SwitchState(state);
+    }
+    #endregion
 }

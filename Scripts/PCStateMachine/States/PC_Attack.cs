@@ -12,6 +12,7 @@ public partial class PC_Attack : PCState
 	[Export] float tempLength = .8f;
 	[Export] float attackStaminaCost = 25f;
 	[Export] string animMeta2;
+	[Export] AttackType attackType;
 
 	bool crouching = false;
 	float timer;
@@ -94,6 +95,7 @@ public partial class PC_Attack : PCState
 	public override PCState Enter()
 	{
 		timer = 0;
+		stateMachine.currentWeapon.SetAttackType(attackType);
 		anim.Set($"parameters/{animMetaState}/Transition/transition_request", animMeta);
 		if (animMeta2 != null)
 		{

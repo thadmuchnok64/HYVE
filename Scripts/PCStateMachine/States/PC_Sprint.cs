@@ -9,8 +9,11 @@ public partial class PC_Sprint : PCState
 
 	[Export] PCState walkState;
 	[Export] PCState recoilState;
+    [Export] PCState attackState;
+	[Export] float attackStaminaCost = 60;
 
-	[Export] float minSpeed = .05f;
+
+    [Export] float minSpeed = .05f;
 	[Export] float maxSpeed = 5f;
 
 
@@ -26,7 +29,13 @@ public partial class PC_Sprint : PCState
 		if (@event.IsActionReleased("Sprint")) {
 			return walkState;
 		}
-		return null;
+        if (@event.IsActionPressed("Attack"))
+        {
+            if (!stateMachine.ConsumeStamina(attackStaminaCost))
+                return null;
+                return attackState;
+        }
+        return null;
 	}
 
 	public override PCState Enter()
