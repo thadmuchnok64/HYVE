@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cuget6kdt5gdr" path="res://Prefab Nodes/Level/foyer_chunk.tscn" id="4_41q34"]
 [ext_resource type="PackedScene" uid="uid://bfkneivelesgn" path="res://Prefab Nodes/Level/science_hub.tscn" id="4_l6ol3"]
 [ext_resource type="PackedScene" uid="uid://bax53t8rkxthc" path="res://Prefab Nodes/Level/bathrooms_west.tscn" id="5_l6ol3"]
+[ext_resource type="PackedScene" uid="uid://273r6xirxig2" path="res://Prefab Nodes/Level/ticket_center.tscn" id="6_qq8me"]
 
 [sub_resource type="Environment" id="Environment_eh2h0"]
 sdfgi_enabled = true
@@ -28,6 +29,7 @@ material_override = ExtResource("2_wy5dc")
 visible = false
 
 [node name="Entrance" parent="." index="2" unique_id=1727876722]
+visible = false
 material_override = ExtResource("2_wy5dc")
 
 [node name="Foyer" parent="." index="3" unique_id=258597294]
@@ -52,3 +54,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5211537, -0.99660873, 1.28
 
 [node name="BathroomsWest" parent="." index="9" unique_id=159575775 instance=ExtResource("5_l6ol3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52, -0.975, 1.29)
+
+[node name="TicketCenter" parent="." index="10" unique_id=598597323 instance=ExtResource("6_qq8me")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.935, -1.004, 0.788)

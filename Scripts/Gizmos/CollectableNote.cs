@@ -8,5 +8,6 @@ public partial class CollectableNote : InteractableObject
 	public override void TriggerGizmo(PCStateMachine pc)
 	{
 		Visible = false;
+		HUDManager.instance.ToggleLore(note);
 	}
 }

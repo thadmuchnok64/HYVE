@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://273r6xirxig2"]
+
+[ext_resource type="PackedScene" uid="uid://vo2aljivvp64" path="res://Meshes/Levels/TicketCenter/TicketCenter.fbx" id="1_p552r"]
+[ext_resource type="PackedScene" uid="uid://ml1x0ebtustx" path="res://Prefab Nodes/Decor/ceiling_light.tscn" id="2_ue2rx"]
+
+[node name="TicketCenter" unique_id=598597323 instance=ExtResource("1_p552r")]
+
+[node name="CeilingLight2" parent="." index="6" unique_id=883501351 instance=ExtResource("2_ue2rx")]
+transform = Transform3D(-100, 8.742277e-06, 1.8189894e-12, 8.7422795e-06, 100, 7.549791e-06, 0, 7.5497906e-06, -100, -16.42223, 6.42227, -1.820142)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CeilingLight2" index="1" unique_id=934965603]
+transform = Transform3D(0.01, -1.065203e-09, 8.531135e-10, -1.0652025e-09, -0.0021844981, 0.009758482, -8.531136e-10, -0.009758482, -0.0021844981, 0, -0.014582984, 0.007886836)
+spot_range = 10.839664

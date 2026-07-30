@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public partial class HUDManager : Control
 {
-	[Export] AnimationTree anim;
+	[Export] public AnimationTree anim;
 	[Export] AudioStreamPlayer2D aud;
 
 	[Export] RichTextLabel dialogueBox;
@@ -18,6 +18,7 @@ public partial class HUDManager : Control
 	[Export] TextureProgressBar posBar;
 	[Export] AudioStream inventoryInSFX, inventoryOutSFX;
 	[Export] EquipmentScreen equipmentScreen;
+	[Export] LoreMenu loreMenu;
 
 	[Export] float trackerOffset = 32;
 
@@ -104,7 +105,6 @@ public partial class HUDManager : Control
 		{
 			aud.Stream = inventoryInSFX;
 			aud.Play();
-			anim.Set("parameters/Main/Inventory/transition_request", "in");
 			equipmentScreen.RefreshInventory(inventoryToOpen);
 			SwitchState(equipmentScreen);
 		}
@@ -112,11 +112,25 @@ public partial class HUDManager : Control
 		{
 			aud.Stream = inventoryOutSFX;
 			aud.Play();
-			anim.Set("parameters/Main/Inventory/transition_request", "out");
             SwitchState(null);
         }
         return inventoryOpen;
 	}
+
+	public void ToggleLore(LoreNote note)
+	{
+		if(currentState == null)
+		{
+			SwitchState(loreMenu);
+			loreMenu.Populate(note);
+		}
+		else
+		{
+			SwitchState(null);
+		}
+	}
+
+
             #region Bars
             public void SetStamina(float current, float max)
 	{
@@ -146,7 +160,7 @@ public partial class HUDManager : Control
 		if(deltaState != null)
 		{
 			currentState = deltaState.Enter();
-		}
+		} else { currentState = null; }
 	}
 
     public override void _Input(InputEvent @event)

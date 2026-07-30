@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="LoreNote" format=3 uid="uid://dyofoanm6jypt"]
+
+[ext_resource type="Script" uid="uid://b20t20u0agdbd" path="res://Scripts/Data/Notes/LoreNote.cs" id="1_2etvq"]
+
+[resource]
+script = ExtResource("1_2etvq")
+NoteTitle = "NDA Disclosure"
+NoteContent = "Hey Ernie, Sharon from corporate had to pull a lot of strings to let a minor sign an NDA document. If you don't sign it and give it to me by the end of the week, I'm going to have to terminate your employment and wish you luck on your next venture.
+I'm not trying to scare you but I need you to understand the urgency of the moment.
+I know what you saw in the biology exhibit was scary. It frightened me too, trust me. I'll personally make sure that an incident like that doesn't happen again. We'll station you in the cyber zone for the time being, far away from any of the organics. In the meantime,  I'm sending the key for the bio zone to the front office.
+-Todd"
+metadata/_custom_type_script = "uid://b20t20u0agdbd"
