@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://5vejebd1y32u"]
+
+[ext_resource type="Shader" uid="uid://itrnkg3h08cb" path="res://Materials/Shaders/BaseSceneShader.tres" id="1_mtt37"]
+[ext_resource type="Texture2D" uid="uid://c04u7a7vk2rvv" path="res://Meshes/Levels/ScienceHub/CyberZone/Textures/CyberSpace_ElectronicProps_Emissive.1001.png" id="2_ve85u"]
+[ext_resource type="Texture2D" uid="uid://cafi4t2fx723r" path="res://Meshes/Levels/ScienceHub/CyberZone/Textures/CyberSpace_ElectronicProps_BaseMap.1001.png" id="3_fp2bs"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_mtt37")
+shader_parameter/MainTex2 = ExtResource("3_fp2bs")
+shader_parameter/Emission = ExtResource("2_ve85u")

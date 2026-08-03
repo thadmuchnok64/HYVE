@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cmb85cs0lnhdk"]
+
+[ext_resource type="Shader" uid="uid://itrnkg3h08cb" path="res://Materials/Shaders/BaseSceneShader.tres" id="1_lf5kc"]
+[ext_resource type="Texture2D" uid="uid://bcnh0v6u2fy57" path="res://Meshes/Levels/ScienceHub/CyberZone/Textures/CyberSpace_CyberSpaceMat_Emissive.1001.png" id="2_cs5do"]
+[ext_resource type="Texture2D" uid="uid://dfih8klldx22y" path="res://Meshes/Levels/ScienceHub/CyberZone/Textures/CyberSpace_CyberSpaceMat_BaseMap.1001.png" id="3_r4fub"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_lf5kc")
+shader_parameter/MainTex2 = ExtResource("3_r4fub")
+shader_parameter/DepthFade = true
+shader_parameter/Emission = ExtResource("2_cs5do")

@@ -29,8 +29,8 @@ public partial class CameraController : Camera3D
 		timer += (float)delta;
 		var val = switchPositionCurve.Sample(Math.Clamp(timer / timeToSwitchPos, 0, 1));
 
-        GlobalPosition = prevPosition.Slerp(currentTrackingObject.GlobalPosition, val);
-		GlobalRotation = prevRot.Slerp(currentTrackingObject.GlobalRotation, val);
+        GlobalPosition = prevPosition.Lerp(currentTrackingObject.GlobalPosition, val);
+		GlobalRotation = prevRot.Lerp(currentTrackingObject.GlobalRotation, val);
 		//Quaternion = prevRot.Slerp(currentTrackingObject.Basis.GetRotationQuaternion(), val);
 		base._Process(delta);
     }

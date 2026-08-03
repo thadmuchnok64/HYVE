@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b8epokitw38p8"
-path="res://.godot/imported/ScienceHub.fbx-8e1ca201dfaa9acca2fca4e1a60f7895.scn"
+uid="uid://byxuwgfaq13fb"
+path="res://.godot/imported/CyberSpace.fbx-feb17ef9c2203611f4d4894cefc72f19.scn"
 
 [deps]
 
-source_file="res://Meshes/Levels/ScienceHub/ScienceHub.fbx"
-dest_files=["res://.godot/imported/ScienceHub.fbx-8e1ca201dfaa9acca2fca4e1a60f7895.scn"]
+source_file="res://Meshes/Levels/ScienceHub/CyberZone/CyberSpace.fbx"
+dest_files=["res://.godot/imported/CyberSpace.fbx-feb17ef9c2203611f4d4894cefc72f19.scn"]
 
 [params]
 
@@ -39,32 +39,50 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "meshes": {
-"Cube_002": {
-"generate/lightmap_uv": 0,
+"Cube_065": {
+"generate/lightmap_uv": 1,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
-"save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Meshes/Levels/ScienceHub/ScienceAreaMain.tres",
-"save_to_file/path": "uid://doe3nnxgjbfvr"
+"save_to_file/enabled": false,
+"save_to_file/fallback_path": "",
+"save_to_file/path": ""
 },
-"Cube_038": {
-"generate/lightmap_uv": 0,
+"Cube_086": {
+"generate/lightmap_uv": 2,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
-"save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Meshes/Levels/ScienceHub/CyberZoneEntrance.tres",
-"save_to_file/path": "uid://dy7jrj3odmvmb"
+"save_to_file/enabled": false,
+"save_to_file/fallback_path": "",
+"save_to_file/path": ""
 },
-"Cube_063": {
-"generate/lightmap_uv": 0,
+"Cube_097": {
+"generate/lightmap_uv": 1,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
-"save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Meshes/Levels/ScienceHub/ScienceArea001.tres",
-"save_to_file/path": "uid://bffuqobo6vosb"
+"save_to_file/enabled": false,
+"save_to_file/fallback_path": "",
+"save_to_file/path": ""
+},
+"Cube_098": {
+"generate/lightmap_uv": 1,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": false,
+"save_to_file/fallback_path": "",
+"save_to_file/path": ""
+},
+"Cube_104": {
+"generate/lightmap_uv": 1,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": false,
+"save_to_file/fallback_path": "",
+"save_to_file/path": ""
 }
 }
 }

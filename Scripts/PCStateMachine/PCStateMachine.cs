@@ -274,6 +274,11 @@ public partial class PCStateMachine : Entity
 		return open;
     }
 
+	public void SetDefaultCamPoint()
+	{
+		cam.SetTrackingObject(mainCamPoint);
+	}
+
 	/*
 	public string getAnimationName()
 	{

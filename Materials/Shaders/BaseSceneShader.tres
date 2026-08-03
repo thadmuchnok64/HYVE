@@ -180,6 +180,19 @@ operator = 2
 [sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_hx234"]
 operator = 1
 
+[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_l85xm"]
+parameter_name = "DepthFade"
+default_value_enabled = true
+default_value = true
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_xlmcf"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_wbcut"]
+function = 31
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_piqpw"]
+
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_gvotb"]
 output_port_for_preview = 0
 expanded_output_ports = [0]
@@ -309,4 +322,12 @@ nodes/fragment/66/node = SubResource("VisualShaderNodeFloatOp_tvaxw")
 nodes/fragment/66/position = Vector2(-1001.9996, 1788.2279)
 nodes/fragment/67/node = SubResource("VisualShaderNodeFloatOp_hx234")
 nodes/fragment/67/position = Vector2(331.76117, 568.085)
-nodes/fragment/connections = PackedInt32Array(2, 0, 4, 1, 11, 0, 0, 19, 18, 0, 19, 0, 19, 0, 20, 1, 12, 0, 21, 0, 21, 0, 22, 0, 22, 0, 23, 0, 23, 0, 24, 0, 24, 0, 25, 0, 25, 0, 26, 0, 12, 0, 18, 0, 4, 0, 27, 0, 20, 0, 27, 1, 28, 0, 30, 0, 28, 0, 4, 0, 27, 0, 5, 0, 31, 0, 32, 2, 32, 0, 0, 0, 26, 0, 33, 0, 33, 0, 20, 0, 34, 0, 35, 2, 36, 0, 37, 0, 37, 1, 39, 0, 40, 0, 41, 0, 41, 0, 42, 1, 42, 0, 43, 0, 46, 0, 47, 0, 39, 0, 47, 1, 47, 0, 40, 0, 35, 0, 0, 5, 48, 0, 49, 0, 5, 0, 50, 0, 51, 0, 50, 1, 49, 0, 51, 1, 53, 0, 55, 0, 55, 0, 56, 0, 56, 0, 57, 0, 54, 0, 58, 0, 58, 0, 53, 0, 62, 0, 59, 0, 59, 0, 60, 0, 60, 0, 61, 0, 58, 1, 62, 0, 57, 0, 63, 0, 61, 0, 64, 0, 63, 0, 65, 0, 64, 0, 65, 1, 65, 0, 66, 0, 50, 0, 67, 0, 66, 0, 67, 1, 67, 0, 0, 1)
+nodes/fragment/68/node = SubResource("VisualShaderNodeBooleanParameter_l85xm")
+nodes/fragment/68/position = Vector2(213.33333, 773.3333)
+nodes/fragment/69/node = SubResource("VisualShaderNodeFloatOp_xlmcf")
+nodes/fragment/69/position = Vector2(546.6667, 586.6667)
+nodes/fragment/70/node = SubResource("VisualShaderNodeFloatFunc_wbcut")
+nodes/fragment/70/position = Vector2(589.9288, 854.29834)
+nodes/fragment/71/node = SubResource("VisualShaderNodeFloatOp_piqpw")
+nodes/fragment/71/position = Vector2(786.6667, 680)
+nodes/fragment/connections = PackedInt32Array(2, 0, 4, 1, 11, 0, 0, 19, 18, 0, 19, 0, 19, 0, 20, 1, 12, 0, 21, 0, 21, 0, 22, 0, 22, 0, 23, 0, 23, 0, 24, 0, 24, 0, 25, 0, 25, 0, 26, 0, 12, 0, 18, 0, 4, 0, 27, 0, 20, 0, 27, 1, 28, 0, 30, 0, 28, 0, 4, 0, 27, 0, 5, 0, 31, 0, 32, 2, 32, 0, 0, 0, 26, 0, 33, 0, 33, 0, 20, 0, 34, 0, 35, 2, 36, 0, 37, 0, 37, 1, 39, 0, 40, 0, 41, 0, 41, 0, 42, 1, 42, 0, 43, 0, 46, 0, 47, 0, 39, 0, 47, 1, 47, 0, 40, 0, 35, 0, 0, 5, 48, 0, 49, 0, 5, 0, 50, 0, 51, 0, 50, 1, 49, 0, 51, 1, 53, 0, 55, 0, 55, 0, 56, 0, 56, 0, 57, 0, 54, 0, 58, 0, 58, 0, 53, 0, 62, 0, 59, 0, 59, 0, 60, 0, 60, 0, 61, 0, 58, 1, 62, 0, 57, 0, 63, 0, 61, 0, 64, 0, 63, 0, 65, 0, 64, 0, 65, 1, 65, 0, 66, 0, 50, 0, 67, 0, 66, 0, 67, 1, 67, 0, 69, 0, 68, 0, 69, 1, 68, 0, 70, 0, 69, 0, 71, 0, 70, 0, 71, 1, 71, 0, 0, 1)
