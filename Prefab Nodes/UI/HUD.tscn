@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://c2miio3fhmad0" path="res://Sound/SFX/UISounds/InventoryOut.wav" id="3_s8js7"]
 [ext_resource type="PackedScene" uid="uid://vj8h1ijhircq" path="res://Prefab Nodes/UI/inventory_slot.tscn" id="4_6edwv"]
 [ext_resource type="Script" uid="uid://dvtoai47x8tv5" path="res://Scripts/UI/EquipmentScreen.cs" id="6_s8js7"]
+[ext_resource type="Script" uid="uid://dquqccdjlrf80" path="res://Scripts/UI/LoreMenu.cs" id="8_4stpt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_07sgc"]
 content_margin_left = 0.0
@@ -224,6 +225,84 @@ tracks/2/keys = {
 "values": [Vector2(1, 1), Vector2(0.9, 0.9)]
 }
 
+[sub_resource type="Animation" id="Animation_4stpt"]
+resource_name = "LoreIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LorePopup:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.28),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LorePopup:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.28),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.9, 0.9), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LorePopup:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.28),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(361, 67.5), Vector2(361, 58)]
+}
+
+[sub_resource type="Animation" id="Animation_8c5fg"]
+resource_name = "LoreOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LorePopup:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LorePopup:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.9, 0.9)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LorePopup:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(361, 58), Vector2(361, 67.5)]
+}
+
 [sub_resource type="Animation" id="Animation_dpc2c"]
 length = 0.16666667
 tracks/0/type = "value"
@@ -322,6 +401,42 @@ tracks/7/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("LorePopup:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("LorePopup:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("LorePopup:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(361, 58)]
+}
 
 [sub_resource type="Animation" id="Animation_6edwv"]
 resource_name = "TrackingReticleIn"
@@ -368,11 +483,15 @@ _data = {
 &"DialogueIn": SubResource("Animation_1iqsm"),
 &"InventoryIn": SubResource("Animation_lbk5n"),
 &"InventoryOut": SubResource("Animation_645e3"),
+&"LoreIn": SubResource("Animation_4stpt"),
+&"LoreOut": SubResource("Animation_8c5fg"),
 &"RESET": SubResource("Animation_dpc2c"),
 &"TrackingReticleIn": SubResource("Animation_6edwv")
 }
 
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_6edwv"]
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_4stpt"]
 
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_lbk5n"]
 
@@ -388,6 +507,12 @@ animation = &"InventoryIn"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s8js7"]
 animation = &"InventoryOut"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8c5fg"]
+animation = &"LoreIn"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vttpb"]
+animation = &"LoreOut"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2pel7"]
 animation = &"DialogueIn"
@@ -430,9 +555,19 @@ input_1/auto_advance = false
 input_1/break_loop_at_end = false
 input_1/reset = true
 
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_wtek5"]
+input_0/name = "in"
+input_0/auto_advance = false
+input_0/break_loop_at_end = false
+input_0/reset = true
+input_1/name = "out"
+input_1/auto_advance = false
+input_1/break_loop_at_end = false
+input_1/reset = true
+
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_2pel7"]
-graph_offset = Vector2(-405.50284, -68.82615)
-nodes/output/position = Vector2(493.33334, 40)
+graph_offset = Vector2(-571.193, 1083.428)
+nodes/output/position = Vector2(900, 280)
 nodes/DialogueIn/node = SubResource("AnimationNodeAnimation_07sgc")
 nodes/DialogueIn/position = Vector2(-573.3333, 80)
 nodes/Dialogue/node = SubResource("AnimationNodeTransition_07sgc")
@@ -455,19 +590,27 @@ nodes/Inventory/position = Vector2(-146.66667, 626.6667)
 "nodes/Animation 5/position" = Vector2(-466.66666, 760)
 "nodes/Add2 2/node" = SubResource("AnimationNodeAdd2_6edwv")
 "nodes/Add2 2/position" = Vector2(320, 40)
-node_connections = [&"output", 0, &"Add2 2", &"Dialogue", 0, &"DialogueIn", &"Dialogue", 1, &"Animation", &"Add2", 0, &"LockOn", &"Add2", 1, &"Dialogue", &"LockOn", 0, &"Animation 2", &"LockOn", 1, &"Animation 3", &"Inventory", 0, &"Animation 4", &"Inventory", 1, &"Animation 5", &"Add2 2", 0, &"Add2", &"Add2 2", 1, &"Inventory"]
+"nodes/Add2 3/node" = SubResource("AnimationNodeAdd2_4stpt")
+"nodes/Add2 3/position" = Vector2(622.83, 270.16455)
+nodes/Lore/node = SubResource("AnimationNodeTransition_wtek5")
+nodes/Lore/position = Vector2(-80, 1060)
+"nodes/Animation 6/node" = SubResource("AnimationNodeAnimation_8c5fg")
+"nodes/Animation 6/position" = Vector2(-360, 1000)
+"nodes/Animation 7/node" = SubResource("AnimationNodeAnimation_vttpb")
+"nodes/Animation 7/position" = Vector2(-340, 1240)
+node_connections = [&"output", 0, &"Add2 3", &"Dialogue", 0, &"DialogueIn", &"Dialogue", 1, &"Animation", &"Add2", 0, &"LockOn", &"Add2", 1, &"Dialogue", &"LockOn", 0, &"Animation 2", &"LockOn", 1, &"Animation 3", &"Inventory", 0, &"Animation 4", &"Inventory", 1, &"Animation 5", &"Add2 2", 0, &"Add2", &"Add2 2", 1, &"Inventory", &"Add2 3", 0, &"Add2 2", &"Add2 3", 1, &"Lore", &"Lore", 0, &"Animation 6", &"Lore", 1, &"Animation 7"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6edwv"]
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_645e3"]
 states/Main/node = SubResource("AnimationNodeBlendTree_2pel7")
-states/Main/position = Vector2(443.33334, 100.74943)
+states/Main/position = Vector2(419.33334, 91)
 states/Start/position = Vector2(200, 91)
 transitions = ["Start", "Main", SubResource("AnimationNodeStateMachineTransition_6edwv")]
 graph_offset = Vector2(-308, -72)
 
-[node name="Control" type="Control" unique_id=593094546 node_paths=PackedStringArray("anim", "aud", "dialogueBox", "staminaBar", "healthBar", "posBar", "equipmentScreen", "tracker")]
+[node name="Control" type="Control" unique_id=593094546 node_paths=PackedStringArray("anim", "aud", "dialogueBox", "staminaBar", "healthBar", "posBar", "equipmentScreen", "loreMenu", "tracker")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -484,6 +627,7 @@ posBar = NodePath("PostureBar")
 inventoryInSFX = ExtResource("2_645e3")
 inventoryOutSFX = ExtResource("3_s8js7")
 equipmentScreen = NodePath("VSplitContainer")
+loreMenu = NodePath("LorePopup")
 tracker = NodePath("PhyiscalUI/Panel")
 
 [node name="PhyiscalUI" type="Panel" parent="." unique_id=1942192926]
@@ -608,13 +752,14 @@ anchor_bottom = 1.0
 offset_left = 29.527996
 offset_top = 53.0
 offset_right = 2.5679626
-offset_bottom = -89.999756
+offset_bottom = -89.999695
 split_offsets = PackedInt32Array(200)
 dragging_enabled = false
 split_offset = 200
 script = ExtResource("6_s8js7")
 inventoryBacklog = NodePath("Inventory/PanelContainer/MarginContainer/GridContainer")
 equippedWeaponSlot = NodePath("Inventory2/SplitContainer/VBoxContainer/InventorySlot3")
+animMeta = "parameters/Main/Inventory/transition_request"
 
 [node name="Inventory2" type="Panel" parent="VSplitContainer" unique_id=35615355]
 layout_mode = 2
@@ -802,6 +947,40 @@ parameters/Main/Inventory/current_state = "out"
 parameters/Main/Inventory/transition_request = ""
 parameters/Main/Inventory/current_index = 1
 "parameters/Main/Add2 2/add_amount" = 1.0
+"parameters/Main/Add2 3/add_amount" = 1.0
+parameters/Main/Lore/current_state = "out"
+parameters/Main/Lore/transition_request = ""
+parameters/Main/Lore/current_index = 1
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1852951004]
 bus = &"UI"
+
+[node name="LorePopup" type="Panel" parent="." unique_id=945602785 node_paths=PackedStringArray("mainContent")]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33200002
+anchor_right = 0.66800004
+anchor_bottom = 1.0
+offset_left = -21.46402
+offset_top = 58.0
+offset_right = 21.463928
+offset_bottom = -58.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+script = ExtResource("8_4stpt")
+mainContent = NodePath("RichTextLabel")
+animMeta = "parameters/Main/Lore/transition_request"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="LorePopup" unique_id=1287086046]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = 42.0
+offset_right = -19.0
+offset_bottom = -30.0
+theme_override_fonts/normal_font = ExtResource("2_2pel7")
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."

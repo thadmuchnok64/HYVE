@@ -6,17 +6,20 @@ public partial class UIState : Control
     //VARIABLES
     protected int navIndex1D = 0;
     protected Vector2 navIndex2D = Vector2.Zero;
+    [Export] protected string animMeta;
 
     public virtual UIState Enter()
     {
         navIndex1D = 0;
         navIndex2D = Vector2.Zero;
+        HUDManager.instance.anim.Set(animMeta, "in");
         return this;
         //do animation here
     }
 
     public virtual UIState Exit()
     {
+        HUDManager.instance.anim.Set(animMeta, "out");
         return null;
     }
 

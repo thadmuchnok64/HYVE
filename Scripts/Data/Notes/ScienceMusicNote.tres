@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LoreNote" format=3 uid="uid://iasdnaklwrws"]
+
+[ext_resource type="Script" uid="uid://b20t20u0agdbd" path="res://Scripts/Data/Notes/LoreNote.cs" id="1_1ngwb"]
+
+[resource]
+script = ExtResource("1_1ngwb")
+NoteTitle = "Music"
+NoteContent = "The music cassette that plays on loop in the Science Zone is dying. The abruptness of the songs are driving me insane. I've been moving stuff around in the science section all morning. Probably should've just turned off the tape player. I ordered a fancy new CD player for the musuem like three weeks ago. Where is it?!
+-Abe"
+metadata/_custom_type_script = "uid://b20t20u0agdbd"

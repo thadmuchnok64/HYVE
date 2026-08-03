@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LoreNote" format=3 uid="uid://s4t5ll1l313b"]
+
+[ext_resource type="Script" uid="uid://b20t20u0agdbd" path="res://Scripts/Data/Notes/LoreNote.cs" id="1_7fr0w"]
+
+[resource]
+script = ExtResource("1_7fr0w")
+NoteTitle = "Music"
+NoteContent = "Abe still seems to be under the delusion that corporate has any intentions of letting him reopen his dumb musuem. Open up to who? Crackheads and cousin fuckers? Nobody worthwhile even lives in this shithole of a town anymore. I'll talk to him later this week and give him the bad news.
+
+-Todd"
+metadata/_custom_type_script = "uid://b20t20u0agdbd"
