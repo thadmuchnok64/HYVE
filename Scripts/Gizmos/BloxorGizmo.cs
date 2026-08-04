@@ -1,14 +1,18 @@
 using Godot;
 using System;
 
+enum BloxorState { UPRIGHT, NORTHWARD, EASTWARD }
+
 public partial class BloxorGizmo : InteractableObject
 {
 	[Export] Node3D cam;
 	[Export] Node3D camPosition;
 	[Export] BloxorState state = BloxorState.UPRIGHT;
-	[Export] Node3D player, playerPivot;
+	[Export] BloxorPC player;
+	[Export] Node3D playerPivot;
+	[Export] float baseYoffset = -11.152f;
 	Vector3 targetPos,prevPos;
-	Vector3 targetRot,prevRot;
+	Quaternion targetRot,prevRot;
 	Vector3 targetPivotPos,prevPivotPos;
 	[Export] AudioStream poundFX, impactFX;
 	AudioStream nextAud;
@@ -18,15 +22,16 @@ public partial class BloxorGizmo : InteractableObject
 	[Export] float timeToTurn = .25f;
 	
 
-	enum BloxorState { UPRIGHT, NORTHWARD, EASTWARD}
 	bool active = false;
+	bool falling = false;
 
 	public override void _Ready()
 	{
 		base._Ready();
-		targetPos = player.Position;
-		targetRot = playerPivot.Rotation;
-		targetPivotPos = playerPivot.Position;
+		targetPos = player.GlobalPosition;
+		targetRot = player.GlobalBasis.GetRotationQuaternion();
+		prevRot = targetRot;
+		targetPivotPos = playerPivot.Position+new Vector3(0,baseYoffset,0);
 
 		active = true; // have this called elsewhere in the future
 	}
@@ -37,6 +42,12 @@ public partial class BloxorGizmo : InteractableObject
 		cam.GlobalPosition = camPosition.GlobalPosition;
 		cam.GlobalRotation = camPosition.GlobalRotation;
 		var lerpmod = Mathf.Clamp(timer/timeToTurn, 0, 1);
+		if (!falling)
+		{
+			player.GlobalPosition = (prevPos.ReplaceY(prevPivotPos.Y)).Lerp((targetPos.ReplaceY(targetPivotPos.Y)), lerpmod);
+			player.GlobalRotation = prevRot.Normalized().Slerp(targetRot.Normalized(), lerpmod).GetEuler();
+			//playerPivot.Position = prevPivotPos.Lerp(targetPivotPos, lerpmod);
+		}
 		if ((lerpmod>=1))
 		{
 			if (audReady)
@@ -44,11 +55,10 @@ public partial class BloxorGizmo : InteractableObject
 				aud.Stream = nextAud;
 				aud.Play();
 				audReady = false;
+				falling = !player.CheckIfSpotIsValid();
 			}
 		}
-		player.Position = prevPos.Lerp(targetPos,lerpmod);
-		playerPivot.Rotation = prevRot.Lerp(targetRot,lerpmod);
-		playerPivot.Position = prevPivotPos.Lerp(targetPivotPos,lerpmod);
+
 	}
 
 	public override bool ManageInput(InputEvent @event)
@@ -83,32 +93,33 @@ public partial class BloxorGizmo : InteractableObject
 		prevRot = targetRot;
 		timer = 0;
 		audReady = true;
+		var currentRot = Quaternion.FromEuler(player.GlobalRotation);
 		switch (state)
 		{
 			case BloxorState.UPRIGHT:
-				targetPos = player.Position + new Vector3(0,0,sign*1.5f);
-				targetRot = playerPivot.Rotation + new Vector3(sign*MathF.PI/2f, 0, 0);
-				targetPivotPos = Vector3.Zero;
+				targetPos = player.GlobalPosition + new Vector3(0,0,sign*1.5f);
+				//targetRot = Quaternion.FromEuler(playerPivot.GlobalRotation + new Vector3(sign*MathF.PI/2f, 0, 0));
+				targetPivotPos = Vector3.Zero.ReplaceY(baseYoffset);
 				nextAud = poundFX;
 				state = BloxorState.NORTHWARD;
 				break;
 			case BloxorState.NORTHWARD:
-				targetPos = player.Position + new Vector3(0, 0, sign * 1.5f);
-				targetRot = playerPivot.Rotation + new Vector3(sign * MathF.PI / 2f, 0, 0);
-				targetPivotPos = new Vector3(0,.5f,0);
+				targetPos = player.GlobalPosition + new Vector3(0, 0, sign * 1.5f);
+				targetPivotPos = new Vector3(0,.5f+baseYoffset,0);
 				nextAud = impactFX;
 				state = BloxorState.UPRIGHT;
 				break;
 			case BloxorState.EASTWARD:
-				targetPos = player.Position + new Vector3(0, 0, sign * 1f);
-				targetRot = playerPivot.Rotation + new Vector3(0, sign * MathF.PI / 2f,0);
-				targetPivotPos = Vector3.Zero;
+				targetPos = player.GlobalPosition + new Vector3(0, 0, sign * 1f);
+				targetPivotPos = Vector3.Zero.ReplaceY(baseYoffset);
 				nextAud = impactFX;
-
 				break;
 		}
+		targetRot = currentRot = new Quaternion(Vector3.Right, -sign * MathF.PI / 2f) * currentRot;
+
+
 	}
-	
+
 	private bool CanMove()
 	{
 		return (timer / timeToTurn) > 1;
@@ -122,30 +133,30 @@ public partial class BloxorGizmo : InteractableObject
 		prevPos = targetPos;
 		prevRot = targetRot;
 		timer = 0;
+		var currentRot = Quaternion.FromEuler(player.GlobalRotation);
 		switch (state)
 		{
 			case BloxorState.UPRIGHT:
-				targetPos = player.Position + new Vector3(1.5f*sign, 0, 0);
-				targetRot = playerPivot.Rotation + new Vector3(0,0,-sign * MathF.PI / 2f);
-				targetPivotPos = Vector3.Zero;
+				targetPos = player.GlobalPosition + new Vector3(1.5f*sign, 0, 0);
+				targetPivotPos = Vector3.Zero.ReplaceY(baseYoffset);
 				nextAud = poundFX;
 				state = BloxorState.EASTWARD;
 				break;
 			case BloxorState.NORTHWARD:
-				targetPos = player.Position + new Vector3(1f*sign, 0, 0);
-				targetRot = playerPivot.Rotation + new Vector3(0,sign * MathF.PI / 2f, 0);
+				targetPos = player.GlobalPosition + new Vector3(1f*sign, 0, 0);
 				nextAud = impactFX;
-				targetPivotPos = Vector3.Zero;
+				targetPivotPos = Vector3.Zero.ReplaceY(baseYoffset);
 				break;
 			case BloxorState.EASTWARD:
-				targetPos = player.Position + new Vector3(1.5f*sign, 0, 0);
-				targetRot = playerPivot.Rotation + new Vector3(0, 0, -sign * MathF.PI / 2f);
-				targetPivotPos = new Vector3(0, .5f, 0);
+				targetPos = player.GlobalPosition + new Vector3(1.5f*sign, 0, 0);
+				targetPivotPos = new Vector3(0, .5f+baseYoffset, 0);
 				nextAud = impactFX;
 				state = BloxorState.UPRIGHT;
-
 				break;
 		}
+		targetRot = currentRot = new Quaternion(Vector3.Forward, -sign * MathF.PI / 2f) * currentRot;
+
+
 	}
 
 }

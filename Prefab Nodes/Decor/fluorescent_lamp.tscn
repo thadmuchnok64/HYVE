@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dxl4e1f080g55"]
+
+[ext_resource type="Material" uid="uid://1kumagr8vrer" path="res://Meshes/Levels/ScienceHub/BathroomProps.tres" id="1_2xi6j"]
+[ext_resource type="ArrayMesh" uid="uid://cvqohsonvx8a2" path="res://Meshes/Levels/ScienceHub/BathroomMeshes/FluorescentLamp.tres" id="2_o3s0m"]
+
+[node name="Fluorescent Lamp" type="MeshInstance3D" unique_id=292324214]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0, 0, 0)
+material_override = ExtResource("1_2xi6j")
+mesh = ExtResource("2_o3s0m")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=2135986967]
+transform = Transform3D(0.010000001, 0, 0, 0, 0.010000002, -1.110223e-16, 0, 1.110223e-16, 0.010000002, 0, 0, -0.0057214685)
+light_color = Color(0.6047947, 0.49247724, 0.2647636, 1)
+light_energy = 0.8
+light_bake_mode = 1

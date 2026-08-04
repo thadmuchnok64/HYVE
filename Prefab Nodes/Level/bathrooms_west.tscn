@@ -14,6 +14,7 @@
 [ext_resource type="ArrayMesh" uid="uid://ce33xkjtt64o0" path="res://Meshes/Levels/ScienceHub/BathroomMeshes/WetFloorSign.tres" id="10_8j8wa"]
 [ext_resource type="Material" uid="uid://cf42ifvr8erwf" path="res://Meshes/Levels/ScienceHub/CommonProps_Screen.tres" id="11_onvgr"]
 [ext_resource type="ArrayMesh" uid="uid://dmk1eumg288x7" path="res://Meshes/Levels/ScienceHub/BathroomMeshes/FakeWindow.tres" id="12_2ufme"]
+[ext_resource type="PackedScene" uid="uid://dxl4e1f080g55" path="res://Prefab Nodes/Decor/fluorescent_lamp.tscn" id="13_d422r"]
 [ext_resource type="ArrayMesh" uid="uid://cvqohsonvx8a2" path="res://Meshes/Levels/ScienceHub/BathroomMeshes/FluorescentLamp.tres" id="13_qdefa"]
 [ext_resource type="ArrayMesh" uid="uid://qldy0d50c2fl" path="res://Meshes/Levels/ScienceHub/BathroomMeshes/BathroomWestMen.tres" id="15_bc2iw"]
 [ext_resource type="ArrayMesh" uid="uid://bmcgsy0ntrspb" path="res://Meshes/Levels/ScienceHub/BathroomMeshes/PlasticTrashcan.tres" id="16_kbb0o"]
@@ -146,16 +147,8 @@ spot_attenuation = 1.18
 spot_angle = 82.33767
 spot_angle_attenuation = 0.40612686
 
-[node name="Fluorescent Lamp" type="MeshInstance3D" parent="BathroomWest" unique_id=87662871]
-transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -2.0635269, 3.989256, -28.205626)
-material_override = ExtResource("7_2w5wg")
-mesh = ExtResource("13_qdefa")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="BathroomWest/Fluorescent Lamp" unique_id=1702747796]
-transform = Transform3D(0.010000001, 0, 0, 0, 0.010000002, -1.110223e-16, 0, 1.110223e-16, 0.010000002, 0, 0, -0.0057214685)
-light_color = Color(0.6047947, 0.49247724, 0.2647636, 1)
-light_energy = 0.8
-light_bake_mode = 1
+[node name="Fluorescent Lamp" parent="BathroomWest" unique_id=292324214 instance=ExtResource("13_d422r")]
+transform = Transform3D(100, 0, 0, 0, -4.3711384e-06, 99.99999, 0, -99.99999, -4.3711384e-06, -2.0635269, 3.989256, -28.205626)
 
 [node name="Fluorescent Lamp2" type="MeshInstance3D" parent="BathroomWest" unique_id=1102650385]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 1.1694093, 3.989256, -28.205626)

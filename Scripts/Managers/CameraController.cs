@@ -7,13 +7,14 @@ public partial class CameraController : Camera3D
 	[Export] Node3D currentTrackingObject;
 	[Export] Curve switchPositionCurve;
 	[Export] float timeToSwitchPos = .3f;
+	[Export] Curve cameraCurve;
 	float timer = 5;
 	Vector3 prevPosition = Vector3.Zero;
-	Vector3 prevRot;
+	Quaternion prevRot;
 	public void SetTrackingObject(Node3D newObj) // might change this later to use camera states instead.
 	{
 		prevPosition = GlobalPosition;
-		prevRot = GlobalRotation;
+		prevRot = GlobalBasis.GetRotationQuaternion();
 		currentTrackingObject = newObj;
 		timer = 0;
 	}
@@ -30,7 +31,7 @@ public partial class CameraController : Camera3D
 		var val = switchPositionCurve.Sample(Math.Clamp(timer / timeToSwitchPos, 0, 1));
 
         GlobalPosition = prevPosition.Lerp(currentTrackingObject.GlobalPosition, val);
-		GlobalRotation = prevRot.Lerp(currentTrackingObject.GlobalRotation, val);
+		GlobalRotation = prevRot.Slerp(currentTrackingObject.GlobalBasis.GetRotationQuaternion(),cameraCurve.Sample(val)).GetEuler();
 		//Quaternion = prevRot.Slerp(currentTrackingObject.Basis.GetRotationQuaternion(), val);
 		base._Process(delta);
     }

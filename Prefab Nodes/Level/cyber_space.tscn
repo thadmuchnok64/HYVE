@@ -12,8 +12,11 @@
 [ext_resource type="Script" uid="uid://bv0smxo1kacfi" path="res://Scripts/Gizmos/BloxorGizmo.cs" id="8_sb8sl"]
 [ext_resource type="Material" uid="uid://bqqmg6koia6pw" path="res://Materials/bloxorripoff/BloxorPlayer.tres" id="9_4stej"]
 [ext_resource type="Material" uid="uid://b62qjmid11utf" path="res://Materials/bloxorripoff/BloxorGround.tres" id="10_sb8sl"]
+[ext_resource type="Script" uid="uid://ddmnd8vqlpent" path="res://Scripts/Gizmos/BloxorPC.cs" id="10_xjv43"]
 [ext_resource type="AudioStream" uid="uid://6a8xq7q5etnw" path="res://Sound/SFX/GizmoSFX/BloxorRipoff/Pound.wav" id="12_qf5tb"]
 [ext_resource type="AudioStream" uid="uid://crfueujujr2vs" path="res://Sound/SFX/GizmoSFX/BloxorRipoff/Strike.wav" id="13_b83ur"]
+[ext_resource type="Texture2D" uid="uid://xaoo5s0gpg1x" path="res://Textures/SuperBlockMan/SuperBlockManBG.png" id="15_0jfhw"]
+[ext_resource type="PackedScene" uid="uid://dxl4e1f080g55" path="res://Prefab Nodes/Decor/fluorescent_lamp.tscn" id="15_hmif5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w3vs5"]
 resource_name = "ElectronicProps"
@@ -66,7 +69,7 @@ render_priority = 0
 shader = ExtResource("5_6erqy")
 shader_parameter/Tex = SubResource("ViewportTexture_1xfa0")
 shader_parameter/Segments = 180.0
-shader_parameter/EmissiveBoost = 2.0
+shader_parameter/EmissiveBoost = 0.76
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4w4mk"]
 resource_name = "Screen"
@@ -214,13 +217,32 @@ size = Vector3(1.5529175, 0.97436523, 1.862793)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w7uis"]
 albedo_texture = ExtResource("4_jw6jt")
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xjv43"]
+friction = 0.0
+
 [sub_resource type="BoxMesh" id="BoxMesh_e2lti"]
 size = Vector3(1, 2, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_0jfhw"]
+size = Vector3(0.9716797, 1.9804688, 0.984375)
+
 [sub_resource type="BoxMesh" id="BoxMesh_4stej"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_xjv43"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xjv43"]
+panorama = ExtResource("15_0jfhw")
+
+[sub_resource type="Sky" id="Sky_2143x"]
+sky_material = SubResource("PanoramaSkyMaterial_xjv43")
+
 [sub_resource type="Environment" id="Environment_6erqy"]
+background_mode = 2
+background_color = Color(0.91432357, 0.6275164, 0.31867427, 1)
+sky = SubResource("Sky_2143x")
+ambient_light_source = 2
 ambient_light_color = Color(0.8132135, 0.30862996, 0.15811393, 1)
+ambient_light_energy = 0.5
 tonemap_exposure = 1.15
 
 [node name="CyberSpace" unique_id=2057402354 instance=ExtResource("1_edvmt")]
@@ -330,18 +352,48 @@ light_data = ExtResource("5_w7uis")
 [node name="BloxorRipoff" type="Node3D" parent="." index="32" unique_id=136396984]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.92975, -11.152109, -27.502361)
 
-[node name="BloxorPlayer" type="Node3D" parent="BloxorRipoff" index="0" unique_id=614585101]
+[node name="BloxorPlayer" type="RigidBody3D" parent="BloxorRipoff" index="0" unique_id=1018558221 node_paths=PackedStringArray("ray1", "ray2")]
+collision_layer = 2
+mass = 5.0
+physics_material_override = SubResource("PhysicsMaterial_xjv43")
+gravity_scale = 2.0
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, 0.5, 0)
+freeze = true
+script = ExtResource("10_xjv43")
+ray1 = NodePath("RayCast3D")
+ray2 = NodePath("RayCast3D2")
+sideForce = 50.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BloxorRipoff/BloxorPlayer" index="0" unique_id=913144046]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-rotation_order = 1
+rotation_edit_mode = 1
 material_override = ExtResource("9_4stej")
 mesh = SubResource("BoxMesh_e2lti")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BloxorRipoff/BloxorPlayer" index="1" unique_id=431937197]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_0jfhw")
+
+[node name="RayCast3D" type="RayCast3D" parent="BloxorRipoff/BloxorPlayer" index="2" unique_id=682304971]
+target_position = Vector3(0, -2, 0)
+debug_shape_custom_color = Color(0.93264395, 0.54028064, 0.62166226, 1)
+
+[node name="RayCast3D2" type="RayCast3D" parent="BloxorRipoff/BloxorPlayer" index="3" unique_id=1369051603]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+target_position = Vector3(0, -2, 0)
+debug_shape_custom_color = Color(1, 1, 1, 1)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="BloxorRipoff" index="1" unique_id=1925172704]
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, -1, 0)
 material_override = ExtResource("10_sb8sl")
 mesh = SubResource("BoxMesh_4stej")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="BloxorRipoff/MeshInstance3D2" index="0" unique_id=1031844394]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BloxorRipoff/MeshInstance3D2/StaticBody3D" index="0" unique_id=728509028]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+shape = SubResource("BoxShape3D_xjv43")
 
 [node name="BloxorManager" type="Node3D" parent="BloxorRipoff" index="2" unique_id=4641064 node_paths=PackedStringArray("cam", "camPosition", "player", "playerPivot")]
 script = ExtResource("8_sb8sl")
@@ -372,5 +424,14 @@ transform = Transform3D(0.82649153, 0, -0.5629492, 0.4099685, 0.6853101, 0.60189
 light_color = Color(0.8843961, 0.6536226, 0.40346825, 1)
 light_energy = 2.0
 light_volumetric_fog_energy = 0.0
+light_bake_mode = 0
 spot_range = 23.589653
 spot_angle = 63.11265
+
+[node name="Fluorescent Lamp" parent="." index="33" unique_id=292324214 instance=ExtResource("15_hmif5")]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 26.66318, 4.875326, -25.805065)
+
+[node name="OmniLight3D" parent="Fluorescent Lamp" index="0" unique_id=2135986967]
+light_energy = 0.2
+
+[editable path="Fluorescent Lamp"]
