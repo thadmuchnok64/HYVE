@@ -14,7 +14,7 @@ public partial class BloxorGizmo : InteractableObject
 	Vector3 targetPos,prevPos;
 	Quaternion targetRot,prevRot;
 	Vector3 targetPivotPos,prevPivotPos;
-	[Export] AudioStream poundFX, impactFX;
+	[Export] AudioStream poundFX, impactFX,respawnFX, victoryFX;
 	AudioStream nextAud;
 	public AudioStreamPlayer3D aud;
 	bool audReady = false;
@@ -56,13 +56,43 @@ public partial class BloxorGizmo : InteractableObject
 				aud.Play();
 				audReady = false;
 				falling = !player.CheckIfSpotIsValid();
+				if (falling)
+				{
+					Respawn();
+				}
+				else
+				{
+					if(player.CheckIfWon())
+					{
+						falling = true;
+						aud.Stream = victoryFX;
+						aud.Play();
+					}
+				}
 			}
 		}
 
 	}
 
-	public override bool ManageInput(InputEvent @event)
+    private async void Respawn()
+    {
+        await ToSignal(GetTree().CreateTimer(2.0f), SceneTreeTimer.SignalName.Timeout);
+		// Code to execute after 2 seconds
+		aud.Stream = respawnFX;
+		falling = false;
+		state = BloxorState.UPRIGHT;
+		aud.Play();
+		player.Respawn();
+        targetPos = player.GlobalPosition;
+        targetRot = player.GlobalBasis.GetRotationQuaternion();
+        prevRot = targetRot;
+        targetPivotPos = playerPivot.Position + new Vector3(0, baseYoffset, 0);
+    }
+
+    public override bool ManageInput(InputEvent @event)
 	{
+		if (falling)
+			return false;
 		Vector2 movement = new Vector2(Input.GetAxis("MoveLeft", "MoveRight"), Input.GetAxis("MoveUp", "MoveDown"));
 
 		if (@event.IsActionPressed("MoveLeft"))
@@ -97,20 +127,20 @@ public partial class BloxorGizmo : InteractableObject
 		switch (state)
 		{
 			case BloxorState.UPRIGHT:
-				targetPos = player.GlobalPosition + new Vector3(0,0,sign*1.5f);
+				targetPos = player.GlobalPosition - new Vector3(0,0,sign*1.5f);
 				//targetRot = Quaternion.FromEuler(playerPivot.GlobalRotation + new Vector3(sign*MathF.PI/2f, 0, 0));
 				targetPivotPos = Vector3.Zero.ReplaceY(baseYoffset);
 				nextAud = poundFX;
 				state = BloxorState.NORTHWARD;
 				break;
 			case BloxorState.NORTHWARD:
-				targetPos = player.GlobalPosition + new Vector3(0, 0, sign * 1.5f);
+				targetPos = player.GlobalPosition - new Vector3(0, 0, sign * 1.5f);
 				targetPivotPos = new Vector3(0,.5f+baseYoffset,0);
 				nextAud = impactFX;
 				state = BloxorState.UPRIGHT;
 				break;
 			case BloxorState.EASTWARD:
-				targetPos = player.GlobalPosition + new Vector3(0, 0, sign * 1f);
+				targetPos = player.GlobalPosition - new Vector3(0, 0, sign * 1f);
 				targetPivotPos = Vector3.Zero.ReplaceY(baseYoffset);
 				nextAud = impactFX;
 				break;
@@ -137,18 +167,18 @@ public partial class BloxorGizmo : InteractableObject
 		switch (state)
 		{
 			case BloxorState.UPRIGHT:
-				targetPos = player.GlobalPosition + new Vector3(1.5f*sign, 0, 0);
+				targetPos = player.GlobalPosition - new Vector3(1.5f*sign, 0, 0);
 				targetPivotPos = Vector3.Zero.ReplaceY(baseYoffset);
 				nextAud = poundFX;
 				state = BloxorState.EASTWARD;
 				break;
 			case BloxorState.NORTHWARD:
-				targetPos = player.GlobalPosition + new Vector3(1f*sign, 0, 0);
+				targetPos = player.GlobalPosition - new Vector3(1f*sign, 0, 0);
 				nextAud = impactFX;
 				targetPivotPos = Vector3.Zero.ReplaceY(baseYoffset);
 				break;
 			case BloxorState.EASTWARD:
-				targetPos = player.GlobalPosition + new Vector3(1.5f*sign, 0, 0);
+				targetPos = player.GlobalPosition - new Vector3(1.5f*sign, 0, 0);
 				targetPivotPos = new Vector3(0, .5f+baseYoffset, 0);
 				nextAud = impactFX;
 				state = BloxorState.UPRIGHT;

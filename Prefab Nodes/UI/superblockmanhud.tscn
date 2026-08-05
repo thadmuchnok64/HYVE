@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bcyomvpmpp6n8"]
+
+[ext_resource type="FontFile" uid="uid://chclopb73t87u" path="res://Materials/Font/PressStart2P-Regular.ttf" id="1_f42wt"]
+
+[node name="superblockmanhud" type="Control" unique_id=1127620802]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1517031339]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 42
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 42
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer" unique_id=1804410407]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_f42wt")
+text = "LEVEL 0
+"

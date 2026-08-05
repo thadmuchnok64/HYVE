@@ -752,7 +752,7 @@ anchor_bottom = 1.0
 offset_left = 29.527996
 offset_top = 53.0
 offset_right = 2.5679626
-offset_bottom = -89.999695
+offset_bottom = -89.999756
 split_offsets = PackedInt32Array(200)
 dragging_enabled = false
 split_offset = 200
@@ -765,18 +765,19 @@ animMeta = "parameters/Main/Inventory/transition_request"
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_6edwv")
 
-[node name="Label" type="Label" parent="VSplitContainer/Inventory2" unique_id=994989892]
+[node name="Label" type="RichTextLabel" parent="VSplitContainer/Inventory2" unique_id=1478433192]
 layout_mode = 1
 anchors_preset = -1
 offset_left = 24.0
 offset_right = 168.0
 offset_bottom = 36.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.6156863, 0, 0.18431373, 1)
+theme_override_colors/default_color = Color(0.6156863, 0, 0.18431373, 1)
 theme_override_colors/font_shadow_color = Color(0.2979585, 0, 0.075866185, 1)
-theme_override_fonts/font = ExtResource("2_2pel7")
-theme_override_font_sizes/font_size = 24
-text = "EQUIPPED GEAR"
+theme_override_fonts/normal_font = ExtResource("2_2pel7")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[shake rate=10.0 level=2 connected=0]EQUIPPED GEAR[/shake]"
 
 [node name="SplitContainer" type="SplitContainer" parent="VSplitContainer/Inventory2" unique_id=1731530834]
 layout_mode = 0
@@ -817,19 +818,19 @@ anchor_right = 1.0
 offset_bottom = 40.0
 grow_horizontal = 2
 
-[node name="Label" type="Label" parent="VSplitContainer/Inventory" unique_id=124957283]
+[node name="Label2" type="RichTextLabel" parent="VSplitContainer/Inventory" unique_id=920195778]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 18.0
-offset_right = 106.0
+offset_left = 21.505
+offset_right = 165.505
 offset_bottom = 36.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.6156863, 0, 0.18431373, 1)
+theme_override_colors/default_color = Color(0.6156863, 0, 0.18431373, 1)
 theme_override_colors/font_shadow_color = Color(0.2979585, 0, 0.075866185, 1)
-theme_override_fonts/font = ExtResource("2_2pel7")
-theme_override_font_sizes/font_size = 24
-text = "BACKPACK"
-horizontal_alignment = 1
+theme_override_fonts/normal_font = ExtResource("2_2pel7")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[shake rate=10.0 level=2 connected=0]BACKPACK[/shake]"
 
 [node name="TabBar" type="TabBar" parent="VSplitContainer/Inventory" unique_id=1147522626]
 layout_mode = 1
@@ -982,5 +983,7 @@ offset_left = 19.0
 offset_top = 42.0
 offset_right = -19.0
 offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("2_2pel7")
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
