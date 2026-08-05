@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://cq4koxq4wigsc"]
+
+[ext_resource type="PackedScene" uid="uid://b11b47noubn83" path="res://Prefab Nodes/Gizmos/SuperBlockMan/bloxor_block.tscn" id="1_moo44"]
+[ext_resource type="Script" uid="uid://powfppc7vcr3" path="res://Scripts/Gizmos/BloxorWinBlock.cs" id="2_cli4v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xjv43"]
+size = Vector3(1, 0.5029297, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dpotv"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.649362, 0.9175708, 0.63005596, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4stej"]
+size = Vector3(1, 0.5, 1)
+
+[node name="BMLevel1" type="Node3D" unique_id=110960970]
+
+[node name="BloxorBlock" parent="." unique_id=844618659 instance=ExtResource("1_moo44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7617655, 0)
+
+[node name="BloxorBlock2" parent="." unique_id=247500926 instance=ExtResource("1_moo44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7617655, -1)
+
+[node name="BloxorBlock3" parent="." unique_id=1411556718 instance=ExtResource("1_moo44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7617655, -2)
+
+[node name="BloxorBlock4" parent="." unique_id=749088152 instance=ExtResource("1_moo44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.7617655, 0)
+
+[node name="BloxorBlock5" parent="." unique_id=1859423724 instance=ExtResource("1_moo44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.7617655, -1)
+
+[node name="BloxorBlock6" parent="." unique_id=1899064390 instance=ExtResource("1_moo44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.7617655, -2)
+
+[node name="BloxorBlock13" parent="." unique_id=2085216072 instance=ExtResource("1_moo44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.7617655, -2)
+
+[node name="BloxorBlock14" parent="." unique_id=1542456290 instance=ExtResource("1_moo44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -0.7617655, -2)
+
+[node name="BloxorBlock30" parent="." unique_id=183658955 instance=ExtResource("1_moo44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.7617655, -2)
+
+[node name="BloxorBlock15" parent="." unique_id=1643646562 instance=ExtResource("1_moo44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.74308205, -2)
+
+[node name="BloxorBlock16" parent="." unique_id=757103123 instance=ExtResource("1_moo44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.74308205, -3)
+
+[node name="BloxorBlock17" parent="." unique_id=1399489685 instance=ExtResource("1_moo44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.74308205, -4)
+
+[node name="BloxorBlock18" parent="." unique_id=2019265753 instance=ExtResource("1_moo44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.74308205, -5)
+
+[node name="BloxorBlock19" parent="." unique_id=1434069656 instance=ExtResource("1_moo44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.74308205, -6)
+
+[node name="BloxorBlock20" parent="." unique_id=1032370092 instance=ExtResource("1_moo44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.74308205, -6)
+
+[node name="BloxorBlock21" parent="." unique_id=905651150 instance=ExtResource("1_moo44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -0.74308205, -6)
+
+[node name="BloxorBlock22" parent="." unique_id=805692286 instance=ExtResource("1_moo44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -0.74308205, -7)
+
+[node name="BloxorBlock23" parent="." unique_id=1089173971 instance=ExtResource("1_moo44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.74308205, -7)
+
+[node name="BloxorBlock24" parent="." unique_id=746041065 instance=ExtResource("1_moo44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.74308205, -7)
+
+[node name="BloxorBlock25" parent="." unique_id=615726937 instance=ExtResource("1_moo44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.74308205, -8)
+
+[node name="BloxorBlock26" parent="." unique_id=273297757 instance=ExtResource("1_moo44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -0.74308205, -8)
+
+[node name="BloxorBlock27" parent="." unique_id=811660694 instance=ExtResource("1_moo44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -0.743, -9)
+
+[node name="BloxorBlock28" parent="." unique_id=1890473068 instance=ExtResource("1_moo44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.74308205, -9)
+
+[node name="BloxorBlock29" parent="." unique_id=550251013 instance=ExtResource("1_moo44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.74308205, -9)
+
+[node name="BloxorBlock7" parent="." unique_id=1591398650 instance=ExtResource("1_moo44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.7617655, 0)
+
+[node name="BloxorBlock10" parent="." unique_id=1325112143 instance=ExtResource("1_moo44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7617655, 1)
+
+[node name="BloxorBlock11" parent="." unique_id=1811980298 instance=ExtResource("1_moo44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.7617655, 1)
+
+[node name="BloxorBlock12" parent="." unique_id=1035957876 instance=ExtResource("1_moo44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.7617655, 1)
+
+[node name="BloxorBlock8" parent="." unique_id=1864566270 instance=ExtResource("1_moo44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.7617655, -1)
+
+[node name="BloxorBlock9" parent="." unique_id=401713903 instance=ExtResource("1_moo44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.7617655, -2)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=40989341]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.7617655, -8)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("2_cli4v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1299581658]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+shape = SubResource("BoxShape3D_xjv43")
+
+[node name="BloxorWin" type="MeshInstance3D" parent="StaticBody3D" unique_id=1931982686]
+layers = 8
+material_override = SubResource("StandardMaterial3D_dpotv")
+mesh = SubResource("BoxMesh_4stej")

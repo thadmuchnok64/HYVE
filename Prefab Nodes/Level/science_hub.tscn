@@ -8,8 +8,8 @@
 [ext_resource type="Material" uid="uid://drtmrja226gul" path="res://Meshes/Levels/ScienceHub/ScienceProps.tres" id="6_03jnw"]
 [ext_resource type="ArrayMesh" uid="uid://c68qsb2spcyvh" path="res://Meshes/Levels/ScienceHub/SmallCogWheel.tres" id="6_7y3m2"]
 [ext_resource type="ArrayMesh" uid="uid://ba3x55awbj506" path="res://Meshes/Levels/ScienceHub/BigHamsterWheel.tres" id="6_qrf1v"]
-[ext_resource type="ArrayMesh" uid="uid://c410ugcfia74x" path="res://Meshes/Levels/ScienceHub/ScienceArea001.tres" id="6_x0owy"]
-[ext_resource type="ArrayMesh" uid="uid://bnv1nga4so6e" path="res://Meshes/Levels/ScienceHub/ScienceAreaMain.tres" id="6_xuvwy"]
+[ext_resource type="ArrayMesh" uid="uid://bffuqobo6vosb" path="res://Meshes/Levels/ScienceHub/ScienceArea001.tres" id="6_x0owy"]
+[ext_resource type="ArrayMesh" uid="uid://doe3nnxgjbfvr" path="res://Meshes/Levels/ScienceHub/ScienceAreaMain.tres" id="6_xuvwy"]
 [ext_resource type="ArrayMesh" uid="uid://bh8klekudiqub" path="res://Meshes/Levels/ScienceHub/Cogwheel.tres" id="7_03jnw"]
 [ext_resource type="AudioStream" uid="uid://bmepdsdcgemkb" path="res://Sound/SFX/GizmoSFX/GearTurn.wav" id="7_hpfbv"]
 [ext_resource type="PackedScene" uid="uid://c75shw2582cms" path="res://Meshes/Weapons/Crowbar.fbx" id="7_x0owy"]
@@ -975,7 +975,7 @@ transform = Transform3D(-4.371139e-08, -0.7485045, 0.6631297, 1, -3.271817e-08, 
 script = ExtResource("8_y8edc")
 note = ExtResource("9_x0owy")
 
-[node name="Crowbar" parent="ScienceHub/Crowbar" index="0" unique_id=1256158284]
+[node name="Crowbar" parent="ScienceHub/Crowbar" index="0" unique_id=1743716423]
 material_override = ExtResource("10_efecf")
 
 [node name="Area3D" type="Area3D" parent="ScienceHub/Crowbar" unique_id=1333049203 node_paths=PackedStringArray("interactable")]
@@ -983,6 +983,7 @@ collision_layer = 8
 collision_mask = 2
 script = ExtResource("3_tsnj0")
 interactable = NodePath("..")
+interactText = "Pick up note"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ScienceHub/Crowbar/Area3D" unique_id=1600905055]
 transform = Transform3D(1, 1.029109e-12, -5.1469674e-13, 0, 1, 0, 0, 0, 1, -0.33145142, 0.5343094, 1.4305115e-06)
@@ -994,7 +995,7 @@ transform = Transform3D(-4.371139e-08, -0.7485045, 0.6631297, 1, -3.271817e-08, 
 script = ExtResource("8_y8edc")
 note = ExtResource("12_xuvwy")
 
-[node name="Crowbar" parent="ScienceHub/Crowbar2" index="0" unique_id=1256158284]
+[node name="Crowbar" parent="ScienceHub/Crowbar2" index="0" unique_id=1743716423]
 material_override = ExtResource("10_efecf")
 
 [node name="Area3D" type="Area3D" parent="ScienceHub/Crowbar2" unique_id=2070788045 node_paths=PackedStringArray("interactable")]
@@ -1002,6 +1003,7 @@ collision_layer = 8
 collision_mask = 2
 script = ExtResource("3_tsnj0")
 interactable = NodePath("..")
+interactText = "Pick up note"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ScienceHub/Crowbar2/Area3D" unique_id=1217117561]
 transform = Transform3D(1, 1.029109e-12, -5.1469674e-13, 0, 1, 0, 0, 0, 1, -0.33145142, 0.5343094, 1.4305115e-06)
@@ -1013,7 +1015,7 @@ transform = Transform3D(-4.371139e-08, -0.7485045, 0.6631297, 1, -3.271817e-08, 
 script = ExtResource("8_y8edc")
 note = ExtResource("13_2a024")
 
-[node name="Crowbar" parent="ScienceHub/Crowbar3" index="0" unique_id=1256158284]
+[node name="Crowbar" parent="ScienceHub/Crowbar3" index="0" unique_id=1743716423]
 material_override = ExtResource("10_efecf")
 
 [node name="Area3D" type="Area3D" parent="ScienceHub/Crowbar3" unique_id=1227128166 node_paths=PackedStringArray("interactable")]
@@ -1021,6 +1023,7 @@ collision_layer = 8
 collision_mask = 2
 script = ExtResource("3_tsnj0")
 interactable = NodePath("..")
+interactText = "Pick up note"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ScienceHub/Crowbar3/Area3D" unique_id=1004645916]
 transform = Transform3D(1, 1.029109e-12, -5.1469674e-13, 0, 1, 0, 0, 0, 1, -0.33145142, 0.5343094, 1.4305115e-06)

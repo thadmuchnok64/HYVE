@@ -19,6 +19,8 @@ public partial class HUDManager : Control
 	[Export] AudioStream inventoryInSFX, inventoryOutSFX;
 	[Export] EquipmentScreen equipmentScreen;
 	[Export] LoreMenu loreMenu;
+	[Export] RichTextLabel interactText;
+	[Export] AudioStream interactSFX;
 
 	[Export] float trackerOffset = 32;
 
@@ -128,6 +130,23 @@ public partial class HUDManager : Control
 		{
 			SwitchState(null);
 		}
+	}
+
+	bool interactShowing = false;
+	public void ToggleInteractText(bool show, string text = "")
+	{
+		if (interactShowing == show)
+			return;
+		interactText.Text = text;
+		if (show)
+		{
+			anim.Set("parameters/Main/Interact/transition_request", "in");
+			aud.Stream = interactSFX;
+			aud.Play();
+		}
+		else
+			anim.Set("parameters/Main/Interact/transition_request", "out");
+		interactShowing = show;
 	}
 
 

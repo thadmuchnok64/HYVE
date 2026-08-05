@@ -144,9 +144,11 @@ public partial class PCStateMachine : Entity
 		ManageStamina(delta,staminaRecoveryPerSec);
 		ManagePosture(delta,postureRecoveryPerSec);
 		CamControl(delta);
+		InteractUI();
 		if (tracking)
 		{
-			if (!trackingObject.GetNode<Enemy>("Enemy").alive){
+			if (!trackingObject.GetNode<Enemy>("Enemy").alive)
+			{
 				AttemptTracking();
 			}
 			HUDManager.instance.SnapTrackerToPoint(trackingObject.GetNode<Enemy>("Enemy").trackingPoint.GlobalPosition, GameMaster.Instance.mainCamRef);
@@ -166,6 +168,18 @@ public partial class PCStateMachine : Entity
 		camPivot.RotateZ(camDelta.Y * camSensitivity * (float)delta);
 		camPivot.Rotation = new Vector3(camPivot.Rotation.X, camPivot.Rotation.Y, Mathf.Clamp(camPivot.Rotation.Z, -30f, 30f));
 
+	}
+
+	private void InteractUI()
+	{
+		if (CanInteract())
+		{
+			HUDManager.instance.ToggleInteractText(true, ((GizmoTrigger)interactionRay.GetCollider()).interactText);
+		}
+		else
+		{
+			HUDManager.instance.ToggleInteractText(false);
+		}
 	}
 
 	public bool CanInteract()

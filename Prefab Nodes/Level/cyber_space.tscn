@@ -12,16 +12,17 @@
 [ext_resource type="Script" uid="uid://bv0smxo1kacfi" path="res://Scripts/Gizmos/BloxorGizmo.cs" id="8_sb8sl"]
 [ext_resource type="Material" uid="uid://bqqmg6koia6pw" path="res://Materials/bloxorripoff/BloxorPlayer.tres" id="9_4stej"]
 [ext_resource type="Script" uid="uid://ddmnd8vqlpent" path="res://Scripts/Gizmos/BloxorPC.cs" id="10_xjv43"]
-[ext_resource type="PackedScene" uid="uid://b11b47noubn83" path="res://Prefab Nodes/Gizmos/SuperBlockMan/bloxor_block.tscn" id="12_oumdh"]
+[ext_resource type="PackedScene" uid="uid://cq4koxq4wigsc" path="res://Prefab Nodes/Gizmos/SuperBlockMan/bm_level_1.tscn" id="12_fw714"]
 [ext_resource type="AudioStream" uid="uid://6a8xq7q5etnw" path="res://Sound/SFX/GizmoSFX/BloxorRipoff/Pound.wav" id="12_qf5tb"]
 [ext_resource type="AudioStream" uid="uid://crfueujujr2vs" path="res://Sound/SFX/GizmoSFX/BloxorRipoff/Strike.wav" id="13_b83ur"]
-[ext_resource type="Script" uid="uid://powfppc7vcr3" path="res://Scripts/Gizmos/BloxorWinBlock.cs" id="14_414dc"]
+[ext_resource type="PackedScene" uid="uid://bx2l71b74rhhu" path="res://Prefab Nodes/Gizmos/SuperBlockMan/bm_level_2.tscn" id="13_cv547"]
 [ext_resource type="Texture2D" uid="uid://xaoo5s0gpg1x" path="res://Textures/SuperBlockMan/SuperBlockManBG.png" id="15_0jfhw"]
 [ext_resource type="PackedScene" uid="uid://dxl4e1f080g55" path="res://Prefab Nodes/Decor/fluorescent_lamp.tscn" id="15_hmif5"]
 [ext_resource type="AudioStream" uid="uid://c5pa1y264hqmi" path="res://Sound/SFX/GizmoSFX/BloxorRipoff/Respawn.wav" id="16_pam1m"]
 [ext_resource type="AudioStream" uid="uid://coagxvq6ebrhb" path="res://Sound/SFX/GizmoSFX/BloxorRipoff/Win.wav" id="18_414dc"]
 [ext_resource type="AudioStream" uid="uid://beltfrvjavs1g" path="res://Sound/Ambeince/cyberzone.wav" id="18_2143x"]
 [ext_resource type="PackedScene" uid="uid://bcyomvpmpp6n8" path="res://Prefab Nodes/UI/superblockmanhud.tscn" id="18_oumdh"]
+[ext_resource type="Script" uid="uid://brxfxfsb3b32m" path="res://Scripts/UI/BloxorHudManager.cs" id="19_cv547"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w3vs5"]
 resource_name = "ElectronicProps"
@@ -231,17 +232,6 @@ size = Vector3(1, 2, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_0jfhw"]
 size = Vector3(0.9716797, 1.9804688, 0.984375)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_xjv43"]
-size = Vector3(1, 0.5029297, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dpotv"]
-diffuse_mode = 3
-specular_mode = 1
-albedo_color = Color(0.649362, 0.9175708, 0.63005596, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_4stej"]
-size = Vector3(1, 0.5, 1)
-
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xjv43"]
 panorama = ExtResource("15_0jfhw")
 
@@ -259,37 +249,37 @@ tonemap_exposure = 1.15
 
 [node name="CyberSpace" unique_id=2057402354 instance=ExtResource("1_edvmt")]
 
-[node name="BeeRemote" parent="." index="1" unique_id=154573186]
+[node name="BeeRemote" parent="." index="1" unique_id=284960837]
 material_override = ExtResource("2_pi4b4")
 
-[node name="Bintendo Bee" parent="." index="2" unique_id=1545649855]
+[node name="Bintendo Bee" parent="." index="2" unique_id=2053911841]
 material_override = ExtResource("2_pi4b4")
 
-[node name="CPUTower" parent="." index="3" unique_id=1454993580]
+[node name="CPUTower" parent="." index="3" unique_id=506070946]
 material_override = ExtResource("2_pi4b4")
 
-[node name="Computer" parent="." index="7" unique_id=1637165506]
+[node name="Computer" parent="." index="7" unique_id=2144914912]
 material_override = ExtResource("2_pi4b4")
 
-[node name="ComputerMouse" parent="." index="8" unique_id=16568865]
+[node name="ComputerMouse" parent="." index="8" unique_id=280540955]
 material_override = ExtResource("2_pi4b4")
 
-[node name="CyberCurve" parent="." index="11" unique_id=840138753]
+[node name="CyberCurve" parent="." index="11" unique_id=1518956825]
 material_override = ExtResource("2_pi4b4")
 
-[node name="CyberWallPanel" parent="." index="12" unique_id=333410786]
+[node name="CyberWallPanel" parent="." index="12" unique_id=1713447011]
 material_override = ExtResource("2_7htb7")
 
-[node name="CyberZone" parent="." index="13" unique_id=238879158]
+[node name="CyberZone" parent="." index="13" unique_id=447250638]
 material_override = ExtResource("2_7htb7")
 
-[node name="CyberZoneWall" parent="." index="14" unique_id=2094976701]
+[node name="CyberZoneWall" parent="." index="14" unique_id=649678249]
 material_override = ExtResource("2_7htb7")
 
-[node name="IT Support" parent="." index="15" unique_id=806074000]
+[node name="IT Support" parent="." index="15" unique_id=1037036854]
 material_override = ExtResource("2_7htb7")
 
-[node name="Keyboard" parent="." index="16" unique_id=1911989645]
+[node name="Keyboard" parent="." index="16" unique_id=411325451]
 material_override = ExtResource("2_pi4b4")
 
 [node name="Computer2" type="MeshInstance3D" parent="." index="17" unique_id=968790591 node_paths=PackedStringArray("camPivot", "bloxor", "aud")]
@@ -330,6 +320,7 @@ collision_layer = 8
 collision_mask = 2
 script = ExtResource("6_e2lti")
 interactable = NodePath("..")
+interactText = "Use Computer"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Computer2/Area3D" index="0" unique_id=589341459]
 transform = Transform3D(1, 0, -8.197887e-13, 0, 1, 9.947598e-14, -1.7763568e-15, -1.5063506e-12, 1, -0.04348564, -0.06500435, 0.07885921)
@@ -346,16 +337,16 @@ stream = ExtResource("7_b83ur")
 unit_size = 0.44
 autoplay = true
 
-[node name="Poster" parent="." index="21" unique_id=592827257]
+[node name="Poster" parent="." index="21" unique_id=1366053825]
 material_override = SubResource("StandardMaterial3D_w7uis")
 
-[node name="Projector" parent="." index="23" unique_id=1696679163]
+[node name="Projector" parent="." index="23" unique_id=1783414806]
 material_override = ExtResource("2_pi4b4")
 
-[node name="SideCabinent" parent="." index="25" unique_id=1882481617]
+[node name="SideCabinent" parent="." index="25" unique_id=1847336323]
 material_override = ExtResource("2_7htb7")
 
-[node name="TV" parent="." index="28" unique_id=1880455498]
+[node name="TV" parent="." index="28" unique_id=1916237447]
 material_override = ExtResource("2_pi4b4")
 
 [node name="LightmapGI" type="LightmapGI" parent="." index="31" unique_id=914226286]
@@ -398,129 +389,26 @@ target_position = Vector3(0, -2, 0)
 collision_mask = 9
 debug_shape_custom_color = Color(1, 1, 1, 1)
 
-[node name="Level1" type="Node3D" parent="BloxorRipoff" index="1" unique_id=546987349]
-
-[node name="BloxorBlock" parent="BloxorRipoff/Level1" index="0" unique_id=844618659 instance=ExtResource("12_oumdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7617655, 0)
-
-[node name="BloxorBlock2" parent="BloxorRipoff/Level1" index="1" unique_id=176671326 instance=ExtResource("12_oumdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7617655, -1)
-
-[node name="BloxorBlock3" parent="BloxorRipoff/Level1" index="2" unique_id=1574961919 instance=ExtResource("12_oumdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7617655, -2)
-
-[node name="BloxorBlock4" parent="BloxorRipoff/Level1" index="3" unique_id=507439838 instance=ExtResource("12_oumdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.7617655, 0)
-
-[node name="BloxorBlock5" parent="BloxorRipoff/Level1" index="4" unique_id=1879166357 instance=ExtResource("12_oumdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.7617655, -1)
-
-[node name="BloxorBlock6" parent="BloxorRipoff/Level1" index="5" unique_id=897422757 instance=ExtResource("12_oumdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.7617655, -2)
-
-[node name="BloxorBlock13" parent="BloxorRipoff/Level1" index="6" unique_id=1699441219 instance=ExtResource("12_oumdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.7617655, -2)
-
-[node name="BloxorBlock14" parent="BloxorRipoff/Level1" index="7" unique_id=1821796365 instance=ExtResource("12_oumdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -0.7617655, -2)
-
-[node name="BloxorBlock30" parent="BloxorRipoff/Level1" index="8" unique_id=1373345215 instance=ExtResource("12_oumdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.7617655, -2)
-
-[node name="BloxorBlock15" parent="BloxorRipoff/Level1" index="9" unique_id=1916676565 instance=ExtResource("12_oumdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.74308205, -2)
-
-[node name="BloxorBlock16" parent="BloxorRipoff/Level1" index="10" unique_id=620704493 instance=ExtResource("12_oumdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.74308205, -3)
-
-[node name="BloxorBlock17" parent="BloxorRipoff/Level1" index="11" unique_id=1113603318 instance=ExtResource("12_oumdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.74308205, -4)
-
-[node name="BloxorBlock18" parent="BloxorRipoff/Level1" index="12" unique_id=1117214940 instance=ExtResource("12_oumdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.74308205, -5)
-
-[node name="BloxorBlock19" parent="BloxorRipoff/Level1" index="13" unique_id=2030157719 instance=ExtResource("12_oumdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.74308205, -6)
-
-[node name="BloxorBlock20" parent="BloxorRipoff/Level1" index="14" unique_id=329570872 instance=ExtResource("12_oumdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.74308205, -6)
-
-[node name="BloxorBlock21" parent="BloxorRipoff/Level1" index="15" unique_id=493202814 instance=ExtResource("12_oumdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -0.74308205, -6)
-
-[node name="BloxorBlock22" parent="BloxorRipoff/Level1" index="16" unique_id=473626684 instance=ExtResource("12_oumdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -0.74308205, -7)
-
-[node name="BloxorBlock23" parent="BloxorRipoff/Level1" index="17" unique_id=1012453710 instance=ExtResource("12_oumdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.74308205, -7)
-
-[node name="BloxorBlock24" parent="BloxorRipoff/Level1" index="18" unique_id=160446536 instance=ExtResource("12_oumdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.74308205, -7)
-
-[node name="BloxorBlock25" parent="BloxorRipoff/Level1" index="19" unique_id=753429337 instance=ExtResource("12_oumdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.74308205, -8)
-
-[node name="BloxorBlock26" parent="BloxorRipoff/Level1" index="20" unique_id=280816974 instance=ExtResource("12_oumdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -0.74308205, -8)
-
-[node name="BloxorBlock27" parent="BloxorRipoff/Level1" index="21" unique_id=914327535 instance=ExtResource("12_oumdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -0.743, -9)
-
-[node name="BloxorBlock28" parent="BloxorRipoff/Level1" index="22" unique_id=330852174 instance=ExtResource("12_oumdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.74308205, -9)
-
-[node name="BloxorBlock29" parent="BloxorRipoff/Level1" index="23" unique_id=558736892 instance=ExtResource("12_oumdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.74308205, -9)
-
-[node name="BloxorBlock7" parent="BloxorRipoff/Level1" index="24" unique_id=1207081787 instance=ExtResource("12_oumdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.7617655, 0)
-
-[node name="BloxorBlock10" parent="BloxorRipoff/Level1" index="25" unique_id=1474151319 instance=ExtResource("12_oumdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7617655, 1)
-
-[node name="BloxorBlock11" parent="BloxorRipoff/Level1" index="26" unique_id=1903908711 instance=ExtResource("12_oumdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.7617655, 1)
-
-[node name="BloxorBlock12" parent="BloxorRipoff/Level1" index="27" unique_id=1827422070 instance=ExtResource("12_oumdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.7617655, 1)
-
-[node name="BloxorBlock8" parent="BloxorRipoff/Level1" index="28" unique_id=235609011 instance=ExtResource("12_oumdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.7617655, -1)
-
-[node name="BloxorBlock9" parent="BloxorRipoff/Level1" index="29" unique_id=1065026607 instance=ExtResource("12_oumdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.7617655, -2)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="BloxorRipoff/Level1" index="30" unique_id=96401912]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.7617655, -8)
-collision_layer = 8
-collision_mask = 0
-script = ExtResource("14_414dc")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BloxorRipoff/Level1/StaticBody3D" index="0" unique_id=675043586]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
-shape = SubResource("BoxShape3D_xjv43")
-
-[node name="BloxorWin" type="MeshInstance3D" parent="BloxorRipoff/Level1/StaticBody3D" index="1" unique_id=1786291293]
-layers = 8
-material_override = SubResource("StandardMaterial3D_dpotv")
-mesh = SubResource("BoxMesh_4stej")
-
-[node name="BloxorManager" type="Node3D" parent="BloxorRipoff" index="2" unique_id=4641064 node_paths=PackedStringArray("cam", "camPosition", "player", "playerPivot")]
+[node name="BloxorManager" type="Node3D" parent="BloxorRipoff" index="1" unique_id=4641064 node_paths=PackedStringArray("cam", "camPosition", "player", "playerPivot", "computerHud")]
 script = ExtResource("8_sb8sl")
 cam = NodePath("../SubViewport/Camera3D")
 camPosition = NodePath("../Campoint")
 player = NodePath("../BloxorPlayer")
 playerPivot = NodePath("../BloxorPlayer/MeshInstance3D")
 baseYoffset = -12.152
+computerHud = NodePath("../SubViewport")
+levels = Array[PackedScene]([ExtResource("12_fw714"), ExtResource("13_cv547")])
 poundFX = ExtResource("12_qf5tb")
 impactFX = ExtResource("13_b83ur")
 respawnFX = ExtResource("16_pam1m")
 victoryFX = ExtResource("18_414dc")
 
-[node name="SubViewport" type="SubViewport" parent="BloxorRipoff" index="3" unique_id=948320226]
+[node name="SubViewport" type="SubViewport" parent="BloxorRipoff" index="2" unique_id=948320226 node_paths=PackedStringArray("levelText")]
 handle_input_locally = false
 size = Vector2i(640, 480)
 render_target_update_mode = 4
+script = ExtResource("19_cv547")
+levelText = NodePath("superblockmanhud/MarginContainer/RichTextLabel")
 
 [node name="Camera3D" type="Camera3D" parent="BloxorRipoff/SubViewport" index="0" unique_id=359655671]
 transform = Transform3D(0.7071068, 0.2884741, -0.64558715, 0, 0.912998, 0.40796402, 0.7071068, -0.2884741, 0.64558715, 21.37157, -8.555005, -24.2815)
@@ -531,11 +419,15 @@ size = 13.0
 
 [node name="superblockmanhud" parent="BloxorRipoff/SubViewport" index="1" unique_id=1127620802 instance=ExtResource("18_oumdh")]
 
-[node name="Campoint" type="Marker3D" parent="BloxorRipoff" index="4" unique_id=885926580]
+[node name="RichTextLabel" parent="BloxorRipoff/SubViewport/superblockmanhud/MarginContainer" parent_id_path=PackedInt32Array(1127620802, 1517031339) index="0" unique_id=1804410407]
+text = "LEVEL 1
+"
+
+[node name="Campoint" type="Marker3D" parent="BloxorRipoff" index="3" unique_id=885926580]
 transform = Transform3D(0.7071068, 0.2884741, -0.64558715, 0, 0.912998, 0.40796402, 0.7071068, -0.2884741, 0.64558715, -2.5581799, 2.597104, 3.2208614)
 gizmo_extents = 1.57
 
-[node name="SpotLight3D" type="SpotLight3D" parent="BloxorRipoff" index="5" unique_id=118774145]
+[node name="SpotLight3D" type="SpotLight3D" parent="BloxorRipoff" index="4" unique_id=118774145]
 transform = Transform3D(0.784142, 0.59594744, -0.17311263, 0.25170663, -0.050444826, 0.96648806, 0.56724346, -0.80143744, -0.18955983, 0.69512177, 5.5343075, -4.051201)
 light_color = Color(0.8843961, 0.6536226, 0.40346825, 1)
 light_energy = 2.0
@@ -558,4 +450,5 @@ autoplay = true
 max_distance = 12.0
 bus = &"Ambience"
 
+[editable path="BloxorRipoff/SubViewport/superblockmanhud"]
 [editable path="Fluorescent Lamp"]

@@ -11,6 +11,9 @@ public partial class BloxorGizmo : InteractableObject
 	[Export] BloxorPC player;
 	[Export] Node3D playerPivot;
 	[Export] float baseYoffset = -11.152f;
+	[Export] BloxorHudManager computerHud;
+	[Export] Godot.Collections.Array<PackedScene> levels;
+	Node3D currentLevelScene;
 	Vector3 targetPos,prevPos;
 	Quaternion targetRot,prevRot;
 	Vector3 targetPivotPos,prevPivotPos;
@@ -20,6 +23,7 @@ public partial class BloxorGizmo : InteractableObject
 	bool audReady = false;
 	float timer = 1;
 	[Export] float timeToTurn = .25f;
+	int currentLevel = 1;
 	
 
 	bool active = false;
@@ -32,7 +36,8 @@ public partial class BloxorGizmo : InteractableObject
 		targetRot = player.GlobalBasis.GetRotationQuaternion();
 		prevRot = targetRot;
 		targetPivotPos = playerPivot.Position+new Vector3(0,baseYoffset,0);
-
+		currentLevelScene = (Node3D)levels[currentLevel-1].Instantiate();
+		AddChild(currentLevelScene);
 		active = true; // have this called elsewhere in the future
 	}
 	public override void _Process(double delta)
@@ -67,6 +72,7 @@ public partial class BloxorGizmo : InteractableObject
 						falling = true;
 						aud.Stream = victoryFX;
 						aud.Play();
+						IncrementLevel();
 					}
 				}
 			}
@@ -89,7 +95,33 @@ public partial class BloxorGizmo : InteractableObject
         targetPivotPos = playerPivot.Position + new Vector3(0, baseYoffset, 0);
     }
 
-    public override bool ManageInput(InputEvent @event)
+	private async void IncrementLevel()
+	{
+		await ToSignal(GetTree().CreateTimer(2.0f), SceneTreeTimer.SignalName.Timeout);
+		// Code to execute after 2 seconds
+		aud.Stream = respawnFX;
+		falling = false;
+		state = BloxorState.UPRIGHT;
+		aud.Play();
+		player.Respawn();
+		currentLevel++;
+		computerHud.SetLevel(currentLevel);
+		targetPos = player.GlobalPosition;
+		targetRot = player.GlobalBasis.GetRotationQuaternion();
+		prevRot = targetRot;
+		targetPivotPos = playerPivot.Position + new Vector3(0, baseYoffset, 0);
+		if(currentLevelScene != null)
+		{
+			currentLevelScene.QueueFree();
+		}
+		if (levels.Count <= currentLevel)
+		{
+			currentLevelScene = (Node3D)levels[currentLevel - 1].Instantiate();
+			AddChild(currentLevelScene);
+		}
+	}
+
+	public override bool ManageInput(InputEvent @event)
 	{
 		if (falling)
 			return false;

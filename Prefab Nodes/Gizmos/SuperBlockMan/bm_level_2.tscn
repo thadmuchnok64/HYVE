@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://bx2l71b74rhhu"]
+
+[ext_resource type="PackedScene" uid="uid://b11b47noubn83" path="res://Prefab Nodes/Gizmos/SuperBlockMan/bloxor_block.tscn" id="1_r1m2v"]
+[ext_resource type="Script" uid="uid://powfppc7vcr3" path="res://Scripts/Gizmos/BloxorWinBlock.cs" id="2_ypgj5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xjv43"]
+size = Vector3(1, 0.5029297, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dpotv"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.649362, 0.9175708, 0.63005596, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4stej"]
+size = Vector3(1, 0.5, 1)
+
+[node name="BMLevel2" type="Node3D" unique_id=255131624]
+
+[node name="BloxorBlock" parent="." unique_id=844618659 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7617655, 0)
+
+[node name="BloxorBlock2" parent="." unique_id=342698198 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7617655, -1)
+
+[node name="BloxorBlock3" parent="." unique_id=1324956802 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7617655, -2)
+
+[node name="BloxorBlock4" parent="." unique_id=1242132143 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.7617655, 0)
+
+[node name="BloxorBlock5" parent="." unique_id=1696372325 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.7617655, -1)
+
+[node name="BloxorBlock6" parent="." unique_id=2073251340 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.7617655, -2)
+
+[node name="BloxorBlock7" parent="." unique_id=603109225 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.7617655, 0)
+
+[node name="BloxorBlock10" parent="." unique_id=1919431936 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7617655, 1)
+
+[node name="BloxorBlock11" parent="." unique_id=1689021258 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.7617655, 1)
+
+[node name="BloxorBlock12" parent="." unique_id=502389096 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.7617655, 1)
+
+[node name="BloxorBlock8" parent="." unique_id=139153182 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.7617655, -1)
+
+[node name="BloxorBlock9" parent="." unique_id=786378266 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.7617655, -2)
+
+[node name="BloxorBlock13" parent="." unique_id=1000141365 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7617655, -3)
+
+[node name="BloxorBlock14" parent="." unique_id=1023983203 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.7617655, -3)
+
+[node name="BloxorBlock15" parent="." unique_id=1516600175 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7617655, -4)
+
+[node name="BloxorBlock16" parent="." unique_id=594240032 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.7617655, -4)
+
+[node name="BloxorBlock17" parent="." unique_id=901650158 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7617655, -5)
+
+[node name="BloxorBlock19" parent="." unique_id=1430360910 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.7617655, -5)
+
+[node name="BloxorBlock20" parent="." unique_id=2099663500 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.7617655, -5)
+
+[node name="BloxorBlock21" parent="." unique_id=1578503471 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.7617655, -5)
+
+[node name="BloxorBlock22" parent="." unique_id=834898283 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -0.7617655, -5)
+
+[node name="BloxorBlock23" parent="." unique_id=2002711987 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.7617655, -5)
+
+[node name="BloxorBlock32" parent="." unique_id=610300409 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.7617655, -6)
+
+[node name="BloxorBlock33" parent="." unique_id=407059569 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.7617655, -6)
+
+[node name="BloxorBlock34" parent="." unique_id=109475728 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.7617655, -7)
+
+[node name="BloxorBlock35" parent="." unique_id=460287906 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.7617655, -7)
+
+[node name="BloxorBlock39" parent="." unique_id=152566711 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -0.7617655, -7)
+
+[node name="BloxorBlock36" parent="." unique_id=457821841 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.7617655, -8)
+
+[node name="BloxorBlock37" parent="." unique_id=1400061631 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.7617655, -8)
+
+[node name="BloxorBlock38" parent="." unique_id=1903495698 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -0.7617655, -8)
+
+[node name="BloxorBlock24" parent="." unique_id=1264497169 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.7617655, -4)
+
+[node name="BloxorBlock25" parent="." unique_id=1395362888 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.7617655, -3)
+
+[node name="BloxorBlock26" parent="." unique_id=1261608463 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.7617655, -2)
+
+[node name="BloxorBlock27" parent="." unique_id=1849660424 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.7617655, -1)
+
+[node name="BloxorBlock28" parent="." unique_id=315866941 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.7617655, -1)
+
+[node name="BloxorBlock29" parent="." unique_id=1889565263 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -0.7617655, -1)
+
+[node name="BloxorBlock30" parent="." unique_id=1255544032 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -0.7617655, 0)
+
+[node name="BloxorBlock31" parent="." unique_id=1276199592 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.7617655, 0)
+
+[node name="BloxorBlock18" parent="." unique_id=362975472 instance=ExtResource("1_r1m2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.7617655, -5)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1389022599]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.7617655, -8)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("2_ypgj5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1159562151]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+shape = SubResource("BoxShape3D_xjv43")
+
+[node name="BloxorWin" type="MeshInstance3D" parent="StaticBody3D" unique_id=1562772066]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 8)
+layers = 8
+material_override = SubResource("StandardMaterial3D_dpotv")
+mesh = SubResource("BoxMesh_4stej")

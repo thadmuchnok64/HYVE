@@ -1150,6 +1150,7 @@ collision_layer = 8
 collision_mask = 2
 script = ExtResource("13_7gl3i")
 interactable = NodePath("../CultureDoors")
+interactText = "Examine Doors"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Foyer2/Area3D" unique_id=1854706027]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53430176, 0)
