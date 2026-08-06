@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://xo461csemvt1"]
+
+[ext_resource type="Shader" uid="uid://itrnkg3h08cb" path="res://Materials/Shaders/BaseSceneShader.tres" id="1_kaopu"]
+[ext_resource type="Texture2D" uid="uid://c1nm254842f30" path="res://Meshes/Gizmos/Keypad/RGB Alpha.png" id="2_g1ly2"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_kaopu")
+shader_parameter/MainTex2 = ExtResource("2_g1ly2")
+shader_parameter/DepthFade = false

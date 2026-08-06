@@ -8,6 +8,7 @@ public partial class CameraController : Camera3D
 	[Export] Curve switchPositionCurve;
 	[Export] float timeToSwitchPos = .3f;
 	[Export] Curve cameraCurve;
+	[Export] Node3D mouseRay;
 	float timer = 5;
 	Vector3 prevPosition = Vector3.Zero;
 	Quaternion prevRot;
@@ -33,6 +34,8 @@ public partial class CameraController : Camera3D
         GlobalPosition = prevPosition.Lerp(currentTrackingObject.GlobalPosition, val);
 		GlobalRotation = prevRot.Slerp(currentTrackingObject.GlobalBasis.GetRotationQuaternion(),cameraCurve.Sample(val)).GetEuler();
 		//Quaternion = prevRot.Slerp(currentTrackingObject.Basis.GetRotationQuaternion(), val);
+		mouseRay.GlobalPosition = ProjectPosition(GetViewport().GetMousePosition(),.1f);
+		mouseRay.LookAt(ProjectPosition(GetViewport().GetMousePosition(), 1f));
 		base._Process(delta);
     }
 }
