@@ -670,7 +670,7 @@ input_1/break_loop_at_end = false
 input_1/reset = true
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_2pel7"]
-graph_offset = Vector2(197.41814, 172.60905)
+graph_offset = Vector2(-270.65314, 260.23758)
 nodes/output/position = Vector2(1106.6666, 640)
 nodes/DialogueIn/node = SubResource("AnimationNodeAnimation_07sgc")
 nodes/DialogueIn/position = Vector2(-573.3333, 80)
@@ -891,7 +891,7 @@ theme_override_colors/default_color = Color(1, 0.5829336, 0.54550856, 1)
 theme_override_constants/line_separation = -32
 theme_override_font_sizes/normal_font_size = 54
 bbcode_enabled = true
-text = "[shake rate=10.0 level=3 connected=0]Interact with Door[/shake]"
+text = "[shake rate=10.0 level=4 connected=0]Interact with Door[/shake]"
 horizontal_alignment = 1
 
 [node name="VSplitContainer" type="VSplitContainer" parent="." unique_id=907738956 node_paths=PackedStringArray("inventoryBacklog", "equippedWeaponSlot")]

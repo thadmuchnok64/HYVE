@@ -21,8 +21,10 @@ public partial class HUDManager : Control
 	[Export] LoreMenu loreMenu;
 	[Export] RichTextLabel interactText;
 	[Export] AudioStream interactSFX;
+	[Export] float shakeRate = 10;
+	[Export] float shakeLevel = 4;
 
-	[Export] float trackerOffset = 32;
+    [Export] float trackerOffset = 32;
 
 	[Export] Control tracker;
 
@@ -137,7 +139,7 @@ public partial class HUDManager : Control
 	{
 		if (interactShowing == show)
 			return;
-		interactText.Text = text;
+		interactText.Text = $"[shake rate={shakeRate} level={shakeLevel} connected=0]{text}[/shake]";
 		if (show)
 		{
 			anim.Set("parameters/Main/Interact/transition_request", "in");

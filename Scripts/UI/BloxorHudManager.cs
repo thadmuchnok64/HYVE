@@ -8,6 +8,6 @@ public partial class BloxorHudManager : SubViewport
 
 	public void SetLevel(int lev)
 	{
-		levelText.Text = $"Level {lev}";
+		levelText.Text = $"[shake rate=8 level=2 connected=0]LEVEL {lev}[/shake]";
 	}
 }
