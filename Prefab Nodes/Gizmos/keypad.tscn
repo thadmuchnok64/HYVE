@@ -1,0 +1,280 @@
+[gd_scene format=4 uid="uid://b4de1rirloijt"]
+
+[ext_resource type="Script" uid="uid://u7jse0l07s1d" path="res://Scripts/Gizmos/Keypad/Keypad.cs" id="1_6jf2k"]
+[ext_resource type="PackedScene" uid="uid://slv6xy7dsoh6" path="res://Prefab Nodes/Gizmos/Keypad/keypad_button.tscn" id="2_6n2g4"]
+[ext_resource type="ArrayMesh" uid="uid://dn6sl2jirwv2k" path="res://Meshes/Gizmos/Keypad/Keypad_2.tres" id="3_bdr5n"]
+[ext_resource type="Material" uid="uid://xo461csemvt1" path="res://Meshes/Gizmos/Keypad/Keypad.tres" id="3_m37im"]
+[ext_resource type="Script" uid="uid://c6igaenalehqd" path="res://Scripts/Gizmos/GizmoTrigger.cs" id="4_6n2g4"]
+[ext_resource type="ArrayMesh" uid="uid://clsypkfwwalao" path="res://Meshes/Gizmos/Keypad/Keypad_3.tres" id="4_bdr5n"]
+[ext_resource type="Shader" uid="uid://cyfg542rhfa0b" path="res://Materials/Shaders/ComputerMonitor.tres" id="4_m37im"]
+[ext_resource type="ArrayMesh" uid="uid://babijqo7xug4h" path="res://Meshes/Gizmos/Keypad/Keypad_4.tres" id="5_82gvh"]
+[ext_resource type="PackedScene" uid="uid://nm4dnofeavej" path="res://Prefab Nodes/UI/keypad_ui.tscn" id="5_bkt58"]
+[ext_resource type="ArrayMesh" uid="uid://b4o3r4u23uk7j" path="res://Meshes/Gizmos/Keypad/Keypad_5.tres" id="6_kgink"]
+[ext_resource type="ArrayMesh" uid="uid://cntefbgikuv01" path="res://Meshes/Gizmos/Keypad/Keypad_6.tres" id="7_nmqk5"]
+[ext_resource type="ArrayMesh" uid="uid://csndq0cr464pm" path="res://Meshes/Gizmos/Keypad/Keypad_7.tres" id="8_e50bj"]
+[ext_resource type="ArrayMesh" uid="uid://chirrs1taxg62" path="res://Meshes/Gizmos/Keypad/Keypad_8.tres" id="9_mouoj"]
+[ext_resource type="ArrayMesh" uid="uid://citgdvrharuxs" path="res://Meshes/Gizmos/Keypad/Keypad_9.tres" id="10_m6ilg"]
+[ext_resource type="ArrayMesh" uid="uid://cxhw35eob8l88" path="res://Meshes/Gizmos/Keypad/Keypad_ex.tres" id="11_r2rh0"]
+[ext_resource type="ArrayMesh" uid="uid://b26bgmjqywqen" path="res://Meshes/Gizmos/Keypad/Keypad_0.tres" id="12_ltq41"]
+[ext_resource type="ArrayMesh" uid="uid://dn5extv7yim7j" path="res://Meshes/Gizmos/Keypad/Keypad_ent.tres" id="13_oj83i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ywpdj"]
+resource_name = "Keypad"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qna54"]
+_surfaces = [{
+"aabb": AABB(-0.0008709763, -0.0008387638, -0.0017672225, 0.0017419534, 0.0008387638, 0.003534445),
+"format": 34359742465,
+"index_count": 126,
+"index_data": PackedByteArray("AAABAAIAAQAAAAMAAwAEAAEABAADABIAEwADAAAAEgADABMAEgAFAAQABQASAAYABgAHAAUAFAAGABIABwAGAAgACAAJAAcAAgAJAAgAFQAIAAYABgAUABUACAAWAAIAFgAIABUAAgAWAAAAEgAXABQAFQAUABcAEwAXABIAGAAAABYAAAAYABMAFQAZABYAFwAZABUAFgAZABgACgAXABMAGQAXAAoACwATABgAEwALAAoAGAAZAAwACgAMABkAGAANAAsADAANABgADgAMAAoADQAMAA4ACgAPAA4ADwAKAAsADgAQAA0ACwARAA8ADQAQABEAEQALAA0A"),
+"lods": [0.001136289, PackedByteArray("AAABAAIAAQAAAAMAAwAEAAEAAwAFAAQABQADAAYABgAHAAUABwAGAAgACAAAAAIACAAJAAcAAgAJAAgAAwAKAAYACAAGAAoACwADAAAACwAKAAMACAAMAAAACgAMAAgAAAANAAsAAAAMAA0ADgAMAAoADQAMAA4ACgAPAA4ADwAKAAsADgAQAA0ACwARAA8ADQAQABEAEQALAA0A")],
+"name": "Keypad",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 26,
+"vertex_data": PackedByteArray("SlJkOgOfybkmouc6SlJkOgAAAAAmouc6SlJkOgAAAAB0lQI6O1JkugOfybkmouc6O1JkugAAAAAmouc6O1JkugAAAAB0lQI6O1JkumSuQ7oNBci6O1JkugAAAAAmoue6SlJkOmSuQ7oNBci6SlJkOgAAAAAmoue6L/YtujQD+rnSCxw6L/YtujQD+rklZcU6P/YtOjQD+rnSCxw6P/YtOjQD+rklZcU6KhciOmNiwrlW6So6GhciumNiwrlW6So6KxciOmNiwrlk9r06GhciumNiwrlk9r06O1JkugOfybl0lQI6Rk5KujQD+rkF29Y6Rk5KunzgW7rsPbe6Vk5KOnzgW7rsPbe6SlJkOgOfybl0lQI6Rk5KujQD+rkhQPI5Vk5KOjQD+rkF29Y6Vk5KOjQD+rkhQPI5")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_t48di"]
+resource_name = "Cube_104"
+_surfaces = [{
+"aabb": AABB(-0.0008709763, -0.0008387638, -0.0017672225, 0.0017419534, 0.0008387638, 0.003534445),
+"attribute_data": PackedByteArray("J9jlPrfFcD8n2OU+30tiP6ixIj/eS2I/neNuPzJlfj/i93c/3EtiP5okHz8AsIc8dO4nP2pXij7dASA/2pIxP6oycz8loDU/hucqP6AYmD2BqHA/1laMPnYSfD8gsIc8Ac1vP+h8nT2VYDQ/2JlpPpZgND9Abw4+0fxmP0BvDj7R/GY/3JlpPiH5vj5enVs/Ifm+PqaQaz/047k9ppBrP/TjuT1enVs/K9jlPhjKUT+qsSI/7kNgPyvY5T7xQ2A/neNuP5oqRD/i93c/7kNgP771aj9oYn0+gahwP9ZWjD507ic/aleKPt+GLT9U5n4+7AUxP+DyzT2G5yo/oBiYPQHNbz/ofJ09SsFpP5CDyT2+9Wo/aGJ9PkrBaT+Qg8k9Ac1vP+h8nT2BqHA/1laMPt+GLT9U5n4+dO4nP2pXij6G5yo/oBiYPewFMT/g8s09qLEiP7bFcD8h7yY/+ngqP2OlGj/gF5M+04NsPyRnLT9Cb34/fOSVPsD8IT+WL5g+U9J2P6ppmj4ryCU/cB9IPa4UdT8QWE09qLEiPxjKUT8="),
+"format": 34359742487,
+"index_count": 126,
+"index_data": PackedByteArray("AAABAAIAAgAqAAAAAwAqAAIAAgAEAAMAKwAHACwABwArAC0ALQAIAAcALgAIAC0ALQArAC8ALAAvACsALQAwAC4ALwAwAC0AMQAvACwAMAAvAAYABgAvADEALAAFADEABgAKADAAMQAFAAsAMQAJAAYALgAwADIAMgALAC4AMgAwAAoACwAyADEACQAxADIACgAMADIAMgAMAAkADQAOAA8ADwAQAA0AEQASABMAEwAUABEAFwAVADMAMwAWABcAFgAzABgAGAAZABYAGgAbABwAHAAdABoAHgAfACAAIAAhAB4AIgAjACQAJAAlACIAJgAnACgAKAApACYA"),
+"lods": [0.001136289, PackedByteArray("AAABAAIAAwAAAAIAAgAEAAMABQAGAAcACAAHAAYACQAGAAUABgAKAAgACQAFAAsACAAKAAsACwAMAAkACwAKAAwADQAOAA8ADwAQAA0AEQASABMAEwAUABEAFQAWABcAFgAVABgAGAAZABYAGgAbABwAHAAdABoAHgAfACAAIAAhAB4AIgAjACQAJAAlACIAJgAnACgAKAApACYA")],
+"material": SubResource("StandardMaterial3D_ywpdj"),
+"name": "Keypad",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 52,
+"vertex_data": PackedByteArray("SlJkOgOfybkmouc6SlJkOgAAAAAmouc6SlJkOgAAAAB0lQI6SlJkOmSuQ7oNBci6SlJkOgAAAAAmoue6O1JkugOfybkmouc6L/YtujQD+rnSCxw6O1JkumSuQ7oNBci6SlJkOmSuQ7oNBci6L/YtujQD+rklZcU6P/YtOjQD+rnSCxw6SlJkOgOfybkmouc6P/YtOjQD+rklZcU6SlJkOmSuQ7oNBci6SlJkOgAAAAAmoue6O1JkugAAAAAmoue6O1JkumSuQ7oNBci6O1JkugOfybkmouc6O1JkugAAAAAmouc6SlJkOgAAAAAmouc6SlJkOgOfybkmouc6O1JkugOfybkmouc6O1JkugAAAAB0lQI6O1JkugAAAAAmouc6O1JkumSuQ7oNBci6O1JkugAAAAAmoue6KhciOmNiwrlW6So6P/YtOjQD+rnSCxw6L/YtujQD+rnSCxw6GhciumNiwrlW6So6GhciumNiwrlk9r06L/YtujQD+rklZcU6P/YtOjQD+rklZcU6KxciOmNiwrlk9r06KhciOmNiwrlW6So6KxciOmNiwrlk9r06P/YtOjQD+rklZcU6P/YtOjQD+rnSCxw6GhciumNiwrlW6So6L/YtujQD+rnSCxw6L/YtujQD+rklZcU6GhciumNiwrlk9r06SlJkOgOfybl0lQI6Rk5KunzgW7rsPbe6O1JkugOfybl0lQI6Vk5KOnzgW7rsPbe6SlJkOgOfybl0lQI6Rk5KujQD+rkhQPI5Vk5KOjQD+rkhQPI5Rk5KujQD+rkF29Y6Vk5KOjQD+rkF29Y6O1JkugOfybl0lQI6ta87YF/kvpT/v/9//v//n////3/+/wCAMdhAMGMbZe/k7MUx6BTC5ElQO2CfuSWs/38AAKP8/7/NJ0Awzs3xnDHYQDDluTnW/38AAP//NcT/fwAA///DwLWvO2CN2Cnj/38AAMr5/78x2EAw+yL0nOTsxTGxD9yfGhPFMUVA2MfNJ0AwFUZ80UlQO2D3GhPi/z//fwAA/9//v/9//z//v7WvO2AoRIOySVA7YJ8bvpQAAP9//v////8//38AAP/fzSdAMJvkZe8aE8UxFuvC5P9/alPj/a7A/39qU7r9vMD/f2pTaP+Mv/9/alM8/2q/atMAAJf+ir9q0wAAcP59v2rTAAAP/7bAatMAAOb+1sBJJrVZsZuNn0kmtVk5v9KNSSa1WVy6245JJrVZnZrRoLXZtVkXt3Dwtdm1WdW5BfG12bVZhZoR37XZtVmPmMXchNkTXMb+hYGaV0UcuuBisHomE1zkoSGWZKhFHPbaD86E2RNcF6l57rxc1isd1kiuQqPWKzfbxNMbZkEu6d3XseOZQS4J5ETReiYTXDgBhYE=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_qna54")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6n2g4"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6n2g4"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("4_m37im")
+shader_parameter/Tex = SubResource("ViewportTexture_6n2g4")
+shader_parameter/Segments = 64.0
+shader_parameter/EmissiveBoost = 1.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fp6bv"]
+resource_name = "Screen"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.278477, 0.278477, 0.278477, 1)
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lvole"]
+_surfaces = [{
+"aabb": AABB(-0.0006183252, -0.00037075867, 0.0006519755, 0.0012366513, 1e-05, 0.00079732307),
+"format": 34359742465,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAgADAAAA"),
+"name": "Screen",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("GhciumNiwrlk9r06KxciOmNiwrlk9r06KhciOmNiwrlW6So6GhciumNiwrlW6So6")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_bl5yq"]
+resource_name = "Cube_106"
+_surfaces = [{
+"aabb": AABB(-0.0006183252, -0.00037075867, 0.0006519755, 0.0012366513, 1e-05, 0.00079732307),
+"attribute_data": PackedByteArray("wOkjPEicOz48IH4/OJw7Pj4gfj/sGFE/wOojPO4YUT8="),
+"format": 34359742487,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAgADAAAA"),
+"material": SubResource("StandardMaterial3D_fp6bv"),
+"name": "Screen",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("GhciumNiwrlk9r06KxciOmNiwrlk9r06KhciOmNiwrlW6So6GhciumNiwrlW6So6/38AAP///7//fwAA////v/9/AAD///+//38AAP///78=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_lvole")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b3rw6"]
+size = Vector3(0.83358765, 0.97436523, 1.8374023)
+
+[node name="Keypad" type="Node3D" unique_id=1987995785 node_paths=PackedStringArray("camPivot", "ui")]
+transform = Transform3D(62.154865, 0, 0, 0, -11.611861, 61.060547, 0, -61.060547, -11.611861, 0, 0, 0)
+script = ExtResource("1_6jf2k")
+camPivot = NodePath("Marker3D")
+ui = NodePath("SubViewport/KeypadUI")
+
+[node name="KeypadButton" parent="." unique_id=852379212 instance=ExtResource("2_6n2g4")]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999994, -1.4901161e-08, 0, 1.4901161e-08, 0.9999994, -2.3342669e-05, -6.750226e-05, 1.9133091e-05)
+
+[node name="KeypadButton2" parent="." unique_id=1301267295 instance=ExtResource("2_6n2g4")]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999994, -1.4901161e-08, 0, 1.4901161e-08, 0.9999994, -2.3342669e-05, -6.750226e-05, 1.9133091e-05)
+keyPadKey = 2
+
+[node name="KeyPadButton_1" parent="KeypadButton2" index="0" unique_id=1755574457]
+mesh = ExtResource("3_bdr5n")
+
+[node name="CollisionShape3D" parent="KeypadButton2" index="1" unique_id=1240056355]
+transform = Transform3D(0.5, 0, 0, 0, 0.5000004, 6.03497e-07, 0, -6.03497e-07, 0.5000004, 0.0005091044, -2.98096e-08, -1.4893885e-08)
+
+[node name="KeypadButton3" parent="." unique_id=1667522666 instance=ExtResource("2_6n2g4")]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999994, -1.4901161e-08, 0, 1.4901161e-08, 0.9999994, -2.3342669e-05, -6.750226e-05, 1.9133091e-05)
+keyPadKey = 3
+
+[node name="KeyPadButton_1" parent="KeypadButton3" index="0" unique_id=1755574457]
+mesh = ExtResource("4_bdr5n")
+
+[node name="CollisionShape3D" parent="KeypadButton3" index="1" unique_id=1240056355]
+transform = Transform3D(0.5, 0, 0, 0, 0.5000004, 6.183982e-07, 0, -6.183982e-07, 0.5000004, 0.0010246616, -2.98096e-08, -1.4892066e-08)
+
+[node name="KeypadButton4" parent="." unique_id=466062701 instance=ExtResource("2_6n2g4")]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999994, -1.4901161e-08, 0, 1.4901161e-08, 0.9999994, -2.3342669e-05, -6.750226e-05, 1.9133091e-05)
+keyPadKey = 4
+
+[node name="KeyPadButton_1" parent="KeypadButton4" index="0" unique_id=1755574457]
+mesh = ExtResource("5_82gvh")
+
+[node name="CollisionShape3D" parent="KeypadButton4" index="1" unique_id=1240056355]
+transform = Transform3D(0.5, 0, 0, 0, 0.5000004, 5.9604645e-07, 0, -5.9604645e-07, 0.5000004, 0, 0.00013448868, -0.0005254172)
+
+[node name="KeypadButton5" parent="." unique_id=1467566888 instance=ExtResource("2_6n2g4")]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999994, -1.4901161e-08, 0, 1.4901161e-08, 0.9999994, -2.3342669e-05, -6.750226e-05, 1.9133091e-05)
+keyPadKey = 5
+
+[node name="KeyPadButton_1" parent="KeypadButton5" index="0" unique_id=1755574457]
+mesh = ExtResource("6_kgink")
+
+[node name="CollisionShape3D" parent="KeypadButton5" index="1" unique_id=1240056355]
+transform = Transform3D(0.5, 0, 0, 0, 0.5000004, 6.183982e-07, 0, -6.183982e-07, 0.5000004, 0.0005091044, 9.499472e-05, -0.00051866216)
+
+[node name="KeypadButton6" parent="." unique_id=1931945747 instance=ExtResource("2_6n2g4")]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999994, -1.4901161e-08, 0, 1.4901161e-08, 0.9999994, -2.3342669e-05, -6.750226e-05, 1.9133091e-05)
+keyPadKey = 6
+
+[node name="KeyPadButton_1" parent="KeypadButton6" index="0" unique_id=1755574457]
+mesh = ExtResource("7_nmqk5")
+
+[node name="CollisionShape3D" parent="KeypadButton6" index="1" unique_id=1240056355]
+transform = Transform3D(0.5, 0, 0, 0, 0.5000004, 6.3329935e-07, 0, -6.3329935e-07, 0.5000004, 0.0010246616, 8.2446066e-05, -0.0005079197)
+
+[node name="KeypadButton7" parent="." unique_id=1535084088 instance=ExtResource("2_6n2g4")]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999994, -1.4901161e-08, 0, 1.4901161e-08, 0.9999994, -2.3342669e-05, -6.750226e-05, 1.9133091e-05)
+keyPadKey = 7
+
+[node name="KeyPadButton_1" parent="KeypadButton7" index="0" unique_id=1755574457]
+mesh = ExtResource("8_e50bj")
+
+[node name="CollisionShape3D" parent="KeypadButton7" index="1" unique_id=1240056355]
+transform = Transform3D(0.5, 0, 0, 0, 0.5000004, 6.03497e-07, 0, -6.03497e-07, 0.5000004, 0, 0.000118391894, -0.0010007763)
+
+[node name="KeypadButton8" parent="." unique_id=115528293 instance=ExtResource("2_6n2g4")]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999994, -1.4901161e-08, 0, 1.4901161e-08, 0.9999994, -2.3342669e-05, -6.750226e-05, 1.9133091e-05)
+keyPadKey = 8
+
+[node name="KeyPadButton_1" parent="KeypadButton8" index="0" unique_id=1755574457]
+mesh = ExtResource("9_mouoj")
+
+[node name="CollisionShape3D" parent="KeypadButton8" index="1" unique_id=1240056355]
+transform = Transform3D(0.5, 0, 0, 0, 0.5000004, 6.2584877e-07, 0, -6.2584877e-07, 0.5000004, 0.0005091044, 0.00015010599, -0.0010134404)
+
+[node name="KeypadButton9" parent="." unique_id=414676198 instance=ExtResource("2_6n2g4")]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999994, -1.4901161e-08, 0, 1.4901161e-08, 0.9999994, -2.3342669e-05, -6.750226e-05, 1.9133091e-05)
+keyPadKey = 9
+
+[node name="KeyPadButton_1" parent="KeypadButton9" index="0" unique_id=1755574457]
+mesh = ExtResource("10_m6ilg")
+
+[node name="CollisionShape3D" parent="KeypadButton9" index="1" unique_id=1240056355]
+transform = Transform3D(0.5, 0, 0, 0, 0.5000004, 6.4074993e-07, 0, -6.4074993e-07, 0.5000004, 0.0010246616, 0.000110882844, -0.0010136211)
+
+[node name="KeypadButton10" parent="." unique_id=847772536 instance=ExtResource("2_6n2g4")]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999994, -1.4901161e-08, 0, 1.4901161e-08, 0.9999994, -2.3342669e-05, -6.750226e-05, 1.9133091e-05)
+keyPadKey = 4
+isClearKey = true
+
+[node name="KeyPadButton_1" parent="KeypadButton10" index="0" unique_id=1755574457]
+mesh = ExtResource("11_r2rh0")
+
+[node name="CollisionShape3D" parent="KeypadButton10" index="1" unique_id=1240056355]
+transform = Transform3D(0.5, 0, 0, 0, 0.5000004, 6.183982e-07, 0, -6.183982e-07, 0.5000004, 0, 9.5433046e-05, -0.0015218097)
+
+[node name="KeypadButton11" parent="." unique_id=1201133441 instance=ExtResource("2_6n2g4")]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999994, -1.4901161e-08, 0, 1.4901161e-08, 0.9999994, -2.3342669e-05, -6.750226e-05, 1.9133091e-05)
+keyPadKey = 0
+
+[node name="KeyPadButton_1" parent="KeypadButton11" index="0" unique_id=1755574457]
+mesh = ExtResource("12_ltq41")
+
+[node name="CollisionShape3D" parent="KeypadButton11" index="1" unique_id=1240056355]
+transform = Transform3D(0.5, 0, 0, 0, 0.5000004, 6.4074993e-07, 0, -6.4074993e-07, 0.5000004, 0.0005091044, 0.00015006217, -0.0015333511)
+
+[node name="KeypadButton12" parent="." unique_id=866163593 instance=ExtResource("2_6n2g4")]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999994, -1.4901161e-08, 0, 1.4901161e-08, 0.9999994, -2.3342669e-05, -6.750226e-05, 1.9133091e-05)
+keyPadKey = 6
+
+[node name="KeyPadButton_1" parent="KeypadButton12" index="0" unique_id=1755574457]
+mesh = ExtResource("13_oj83i")
+
+[node name="CollisionShape3D" parent="KeypadButton12" index="1" unique_id=1240056355]
+transform = Transform3D(0.5, 0, 0, 0, 0.5000004, 6.482005e-07, 0, -6.482005e-07, 0.5000004, 0.0010246617, 0.00014940827, -0.0015401043)
+
+[node name="Keypad Base" type="MeshInstance3D" parent="." unique_id=235237753]
+transform = Transform3D(1.1980385, 0, 0, 0, 1.1769453, -0.22381923, 0, 0.22381923, 1.1769453, 0.0004849881, 0.00060763955, -6.3069165e-05)
+material_override = ExtResource("3_m37im")
+mesh = SubResource("ArrayMesh_t48di")
+
+[node name="Keypad Screen" type="MeshInstance3D" parent="." unique_id=481972104]
+transform = Transform3D(1.1980385, 0, 0, 0, 1.1769453, -0.22381923, 0, 0.22381923, 1.1769453, 0.0004849881, 0.00060763955, -6.3069165e-05)
+material_override = SubResource("ShaderMaterial_6n2g4")
+mesh = SubResource("ArrayMesh_bl5yq")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1858062754 node_paths=PackedStringArray("interactable")]
+transform = Transform3D(0.01, 0, 0, 0, 0.009840158, -0.0017808098, 0, 0.0017808098, 0.009840158, 0.0003286749, -0.005245298, -0.00042632222)
+collision_layer = 8
+collision_mask = 2
+input_ray_pickable = false
+script = ExtResource("4_6n2g4")
+interactable = NodePath("..")
+interactText = "Interact with Keypad"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1700058764]
+transform = Transform3D(1, 1.029109e-12, -5.1469674e-13, 0, 1, 0, 0, 0, 1, 0.028213024, 0.5343094, -0.4260254)
+shape = SubResource("BoxShape3D_b3rw6")
+debug_color = Color(0.45031464, 1, 0.48679012, 1)
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=66401680]
+transform = Transform3D(1, 0, 0, 0, -1.6391277e-07, -0.9999981, 0, 0.9999981, -1.6391277e-07, 0.00049518794, -0.0074670613, 0.00014960766)
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=364713074]
+size = Vector2i(256, 128)
+
+[node name="KeypadUI" parent="SubViewport" unique_id=377412918 instance=ExtResource("5_bkt58")]
+anchors_preset = 15
+
+[editable path="KeypadButton2"]
+[editable path="KeypadButton3"]
+[editable path="KeypadButton4"]
+[editable path="KeypadButton5"]
+[editable path="KeypadButton6"]
+[editable path="KeypadButton7"]
+[editable path="KeypadButton8"]
+[editable path="KeypadButton9"]
+[editable path="KeypadButton10"]
+[editable path="KeypadButton11"]
+[editable path="KeypadButton12"]

@@ -1,36 +1,30 @@
 using Godot;
 using System;
 
-public partial class KeypadButton : Node3D
+public partial class KeypadButton : MouseInteractable
 {
 	[Export] int keyPadKey = 1;
+	[Export] bool isClearKey = false;
+	[Export] AnimationPlayer anim;
+
 	bool isMouseHovering = false;
 
 
-	public override void _Input(InputEvent @event)
+	public override void MouseOn()
 	{
-		if (!isMouseHovering)
-			return;
-		if(@event is InputEventMouseButton)
-		{
-			if(((InputEventMouseButton)@event).ButtonIndex == MouseButton.Left)
-			{
-				ClickKey();
-			}
-		}
-	}
-	public void MouseOn()
-	{
-		GD.Print("poop");
 		isMouseHovering = true;
 	}
 
-	public void MouseOff()
+	public override void MouseOff()
 	{
 		isMouseHovering = false;
 	}
-	public void ClickKey()
+	public override void MousePress()
 	{
-		GD.Print(keyPadKey);
+		anim.Play("Press");
+		if (isClearKey)
+			((Keypad)GetParent()).ClearCode();
+		else
+			((Keypad)GetParent()).SendInt(keyPadKey);
 	}
 }

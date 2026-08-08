@@ -1,0 +1,43 @@
+[gd_resource type="ArrayMesh" format=4 uid="uid://cntefbgikuv01"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m4tdh"]
+resource_name = "Keypad"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_kusbp"]
+_surfaces = [{
+"aabb": AABB(0.0007909486, -0.00013892404, -0.0007444222, 0.0004652639, 0.00038979022, 0.00046526387),
+"format": 34359742465,
+"index_count": 54,
+"index_data": PackedByteArray("BQAIAAkACgAJAAgACAALAAoACwAIAAUABwAJAAoACQAHAAUAAgAKAAsACgACAAcACwAGAAIABQAGAAsABAAHAAIABwAEAAAAAAAFAAcAAgADAAQAAwACAAYABQAAAAEABgABAAMAAQAGAAUA"),
+"lods": [0.0002566142, PackedByteArray("BQAGAAIAAwACAAYABgABAAMAAQAGAAUAAgADAAQABQAAAAEABAAHAAIAAgAHAAUABwAEAAAAAAAFAAcA"), 0.0003852627, PackedByteArray("AAABAAIAAwACAAEAAgAEAAAAAgADAAQA")],
+"name": "Keypad",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("qVdPOrGGgzn/W5K5f6ekOrGGgzn/W5K5f6ekOuRm2LhUJUO6f6ekOrGGgzlUJUO6qVdPOrGGgzlUJUO6qVdPOuRm2Lj/W5K5f6ekOuRm2Lj/W5K5qVdPOuRm2LhUJUO6+wtfOiOsEbmjxLG5+wtfOiOsEbkDcTO6Vs2cOiOsEbkDcTO6Vs2cOiOsEbmjxLG5")
+}]
+blend_shape_mode = 0
+
+[resource]
+resource_name = "Cube_111"
+_surfaces = [{
+"aabb": AABB(0.0007909486, -0.00013892404, -0.0007444222, 0.0004652639, 0.00038979022, 0.00046526387),
+"attribute_data": PackedByteArray("YejePvSMUD7n+Rg/PIRyPmGMED+uiLs+hwUZPzZruz4B780+Vn67Pj19ED8Kesw+f9LePiZizD4Xyt4+lG9yPgJ5ED8sv3I+J4gQP7S8UD7J8N4+4mC7PsnXzT58qnI+l1joPqYPgz4Nv+g+RtexPh7FCz/WsLE+4pELPzLpgj4="),
+"format": 34359742487,
+"index_count": 54,
+"index_data": PackedByteArray("BwAMAA0ADgANAAwADAAPAA4ADwAMAAcACgANAA4ADQAKAAcAAgAOAA8ADgACAAoABgAKAAIAAgAFAAYACwAHAAoACgAEAAsADwAIAAIABwAIAA8AAwACAAgACAABAAMACQAIAAcABwAAAAkA"),
+"lods": [0.0002566142, PackedByteArray("BwAIAAIAAwACAAgACAABAAMACQAIAAcABwAAAAkAAgAKAAcACwAHAAoACgAEAAsABgAKAAIAAgAFAAYA"), 0.0003852627, PackedByteArray("AAABAAIAAwACAAEAAgAEAAAAAgAFAAYA")],
+"material": SubResource("StandardMaterial3D_m4tdh"),
+"name": "Keypad",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("qVdPOrGGgzn/W5K5f6ekOrGGgzn/W5K5f6ekOuRm2LhUJUO6f6ekOrGGgzlUJUO6qVdPOrGGgzlUJUO6f6ekOrGGgzlUJUO6qVdPOrGGgzlUJUO6qVdPOuRm2Lj/W5K5f6ekOuRm2Lj/W5K5f6ekOrGGgzn/W5K5qVdPOuRm2LhUJUO6qVdPOrGGgzn/W5K5+wtfOiOsEbmjxLG5+wtfOiOsEbkDcTO6Vs2cOiOsEbkDcTO6Vs2cOiOsEbmjxLG5/z//f7q/Q8D/v/9/SoDs/5fdyy7/uG/a////v7R/7P8AAP+/SoASgP///7+6v7q/AAD/v0v/0p8zUZdd/biHpcuul12dyofj/7//f0v/LOBnIssursp3nP8//3+0fxKA4mw5Jvbk/7XGWRwTzuqVszimHBPZ5PbJHJM5Jr3qWcw=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_kusbp")

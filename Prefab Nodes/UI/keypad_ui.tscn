@@ -1,0 +1,244 @@
+[gd_scene format=3 uid="uid://nm4dnofeavej"]
+
+[ext_resource type="FontFile" uid="uid://chclopb73t87u" path="res://Materials/Font/PressStart2P-Regular.ttf" id="1_pak5t"]
+[ext_resource type="Script" uid="uid://bxioxptymd1mk" path="res://Scripts/UI/KeypadUI.cs" id="1_sbvh0"]
+[ext_resource type="Texture2D" uid="uid://78v4bxje7ouw" path="res://Textures/Icons/ui/locked.png" id="3_1h1jn"]
+[ext_resource type="Texture2D" uid="uid://dyb703g8gvcs7" path="res://Textures/Icons/ui/unlocked.png" id="4_pf7ua"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mf4vu"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.31654298, 0.26894218, 0.032862328, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pf7ua"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.52748466, 0, 0.05829504, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwdsr"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.042133875, 0.3347498, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="Animation" id="Animation_pf7ua"]
+resource_name = "Error"
+length = 0.6192013
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ErrorPanel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_uwdsr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ErrorPanel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SucceedPanel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SucceedPanel/TextureRect:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(737, 390)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SucceedPanel:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jli2t"]
+resource_name = "Success"
+length = 0.61005056
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SucceedPanel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SucceedPanel/TextureRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5105432),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(737, 390), Vector2(737, 380), Vector2(737, 390)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SucceedPanel:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.36666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0.9259723, 0.87696177, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1scr2"]
+_data = {
+&"Error": SubResource("Animation_pf7ua"),
+&"RESET": SubResource("Animation_uwdsr"),
+&"Success": SubResource("Animation_jli2t")
+}
+
+[node name="KeypadUI" type="Control" unique_id=377412918 node_paths=PackedStringArray("codeText", "anim")]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sbvh0")
+codeText = NodePath("Panel/RichTextLabel")
+anim = NodePath("AnimationPlayer")
+
+[node name="Panel" type="Panel" parent="." unique_id=757892254]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mf4vu")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=1624921021]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 35.0
+offset_right = -25.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_pak5t")
+theme_override_font_sizes/normal_font_size = 42
+text = "____
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ErrorPanel" type="Panel" parent="." unique_id=1244755430]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pf7ua")
+
+[node name="TextureRect" type="TextureRect" parent="ErrorPanel" unique_id=1065355389]
+modulate = Color(0.8391188, 0, 0.17994452, 1)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.0
+offset_top = -60.0
+offset_right = 63.0
+offset_bottom = 62.0
+scale = Vector2(1, 0.6)
+pivot_offset_ratio = Vector2(0, 0.5)
+texture = ExtResource("3_1h1jn")
+
+[node name="SucceedPanel" type="Panel" parent="." unique_id=1423207070]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_uwdsr")
+
+[node name="TextureRect" type="TextureRect" parent="SucceedPanel" unique_id=691174098]
+modulate = Color(0, 0.6694327, 0.2679481, 1)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.0
+offset_top = -60.0
+offset_right = 63.0
+offset_bottom = 62.000122
+scale = Vector2(1, 0.6)
+pivot_offset_ratio = Vector2(0, 0.5)
+texture = ExtResource("4_pf7ua")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=7797990]
+libraries/ = SubResource("AnimationLibrary_1scr2")

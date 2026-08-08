@@ -37,7 +37,118 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"meshes": {
+"Cube_105": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Meshes/Gizmos/Keypad/Keypad_1.tres",
+"save_to_file/path": "uid://hfg35llwfd38"
+},
+"Cube_107": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Meshes/Gizmos/Keypad/Keypad_2.tres",
+"save_to_file/path": "uid://0lmjof8tc5g8"
+},
+"Cube_108": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Meshes/Gizmos/Keypad/Keypad_3.tres",
+"save_to_file/path": "uid://dvirgfyff5jls"
+},
+"Cube_109": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Meshes/Gizmos/Keypad/Keypad_4.tres",
+"save_to_file/path": "uid://csalsklyo0mcs"
+},
+"Cube_110": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Meshes/Gizmos/Keypad/Keypad_5.tres",
+"save_to_file/path": "uid://cvrfucg0t1546"
+},
+"Cube_111": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Meshes/Gizmos/Keypad/Keypad_6.tres",
+"save_to_file/path": "uid://demm5ttajt8ad"
+},
+"Cube_112": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Meshes/Gizmos/Keypad/Keypad_7.tres",
+"save_to_file/path": "uid://brfyg438b7086"
+},
+"Cube_113": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Meshes/Gizmos/Keypad/Keypad_8.tres",
+"save_to_file/path": "uid://cuyvyuawh8lj3"
+},
+"Cube_114": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Meshes/Gizmos/Keypad/Keypad_9.tres",
+"save_to_file/path": "uid://bx618hoxejntt"
+},
+"Cube_115": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Meshes/Gizmos/Keypad/Keypad_ex.tres",
+"save_to_file/path": "uid://lhmxs2rtkpq8"
+},
+"Cube_116": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Meshes/Gizmos/Keypad/Keypad_0.tres",
+"save_to_file/path": "uid://bf173u6mnp6k0"
+},
+"Cube_117": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Meshes/Gizmos/Keypad/Keypad_ent.tres",
+"save_to_file/path": "uid://bkuw6t4jxmjnw"
+}
+}
+}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1
