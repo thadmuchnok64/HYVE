@@ -40,6 +40,7 @@ public partial class KeypadUI : Control
 	private async void CodeFailure()
 	{
 		anim.Play("Error");
+		keypad.FailSound();
 		keypad.inputLocked = true;
 		await ToSignal(GetTree().CreateTimer(.2f), SceneTreeTimer.SignalName.Timeout);
 		ResetCode();

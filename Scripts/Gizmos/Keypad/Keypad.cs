@@ -9,6 +9,8 @@ public partial class Keypad : InteractableObject
 	[Export] KeypadUI ui;
 	[Export] AudioStreamPlayer3D aud;
 
+	[Export] AudioStream buttonClick, successFX, failFX;
+
 	public bool inputLocked = false;
 
 	public override void _Ready()
@@ -27,23 +29,26 @@ public partial class Keypad : InteractableObject
 
 	public override bool ManageInput(InputEvent @event)
 	{
-		if (inputLocked)
-			return false;
+
 		if (@event.IsActionPressed("Interact"))
 		{
 			pc.SetDefaultCamPoint();
 			((CameraController)GameMaster.Instance.mainCamRef).TriggerMouseInteraction(false);
 			return true;
 		}
-		return false;
+        if (inputLocked)
+            return false;
+		// keypad input below here
+        return false;
 	}
 
 	public void SendInt(int i)
 	{
 		if (inputLocked)
 			return;
-
-		if (ui.TypeNumber(i))
+        aud.Stream = buttonClick;
+        aud.Play();
+        if (ui.TypeNumber(i))
 			Unlock();
 	}
 	public void ClearCode()
@@ -51,5 +56,14 @@ public partial class Keypad : InteractableObject
 		ui.ResetCode();
 	}
 
-	public void Unlock() { }
+	public void FailSound()
+	{
+        aud.Stream = failFX;
+        aud.Play();
+    }
+
+	public void Unlock() {
+		aud.Stream = successFX;
+		aud.Play();
+	}
 }

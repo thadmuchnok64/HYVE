@@ -86,26 +86,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("SucceedPanel/TextureRect:position")
+tracks/2/path = NodePath("SucceedPanel:self_modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(737, 390)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("SucceedPanel:self_modulate")
+tracks/3/path = NodePath("SucceedPanel/TextureRect:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(1, 0.55)]
 }
 
 [sub_resource type="Animation" id="Animation_jli2t"]
@@ -126,26 +126,26 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SucceedPanel/TextureRect:position")
+tracks/1/path = NodePath("SucceedPanel:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.5105432),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(737, 390), Vector2(737, 380), Vector2(737, 390)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SucceedPanel:self_modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.36666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0.9259723, 0.87696177, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SucceedPanel/TextureRect:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.27, 0.56666666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 0.55), Vector2(1.1, 0.605), Vector2(1, 0.55)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1scr2"]
@@ -157,6 +157,7 @@ _data = {
 
 [node name="KeypadUI" type="Control" unique_id=377412918 node_paths=PackedStringArray("codeText", "anim")]
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -211,7 +212,7 @@ offset_left = -63.0
 offset_top = -60.0
 offset_right = 63.0
 offset_bottom = 62.0
-scale = Vector2(1, 0.6)
+scale = Vector2(1, 0.55)
 pivot_offset_ratio = Vector2(0, 0.5)
 texture = ExtResource("3_1h1jn")
 
@@ -233,11 +234,11 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -63.0
-offset_top = -60.0
+offset_top = -63.910522
 offset_right = 63.0
-offset_bottom = 62.000122
-scale = Vector2(1, 0.6)
-pivot_offset_ratio = Vector2(0, 0.5)
+offset_bottom = 58.0896
+scale = Vector2(1, 0.55)
+pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("4_pf7ua")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=7797990]

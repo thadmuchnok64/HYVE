@@ -2,11 +2,14 @@
 
 [ext_resource type="Script" uid="uid://u7jse0l07s1d" path="res://Scripts/Gizmos/Keypad/Keypad.cs" id="1_6jf2k"]
 [ext_resource type="PackedScene" uid="uid://slv6xy7dsoh6" path="res://Prefab Nodes/Gizmos/Keypad/keypad_button.tscn" id="2_6n2g4"]
+[ext_resource type="AudioStream" uid="uid://dq8pqvi3wrkm4" path="res://Sound/SFX/GizmoSFX/Common/ButtonPress.wav" id="2_16y2m"]
 [ext_resource type="ArrayMesh" uid="uid://dn6sl2jirwv2k" path="res://Meshes/Gizmos/Keypad/Keypad_2.tres" id="3_bdr5n"]
 [ext_resource type="Material" uid="uid://xo461csemvt1" path="res://Meshes/Gizmos/Keypad/Keypad.tres" id="3_m37im"]
+[ext_resource type="AudioStream" uid="uid://dollubfguonge" path="res://Sound/SFX/GizmoSFX/Common/Success.wav" id="3_wmqc0"]
 [ext_resource type="Script" uid="uid://c6igaenalehqd" path="res://Scripts/Gizmos/GizmoTrigger.cs" id="4_6n2g4"]
 [ext_resource type="ArrayMesh" uid="uid://clsypkfwwalao" path="res://Meshes/Gizmos/Keypad/Keypad_3.tres" id="4_bdr5n"]
 [ext_resource type="Shader" uid="uid://cyfg542rhfa0b" path="res://Materials/Shaders/ComputerMonitor.tres" id="4_m37im"]
+[ext_resource type="AudioStream" uid="uid://ba4d77c40esni" path="res://Sound/SFX/GizmoSFX/Common/Error.wav" id="4_qwo81"]
 [ext_resource type="ArrayMesh" uid="uid://babijqo7xug4h" path="res://Meshes/Gizmos/Keypad/Keypad_4.tres" id="5_82gvh"]
 [ext_resource type="PackedScene" uid="uid://nm4dnofeavej" path="res://Prefab Nodes/UI/keypad_ui.tscn" id="5_bkt58"]
 [ext_resource type="ArrayMesh" uid="uid://b4o3r4u23uk7j" path="res://Meshes/Gizmos/Keypad/Keypad_5.tres" id="6_kgink"]
@@ -69,7 +72,7 @@ render_priority = 0
 shader = ExtResource("4_m37im")
 shader_parameter/Tex = SubResource("ViewportTexture_6n2g4")
 shader_parameter/Segments = 64.0
-shader_parameter/EmissiveBoost = 1.2
+shader_parameter/EmissiveBoost = 0.4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fp6bv"]
 resource_name = "Screen"
@@ -114,11 +117,15 @@ shadow_mesh = SubResource("ArrayMesh_lvole")
 [sub_resource type="BoxShape3D" id="BoxShape3D_b3rw6"]
 size = Vector3(0.83358765, 0.97436523, 1.8374023)
 
-[node name="Keypad" type="Node3D" unique_id=1987995785 node_paths=PackedStringArray("camPivot", "ui")]
+[node name="Keypad" type="Node3D" unique_id=1987995785 node_paths=PackedStringArray("camPivot", "ui", "aud")]
 transform = Transform3D(62.154865, 0, 0, 0, -11.611861, 61.060547, 0, -61.060547, -11.611861, 0, 0, 0)
 script = ExtResource("1_6jf2k")
 camPivot = NodePath("Marker3D")
 ui = NodePath("SubViewport/KeypadUI")
+aud = NodePath("AudioStreamPlayer3D")
+buttonClick = ExtResource("2_16y2m")
+successFX = ExtResource("3_wmqc0")
+failFX = ExtResource("4_qwo81")
 
 [node name="KeypadButton" parent="." unique_id=852379212 instance=ExtResource("2_6n2g4")]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999994, -1.4901161e-08, 0, 1.4901161e-08, 0.9999994, -2.3342669e-05, -6.750226e-05, 1.9133091e-05)
@@ -265,7 +272,9 @@ transform = Transform3D(1, 0, 0, 0, -1.6391277e-07, -0.9999981, 0, 0.9999981, -1
 size = Vector2i(256, 128)
 
 [node name="KeypadUI" parent="SubViewport" unique_id=377412918 instance=ExtResource("5_bkt58")]
-anchors_preset = 15
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=891009328]
+bus = &"SFX"
 
 [editable path="KeypadButton2"]
 [editable path="KeypadButton3"]
