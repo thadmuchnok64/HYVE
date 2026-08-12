@@ -84,4 +84,9 @@ public static class StaticHelpers
     {
         return new Vector3(vec.X, vec.Y, val);
     }
+
+	public static float Clamp01(this float val)
+	{
+		return Mathf.Clamp(val, 0, 1);
+	}
 }

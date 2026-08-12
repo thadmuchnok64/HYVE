@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b4gi7e0nwj2j6"]
+
+[ext_resource type="Script" uid="uid://rya4syyxxp2y" path="res://Scripts/Gizmos/Projectile/TentacleProjectile.cs" id="1_uqo4t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6c4m4"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="TentacleProjectile" type="RigidBody3D" unique_id=893216066]
+collision_layer = 32
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_uqo4t")
+startingVelocity = 6.0
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=1803542186]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=883495292]
+transform = Transform3D(0.9999994, -1.5795231e-06, -1.937151e-06, 8.940697e-08, 0.9999963, 1.1920929e-06, 4.172325e-07, 4.172325e-07, 0.9999973, 0, 0, 0)
+shape = SubResource("BoxShape3D_6c4m4")
+debug_color = Color(0.98384887, 0, 0.35356826, 0.41960785)
+
+[connection signal="body_entered" from="." to="." method="HitEvent"]
