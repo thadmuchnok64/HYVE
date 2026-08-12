@@ -6,7 +6,7 @@ public partial class Clinger : Enemy
 
 	[Export] Godot.Collections.Array<AudioStream> footsteps;
 	[Export] Node3D neckPoint;
-	[Export] GpuParticles3D torsoMist;
+	[Export] ChainParticleTrigger torsoMist;
 
 	[Export] protected PackedScene bloodSplatNeck;
     [Export] protected ChainParticleTrigger bloodMistNeck;
@@ -46,11 +46,22 @@ public partial class Clinger : Enemy
 
 	}
 
+	int tendralItr = 0;
+
 	public void ShootTendral()
 	{
-		tentacles[0].LaunchTendral();
-		tentacles[1].LaunchTendral();
-		tentacles[2].LaunchTendral();
-		torsoMist.Emitting = true;
+        tentacles[0].LaunchTendral();
+        tentacles[1].LaunchTendral();
+        tentacles[2].LaunchTendral();
+
+
+		//tentacles[tendralItr].LaunchTendral();
+		//tendralItr++;
+		//if (tendralItr >= tentacles.Count)
+		//{
+		//	tendralItr = 0;
+		//}
+
+		torsoMist.Launch();
 	}
 }

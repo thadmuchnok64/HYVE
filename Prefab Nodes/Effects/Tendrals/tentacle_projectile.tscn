@@ -7,10 +7,12 @@ size = Vector3(0.1, 0.1, 0.1)
 
 [node name="TentacleProjectile" type="RigidBody3D" unique_id=893216066]
 collision_layer = 32
+gravity_scale = 2.0
+continuous_cd = true
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_uqo4t")
-startingVelocity = 6.0
+startingVelocity = 9.0
 
 [node name="Marker3D" type="Marker3D" parent="." unique_id=1803542186]
 

@@ -64,6 +64,7 @@ point_count = 2
 script = ExtResource("1_vdhyy")
 projectilePrefab = ExtResource("2_erlle")
 ik = NodePath("Armature/Skeleton3D/FABRIK3D")
+retractAngle = 1.5
 retractSound = ExtResource("3_6ne15")
 path = NodePath("Armature/Skeleton3D/Path3D")
 skeleton = NodePath("Armature/Skeleton3D")

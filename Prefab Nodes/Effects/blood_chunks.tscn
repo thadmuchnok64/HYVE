@@ -17,6 +17,7 @@ force = 3.0
 contact_monitor = true
 script = ExtResource("2_ljtwx")
 bloodSplatDecal = ExtResource("3_66stf")
+bloodDecalType = 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=1891651353]
 material_override = ExtResource("4_bwj1r")
@@ -31,6 +32,7 @@ shape = SubResource("BoxShape3D_teq5n")
 contact_monitor = true
 script = ExtResource("2_ljtwx")
 bloodSplatDecal = ExtResource("3_66stf")
+bloodDecalType = 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D2" unique_id=840863520]
 material_override = ExtResource("4_bwj1r")
@@ -45,6 +47,7 @@ shape = SubResource("BoxShape3D_teq5n")
 contact_monitor = true
 script = ExtResource("2_ljtwx")
 bloodSplatDecal = ExtResource("3_66stf")
+bloodDecalType = 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D3" unique_id=139530604]
 material_override = ExtResource("4_bwj1r")

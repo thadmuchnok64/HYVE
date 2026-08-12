@@ -11,6 +11,7 @@ public partial class TentacleProjectile : Projectile
 		tentacle.HitEvent(this);
 		base.HitEvent(hit);
 		Freeze = true;
+		GoreManager.Instance.RequestBloodSplatAtLocation(GlobalPosition, BloodDecalType.SMALL);
 	}
 
 	public void SetPos(Vector3 newPos)

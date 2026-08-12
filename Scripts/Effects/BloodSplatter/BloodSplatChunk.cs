@@ -4,6 +4,7 @@ using System;
 public partial class BloodSplatChunk : RigidBody3D
 {
 	[Export] PackedScene bloodSplatDecal;
+	[Export] BloodDecalType bloodDecalType;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -16,9 +17,11 @@ public partial class BloodSplatChunk : RigidBody3D
 
 	public void Contact(Node body)
 	{
-		var inst = bloodSplatDecal.Instantiate();
-		AddSibling(inst);
-		((Node3D)inst).GlobalPosition = GlobalPosition;
+		GoreManager.Instance.RequestBloodSplatAtLocation(GlobalPosition, bloodDecalType);
+		//var inst = bloodSplatDecal.Instantiate();
+		//AddSibling(inst);
+		//((Node3D)inst).GlobalPosition = GlobalPosition;
+
 
 	}
 }

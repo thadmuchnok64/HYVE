@@ -18,4 +18,10 @@ public partial class DecalEffect : Decal
 		timer += (float)delta;
 		Scale = Vector3.One * spawnCurve.Sample(Mathf.Clamp(timer / timeToGrow, 0,1));
 	}
+
+	public void Reset()
+	{
+		timer = 0;
+		Scale = Vector3.Zero;	
+	}
 }
