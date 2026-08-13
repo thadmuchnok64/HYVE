@@ -1,0 +1,528 @@
+[gd_scene format=3 uid="uid://f2g1nv7v8ctx"]
+
+[ext_resource type="Script" uid="uid://38c27iwfykpg" path="res://Scripts/Entities/Enemies/Clinger/Clinger.cs" id="1_2pitx"]
+[ext_resource type="PackedScene" uid="uid://b78xs5awfq6e7" path="res://Prefab Nodes/Effects/blood_chunks_Single_narrow.tscn" id="2_t6dil"]
+[ext_resource type="PackedScene" uid="uid://css31k4upmb0y" path="res://Prefab Nodes/Effects/scrawny_head.tscn" id="3_ll40f"]
+[ext_resource type="ArrayMesh" uid="uid://dydeuxkwikdc4" path="res://Meshes/Characters/Enemies/Scrawny/ScrawnyHeadless.tres" id="4_827qb"]
+[ext_resource type="PackedScene" uid="uid://crat431nw3eln" path="res://Prefab Nodes/Effects/blood_chunks.tscn" id="5_cmh5b"]
+[ext_resource type="PackedScene" uid="uid://c2bpajyvfiufj" path="res://Prefab Nodes/Effects/blood_chunks_small.tscn" id="6_fnkhi"]
+[ext_resource type="AudioStream" uid="uid://b8nfkyvsmj16f" path="res://Sound/SFX/GoreSFX/SpitTendral.wav" id="7_pih5r"]
+[ext_resource type="Script" uid="uid://dn60qksmgdtgc" path="res://Scripts/Entities/Enemies/IHE_Idle.cs" id="8_0hsjm"]
+[ext_resource type="Script" uid="uid://xh1sunvigxw0" path="res://Scripts/Entities/Enemies/IHE_Shamble.cs" id="9_eyckl"]
+[ext_resource type="Script" uid="uid://cx2mdb18nwimt" path="res://Scripts/Entities/Enemies/IHE_Recoil.cs" id="10_8ma5f"]
+[ext_resource type="Script" uid="uid://b7buriel0y11c" path="res://Scripts/Entities/Enemies/IHE_Death.cs" id="11_xmb81"]
+[ext_resource type="Script" uid="uid://bi6kqr4gj8u17" path="res://Scripts/Entities/Enemies/IHE_PostureBreak.cs" id="12_5omm1"]
+[ext_resource type="Script" uid="uid://b8snm5xkoqgnw" path="res://Scripts/Entities/Enemies/IHE_Attack.cs" id="13_hv1uv"]
+[ext_resource type="PackedScene" uid="uid://cjbnq1amonrln" path="res://Meshes/Characters/Enemies/Clinger/Clinger.fbx" id="14_xbtds"]
+[ext_resource type="Material" uid="uid://djtgr6oejev05" path="res://Meshes/Characters/Enemies/Clinger/ClingerMat.tres" id="15_6d763"]
+[ext_resource type="PackedScene" uid="uid://dlg3wnl4yq2hv" path="res://Prefab Nodes/Effects/Tendrals/clinger_tendral.tscn" id="16_0kmoj"]
+[ext_resource type="Script" uid="uid://cgr0vs3rit0ml" path="res://Scripts/Gizmos/ChainParticleTrigger.cs" id="17_u8drt"]
+[ext_resource type="ArrayMesh" uid="uid://bckq4b5k7clx3" path="res://Meshes/Effects/GoreFX/BloodParticle.tres" id="18_phbkm"]
+[ext_resource type="Animation" uid="uid://o86raxa67j8i" path="res://Meshes/Characters/Enemies/Clinger/Animations/recoil.anim" id="19_t6dil"]
+[ext_resource type="Animation" uid="uid://bd2ggkjycvrsx" path="res://Meshes/Characters/Enemies/Clinger/Animations/idle.anim" id="19_v8np4"]
+[ext_resource type="Animation" uid="uid://8t3568iur2xe" path="res://Meshes/Characters/Enemies/Clinger/Animations/Walk.anim" id="20_8fovw"]
+[ext_resource type="Animation" uid="uid://bpmq7rgmmxfkb" path="res://Meshes/Characters/Enemies/Clinger/Animations/shoot.anim" id="21_ry6ke"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vvlkb"]
+radius = 0.29003906
+height = 1.6338501
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vvlkb"]
+radius = 5.0
+
+[sub_resource type="Curve" id="Curve_dpc2c"]
+_data = [Vector2(0, 0.66857445), 0.0, -1.4010406, 0, 0, Vector2(1, 0), -0.12361084, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_l5j6f"]
+curve = SubResource("Curve_dpc2c")
+
+[sub_resource type="Curve" id="Curve_vqoxx"]
+_data = [Vector2(0, 0.8938119), 0.0, 0.28695223, 0, 0, Vector2(1, 0), -1.0039341, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3egbw"]
+curve = SubResource("Curve_vqoxx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_q21pn"]
+angle_min = 1.0728835e-05
+angle_max = 1.0728835e-05
+direction = Vector3(0, 1, 0)
+spread = 30.0
+initial_velocity_min = 2.0
+initial_velocity_max = 6.0
+gravity = Vector3(0, -1, 0)
+scale_min = 0.0
+scale_curve = SubResource("CurveTexture_3egbw")
+color = Color(0.71914643, 0, 0.17866915, 1)
+alpha_curve = SubResource("CurveTexture_l5j6f")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uuisk"]
+load_path = "res://.godot/imported/splatter.png-edb04f97dddf7dba87977edee91d2b01.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a34ci"]
+transparency = 1
+shading_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.8032607, 0.8494503, 0.902072, 1)
+albedo_texture = SubResource("CompressedTexture2D_uuisk")
+billboard_mode = 1
+billboard_keep_scale = true
+grow_amount = 0.763
+
+[sub_resource type="QuadMesh" id="QuadMesh_4d3fi"]
+material = SubResource("StandardMaterial3D_a34ci")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fbatu"]
+angle_min = 1.0728835e-05
+angle_max = 1.0728835e-05
+direction = Vector3(0, 1, 0)
+spread = 12.0
+initial_velocity_min = 3.0
+initial_velocity_max = 14.0
+gravity = Vector3(0, -1, 0)
+scale_min = 0.7
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_3egbw")
+color = Color(0.7248399, 0, 0.012109408, 1)
+alpha_curve = SubResource("CurveTexture_l5j6f")
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t8jwt"]
+_data = {
+&"recoil": ExtResource("19_t6dil"),
+&"root|Idle": ExtResource("19_v8np4"),
+&"root|Walk": ExtResource("20_8fovw"),
+&"root|shoot": ExtResource("21_ry6ke")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8w2t0"]
+animation = &"root|shoot"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_6c4m4"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_8w2t0")
+nodes/Animation/position = Vector2(106.666664, 146.66667)
+node_connections = [&"output", 0, &"Animation"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6c4m4"]
+animation = &"root|Idle"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_57hg7"]
+graph_offset = Vector2(-128.66667, 2.6666667)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_6c4m4")
+nodes/Animation/position = Vector2(66.666664, 146.66667)
+node_connections = [&"output", 0, &"Animation"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_57hg7"]
+animation = &"root|Walk"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_8w2t0"]
+graph_offset = Vector2(-148.66667, 55.333332)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_57hg7")
+nodes/Animation/position = Vector2(66.666664, 146.66667)
+node_connections = [&"output", 0, &"Animation"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t6dil"]
+animation = &"recoil"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ll40f"]
+animation = &"root|Idle"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_827qb"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ll40f"]
+graph_offset = Vector2(-492, -16)
+nodes/OneShot/node = SubResource("AnimationNodeOneShot_827qb")
+nodes/OneShot/position = Vector2(60, 140)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_ll40f")
+nodes/Animation/position = Vector2(-200, 80)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_t6dil")
+"nodes/Animation 2/position" = Vector2(-240, 340)
+node_connections = [&"output", 0, &"OneShot", &"OneShot", 0, &"Animation", &"OneShot", 1, &"Animation 2"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vckp3"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5ka3j"]
+xfade_time = 0.2
+advance_mode = 2
+advance_condition = &"moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_upvee"]
+xfade_time = 0.2
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6c4m4"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"attack"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_57hg7"]
+xfade_time = 0.1
+advance_mode = 2
+advance_condition = &"attack"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8w2t0"]
+xfade_time = 0.2
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cv6o7"]
+xfade_time = 0.2
+advance_mode = 2
+advance_condition = &"moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_827qb"]
+advance_mode = 2
+advance_condition = &"recoil"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cmh5b"]
+advance_mode = 2
+advance_condition = &"recoil"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fnkhi"]
+advance_mode = 2
+advance_condition = &"recoil"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_cv6o7"]
+states/attack/node = SubResource("AnimationNodeBlendTree_6c4m4")
+states/attack/position = Vector2(541.6667, 199)
+states/idle/node = SubResource("AnimationNodeBlendTree_57hg7")
+states/idle/position = Vector2(371, 100)
+states/moving/node = SubResource("AnimationNodeBlendTree_8w2t0")
+states/moving/position = Vector2(541.6667, -3.0000048)
+states/recoil/node = SubResource("AnimationNodeBlendTree_ll40f")
+states/recoil/position = Vector2(691, 93)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_vckp3"), "idle", "moving", SubResource("AnimationNodeStateMachineTransition_5ka3j"), "moving", "idle", SubResource("AnimationNodeStateMachineTransition_upvee"), "moving", "attack", SubResource("AnimationNodeStateMachineTransition_6c4m4"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_57hg7"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_8w2t0"), "attack", "moving", SubResource("AnimationNodeStateMachineTransition_cv6o7"), "idle", "recoil", SubResource("AnimationNodeStateMachineTransition_827qb"), "moving", "recoil", SubResource("AnimationNodeStateMachineTransition_cmh5b"), "attack", "recoil", SubResource("AnimationNodeStateMachineTransition_fnkhi")]
+graph_offset = Vector2(98, -146)
+
+[node name="Clinger" type="CharacterBody3D" unique_id=1015134247]
+collision_layer = 4
+collision_mask = 5
+
+[node name="Enemy" type="Node3D" parent="." unique_id=1134417815 node_paths=PackedStringArray("torsoMist", "tentacles", "nav", "cb", "meshRoot", "anim", "startingState", "detectionSphere", "bloodPoint", "trackingPoint")]
+script = ExtResource("1_2pitx")
+torsoMist = NodePath("../Clinger/root/Skeleton3D/BoneAttachment3D/TorsoBlood")
+bloodSplatNeck = ExtResource("2_t6dil")
+headNode = ExtResource("3_ll40f")
+tentacles = [NodePath("../Clinger/root/Skeleton3D/BoneAttachment3D/TendralPoint/ClingerTendral"), NodePath("../Clinger/root/Skeleton3D/BoneAttachment3D/TendralPoint/ClingerTendral2"), NodePath("../Clinger/root/Skeleton3D/BoneAttachment3D/TendralPoint/ClingerTendral3")]
+nav = NodePath("../NavigationAgent3D")
+cb = NodePath("..")
+meshRoot = NodePath("../Clinger")
+anim = NodePath("../Clinger/AnimationTree")
+startingState = NodePath("../States/IdleState")
+detectionSphere = NodePath("../Area3D")
+headlessMesh = ExtResource("4_827qb")
+bloodSplat = ExtResource("5_cmh5b")
+bloodSplatSmall = ExtResource("6_fnkhi")
+sfx = Array[AudioStream]([ExtResource("7_pih5r")])
+bloodPoint = NodePath("../Clinger/root/Skeleton3D/TrackingAttachment")
+trackingPoint = NodePath("../Clinger/root/Skeleton3D/TrackingAttachment/TrackingPoint")
+maxHealth = 120
+maxPosture = 80
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1770053447]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7771301, 0)
+shape = SubResource("CapsuleShape3D_vvlkb")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=174044867]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1382380715]
+shape = SubResource("SphereShape3D_vvlkb")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=779768046]
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(0.981883, 0.6417844, 0.7220246, 1)
+
+[node name="States" type="Node3D" parent="." unique_id=1407080310]
+
+[node name="IdleState" type="Node3D" parent="States" unique_id=1691576985 node_paths=PackedStringArray("seekingState", "recoilState", "postureBreakState", "attacks", "deadState")]
+script = ExtResource("8_0hsjm")
+seekingState = NodePath("../ShambleState")
+recoilState = NodePath("../RecoilState")
+postureBreakState = NodePath("../ProneState")
+attacks = [NodePath("../AttackRightState")]
+deadState = NodePath("../StandingDeathState")
+distanceToFollow = 2.0
+animMetaState = "idle"
+
+[node name="ShambleState" type="Node3D" parent="States" unique_id=1457323459 node_paths=PackedStringArray("idleState", "recoilState", "postureBreakState", "attacks", "deadState")]
+script = ExtResource("9_eyckl")
+speed = 3.0
+speedMod = 0.0
+idleState = NodePath("../IdleState")
+recoilState = NodePath("../RecoilState")
+postureBreakState = NodePath("../ProneState")
+attacks = [NodePath("../AttackRightState")]
+deadState = NodePath("../StandingDeathState")
+optimalDistance = 1.5
+animMetaState = "moving"
+animMeta = "parameters/WalkState/blend_amount"
+
+[node name="RecoilState" type="Node3D" parent="States" unique_id=166476297 node_paths=PackedStringArray("movingState", "deadState")]
+script = ExtResource("10_8ma5f")
+recoilTime = 0.9
+movingState = NodePath("../ShambleState")
+deadState = NodePath("../StandingDeathState")
+animMetaState = "recoil"
+animMeta = "OneShot"
+
+[node name="DeadState" type="Node3D" parent="States" unique_id=1280925517]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0429201, 0.3158307, -0.78162146)
+script = ExtResource("11_xmb81")
+animMetaState = "dead"
+animMeta = "prone"
+
+[node name="StandingDeathState" type="Node3D" parent="States" unique_id=153922964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0429201, 0.3158307, -0.78162146)
+script = ExtResource("11_xmb81")
+animMetaState = "dead"
+animMeta = "standing"
+
+[node name="ProneState" type="Node3D" parent="States" unique_id=1243556784 node_paths=PackedStringArray("movingState", "deadState")]
+script = ExtResource("12_5omm1")
+recoilTime = 4.0
+timeToStartRise = 2.3
+movingState = NodePath("../ShambleState")
+deadState = NodePath("../DeadState")
+animMetaState = "prone"
+
+[node name="AttackRightState" type="Node3D" parent="States" unique_id=450339064 node_paths=PackedStringArray("idleState", "recoilState", "postureBreakState", "deadState")]
+script = ExtResource("13_hv1uv")
+attackDistance = 8.0
+idleState = NodePath("../IdleState")
+recoilState = NodePath("../RecoilState")
+postureBreakState = NodePath("../ProneState")
+deadState = NodePath("../DeadState")
+cooldownBetweenAttack = 8.0
+attackOutTime = 0.9
+animMetaState = "attack"
+animMeta = "right"
+
+[node name="AttackLeftState" type="Node3D" parent="States" unique_id=1836694173 node_paths=PackedStringArray("idleState", "recoilState", "postureBreakState", "deadState", "followUpAttack")]
+script = ExtResource("13_hv1uv")
+attackDistance = 2.0
+idleState = NodePath("../IdleState")
+recoilState = NodePath("../RecoilState")
+postureBreakState = NodePath("../ProneState")
+deadState = NodePath("../DeadState")
+followUpAttack = NodePath("../AttackRightState")
+cooldownBetweenAttack = 6.5
+attackOutTime = 0.9
+animMetaState = "attack"
+animMeta = "left"
+
+[node name="Target" type="Node3D" parent="." unique_id=336990998]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1920929e-07, 0.79445076, 0.9062125)
+
+[node name="Pole" type="Node3D" parent="Target" unique_id=1270894696]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46303707, 0.18756586, 0)
+
+[node name="Clinger" parent="." unique_id=474236504 instance=ExtResource("14_xbtds")]
+
+[node name="root" parent="Clinger" index="0" unique_id=1104217136]
+transform = Transform3D(-100, 8.742278e-06, 0, 0, 0, 100, 8.742278e-06, 100, 0, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Clinger/root" index="0" unique_id=1926708762]
+bones/1/position = Vector3(9.942464e-05, 0.007125355, -0.00083592796)
+bones/1/rotation = Quaternion(0.38522938, 0.0064291465, -0.041012034, 0.9218866)
+bones/1/scale = Vector3(1, 1, 1)
+bones/2/position = Vector3(-8.999086e-10, 0.0012844359, -0.00011267074)
+bones/2/rotation = Quaternion(-0.02610427, 0.0018218271, 0.003281332, 0.9996522)
+bones/2/scale = Vector3(1, 0.99999994, 0.9999999)
+bones/3/position = Vector3(-1.797604e-17, 0.0012869796, 2.8128725e-11)
+bones/3/rotation = Quaternion(0.03820076, -0.00049268594, 0.00031086174, 0.99926996)
+bones/3/scale = Vector3(1, 0.99999994, 1)
+bones/4/position = Vector3(-8.7298786e-30, 0.0012871464, 1.10462965e-10)
+bones/4/rotation = Quaternion(0.025679102, -0.0011217566, 0.000906927, 0.99966925)
+bones/4/scale = Vector3(1, 1, 1)
+bones/5/position = Vector3(2.6554638e-31, 0.001282461, 2.1582146e-12)
+bones/5/rotation = Quaternion(0.093837485, -1.8999851e-29, -9.972225e-29, 0.9955875)
+bones/5/scale = Vector3(1, 1.0000001, 0.99999994)
+bones/6/position = Vector3(0, 0.0003418295, -2.3508262e-10)
+bones/6/rotation = Quaternion(-0.37612182, 0.0628263, -0.0396537, 0.923587)
+bones/6/scale = Vector3(1, 1.0000001, 0.9999999)
+bones/7/position = Vector3(-0.0005178784, 0.00097441697, 0.0012444039)
+bones/7/rotation = Quaternion(0.6817506, -0.14829539, 0.12079275, 0.7061401)
+bones/7/scale = Vector3(1, 0.99999994, 1)
+bones/8/position = Vector3(-1.08092146e-10, 0.0011917455, -1.612397e-09)
+bones/8/rotation = Quaternion(-0.21205719, 0.0082299, 0.16034415, 0.9639781)
+bones/8/scale = Vector3(0.9999999, 0.99999994, 0.9999999)
+bones/9/position = Vector3(-0.00046062266, 0.00020376744, -0.0003161498)
+bones/9/rotation = Quaternion(0.5184435, -0.5184435, -0.48084953, -0.4808496)
+bones/9/scale = Vector3(0.9999999, 1, 0.9999999)
+bones/10/position = Vector3(1.8431437e-18, 0.0013818679, 1.7347235e-17)
+bones/10/rotation = Quaternion(-0.57198226, 0.03797488, 0.12121838, 0.81037056)
+bones/10/scale = Vector3(0.99999994, 1, 1)
+bones/11/position = Vector3(7.776766e-11, 1.784465e-09, 2.3776753e-10)
+bones/11/rotation = Quaternion(3.3436115e-07, 0.052390512, 2.7294632e-07, 0.99862665)
+bones/11/scale = Vector3(1, 0.99999994, 1)
+bones/12/position = Vector3(8.336371e-11, 0.0021043634, 6.8159894e-10)
+bones/12/rotation = Quaternion(-1.9654551e-07, -7.95585e-07, 0.579222, 0.8151699)
+bones/12/scale = Vector3(0.9999999, 0.99999994, 1)
+bones/13/position = Vector3(1.5841045e-11, 0.0010720112, -1.5751906e-09)
+bones/13/rotation = Quaternion(-3.3965634e-08, -0.05021438, -5.7798726e-08, 0.99873847)
+bones/13/scale = Vector3(1.0000001, 1, 1)
+bones/14/position = Vector3(3.4967563e-12, 0.002144024, -1.5551974e-09)
+bones/14/rotation = Quaternion(0.15075363, -0.08733016, -0.32415298, 0.9298235)
+bones/14/scale = Vector3(1.0000001, 1.0000001, 0.9999999)
+bones/15/position = Vector3(-4.382016e-05, 0.00043804478, -1.375124e-05)
+bones/15/rotation = Quaternion(-0.011590191, 0.009687632, 0.110278204, 0.993786)
+bones/15/scale = Vector3(0.9999998, 1, 0.99999994)
+bones/16/position = Vector3(3.700109e-10, 0.0002816092, 1.8715413e-10)
+bones/16/rotation = Quaternion(0.07662192, -0.3362994, 0.12037263, 0.9308825)
+bones/16/scale = Vector3(0.99999994, 1.0000001, 1.0000001)
+bones/17/position = Vector3(2.6078587e-10, 0.00032336588, 9.659381e-10)
+bones/17/rotation = Quaternion(-0.06039901, 0.20580505, 0.15508679, 0.9643362)
+bones/17/scale = Vector3(0.99999994, 1, 0.99999994)
+bones/18/position = Vector3(3.4985098e-10, 0.00022576828, -1.1467616e-09)
+bones/18/rotation = Quaternion(-0.06220335, 0.083737664, -0.10168089, 0.98933303)
+bones/18/scale = Vector3(1, 1, 0.99999976)
+bones/19/position = Vector3(0.00046062266, 0.00020376744, -0.0003161498)
+bones/19/rotation = Quaternion(0.5184435, 0.5184435, 0.4808496, -0.48084953)
+bones/19/scale = Vector3(0.9999999, 1, 0.9999999)
+bones/20/position = Vector3(1.6263033e-18, 0.0013818679, -1.3877788e-17)
+bones/20/rotation = Quaternion(-0.5773261, -0.04986869, -0.16147055, 0.79883355)
+bones/20/scale = Vector3(1, 0.99999994, 1)
+bones/21/position = Vector3(1.6836614e-11, 1.7046976e-09, 6.408018e-11)
+bones/21/rotation = Quaternion(2.1210385e-08, -0.06918679, 1.353612e-07, 0.9976038)
+bones/21/scale = Vector3(0.99999994, 1, 1)
+bones/22/position = Vector3(-8.356487e-11, 0.0021043632, 3.3425937e-10)
+bones/22/rotation = Quaternion(-7.8796176e-05, 0.0001281828, -0.52368444, 0.8519124)
+bones/22/scale = Vector3(0.9999998, 0.99999994, 0.9999999)
+bones/23/position = Vector3(-3.2607042e-10, 0.001072013, -1.1637409e-09)
+bones/23/rotation = Quaternion(-3.7960085e-08, 0.09069627, 9.078343e-08, 0.99587864)
+bones/23/scale = Vector3(1, 1, 1)
+bones/24/position = Vector3(-1.1756825e-10, 0.0021440245, -5.131037e-10)
+bones/24/rotation = Quaternion(0.19866213, 0.13149464, 0.2975023, 0.9245188)
+bones/24/scale = Vector3(0.99999994, 0.99999994, 0.9999999)
+bones/25/position = Vector3(4.38203e-05, 0.00043804545, -1.3751589e-05)
+bones/25/rotation = Quaternion(-0.01159021, -0.009687642, -0.11027816, 0.993786)
+bones/25/scale = Vector3(0.99999994, 1.0000001, 1)
+bones/26/position = Vector3(2.4057134e-10, 0.00028160826, 7.877735e-11)
+bones/26/rotation = Quaternion(0.076621935, 0.3362994, -0.12037263, 0.9308825)
+bones/26/scale = Vector3(1, 0.99999976, 0.99999994)
+bones/27/position = Vector3(4.2685858e-10, 0.0003233661, 1.3272061e-10)
+bones/27/rotation = Quaternion(-0.06039897, -0.20580505, -0.15508671, 0.9643363)
+bones/27/scale = Vector3(0.99999976, 1, 1.0000001)
+bones/28/position = Vector3(-9.597884e-10, 0.00022576873, -8.3723826e-11)
+bones/28/rotation = Quaternion(-0.062203374, -0.08373762, 0.10168083, 0.98933303)
+bones/28/scale = Vector3(1.0000001, 1.0000001, 1)
+bones/29/position = Vector3(0.00092259253, 6.938894e-18, -2.608833e-09)
+bones/29/rotation = Quaternion(0.49641705, 0.57519346, 0.49575055, 0.420659)
+bones/29/scale = Vector3(0.9999975, 0.99999994, 0.99999887)
+bones/30/position = Vector3(1.5552478e-11, -7.597737e-10, 7.6536825e-11)
+bones/30/rotation = Quaternion(-6.773332e-10, 0.04396134, 3.5345124e-08, 0.9990333)
+bones/30/scale = Vector3(1, 1, 1)
+bones/31/position = Vector3(3.346867e-11, 0.003754092, -1.6892947e-10)
+bones/31/rotation = Quaternion(-5.668005e-08, 5.191017e-08, 0.65541685, 0.7552675)
+bones/31/scale = Vector3(1, 1, 1)
+bones/32/position = Vector3(-2.6876439e-11, 0.0038072446, 1.6717176e-10)
+bones/32/rotation = Quaternion(0.46901062, 0.4637576, -0.5708883, 0.48892194)
+bones/32/scale = Vector3(1.0000002, 1.0000001, 1.0000001)
+bones/33/position = Vector3(-3.232631e-10, 0.0022860651, 4.4443035e-10)
+bones/33/rotation = Quaternion(-1.0690555e-05, 0.97925055, 0.2026534, 1.1871059e-06)
+bones/33/scale = Vector3(0.9999999, 1.0000001, 1)
+bones/34/position = Vector3(-3.697468e-11, 0.0019036225, 2.022632e-10)
+bones/34/rotation = Quaternion(1.1086554e-08, 0.028432244, -1.6521636e-07, 0.99959576)
+bones/34/scale = Vector3(1.0000001, 0.99999994, 1)
+bones/35/position = Vector3(-0.00092259253, -1.0408341e-17, 2.608833e-09)
+bones/35/rotation = Quaternion(0.5599593, -0.5288436, -0.46384773, 0.43773893)
+bones/35/scale = Vector3(0.9999972, 0.9999999, 0.9999987)
+bones/36/position = Vector3(-1.1133578e-10, -7.7247425e-10, -1.1356578e-10)
+bones/36/rotation = Quaternion(6.3195826e-09, -0.13215607, -4.9558906e-08, 0.99122894)
+bones/36/scale = Vector3(1, 0.99999994, 1)
+bones/37/position = Vector3(-5.451354e-11, 0.003754091, 5.0073248e-11)
+bones/37/rotation = Quaternion(8.787321e-09, 6.446888e-08, -0.6254669, 0.7802507)
+bones/37/scale = Vector3(0.9999999, 1, 1)
+bones/38/position = Vector3(2.0046863e-11, 0.0038072448, -2.8698421e-10)
+bones/38/rotation = Quaternion(0.43819547, -0.48182386, 0.5843512, 0.48411196)
+bones/38/scale = Vector3(0.9999998, 0.99999994, 1)
+bones/39/position = Vector3(-6.4180876e-11, 0.002286066, -3.88189e-10)
+bones/39/rotation = Quaternion(1.9112238e-05, 0.979255, 0.20263171, 5.553138e-07)
+bones/39/scale = Vector3(1.0000001, 0.9999997, 1.0000001)
+bones/40/position = Vector3(-3.1218614e-11, 0.0019036226, 7.460271e-11)
+bones/40/rotation = Quaternion(-8.312099e-09, -0.060801946, 2.0067354e-07, 0.99814993)
+bones/40/scale = Vector3(1, 0.9999998, 0.9999998)
+
+[node name="Clinger" parent="Clinger/root/Skeleton3D" index="0" unique_id=370179335]
+material_override = ExtResource("15_6d763")
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Clinger/root/Skeleton3D" index="1" unique_id=936356501]
+transform = Transform3D(0.99712145, 0.07485652, -0.012051954, 0.041543674, -0.6723676, -0.73905057, -0.0634261, 0.73642254, -0.67354184, 0.0002051357, 3.5210978e-06, 0.008104331)
+bone_name = "spine_01.x"
+bone_idx = 2
+
+[node name="TendralPoint" type="Node3D" parent="Clinger/root/Skeleton3D/BoneAttachment3D" unique_id=1216192908]
+transform = Transform3D(0.009998992, 0.00013699908, -3.7254697e-05, -0.00013662505, 0.009998578, 9.8863326e-05, 3.860382e-05, -9.8344375e-05, 0.009999442, -1.7938031e-05, 0.0003699651, 0.0009424069)
+
+[node name="ClingerTendral" parent="Clinger/root/Skeleton3D/BoneAttachment3D/TendralPoint" unique_id=2032610734 node_paths=PackedStringArray("enem") instance=ExtResource("16_0kmoj")]
+transform = Transform3D(0.99796605, -0.061507173, -0.01675315, 0.06029431, 0.82539606, 0.56132627, -0.020697579, -0.5611946, 0.82742566, 0.0012416531, 0.02956952, -0.031175958)
+visible = false
+enem = NodePath("../../../../../../Enemy")
+
+[node name="ClingerTendral2" parent="Clinger/root/Skeleton3D/BoneAttachment3D/TendralPoint" unique_id=855925154 node_paths=PackedStringArray("enem") instance=ExtResource("16_0kmoj")]
+transform = Transform3D(0.9984818, 0.028850535, -0.046919852, -0.0041109263, 0.8885045, 0.45884943, 0.05492656, -0.45795998, 0.88727444, -0.022649832, -0.07976326, 0.014554028)
+visible = false
+enem = NodePath("../../../../../../Enemy")
+
+[node name="ClingerTendral3" parent="Clinger/root/Skeleton3D/BoneAttachment3D/TendralPoint" unique_id=2089289053 node_paths=PackedStringArray("enem") instance=ExtResource("16_0kmoj")]
+transform = Transform3D(0.9756214, -0.17410274, 0.13360801, 0.08729118, 0.86642575, 0.49161658, -0.20135324, -0.46796885, 0.86050093, 0.013867071, -0.062329978, -0.00030118693)
+visible = false
+enem = NodePath("../../../../../../Enemy")
+
+[node name="TorsoBlood" type="Node3D" parent="Clinger/root/Skeleton3D/BoneAttachment3D" unique_id=1583600996]
+script = ExtResource("17_u8drt")
+
+[node name="BloodMistPulse" type="GPUParticles3D" parent="Clinger/root/Skeleton3D/BoneAttachment3D/TorsoBlood" unique_id=93688117]
+transform = Transform3D(0.010000001, 0, -2.1827873e-11, 2.910383e-11, 0.0054500494, -0.008384328, 1.4551915e-11, 0.008384328, 0.0054500494, 0, 0, 0)
+layers = 2
+emitting = false
+amount = 18
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_q21pn")
+draw_pass_1 = SubResource("QuadMesh_4d3fi")
+
+[node name="BloodMistPulse2" type="GPUParticles3D" parent="Clinger/root/Skeleton3D/BoneAttachment3D/TorsoBlood" unique_id=697555227]
+transform = Transform3D(0.010000001, 0, -2.1827873e-11, 2.910383e-11, 0.0054500494, -0.008384328, 1.4551915e-11, 0.008384328, 0.0054500494, 0, 0, 0)
+layers = 2
+emitting = false
+amount = 6
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_fbatu")
+draw_pass_1 = ExtResource("18_phbkm")
+
+[node name="BoneAttachment3D2" type="BoneAttachment3D" parent="Clinger/root/Skeleton3D" index="2" unique_id=1729495727]
+
+[node name="TrackingAttachment" type="BoneAttachment3D" parent="Clinger/root/Skeleton3D" index="3" unique_id=244468498]
+transform = Transform3D(0.98168975, 0.09790974, 0.16339745, 0.1844155, -0.2736739, -0.9439773, -0.04770699, 0.9568261, -0.2867188, 0.00050744746, -0.0030705032, 0.010925803)
+bone_name = "head.x"
+bone_idx = 6
+
+[node name="TrackingPoint" type="Node3D" parent="Clinger/root/Skeleton3D/TrackingAttachment" unique_id=2059621352]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2737368e-11, 0.0019011667, -7.275958e-12)
+
+[node name="AnimationPlayer" parent="Clinger" index="1" unique_id=1078585939]
+libraries/ = SubResource("AnimationLibrary_t8jwt")
+
+[node name="AnimationTree" type="AnimationTree" parent="Clinger" unique_id=1691495772]
+tree_root = SubResource("AnimationNodeStateMachine_cv6o7")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/attack = false
+parameters/conditions/idle = false
+parameters/conditions/moving = false
+parameters/conditions/recoil = false
+parameters/recoil/OneShot/active = false
+parameters/recoil/OneShot/internal_active = false
+parameters/recoil/OneShot/request = 0
+
+[editable path="Clinger"]

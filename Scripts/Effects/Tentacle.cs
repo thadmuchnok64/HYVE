@@ -12,6 +12,9 @@ public partial class Tentacle : Tendral
 	[Export] float timeToRetract = .3f;
 	[Export] bool debug = false;
 	[Export] AudioStream retractSound;
+	[Export] Node3D tendralStretchPoint;
+	[Export] Godot.Collections.Array<TentacleContact> contacts;
+	[Export] Enemy enem;
 	float timer;
 	bool shot = false;
 
@@ -20,6 +23,11 @@ public partial class Tentacle : Tendral
 	public override void _Ready()
 	{
 		base._Ready();
+		foreach (var contact in contacts)
+		{
+			contact.enemyRef = enem;
+			contact.tentacle = this;
+		}
 		//projectile.Launch(Vector3.Up);
 	}
 	public void HitEvent(Projectile proj)
@@ -54,16 +62,44 @@ public partial class Tentacle : Tendral
 				}
 			}
 		}
-			base._Process(delta);
+		base._Process(delta);
 		if(projectile != null && !projectile.Freeze)
 		{
 			marker.GlobalPosition = projectile.GlobalPosition;
-		}
-		else
+        }
+        else
 		{
 			marker.GlobalPosition = pinPoint;
 		}
 	}
+
+	public override void FixScale()
+	{
+
+		if (!retracting)
+		{
+			var pos = tendralStretchPoint.GlobalPosition;
+			var dis = pos.DistanceTo(marker.GlobalPosition);
+			var scale = dis / baseLength;
+			scale = (float)Mathf.Clamp(scale, 1f, 5f);
+			//GD.Print(scale);
+
+            skeleton.SetBonePoseScale(0, Vector3.One);
+            skeleton.SetBonePoseScale(1, Vector3.One);
+
+            skeleton.SetBonePoseScale(2, Vector3.One.ReplaceY(scale));
+		}
+		else
+		{
+			var pos = tendralStretchPoint.GlobalPosition;
+			var dis = pos.DistanceTo(marker.GlobalPosition);
+			var scale = dis / baseLength;
+			scale = (float)Mathf.Clamp(scale, .05f, 5f);
+			//GD.Print(scale);
+            skeleton.SetBonePoseScale(0, Vector3.One * (1f-(timer / timeToRetract)).Clamp01());
+            skeleton.SetBonePoseScale(2, Vector3.One.ReplaceY(scale));
+		}
+    }
 
 	public void LaunchTendral()
 	{
@@ -76,7 +112,11 @@ public partial class Tentacle : Tendral
 		projectile.tentacle = this;
 		projectile.GlobalPosition = GlobalPosition;
 		projectile.Launch(GlobalBasis.Z);
-		shot = true;
+        foreach (var contact in contacts)
+        {
+			contact.SetWeaponActive(true);
+        }
+        shot = true;
 	}
 
 	public void Retract()
@@ -85,6 +125,11 @@ public partial class Tentacle : Tendral
 		timer = 0;
 		shot = false;
 		SoundManager.Instance.RequesetSFXSoundAtLocation(retractSound, pinPoint);
+	}
+
+	public bool CanAttack()
+	{
+		return (!retracting && shot);
 	}
 
 	

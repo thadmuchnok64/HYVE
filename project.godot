@@ -30,6 +30,10 @@ window/stretch/aspect="expand"
 
 project/assembly_name="HYVEGame"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_visualstudio_debugger/plugin.cfg")
+
 [file_customization]
 
 folder_colors={

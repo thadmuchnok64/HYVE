@@ -4,6 +4,8 @@
 [ext_resource type="Material" uid="uid://djtgr6oejev05" path="res://Meshes/Characters/Enemies/Clinger/ClingerMat.tres" id="2_6ne15"]
 [ext_resource type="PackedScene" uid="uid://b4gi7e0nwj2j6" path="res://Prefab Nodes/Effects/Tendrals/tentacle_projectile.tscn" id="2_erlle"]
 [ext_resource type="AudioStream" uid="uid://c0pnycki85sh7" path="res://Sound/SFX/GoreSFX/TentacleRetract.wav" id="3_6ne15"]
+[ext_resource type="Script" uid="uid://cqef16in8nf83" path="res://Scripts/Entities/Enemies/TentacleContact.cs" id="5_t4d4t"]
+[ext_resource type="AudioStream" uid="uid://177moklbgaag" path="res://Sound/SFX/GoreSFX/Impacts/TendralWhip.wav" id="6_j70ge"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_epw0q"]
 resource_name = "Clinger"
@@ -60,12 +62,29 @@ _data = {
 }
 point_count = 2
 
-[node name="ClingerTendral" type="Node3D" unique_id=2032610734 node_paths=PackedStringArray("ik", "path", "skeleton", "marker")]
+[sub_resource type="JointLimitationCone3D" id="JointLimitationCone3D_6ne15"]
+angle = 0.5235988
+
+[sub_resource type="JointLimitationCone3D" id="JointLimitationCone3D_erlle"]
+angle = 0.5235988
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6ne15"]
+radius = 0.01
+height = 0.09375
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_erlle"]
+radius = 0.01
+height = 0.06689453
+
+[node name="ClingerTendral" type="Node3D" unique_id=2032610734 node_paths=PackedStringArray("ik", "tendralStretchPoint", "contacts", "path", "skeleton", "marker")]
 script = ExtResource("1_vdhyy")
 projectilePrefab = ExtResource("2_erlle")
 ik = NodePath("Armature/Skeleton3D/FABRIK3D")
 retractAngle = 1.5
 retractSound = ExtResource("3_6ne15")
+tendralStretchPoint = NodePath("Armature/Skeleton3D/BoneAttachment3D")
+contacts = [NodePath("Armature/Skeleton3D/BoneAttachment3D/Area3D"), NodePath("Armature/Skeleton3D/BoneAttachment3D4/Area3D"), NodePath("Armature/Skeleton3D/BoneAttachment3D2/Area3D"), NodePath("Armature/Skeleton3D/BoneAttachment3D3/Area3D")]
+baseLength = 0.987
 path = NodePath("Armature/Skeleton3D/Path3D")
 skeleton = NodePath("Armature/Skeleton3D")
 marker = NodePath("Marker3D")
@@ -144,9 +163,13 @@ settings/0/end_bone = 5
 settings/0/extend_end_bone = false
 settings/0/joint_count = 6
 settings/0/joints/0/rotation_axis = 3
-settings/0/joints/0/limitation = null
+settings/0/joints/0/limitation = SubResource("JointLimitationCone3D_6ne15")
+settings/0/joints/0/limitation/right_axis = 0
+settings/0/joints/0/limitation/rotation_offset = Quaternion(0, 0, 0, 1)
 settings/0/joints/1/rotation_axis = 3
-settings/0/joints/1/limitation = null
+settings/0/joints/1/limitation = SubResource("JointLimitationCone3D_erlle")
+settings/0/joints/1/limitation/right_axis = 0
+settings/0/joints/1/limitation/rotation_offset = Quaternion(0, 0, 0, 1)
 settings/0/joints/2/rotation_axis = 3
 settings/0/joints/2/limitation = null
 settings/0/joints/3/rotation_axis = 3
@@ -156,5 +179,86 @@ settings/0/joints/4/limitation = null
 settings/0/joints/5/rotation_axis = 3
 settings/0/joints/5/limitation = null
 
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D" unique_id=1865615199]
+transform = Transform3D(0.9999436, 0.010514255, 0.0014830497, 0.010567683, -0.9990451, -0.04239409, 0.0010358912, 0.04240741, -0.99909997, 6.8598296e-05, -0.006547504, -0.00043332903)
+bone_name = "TendralBone.002"
+bone_idx = 2
+
+[node name="Area3D" type="Area3D" parent="Armature/Skeleton3D/BoneAttachment3D" unique_id=298313115 node_paths=PackedStringArray("tentacle")]
+transform = Transform3D(1, 3.7252903e-09, 3.783498e-10, 0, 1, -7.450581e-09, 2.910383e-10, 0, 0.9999998, 0, 0, 0)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("5_t4d4t")
+tentacle = NodePath("../../../..")
+baseDamage = 10.0
+attackHitSFX = ExtResource("6_j70ge")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BoneAttachment3D/Area3D" unique_id=1056497042]
+transform = Transform3D(0.040000003, 1.3271347e-08, -5.802576e-10, -9.749783e-09, 0.04, 4.156027e-08, 2.05182e-09, -4.4121407e-08, 0.03999966, 3.8475991e-07, 0.0018090867, -5.529728e-09)
+shape = SubResource("CapsuleShape3D_6ne15")
+debug_color = Color(0.99607843, 0, 0.16862746, 1)
+
+[node name="BoneAttachment3D4" type="BoneAttachment3D" parent="Armature/Skeleton3D" unique_id=136266769]
+transform = Transform3D(0.9999436, 0.01051423, 0.0014832363, 0.010567683, -0.9990444, -0.042411804, 0.0010358912, 0.042425126, -0.9990993, 3.13944e-05, -0.0030124607, -0.0005834467)
+bone_name = "TendralBone.001"
+bone_idx = 1
+
+[node name="Area3D" type="Area3D" parent="Armature/Skeleton3D/BoneAttachment3D4" unique_id=1724075641 node_paths=PackedStringArray("tentacle")]
+transform = Transform3D(1, -1.8626451e-09, -6.1118044e-10, 0, 1.0000004, 1.1175871e-08, 8.731149e-11, -1.4901161e-08, 1.0000004, 0, 0, 0)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("5_t4d4t")
+tentacle = NodePath("../../../..")
+baseDamage = 10.0
+attackHitSFX = ExtResource("6_j70ge")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BoneAttachment3D4/Area3D" unique_id=2064367302]
+transform = Transform3D(0.040000003, 1.3271347e-08, -5.802576e-10, -9.749783e-09, 0.04, 4.156027e-08, 2.05182e-09, -4.4121407e-08, 0.03999966, 3.8475991e-07, 0.0018090867, -5.529728e-09)
+shape = SubResource("CapsuleShape3D_6ne15")
+debug_color = Color(0.99607843, 0, 0.16862746, 1)
+
+[node name="BoneAttachment3D2" type="BoneAttachment3D" parent="Armature/Skeleton3D" unique_id=1918746895]
+transform = Transform3D(0.9999436, 0.0105142845, 0.0014828384, 0.010567683, -0.9990459, -0.04237401, 0.0010358912, 0.04238733, -0.9991008, 0.00010633743, -0.010133399, -0.0002811149)
+bone_name = "TendralBone.003"
+bone_idx = 3
+
+[node name="Area3D" type="Area3D" parent="Armature/Skeleton3D/BoneAttachment3D2" unique_id=1694933436 node_paths=PackedStringArray("tentacle")]
+transform = Transform3D(1, -9.313226e-10, -4.0745363e-10, 0, 1.0000004, 0, 0, -3.7252903e-09, 1.0000002, 0, 0, 0)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("5_t4d4t")
+tentacle = NodePath("../../../..")
+baseDamage = 10.0
+attackHitSFX = ExtResource("6_j70ge")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BoneAttachment3D2/Area3D" unique_id=1226501570]
+transform = Transform3D(0.040000003, 1.3271347e-08, -5.802576e-10, -9.749783e-09, 0.04, 4.156027e-08, 2.05182e-09, -4.4121407e-08, 0.03999966, 3.8475991e-07, 0.0018090867, -5.529728e-09)
+shape = SubResource("CapsuleShape3D_6ne15")
+debug_color = Color(0.99607843, 0, 0.16862746, 1)
+
+[node name="BoneAttachment3D3" type="BoneAttachment3D" parent="Armature/Skeleton3D" unique_id=1257536098]
+transform = Transform3D(0.99994344, 0.010527294, 0.0015107635, 0.010584651, -0.99892974, -0.04502608, 0.0010351439, 0.045039568, -0.9989847, 0.00014470225, -0.013778738, -0.00012645083)
+bone_name = "TendralBone.004"
+bone_idx = 4
+
+[node name="Area3D" type="Area3D" parent="Armature/Skeleton3D/BoneAttachment3D3" unique_id=554551879 node_paths=PackedStringArray("tentacle")]
+transform = Transform3D(0.9999999, -3.7252903e-09, -1.4551915e-10, -1.8626451e-09, 1, -7.450581e-09, 1.7462298e-10, -7.450581e-09, 1, 0, 0, 0)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("5_t4d4t")
+tentacle = NodePath("../../../..")
+baseDamage = 10.0
+attackHitSFX = ExtResource("6_j70ge")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Armature/Skeleton3D/BoneAttachment3D3/Area3D" unique_id=416320517]
+transform = Transform3D(0.040000003, 2.910383e-09, -6.1299943e-10, -9.749783e-09, 0.04, 4.1676685e-08, 2.057277e-09, -4.4121407e-08, 0.039999675, 3.8465078e-07, 0.0012719799, -4.8894435e-09)
+shape = SubResource("CapsuleShape3D_erlle")
+debug_color = Color(0.99607843, 0, 0.16862746, 1)
+
 [node name="Marker3D" type="Marker3D" parent="." unique_id=420951773]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06885809, 0, 1.3505757)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.017405301, 0, 1.6563354)
+
+[connection signal="body_entered" from="Armature/Skeleton3D/BoneAttachment3D/Area3D" to="Armature/Skeleton3D/BoneAttachment3D/Area3D" method="OnWeaponHit"]
+[connection signal="body_entered" from="Armature/Skeleton3D/BoneAttachment3D4/Area3D" to="Armature/Skeleton3D/BoneAttachment3D4/Area3D" method="OnWeaponHit"]
+[connection signal="body_entered" from="Armature/Skeleton3D/BoneAttachment3D2/Area3D" to="Armature/Skeleton3D/BoneAttachment3D2/Area3D" method="OnWeaponHit"]
+[connection signal="body_entered" from="Armature/Skeleton3D/BoneAttachment3D3/Area3D" to="Armature/Skeleton3D/BoneAttachment3D3/Area3D" method="OnWeaponHit"]

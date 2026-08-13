@@ -1,17 +1,19 @@
 [gd_scene format=3 uid="uid://b4gi7e0nwj2j6"]
 
 [ext_resource type="Script" uid="uid://rya4syyxxp2y" path="res://Scripts/Gizmos/Projectile/TentacleProjectile.cs" id="1_uqo4t"]
+[ext_resource type="PackedScene" uid="uid://c7va7e74tityp" path="res://Prefab Nodes/Effects/blood_mist_pulse.tscn" id="2_pmxsf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6c4m4"]
 size = Vector3(0.1, 0.1, 0.1)
 
-[node name="TentacleProjectile" type="RigidBody3D" unique_id=893216066]
+[node name="TentacleProjectile" type="RigidBody3D" unique_id=893216066 node_paths=PackedStringArray("particles")]
 collision_layer = 32
 gravity_scale = 2.0
 continuous_cd = true
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_uqo4t")
+particles = NodePath("BloodMistPulse")
 startingVelocity = 9.0
 
 [node name="Marker3D" type="Marker3D" parent="." unique_id=1803542186]
@@ -20,5 +22,8 @@ startingVelocity = 9.0
 transform = Transform3D(0.9999994, -1.5795231e-06, -1.937151e-06, 8.940697e-08, 0.9999963, 1.1920929e-06, 4.172325e-07, 4.172325e-07, 0.9999973, 0, 0, 0)
 shape = SubResource("BoxShape3D_6c4m4")
 debug_color = Color(0.98384887, 0, 0.35356826, 0.41960785)
+
+[node name="BloodMistPulse" parent="." unique_id=554541527 instance=ExtResource("2_pmxsf")]
+amount = 12
 
 [connection signal="body_entered" from="." to="." method="HitEvent"]

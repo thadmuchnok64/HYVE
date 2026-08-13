@@ -19,6 +19,8 @@ public partial class GoreManager : Node3D
 	[Export] PackedScene smallBloodDecal;
 	[Export] PackedScene largeBloodDecal;
 
+	[Export] AudioStream splatSFX;
+
     List <DecalEffect> smallBloodDecalList,largeBloodDecalList;
 	int smallBloodItr, largeBloodItr;
 
@@ -108,6 +110,7 @@ public partial class GoreManager : Node3D
 		smallBloodDecalList[smallBloodItr].GlobalPosition = pos;
 		smallBloodDecalList[smallBloodItr].Visible = true;
         smallBloodItr++;
+		SoundManager.Instance.RequesetSFXSoundAtLocation(splatSFX, pos);
 		if(smallBloodItr >= smallBloodDecalList.Count)
 		{
 			smallBloodItr = 0;
@@ -120,6 +123,8 @@ public partial class GoreManager : Node3D
         largeBloodDecalList[smallBloodItr].GlobalPosition = pos;
         largeBloodDecalList[smallBloodItr].Visible = true;
         largeBloodItr++;
+        SoundManager.Instance.RequesetSFXSoundAtLocation(splatSFX, pos);
+
         if (largeBloodItr >= largeBloodDecalList.Count)
         {
             largeBloodItr = 0;

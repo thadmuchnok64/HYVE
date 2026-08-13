@@ -6,7 +6,7 @@ public partial class EnemyMeleeContact : Area3D
 {
 	[Export] float baseDamage = 25f;
 	[Export] AudioStream attackHitSFX;
-	[Export] Enemy enemyRef;
+	[Export] public Enemy enemyRef;
 
 	List<PCStateMachine> hitEnemiesThisSwing;
 
