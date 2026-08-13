@@ -260,28 +260,28 @@ tonemap_exposure = 1.15
 
 [node name="CyberSpace" unique_id=2057402354 instance=ExtResource("1_edvmt")]
 
-[node name="BeeRemote" parent="." index="1" unique_id=154573186]
+[node name="BeeRemote" parent="." index="1" unique_id=284960837]
 material_override = ExtResource("2_pi4b4")
 
-[node name="Bintendo Bee" parent="." index="2" unique_id=1545649855]
+[node name="Bintendo Bee" parent="." index="2" unique_id=2053911841]
 material_override = ExtResource("2_pi4b4")
 
-[node name="CPUTower" parent="." index="3" unique_id=1454993580]
+[node name="CPUTower" parent="." index="3" unique_id=506070946]
 material_override = ExtResource("2_pi4b4")
 
-[node name="Computer" parent="." index="7" unique_id=1637165506]
+[node name="Computer" parent="." index="7" unique_id=2144914912]
 material_override = ExtResource("2_pi4b4")
 
-[node name="ComputerMouse" parent="." index="8" unique_id=16568865]
+[node name="ComputerMouse" parent="." index="8" unique_id=280540955]
 material_override = ExtResource("2_pi4b4")
 
-[node name="CyberCurve" parent="." index="11" unique_id=840138753]
+[node name="CyberCurve" parent="." index="11" unique_id=1518956825]
 material_override = ExtResource("2_pi4b4")
 
-[node name="CyberWallPanel" parent="." index="12" unique_id=333410786]
+[node name="CyberWallPanel" parent="." index="12" unique_id=1713447011]
 material_override = ExtResource("2_7htb7")
 
-[node name="CyberZone" parent="." index="13" unique_id=238879158]
+[node name="CyberZone" parent="." index="13" unique_id=447250638]
 material_override = ExtResource("2_7htb7")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="14" unique_id=1776789694]
@@ -298,14 +298,14 @@ shape = SubResource("ConcavePolygonShape3D_6c4m4")
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 17.732193, 1.0984983, -26.273655)
 shape = SubResource("ConvexPolygonShape3D_q21pn")
 
-[node name="CyberZoneWall" parent="." index="15" unique_id=2094976701]
+[node name="CyberZoneWall" parent="." index="15" unique_id=649678249]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 17.732193, 1.0984983, -26.273655)
 material_override = ExtResource("2_7htb7")
 
-[node name="IT Support" parent="." index="16" unique_id=806074000]
+[node name="IT Support" parent="." index="16" unique_id=1037036854]
 material_override = ExtResource("2_7htb7")
 
-[node name="Keyboard" parent="." index="17" unique_id=1911989645]
+[node name="Keyboard" parent="." index="17" unique_id=411325451]
 material_override = ExtResource("2_pi4b4")
 
 [node name="Computer2" type="MeshInstance3D" parent="." index="18" unique_id=968790591 node_paths=PackedStringArray("camPivot", "bloxor", "aud")]
@@ -362,16 +362,16 @@ stream = ExtResource("7_b83ur")
 unit_size = 0.44
 autoplay = true
 
-[node name="Poster" parent="." index="22" unique_id=592827257]
+[node name="Poster" parent="." index="22" unique_id=1366053825]
 material_override = SubResource("StandardMaterial3D_w7uis")
 
-[node name="Projector" parent="." index="24" unique_id=1696679163]
+[node name="Projector" parent="." index="24" unique_id=1783414806]
 material_override = ExtResource("2_pi4b4")
 
-[node name="SideCabinent" parent="." index="26" unique_id=1882481617]
+[node name="SideCabinent" parent="." index="26" unique_id=1847336323]
 material_override = ExtResource("2_7htb7")
 
-[node name="TV" parent="." index="29" unique_id=1880455498]
+[node name="TV" parent="." index="29" unique_id=1916237447]
 material_override = ExtResource("2_pi4b4")
 
 [node name="LightmapGI" type="LightmapGI" parent="." index="32" unique_id=914226286]

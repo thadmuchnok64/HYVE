@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://c22clmf3civ14" path="res://Sound/Ambeince/FoyerAmbience.wav" id="12_2vcjp"]
 [ext_resource type="Script" uid="uid://c6igaenalehqd" path="res://Scripts/Gizmos/GizmoTrigger.cs" id="13_7gl3i"]
 [ext_resource type="LightmapGIData" uid="uid://c5qpgioif52j7" path="res://Prefab Nodes/Level/GI/foyer_chunk.lmbake" id="13_i373o"]
+[ext_resource type="PackedScene" uid="uid://f2g1nv7v8ctx" path="res://Prefab Nodes/Enemies/clinger.tscn" id="18_delvv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q847i"]
 resource_name = "Glass"
@@ -1200,3 +1201,6 @@ shape = SubResource("BoxShape3D_vywq4")
 
 [node name="LightmapGI" type="LightmapGI" parent="." unique_id=1189358844]
 light_data = ExtResource("13_i373o")
+
+[node name="Clinger" parent="." unique_id=1015134247 instance=ExtResource("18_delvv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8730288, 0.25542408, 0.39282465)
