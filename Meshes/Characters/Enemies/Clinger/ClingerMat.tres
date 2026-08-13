@@ -1,7 +1,7 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://djtgr6oejev05"]
 
-[ext_resource type="Texture2D" uid="uid://clywr1qf5pw1g" path="res://Meshes/Characters/Enemies/Clinger/ClingerSubstance_Clinger_BaseMap.1001.png" id="1_1oaqp"]
-[ext_resource type="Texture2D" uid="uid://cd0jyy6gq3om" path="res://Meshes/Characters/Enemies/Clinger/ClingerSubstance_Clinger_Emissive.1001.png" id="2_6in7h"]
+[ext_resource type="Texture2D" uid="uid://ni7m50wx780f" path="res://Meshes/Characters/Enemies/Clinger/ClingerSubstance_Clinger_BaseMap.1001.png" id="1_1oaqp"]
+[ext_resource type="Texture2D" uid="uid://do1io0wc1xcxx" path="res://Meshes/Characters/Enemies/Clinger/ClingerSubstance_Clinger_Emissive.1001.png" id="2_6in7h"]
 
 [resource]
 diffuse_mode = 3
