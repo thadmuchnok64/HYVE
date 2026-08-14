@@ -144,6 +144,7 @@ bones/6/rotation = Quaternion(0, 0, 0, 1)
 bones/6/scale = Vector3(1, 1, 1)
 
 [node name="Cube_001" type="MeshInstance3D" parent="Armature/Skeleton3D" unique_id=1691644448]
+layers = 4
 material_override = ExtResource("2_6ne15")
 mesh = SubResource("ArrayMesh_25gqa")
 skin = SubResource("Skin_34al8")
@@ -180,7 +181,7 @@ settings/0/joints/5/rotation_axis = 3
 settings/0/joints/5/limitation = null
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D" unique_id=1865615199]
-transform = Transform3D(0.9999939, 0.0031824315, 0.0014366305, 0.0032402487, -0.9991033, -0.04221286, 0.0013010041, 0.042217314, -0.9991077, 0.00016549774, -0.00654665, -0.00041959295)
+transform = Transform3D(0.9999436, 0.010514255, 0.0014830497, 0.010567683, -0.9990451, -0.04239409, 0.0010358912, 0.04240741, -0.99909997, 6.8598296e-05, -0.006547504, -0.00043332903)
 bone_name = "TendralBone.002"
 bone_idx = 2
 
@@ -199,7 +200,7 @@ shape = SubResource("CapsuleShape3D_6ne15")
 debug_color = Color(0.99607843, 0, 0.16862746, 1)
 
 [node name="BoneAttachment3D4" type="BoneAttachment3D" parent="Armature/Skeleton3D" unique_id=136266769]
-transform = Transform3D(0.9999939, 0.003182406, 0.0014366871, 0.0032402482, -0.99910265, -0.042230576, 0.0013010041, 0.04223503, -0.99910706, 0.00015423694, -0.0030114003, -0.000569038)
+transform = Transform3D(0.9999436, 0.01051423, 0.0014832363, 0.010567683, -0.9990444, -0.042411804, 0.0010358912, 0.042425126, -0.9990993, 3.13944e-05, -0.0030124607, -0.0005834467)
 bone_name = "TendralBone.001"
 bone_idx = 1
 
@@ -218,7 +219,7 @@ shape = SubResource("CapsuleShape3D_6ne15")
 debug_color = Color(0.99607843, 0, 0.16862746, 1)
 
 [node name="BoneAttachment3D2" type="BoneAttachment3D" parent="Armature/Skeleton3D" unique_id=1918746895]
-transform = Transform3D(0.9999988, 0.0006191463, 0.0014358434, 0.00067864853, -0.9991252, -0.04181258, 0.0014087006, 0.041813564, -0.9991246, 0.0001769206, -0.010132753, -0.00026806112)
+transform = Transform3D(0.9999436, 0.0105142845, 0.0014828384, 0.010567683, -0.9990459, -0.04237401, 0.0010358912, 0.04238733, -0.9991008, 0.00010633743, -0.010133399, -0.0002811149)
 bone_name = "TendralBone.003"
 bone_idx = 3
 
@@ -237,7 +238,7 @@ shape = SubResource("CapsuleShape3D_6ne15")
 debug_color = Color(0.99607843, 0, 0.16862746, 1)
 
 [node name="BoneAttachment3D3" type="BoneAttachment3D" parent="Armature/Skeleton3D" unique_id=1257536098]
-transform = Transform3D(0.9999978, -0.001560238, 0.0014366383, -0.0014993013, -0.99913824, -0.041477792, 0.0015001169, 0.041475605, -0.9991385, 0.00017917984, -0.013778381, -0.000115490635)
+transform = Transform3D(0.99994344, 0.010527294, 0.0015107635, 0.010584651, -0.99892974, -0.04502608, 0.0010351439, 0.045039568, -0.9989847, 0.00014470225, -0.013778738, -0.00012645083)
 bone_name = "TendralBone.004"
 bone_idx = 4
 

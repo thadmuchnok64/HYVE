@@ -11,11 +11,11 @@
 [ext_resource type="Script" uid="uid://dowaorsnpxlrp" path="res://Scripts/Gizmos/Door.cs" id="9_bhu1e"]
 [ext_resource type="AudioStream" uid="uid://do1fp0gjlsa7a" path="res://Sound/SFX/GizmoSFX/Prying.wav" id="9_eo7lt"]
 [ext_resource type="AudioStream" uid="uid://bb5iuk3e55xvb" path="res://Sound/SFX/GizmoSFX/CultureDoorPry.wav" id="10_delvv"]
-[ext_resource type="Material" uid="uid://d1nwrny3jn582" path="res://Meshes/Levels/Foyer/FoyerCeiling.tres" id="10_end7w"]
 [ext_resource type="ArrayMesh" uid="uid://cflnoe52enlkr" path="res://Meshes/Levels/Foyer/RightCultureDoorFoyer.tres" id="10_vywq4"]
 [ext_resource type="PackedScene" uid="uid://ml1x0ebtustx" path="res://Prefab Nodes/Decor/ceiling_light.tscn" id="11_risvt"]
 [ext_resource type="AudioStream" uid="uid://c22clmf3civ14" path="res://Sound/Ambeince/FoyerAmbience.wav" id="12_2vcjp"]
 [ext_resource type="Script" uid="uid://c6igaenalehqd" path="res://Scripts/Gizmos/GizmoTrigger.cs" id="13_7gl3i"]
+[ext_resource type="Material" uid="uid://d4gxvwk31gh2g" path="res://Materials/Shaders/BaseFoyerCeiling.tres" id="13_delvv"]
 [ext_resource type="LightmapGIData" uid="uid://c5qpgioif52j7" path="res://Prefab Nodes/Level/GI/foyer_chunk.lmbake" id="13_i373o"]
 [ext_resource type="PackedScene" uid="uid://f2g1nv7v8ctx" path="res://Prefab Nodes/Enemies/clinger.tscn" id="18_delvv"]
 
@@ -1068,7 +1068,7 @@ mesh = SubResource("ArrayMesh_1g2lg")
 
 [node name="FoyerUpper" type="MeshInstance3D" parent="Foyer2" unique_id=1351936890]
 transform = Transform3D(100.000015, -0.028425442, 0.008278188, -0.008282796, -0.014948343, 100.00001, -0.028424103, -99.99999, -0.014950895, 0, 0, 0)
-material_override = ExtResource("10_end7w")
+material_override = ExtResource("13_delvv")
 mesh = SubResource("ArrayMesh_esvn4")
 
 [node name="Railing" type="MeshInstance3D" parent="Foyer2" unique_id=558799311]
@@ -1203,4 +1203,4 @@ shape = SubResource("BoxShape3D_vywq4")
 light_data = ExtResource("13_i373o")
 
 [node name="Clinger" parent="." unique_id=1015134247 instance=ExtResource("18_delvv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8730288, 0.25542408, 0.39282465)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8730288, -0.0069119036, 0.39282465)

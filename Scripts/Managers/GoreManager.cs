@@ -22,7 +22,10 @@ public partial class GoreManager : Node3D
 	[Export] AudioStream splatSFX;
 
     List <DecalEffect> smallBloodDecalList,largeBloodDecalList;
-	int smallBloodItr, largeBloodItr;
+	[Export] float smallBloodSplatVolume = .5f;
+    [Export] float largeBloodSplatVolume = .9f;
+
+    int smallBloodItr, largeBloodItr;
 
 	public static GoreManager Instance;
 	// Called when the node enters the scene tree for the first time.
@@ -110,7 +113,7 @@ public partial class GoreManager : Node3D
 		smallBloodDecalList[smallBloodItr].GlobalPosition = pos;
 		smallBloodDecalList[smallBloodItr].Visible = true;
         smallBloodItr++;
-		SoundManager.Instance.RequesetSFXSoundAtLocation(splatSFX, pos);
+		SoundManager.Instance.RequesetSFXSoundAtLocation(splatSFX, pos, smallBloodSplatVolume);
 		if(smallBloodItr >= smallBloodDecalList.Count)
 		{
 			smallBloodItr = 0;
@@ -123,7 +126,7 @@ public partial class GoreManager : Node3D
         largeBloodDecalList[smallBloodItr].GlobalPosition = pos;
         largeBloodDecalList[smallBloodItr].Visible = true;
         largeBloodItr++;
-        SoundManager.Instance.RequesetSFXSoundAtLocation(splatSFX, pos);
+        SoundManager.Instance.RequesetSFXSoundAtLocation(splatSFX, pos, largeBloodSplatVolume);
 
         if (largeBloodItr >= largeBloodDecalList.Count)
         {

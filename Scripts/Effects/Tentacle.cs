@@ -15,6 +15,7 @@ public partial class Tentacle : Tendral
 	[Export] Node3D tendralStretchPoint;
 	[Export] Godot.Collections.Array<TentacleContact> contacts;
 	[Export] Enemy enem;
+	[Export] Node3D transformTracker;
 	float timer;
 	bool shot = false;
 
@@ -38,9 +39,15 @@ public partial class Tentacle : Tendral
 		proj.Freeze = true;
 	}
 
-	public override void _Process(double delta)
+
+    public override void _Process(double delta)
 	{
-		if (retracting)
+        // Transforms
+        GlobalPosition = transformTracker.GlobalPosition;
+        GlobalRotation = transformTracker.GlobalRotation;
+        // Mesh management
+
+        if (retracting)
 		{
 			timer += (float)delta;
 			if(projectile != null)

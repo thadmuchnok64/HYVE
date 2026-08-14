@@ -3,14 +3,14 @@
   "profiles": {
 	"Godot Debug": {
 	  "commandName": "Executable",
-	  "executablePath": "C:/Users/Thad/Desktop/Godot_v4.6.1-stable_mono_win64/Godot_v4.6.1-stable_mono_win64/Godot_v4.6.1-stable_mono_win64.exe",
+	  "executablePath": "F:/Godot/Godot_v4.6.1-stable_mono_win64/Godot_v4.6.1-stable_mono_win64.exe",
 	  "commandLineArgs": "--path . --verbose",
 	  "workingDirectory": ".",
 	  "nativeDebugging": true
 	},
 	"Godot Debug Clinger": {
 	  "commandName": "Executable",
-	  "executablePath": "C:/Users/Thad/Desktop/Godot_v4.6.1-stable_mono_win64/Godot_v4.6.1-stable_mono_win64/Godot_v4.6.1-stable_mono_win64.exe",
+	  "executablePath": "F:/Godot/Godot_v4.6.1-stable_mono_win64/Godot_v4.6.1-stable_mono_win64.exe",
 	  "commandLineArgs": "--upwards ./Prefab Nodes/Enemies/clinger.tscn --verbose",
 	  "workingDirectory": ".",
 	  "nativeDebugging": true

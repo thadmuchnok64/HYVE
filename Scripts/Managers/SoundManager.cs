@@ -32,8 +32,9 @@ public partial class SoundManager : Node3D
 	}
 
 
-	public void RequesetSFXSoundAtLocation(AudioStream sfx, Vector3 globalPos)
+	public void RequesetSFXSoundAtLocation(AudioStream sfx, Vector3 globalPos, float volumeMod = 1f)
 	{
+		currentPlayer.VolumeLinear = volumeMod;
 		currentPlayer.GlobalPosition = globalPos;
 		currentPlayer.Stream = sfx;
 		currentPlayer.Play();

@@ -3,5 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://d0hghk4g7fcvp" path="res://Meshes/Levels/Foyer/Foyer_CeilingFoyer_BaseMap.1001.png" id="1_1kk5p"]
 
 [resource]
+diffuse_mode = 3
+specular_mode = 1
 albedo_texture = ExtResource("1_1kk5p")
 emission_enabled = true
