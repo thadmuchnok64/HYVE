@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b8nwn2ffcyf3h"]
+
+[ext_resource type="Shader" uid="uid://itrnkg3h08cb" path="res://Materials/Shaders/BaseSceneShader.tres" id="1_06ujx"]
+[ext_resource type="Texture2D" uid="uid://cjhc0qdmefrao" path="res://Meshes/Levels/CultureSection/CultureProps2 RGB Alpha.png" id="2_06ujx"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_06ujx")
+shader_parameter/MainTex2 = ExtResource("2_06ujx")
+shader_parameter/DepthFade = true

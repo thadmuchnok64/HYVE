@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bfkneivelesgn" path="res://Prefab Nodes/Level/science_hub.tscn" id="4_l6ol3"]
 [ext_resource type="PackedScene" uid="uid://bax53t8rkxthc" path="res://Prefab Nodes/Level/bathrooms_west.tscn" id="5_l6ol3"]
 [ext_resource type="PackedScene" uid="uid://bf1lryf0pqnq2" path="res://Prefab Nodes/Level/cyber_space.tscn" id="6_qq8me"]
+[ext_resource type="PackedScene" uid="uid://fcuhh2pwxbkh" path="res://Prefab Nodes/Level/culture_section.tscn" id="7_3vkgj"]
 
 [sub_resource type="Environment" id="Environment_eh2h0"]
 sdfgi_enabled = true
@@ -55,4 +56,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5211537, -0.99660873, 1.28
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52, -0.975, 1.29)
 
 [node name="CyberSpace" parent="." index="10" unique_id=2057402354 instance=ExtResource("6_qq8me")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5211537, -0.99660873, 1.2815322)
+
+[node name="CultureSection" parent="." index="11" unique_id=90287977 instance=ExtResource("7_3vkgj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5211537, -0.99660873, 1.2815322)
