@@ -59,4 +59,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52, -0.975, 1.29)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5211537, -0.99660873, 1.2815322)
 
 [node name="CultureSection" parent="." index="11" unique_id=90287977 instance=ExtResource("7_3vkgj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5211537, -0.99660873, 1.2815322)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9378429, -0.99660873, 0.7992169)
