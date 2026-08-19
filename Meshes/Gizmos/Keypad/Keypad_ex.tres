@@ -1,4 +1,4 @@
-[gd_resource type="ArrayMesh" format=4 uid="uid://cxhw35eob8l88"]
+[gd_resource type="ArrayMesh" format=4 uid="uid://lhmxs2rtkpq8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m4tdh"]
 resource_name = "Keypad"

@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://bh7b4ruxx45kj"]
 
-[ext_resource type="Texture2D" uid="uid://dk8oh6kq20c84" path="res://Meshes/Levels/Foyer/Foyer_Substance_CultureProps_BaseMap.1001.png" id="1_du5kr"]
+[ext_resource type="Texture2D" uid="uid://ckgqpgixqnn2p" path="res://Meshes/Levels/Foyer/culturePropsNew.png" id="1_du5kr"]
 
 [resource]
 albedo_texture = ExtResource("1_du5kr")

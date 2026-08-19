@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://fcuhh2pwxbkh"]
 
 [ext_resource type="Material" uid="uid://btac7cnet1o0c" path="res://Meshes/Levels/CultureSection/HistoryEntrances.tres" id="1_5hjj3"]
+[ext_resource type="Material" uid="uid://bh7b4ruxx45kj" path="res://Meshes/Levels/Foyer/CultureProps.tres" id="1_e3ugu"]
 [ext_resource type="Material" uid="uid://b8nwn2ffcyf3h" path="res://Meshes/Levels/CultureSection/BaseCultureProps2.tres" id="1_mfqci"]
 [ext_resource type="Texture2D" uid="uid://38dehtu74kvl" path="res://Meshes/Levels/CultureSection/HistorySectionEntrances RGB Alpha.png" id="2_mfqci"]
 
@@ -797,14 +798,17 @@ shadow_mesh = SubResource("ArrayMesh_iad1h")
 
 [node name="BookWalkway" type="MeshInstance3D" parent="." unique_id=818361928]
 transform = Transform3D(142.63365, 0, 0, 0, -159.53203, 2.1114794e-05, 0, -2.4088667e-05, -139.83696, 6.0250983, 3.2036457, 17.553543)
+material_override = ExtResource("1_e3ugu")
 mesh = SubResource("ArrayMesh_q0kwt")
 
 [node name="BrickPath" type="MeshInstance3D" parent="." unique_id=367995518]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 6.6282887, 1.1854488, 21.165989)
+material_override = ExtResource("1_mfqci")
 mesh = SubResource("ArrayMesh_vhep0")
 
 [node name="Bucket" type="MeshInstance3D" parent="." unique_id=1597450687]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 7.1220493, 1.8768779, 26.096064)
+material_override = ExtResource("1_mfqci")
 mesh = SubResource("ArrayMesh_qbnc8")
 
 [node name="Bush" type="MeshInstance3D" parent="." unique_id=561312012]
@@ -814,18 +818,22 @@ mesh = SubResource("ArrayMesh_0f2ka")
 
 [node name="FakeTree" type="MeshInstance3D" parent="." unique_id=953233478]
 transform = Transform3D(44.670498, -89.46813, 5.9604645e-06, -5.9604645e-06, 0, 100, -89.46813, -44.670498, 0, 11.481373, 1.0046619, 20.486113)
+material_override = ExtResource("1_mfqci")
 mesh = SubResource("ArrayMesh_5jm8a")
 
 [node name="FakeTree2" type="MeshInstance3D" parent="." unique_id=2006162719]
 transform = Transform3D(77.16191, 63.60848, 8.940697e-06, -2.9802322e-06, -1.1920929e-05, 100, 63.60848, -77.16192, -1.1920929e-05, 2.7593544, 1.0046043, 20.155245)
+material_override = ExtResource("1_mfqci")
 mesh = SubResource("ArrayMesh_pi5ul")
 
 [node name="Flower1" type="MeshInstance3D" parent="." unique_id=660164469]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 2.5328255, 1.004468, 29.974382)
+material_override = ExtResource("1_mfqci")
 mesh = SubResource("ArrayMesh_i6cvj")
 
 [node name="Flower2" type="MeshInstance3D" parent="." unique_id=1289920916]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 2.266083, 1.004468, 29.6096)
+material_override = ExtResource("1_mfqci")
 mesh = SubResource("ArrayMesh_tldmk")
 
 [node name="LittleLexingtonEntrance" type="MeshInstance3D" parent="." unique_id=1531093170]
@@ -835,14 +843,17 @@ mesh = SubResource("ArrayMesh_mgvn0")
 
 [node name="MechanicalWheel" type="MeshInstance3D" parent="." unique_id=1357521218]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0.98811805, 2.2128694, 27.263847)
+material_override = ExtResource("1_5hjj3")
 mesh = SubResource("ArrayMesh_28n7p")
 
 [node name="Reeds" type="MeshInstance3D" parent="." unique_id=370943389]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 1.9823332, 1.0045067, 29.34947)
+material_override = ExtResource("1_mfqci")
 mesh = SubResource("ArrayMesh_ivay8")
 
 [node name="Rock" type="MeshInstance3D" parent="." unique_id=2070468330]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 4.295563, 1.0416241, 22.818008)
+material_override = ExtResource("1_mfqci")
 mesh = SubResource("ArrayMesh_1w4mw")
 
 [node name="TidesOfCultureLobby" type="MeshInstance3D" parent="." unique_id=1143252396]
@@ -865,6 +876,7 @@ mesh = SubResource("ArrayMesh_rtr65")
 
 [node name="WellBase" type="MeshInstance3D" parent="." unique_id=829455998]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 7.1600256, 1.0046401, 26.305275)
+material_override = ExtResource("1_mfqci")
 mesh = SubResource("ArrayMesh_kp5dw")
 
 [node name="WellPit" type="MeshInstance3D" parent="." unique_id=1365477705]
@@ -873,10 +885,12 @@ mesh = SubResource("ArrayMesh_7x01x")
 
 [node name="WellPulley" type="MeshInstance3D" parent="." unique_id=765247002]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 7.182811, 2.8529627, 26.262249)
+material_override = ExtResource("1_mfqci")
 mesh = SubResource("ArrayMesh_wwnfi")
 
 [node name="WellRoof" type="MeshInstance3D" parent="." unique_id=1584160976]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 7.168841, 1.004714, 26.264988)
+material_override = ExtResource("1_e3ugu")
 mesh = SubResource("ArrayMesh_1aono")
 
 [node name="WellRope" type="MeshInstance3D" parent="." unique_id=222914796]
