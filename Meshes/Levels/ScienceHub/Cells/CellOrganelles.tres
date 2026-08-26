@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bhot8p24p8ab3"]
+
+[ext_resource type="Shader" uid="uid://itrnkg3h08cb" path="res://Materials/Shaders/BaseSceneShader.tres" id="1_pr8ne"]
+[ext_resource type="Texture2D" uid="uid://d3caq05f4lbw6" path="res://Meshes/Levels/ScienceHub/Cells/Cells Emission.png" id="2_0wd6g"]
+[ext_resource type="Texture2D" uid="uid://nbqu76g0mrea" path="res://Meshes/Levels/ScienceHub/Cells/Cells RGB Alpha.png" id="2_pr8ne"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_pr8ne")
+shader_parameter/MainTex2 = ExtResource("2_pr8ne")
+shader_parameter/DepthFade = true
+shader_parameter/Emission = ExtResource("2_0wd6g")

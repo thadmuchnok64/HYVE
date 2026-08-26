@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dt44fkolvt4vu"]
+
+[ext_resource type="Shader" uid="uid://itrnkg3h08cb" path="res://Materials/Shaders/BaseSceneShader.tres" id="1_mi4af"]
+[ext_resource type="Texture2D" uid="uid://dow81iukqpruc" path="res://Meshes/Levels/ScienceHub/Cells/BioSection RGB Alpha.png" id="2_uobsj"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_mi4af")
+shader_parameter/MainTex2 = ExtResource("2_uobsj")
+shader_parameter/DepthFade = true
