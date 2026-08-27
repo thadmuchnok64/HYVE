@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://vj8h1ijhircq" path="res://Prefab Nodes/UI/inventory_slot.tscn" id="4_6edwv"]
 [ext_resource type="AudioStream" uid="uid://coabpuspj6thk" path="res://Sound/SFX/UISounds/Interact.wav" id="4_8c5fg"]
 [ext_resource type="Script" uid="uid://dvtoai47x8tv5" path="res://Scripts/UI/EquipmentScreen.cs" id="6_s8js7"]
+[ext_resource type="PackedScene" uid="uid://c5njx8bc4ou8o" path="res://Prefab Nodes/UI/dialogue_container.tscn" id="6_vttpb"]
 [ext_resource type="Script" uid="uid://dquqccdjlrf80" path="res://Scripts/UI/LoreMenu.cs" id="8_4stpt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_07sgc"]
@@ -779,6 +780,23 @@ offset_right = 40.0
 offset_bottom = 40.0
 pivot_offset = Vector2(16, 16)
 texture = ExtResource("2_6edwv")
+
+[node name="DialogueManager" type="Panel" parent="." unique_id=1361374250]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_07sgc")
+
+[node name="DialogueContainer" parent="DialogueManager" unique_id=1216362927 instance=ExtResource("6_vttpb")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="Container" type="Container" parent="." unique_id=1702806090]
 layout_mode = 1

@@ -18,6 +18,7 @@ public partial class HUDManager : Control
 	[Export] TextureProgressBar posBar;
 	[Export] AudioStream inventoryInSFX, inventoryOutSFX;
 	[Export] EquipmentScreen equipmentScreen;
+	[Export] DialogueState dialogueScreen;
 	[Export] LoreMenu loreMenu;
 	[Export] RichTextLabel interactText;
 	[Export] AudioStream interactSFX;

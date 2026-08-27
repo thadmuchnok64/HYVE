@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c38lev3y670ds"]
+
+[ext_resource type="Texture2D" uid="uid://dyrh7avuhqj5a" path="res://Meshes/Characters/Ernie/Ernie RGB Alpha - Copy.png" id="1_5a2uk"]
+[ext_resource type="Texture2D" uid="uid://h6vr642ttsqe" path="res://Meshes/Characters/Ernie/Ernie Emission - Copy.png" id="2_0rfh6"]
+
+[resource]
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_5a2uk")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 3.0
+emission_operator = 1
+emission_texture = ExtResource("2_0rfh6")
