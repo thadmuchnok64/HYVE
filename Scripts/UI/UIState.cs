@@ -25,17 +25,17 @@ public partial class UIState : Control
 
     public virtual UIState ManageInput(InputEvent @event)
     {
-        if (Input.IsActionPressed("UIUp"))
+        if (Input.IsActionJustPressed("UIUp"))
             return NavUp();
-        if (Input.IsActionPressed("UIDown"))
+        if (Input.IsActionJustPressed("UIDown"))
             return NavDown();
-        if (Input.IsActionPressed("UILeft"))
+        if (Input.IsActionJustPressed("UILeft"))
             return NavLeft();
-        if (Input.IsActionPressed("UIRight"))
+        if (Input.IsActionJustPressed("UIRight"))
             return NavRight();
-        if (Input.IsActionPressed("UIBack"))
+        if (Input.IsActionJustPressed("UIBack"))
             return NavBack();
-        if (Input.IsActionPressed("UISelect"))
+        if (Input.IsActionJustPressed("UISelect"))
             return NavForward();
         return null;
     }

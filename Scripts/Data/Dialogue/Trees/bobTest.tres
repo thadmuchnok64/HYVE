@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DA_DialogueTree" format=3]
+
+[ext_resource type="Script" path="res://Scripts/Data/Dialogue/DA_DialogueTree.cs" id="1_nmw8l"]
+[ext_resource type="Script" path="res://Scripts/Data/Dialogue/DA_DialogueNPCStatement.cs" id="2_bhl2t"]
+
+[sub_resource type="Resource" id="Resource_dfnjl"]
+script = ExtResource("2_bhl2t")
+text = "hi there"
+
+[resource]
+script = ExtResource("1_nmw8l")
+startingNode = SubResource("Resource_dfnjl")

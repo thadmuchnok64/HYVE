@@ -56,6 +56,7 @@ public partial class HUDManager : Control
 		}
 	}
 
+
 	public void QueueDialogue(string msg)
 	{
 		pendingDialogues.Enqueue(msg);
@@ -89,7 +90,16 @@ public partial class HUDManager : Control
         }
 		return true;
     }
-	
+
+	public void RequestDialogue(DA_DialogueTree tree,Node3D pivot)
+	{
+		dialogueScreen.loadedDialogue = tree;
+		dialogueScreen.npcPivot = pivot;
+		SwitchState(dialogueScreen);
+
+	}
+
+
 	public void SnapTrackerToPoint(Vector3 globalPos,Camera3D cam)
 	{
 		tracker.Position = cam.UnprojectPosition(globalPos)-(tracker.Size/2f) - new Vector2(0,trackerOffset);

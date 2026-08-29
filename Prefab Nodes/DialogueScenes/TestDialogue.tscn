@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://qyhre1072t57"]
 
 [ext_resource type="Script" uid="uid://bc3ghv21wxpfm" path="res://Scripts/UI/Tools/DialogueGraphCreator.cs" id="1_3txlm"]
-[ext_resource type="PackedScene" uid="uid://b1y85xfn2octh" path="res://Prefab Nodes/DialogueScenes/DialogueNode.tscn" id="3_wrtks"]
+[ext_resource type="PackedScene" uid="uid://6ybritetvmk1" path="res://Prefab Nodes/DialogueScenes/PlayerResponse.tscn" id="3_dt6xh"]
+[ext_resource type="PackedScene" uid="uid://b1y85xfn2octh" path="res://Prefab Nodes/DialogueScenes/NPCStatement.tscn" id="3_wrtks"]
 
 [node name="Control" type="Control" unique_id=1758578990 node_paths=PackedStringArray("graphEdit", "saveText")]
 layout_mode = 3
@@ -12,6 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3txlm")
 dialogueNode = ExtResource("3_wrtks")
+playerNode = ExtResource("3_dt6xh")
 graphEdit = NodePath("GraphEdit")
 saveText = NodePath("TextEdit")
 
@@ -32,7 +34,16 @@ layout_mode = 1
 anchors_preset = -1
 anchor_bottom = 0.05
 offset_right = 143.0
-text = "Add Node"
+text = "Add NPC Statement
+"
+
+[node name="Button3" type="Button" parent="." unique_id=845657217]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.05
+offset_left = 176.0
+offset_right = 319.0
+text = "Add Response"
 
 [node name="Button2" type="Button" parent="." unique_id=1052129751]
 layout_mode = 1
@@ -53,4 +64,5 @@ offset_bottom = 40.0
 [connection signal="connection_request" from="GraphEdit" to="." method="ConnectionRequest"]
 [connection signal="disconnection_request" from="GraphEdit" to="." method="DisconnectRequest"]
 [connection signal="pressed" from="Button" to="." method="NewNodeButton"]
+[connection signal="pressed" from="Button3" to="." method="NewResponse"]
 [connection signal="pressed" from="Button2" to="." method="SaveDialogueTree"]

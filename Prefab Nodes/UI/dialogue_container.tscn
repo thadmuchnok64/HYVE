@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c5njx8bc4ou8o"]
 
 [ext_resource type="FontFile" uid="uid://wuq1cy3olt2k" path="res://Materials/Font/Dongle-Regular.ttf" id="1_xtupr"]
+[ext_resource type="Script" uid="uid://cb7q55yeydgd5" path="res://Scripts/Data/Dialogue/DialogueContainer.cs" id="1_y77td"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_07sgc"]
 content_margin_left = 0.0
@@ -19,7 +20,7 @@ content_margin_left = 10.0
 content_margin_top = 10.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
+bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 32
 corner_radius_top_right = 32
 corner_radius_bottom_right = 32
@@ -56,6 +57,30 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(0.8, 0.8), Vector2(0.95, 1.1), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.101960786, 0.101960786, 0.101960786, 0.6)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel/RichTextLabel:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.7019608, 0.7411765, 0.79607844, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_y77td"]
@@ -100,23 +125,158 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.101960786, 0.101960786, 0.101960786, 0.6)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel/RichTextLabel:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.7019608, 0.7411765, 0.79607844, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_nxmnq"]
+resource_name = "Select"
+length = 0.23333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666666, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.95, 1.1), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.101960786, 0.101960786, 0.101960786, 0.6), Color(0.31048208, 0.4440521, 0.62833047, 0.6)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel/RichTextLabel:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.7019608, 0.7411765, 0.79607844, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_k54rx"]
+resource_name = "Unselect"
+length = 0.23333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.20000002),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.30980393, 0.44313726, 0.627451, 0.6), Color(0.101960786, 0.101960786, 0.101960786, 0.6)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel/RichTextLabel:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.20000002),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0.7019608, 0.7411765, 0.79607844, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nxmnq"]
 _data = {
 &"FadeIn": SubResource("Animation_xtupr"),
 &"FadeOut": SubResource("Animation_y77td"),
-&"RESET": SubResource("Animation_pb7y6")
+&"RESET": SubResource("Animation_pb7y6"),
+&"Select": SubResource("Animation_nxmnq"),
+&"Unselect": SubResource("Animation_k54rx")
 }
 
-[node name="DialogueContainer" type="Panel" unique_id=1216362927]
+[node name="DialogueContainer" type="Panel" unique_id=1216362927 node_paths=PackedStringArray("text", "anim")]
+custom_minimum_size = Vector2(0, 98)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_07sgc")
+script = ExtResource("1_y77td")
+text = NodePath("Panel/RichTextLabel")
+anim = NodePath("AnimationPlayer")
 
 [node name="Panel" type="PanelContainer" parent="." unique_id=327449100]
+self_modulate = Color(0.101960786, 0.101960786, 0.101960786, 0.6)
 layout_mode = 0
 offset_right = 461.5802
 offset_bottom = 98.0
@@ -124,9 +284,10 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_styles/panel = SubResource("StyleBoxFlat_vttpb")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=1158580497]
+self_modulate = Color(0.7019608, 0.7411765, 0.79607844, 1)
 layout_mode = 2
 theme = SubResource("Theme_dpc2c")
-theme_override_colors/default_color = Color(0.7000045, 0.7400859, 0.7969777, 1)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_constants/line_separation = -32
 text = "these are the words coming out of a character's mouth."
 fit_content = true

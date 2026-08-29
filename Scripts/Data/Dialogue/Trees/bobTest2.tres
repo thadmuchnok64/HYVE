@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="DA_DialogueTree" format=3 uid="uid://c3dxhc8iwnl01"]
+
+[ext_resource type="Script" uid="uid://dqcxnp70j7tlg" path="res://Scripts/Data/Dialogue/DA_DialogueTree.cs" id="1_i1eri"]
+[ext_resource type="Script" uid="uid://bk5wmhn1jlwxv" path="res://Scripts/Data/Dialogue/DA_DialogueResponse.cs" id="2_8o553"]
+[ext_resource type="Script" uid="uid://b17g4joiablx4" path="res://Scripts/Data/Dialogue/DA_DialogueNPCStatement.cs" id="3_hrqtb"]
+[ext_resource type="Script" uid="uid://ccvu56o3xnrqx" path="res://Scripts/Data/Dialogue/DA_DialogueBranch.cs" id="4_kpaeh"]
+
+[sub_resource type="Resource" id="Resource_ltl7n"]
+script = ExtResource("3_hrqtb")
+text = "oh"
+
+[sub_resource type="Resource" id="Resource_a6ng8"]
+script = ExtResource("2_8o553")
+text = "bob I hate you"
+nextNode = SubResource("Resource_ltl7n")
+
+[sub_resource type="Resource" id="Resource_0bsod"]
+script = ExtResource("3_hrqtb")
+text = "awwh"
+
+[sub_resource type="Resource" id="Resource_hxu4f"]
+script = ExtResource("2_8o553")
+text = "hello bob I love you"
+nextNode = SubResource("Resource_0bsod")
+
+[sub_resource type="Resource" id="Resource_dlukh"]
+script = ExtResource("4_kpaeh")
+responses = Array[ExtResource("2_8o553")]([SubResource("Resource_a6ng8"), SubResource("Resource_hxu4f")])
+
+[sub_resource type="Resource" id="Resource_qd4hi"]
+script = ExtResource("3_hrqtb")
+text = "hi im bob"
+nextNode = SubResource("Resource_dlukh")
+
+[resource]
+script = ExtResource("1_i1eri")
+startingNode = SubResource("Resource_qd4hi")

@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="DA_DialogueTree" format=3 uid="uid://b8h0ta6wjau7x"]
+
+[ext_resource type="Script" uid="uid://dqcxnp70j7tlg" path="res://Scripts/Data/Dialogue/DA_DialogueTree.cs" id="1_1f8vl"]
+[ext_resource type="Script" uid="uid://bk5wmhn1jlwxv" path="res://Scripts/Data/Dialogue/DA_DialogueResponse.cs" id="2_ag37t"]
+[ext_resource type="Script" uid="uid://b17g4joiablx4" path="res://Scripts/Data/Dialogue/DA_DialogueNPCStatement.cs" id="3_1fn5b"]
+[ext_resource type="Script" uid="uid://ccvu56o3xnrqx" path="res://Scripts/Data/Dialogue/DA_DialogueBranch.cs" id="4_tmxo5"]
+
+[sub_resource type="Resource" id="Resource_jejkb"]
+script = ExtResource("3_1fn5b")
+text = "Oh. Don't worry. It's a big musuem."
+
+[sub_resource type="Resource" id="Resource_7dsk2"]
+script = ExtResource("2_ag37t")
+text = "Yeah it's kind of difficult..."
+nextNode = SubResource("Resource_jejkb")
+
+[sub_resource type="Resource" id="Resource_tvqcc"]
+script = ExtResource("3_1fn5b")
+text = "So basically you need to fit that block upright on the green."
+
+[sub_resource type="Resource" id="Resource_tgxqy"]
+script = ExtResource("2_ag37t")
+text = "What? No! I need help finding my friends!"
+nextNode = SubResource("Resource_tvqcc")
+
+[sub_resource type="Resource" id="Resource_n40rg"]
+script = ExtResource("4_tmxo5")
+responses = Array[ExtResource("2_ag37t")]([SubResource("Resource_7dsk2"), SubResource("Resource_tgxqy")])
+
+[sub_resource type="Resource" id="Resource_mytiy"]
+script = ExtResource("3_1fn5b")
+text = "Oh. Hello! Do you need any help with that game?"
+nextNode = SubResource("Resource_n40rg")
+
+[resource]
+script = ExtResource("1_1f8vl")
+startingNode = SubResource("Resource_mytiy")

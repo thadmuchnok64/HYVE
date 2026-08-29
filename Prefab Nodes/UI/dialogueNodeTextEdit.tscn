@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dca8mgphuu483"]
+
+[node name="TextEdit" type="TextEdit" unique_id=1089855954]
+custom_minimum_size = Vector2(0, 32)
+size_flags_vertical = 3
+wrap_mode = 1

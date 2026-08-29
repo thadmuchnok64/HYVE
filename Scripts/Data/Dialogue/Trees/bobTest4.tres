@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="DA_DialogueTree" format=3 uid="uid://dpsyn5n80vcqa"]
+
+[ext_resource type="Script" uid="uid://dqcxnp70j7tlg" path="res://Scripts/Data/Dialogue/DA_DialogueTree.cs" id="1_e7foj"]
+[ext_resource type="Script" uid="uid://bk5wmhn1jlwxv" path="res://Scripts/Data/Dialogue/DA_DialogueResponse.cs" id="2_fa2k6"]
+[ext_resource type="Script" uid="uid://ccvu56o3xnrqx" path="res://Scripts/Data/Dialogue/DA_DialogueBranch.cs" id="3_wjxda"]
+[ext_resource type="Script" uid="uid://b17g4joiablx4" path="res://Scripts/Data/Dialogue/DA_DialogueNPCStatement.cs" id="4_n2yox"]
+
+[sub_resource type="Resource" id="Resource_gi1r1"]
+script = ExtResource("3_wjxda")
+responses = Array[ExtResource("2_fa2k6")]([])
+
+[sub_resource type="Resource" id="Resource_htcbx"]
+script = ExtResource("4_n2yox")
+text = "hello?"
+nextNode = SubResource("Resource_gi1r1")
+
+[resource]
+script = ExtResource("1_e7foj")
+startingNode = SubResource("Resource_htcbx")

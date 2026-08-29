@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://6ybritetvmk1"]
+
+[ext_resource type="FontFile" uid="uid://chclopb73t87u" path="res://Materials/Font/PressStart2P-Regular.ttf" id="1_0ty1b"]
+[ext_resource type="Script" uid="uid://drrbmpp76saus" path="res://Scripts/Data/Dialogue/DialoguePlayerStatement.cs" id="2_0ty1b"]
+[ext_resource type="PackedScene" uid="uid://dca8mgphuu483" path="res://Prefab Nodes/UI/dialogueNodeTextEdit.tscn" id="3_dcior"]
+
+[sub_resource type="Theme" id="Theme_b437h"]
+default_font = ExtResource("1_0ty1b")
+
+[node name="GraphNode" type="GraphNode" unique_id=376491222]
+anchors_preset = -1
+anchor_right = 0.23900001
+anchor_bottom = 0.2
+offset_right = 0.5999756
+offset_bottom = -1.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_horizontal = 3
+theme = SubResource("Theme_b437h")
+theme_override_colors/resizer_color = Color(0.84898514, 0.9146971, 0.59910446, 1)
+resizable = true
+title = "PLAYER RESPONSE"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 0.76862746, 0.5137255, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(0.34601653, 0.74159837, 0.6108343, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+script = ExtResource("2_0ty1b")
+response = ExtResource("3_dcior")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=847354618]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="HBoxContainer" unique_id=1378360030]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0.91659385, 0.41838914, 0.4423407, 1)
+theme_override_fonts/font = ExtResource("1_0ty1b")
+text = "delete"
+
+[node name="Panel" type="Panel" parent="HBoxContainer" unique_id=709606022]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button2" type="Button" parent="HBoxContainer" unique_id=737166227]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0.3989713, 0.68058884, 0.36473694, 1)
+theme_override_fonts/font = ExtResource("1_0ty1b")
+text = "+"
+
+[node name="Button3" type="Button" parent="HBoxContainer" unique_id=1301519754]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0.91659385, 0.41838914, 0.4423407, 1)
+theme_override_fonts/font = ExtResource("1_0ty1b")
+text = "-"
+
+[node name="TextEdit" parent="." unique_id=1089855954 instance=ExtResource("3_dcior")]
+layout_mode = 2
+
+[connection signal="delete_request" from="." to="." method="Destruct"]
+[connection signal="resize_request" from="." to="." method="SetSize"]
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="Destruct"]
+[connection signal="pressed" from="HBoxContainer/Button2" to="." method="AddResponse"]
+[connection signal="pressed" from="HBoxContainer/Button3" to="." method="RemoveResponse"]

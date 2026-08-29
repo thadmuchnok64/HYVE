@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://xwljuao1it6j" path="res://Scripts/Data/Dialogue/DialogueNPCStatement.cs" id="1_b437h"]
 [ext_resource type="FontFile" uid="uid://chclopb73t87u" path="res://Materials/Font/PressStart2P-Regular.ttf" id="2_b437h"]
 
+[sub_resource type="Theme" id="Theme_b437h"]
+default_font = ExtResource("2_b437h")
+
 [node name="GraphNode" type="GraphNode" unique_id=376491222 node_paths=PackedStringArray("responseText")]
 anchors_preset = -1
 anchor_right = 0.23900001
@@ -10,8 +13,10 @@ anchor_bottom = 0.2
 offset_right = 0.5999756
 pivot_offset_ratio = Vector2(0.5, 0.5)
 size_flags_horizontal = 3
+theme = SubResource("Theme_b437h")
+theme_override_colors/resizer_color = Color(0.84898514, 0.9146971, 0.59910446, 1)
 resizable = true
-title = "Dialogue Node"
+title = "NPC STATEMENT"
 slot/0/left_enabled = true
 slot/0/left_type = 0
 slot/0/left_color = Color(1, 0.76862746, 0.5137255, 1)
@@ -30,15 +35,6 @@ slot/1/right_type = 0
 slot/1/right_color = Color(1, 1, 1, 1)
 slot/1/right_icon = null
 slot/1/draw_stylebox = true
-slot/2/left_enabled = false
-slot/2/left_type = 0
-slot/2/left_color = Color(1, 1, 1, 1)
-slot/2/left_icon = null
-slot/2/right_enabled = false
-slot/2/right_type = 0
-slot/2/right_color = Color(1, 1, 1, 1)
-slot/2/right_icon = null
-slot/2/draw_stylebox = true
 script = ExtResource("1_b437h")
 responseText = NodePath("TextEdit")
 
@@ -49,15 +45,11 @@ theme_override_colors/font_color = Color(0.91659385, 0.41838914, 0.4423407, 1)
 theme_override_fonts/font = ExtResource("2_b437h")
 text = "delete"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1271356939]
-custom_minimum_size = Vector2(0, 25.235)
-layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("2_b437h")
-text = "NPC Statement"
-
 [node name="TextEdit" type="TextEdit" parent="." unique_id=795241111]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
+size_flags_vertical = 3
+wrap_mode = 1
 
 [connection signal="delete_request" from="." to="." method="Destruct"]
 [connection signal="resize_request" from="." to="." method="SetSize"]

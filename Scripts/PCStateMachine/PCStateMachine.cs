@@ -30,6 +30,7 @@ public partial class PCStateMachine : Entity
 
     [Export] CameraController cam;
 	[Export] Node3D mainCamPoint, inventoryCamPoint;
+	[Export] public Node3D trackingPoint;
 
 
 	[Export] Godot.Collections.Array<GpuParticles3D> slidingParticles;

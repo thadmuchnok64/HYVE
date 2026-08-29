@@ -5,6 +5,8 @@ using System.Linq;
 public partial class DialogueGraphCreator : Control
 {
 	[Export] PackedScene dialogueNode;
+	[Export] PackedScene playerNode;
+
 	[Export] GraphEdit graphEdit;
 	[Export] TextEdit saveText;
 	// Called when the node enters the scene tree for the first time.
@@ -23,6 +25,11 @@ public partial class DialogueGraphCreator : Control
 		graphEdit.AddChild(newNode);
 	}
 
+	public void NewResponse()
+	{
+		var newNode = playerNode.Instantiate();
+		graphEdit.AddChild(newNode);
+	}
 	public void ConnectionRequest(StringName from, int fromPort, StringName to, int toPort)
 	{
 		graphEdit.ConnectNode(from, fromPort, to, toPort);
@@ -54,34 +61,11 @@ public partial class DialogueGraphCreator : Control
 			}
 		}
 
-		/*
-		var scene = new PackedScene();
-		foreach(Node n in graphEdit.GetChildren())
-		{
-			if(n is DialogueNode)
-			{
-				n.Owner = graphEdit;
-				foreach(Node m in n.GetChildren())
-				{
-					m.Owner = graphEdit;
-					m.SceneFilePath = ""; // blocks duplicate childs
-				}
-			}
-		}
-		var res = scene.Pack(graphEdit);
-		if(res == Error.Ok)
-		{
-			ResourceSaver.Save(scene, $"res://Scripts/Data/Dialogue/{saveText.Text}.scn");
-		}
-		*/
+
 	}
 
 	public DA_DialogueNode ParseNode(DialogueNode d)
 	{
-
-        GD.Print("poop");
-
-        GD.Print(d.Name);
 		if (d is DialogueNPCStatement)
 		{
 
@@ -89,21 +73,47 @@ public partial class DialogueGraphCreator : Control
 			//statement.text = d.
 			statement.text = ((DialogueNPCStatement)d).responseText.Text;
 			var connections = graphEdit.GetConnectionListFromNode(d.Name);
-			if (connections.Count > 0) {
-				GD.Print("fuk");
-				GD.Print((StringName)connections[0]["to_node"]);
-                string name = (StringName)connections[0]["to_node"];
-
-				var child = (DialogueNode)graphEdit.GetChildren().Where(n => n is DialogueNPCStatement && n.Name == name).First();
-				if(name != d.Name)
-				statement.nextNode = ParseNode(child);
+			if (connections.Count > 0)
+			{
+				foreach (var c in connections)
+				{
+					string name = (StringName)c["to_node"];
+					if (name != d.Name)
+					{
+						var child = (DialogueNode)graphEdit.GetChildren().Where(n => n is DialogueNode && n.Name == name).First();
+						statement.nextNode = ParseNode(child);
 					}
+				}
+			}
 
 			return statement;
 
 		}
+		else if (d is DialoguePlayerStatement)
+		{
+			DA_DialogueBranch statement = new DA_DialogueBranch();
+			var connections = graphEdit.GetConnectionListFromNode(d.Name);
+			if (connections.Count > 0)
+			{
+				int i = ((DialoguePlayerStatement)d).responses.Count -1;
+				foreach (var c in connections)
+				{
+					string name = (StringName)c["to_node"];
+					if (name != d.Name)
+					{
+						DA_DialogueResponse response = new DA_DialogueResponse();
+						response.text = ((DialoguePlayerStatement)d).responses[i].Text;
+						var child = (DialogueNode)graphEdit.GetChildren().Where(n => n is DialogueNode && n.Name == name).First();
+						response.nextNode = ParseNode(child);
+						statement.responses.Add(response);
+						i--;
+					}
+				}
+			}
+			return statement;
+		}
 
-		return null;
+			return null;
 
 
 	}
