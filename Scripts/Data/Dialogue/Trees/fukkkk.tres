@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="DA_DialogueTree" format=3 uid="uid://c75qforxyirkw"]
+
+[ext_resource type="Script" uid="uid://dqcxnp70j7tlg" path="res://Scripts/Data/Dialogue/DA_DialogueTree.cs" id="1_q5xqi"]
+[ext_resource type="Script" uid="uid://b17g4joiablx4" path="res://Scripts/Data/Dialogue/DA_DialogueNPCStatement.cs" id="2_kba4r"]
+
+[sub_resource type="Resource" id="Resource_q5xqi"]
+script = ExtResource("2_kba4r")
+text = "shittt"
+
+[sub_resource type="Resource" id="Resource_kba4r"]
+script = ExtResource("2_kba4r")
+text = "fuk"
+nextNode = SubResource("Resource_q5xqi")
+
+[resource]
+script = ExtResource("1_q5xqi")
+startingNode = SubResource("Resource_kba4r")

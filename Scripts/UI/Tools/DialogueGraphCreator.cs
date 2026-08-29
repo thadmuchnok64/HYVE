@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Linq;
 
 public partial class DialogueGraphCreator : Control
 {
@@ -77,7 +78,10 @@ public partial class DialogueGraphCreator : Control
 
 	public DA_DialogueNode ParseNode(DialogueNode d)
 	{
-		GD.Print(d.Name);
+
+        GD.Print("poop");
+
+        GD.Print(d.Name);
 		if (d is DialogueNPCStatement)
 		{
 
@@ -88,7 +92,11 @@ public partial class DialogueGraphCreator : Control
 			if (connections.Count > 0) {
 				GD.Print("fuk");
 				GD.Print((StringName)connections[0]["to_node"]);
-				statement.nextNode = ParseNode((DialogueNode)d.GetParent().FindChild((StringName)connections[0]["to_node"]));
+                string name = (StringName)connections[0]["to_node"];
+
+				var child = (DialogueNode)graphEdit.GetChildren().Where(n => n is DialogueNPCStatement && n.Name == name).First();
+				if(name != d.Name)
+				statement.nextNode = ParseNode(child);
 					}
 
 			return statement;
