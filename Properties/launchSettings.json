@@ -8,10 +8,10 @@
 	  "workingDirectory": ".",
 	  "nativeDebugging": true
 	},
-	"Godot Debug CyberSpace": {
+	"Godot Debug Control": {
 	  "commandName": "Executable",
 	  "executablePath": "C:/Users/Thad/Desktop/Godot_v4.6.1-stable_mono_win64/Godot_v4.6.1-stable_mono_win64/Godot_v4.6.1-stable_mono_win64.exe",
-	  "commandLineArgs": "--upwards ./Prefab Nodes/Level/cyber_space.tscn --verbose",
+	  "commandLineArgs": "--upwards ./Prefab Nodes/DialogueScenes/TestDialogue.tscn --verbose",
 	  "workingDirectory": ".",
 	  "nativeDebugging": true
 	}
