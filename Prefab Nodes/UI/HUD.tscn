@@ -10,7 +10,9 @@
 [ext_resource type="Script" uid="uid://dvtoai47x8tv5" path="res://Scripts/UI/EquipmentScreen.cs" id="6_s8js7"]
 [ext_resource type="PackedScene" uid="uid://c5njx8bc4ou8o" path="res://Prefab Nodes/UI/dialogue_container.tscn" id="6_vttpb"]
 [ext_resource type="Script" uid="uid://c0vx601tbwyfb" path="res://Scripts/UI/DialogueState.cs" id="6_wtek5"]
+[ext_resource type="AudioStream" uid="uid://swpa54oqtrcb" path="res://Sound/SFX/UISounds/Bubble.wav" id="8_2iunn"]
 [ext_resource type="Script" uid="uid://dquqccdjlrf80" path="res://Scripts/UI/LoreMenu.cs" id="8_4stpt"]
+[ext_resource type="AudioStream" uid="uid://b6fryowtt8wix" path="res://Sound/SFX/UISounds/Extend.wav" id="9_0y4yj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_07sgc"]
 content_margin_left = 0.0
@@ -788,12 +790,16 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_07sgc")
 script = ExtResource("6_wtek5")
 dialogueBubble = ExtResource("6_vttpb")
 dialogueContainer = NodePath("VBoxContainer")
+bubbleInSFX = ExtResource("8_2iunn")
+extendSFX = ExtResource("9_0y4yj")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="DialogueManager" unique_id=1951262533]
 layout_mode = 0

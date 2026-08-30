@@ -201,6 +201,12 @@ public partial class PCStateMachine : Entity
 		meshRoot.Rotation = new Vector3(0, meshRoot.Rotation.Y, 0);
 	}
 
+	public void MeshLookAt(Vector3 globalPosTarget)
+	{
+		meshRoot.LookAt(globalPosTarget, Vector3.Up);
+		meshRoot.Rotation = new Vector3(0, meshRoot.Rotation.Y + MathF.PI, 0);
+	}
+
 	public InteractableObject TryInteraction()
 	{
 		if (CanInteract()) {
@@ -301,10 +307,6 @@ public partial class PCStateMachine : Entity
 	}
 	*/
 
-	public void PlaySound(int index)
-	{
-        SoundManager.Instance.RequesetSFXSoundAtLocation(sfx[index], GlobalPosition);
-	}
 
 	#region Anim Events
 
@@ -316,4 +318,16 @@ public partial class PCStateMachine : Entity
 
 	#endregion
 
+	#region Helper Functions
+	public void SnapPlayerToPosition(Vector3 globalPos)
+	{
+		cb.GlobalPosition = globalPos;
+	}
+
+	public void PlaySound(int index)
+	{
+		SoundManager.Instance.RequesetSFXSoundAtLocation(sfx[index], GlobalPosition);
+	}
+
+	#endregion
 }

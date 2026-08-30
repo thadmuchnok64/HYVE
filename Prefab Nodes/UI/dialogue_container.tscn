@@ -65,10 +65,10 @@ tracks/2/path = NodePath("Panel:self_modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.23333335),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.101960786, 0.101960786, 0.101960786, 0.6)]
+"values": [Color(0.101960786, 0.101960786, 0.101960786, 0.6), Color(0.11811491, 0.13053408, 0.1616663, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -187,7 +187,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.16666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.101960786, 0.101960786, 0.101960786, 0.6), Color(0.31048208, 0.4440521, 0.62833047, 0.6)]
+"values": [Color(0.11764706, 0.12941177, 0.16078432, 1), Color(0.31048208, 0.4440521, 0.62833047, 0.6)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -239,7 +239,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.20000002),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.30980393, 0.44313726, 0.627451, 0.6), Color(0.101960786, 0.101960786, 0.101960786, 0.6)]
+"values": [Color(0.30980393, 0.44313726, 0.627451, 0.6), Color(0.11764706, 0.12941177, 0.16078432, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false

@@ -162,6 +162,11 @@ public partial class HUDManager : Control
 		interactShowing = show;
 	}
 
+	public void PlaySound(AudioStream sample)
+	{
+		aud.Stream = sample;
+		aud.Play();
+	}
 
             #region Bars
             public void SetStamina(float current, float max)

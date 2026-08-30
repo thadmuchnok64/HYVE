@@ -12,6 +12,9 @@ public partial class DialogueState : UIState
 	PCStateMachine pc;
 	[Export] PackedScene dialogueBubble;
 	[Export] Control dialogueContainer;
+
+	[Export] AudioStream bubbleInSFX;
+	[Export] AudioStream extendSFX;
 	public override UIState Enter()
 	{
 		base.Enter();
@@ -57,7 +60,7 @@ public partial class DialogueState : UIState
 		dialogueContainer.AddChild(bubble);
 		((DialogueContainer)bubble).Populate(statement.text);
 		dialogueContainer.Position = GameMaster.Instance.mainCamRef.UnprojectPosition(npcPivot.GlobalPosition) - (dialogueContainer.Size / 2f);// - new Vector2(0, trackerOffset);
-
+		HUDManager.instance.PlaySound(bubbleInSFX);
 	}
 
 	public void SetupBranch(DA_DialogueBranch branch)
@@ -72,6 +75,7 @@ public partial class DialogueState : UIState
 		}
 		((DialogueContainer)dialogueContainer.GetChild(0)).Select();
 		dialogueContainer.Position = (GameMaster.Instance.mainCamRef.UnprojectPosition(pc.trackingPoint.GlobalPosition)) - (dialogueContainer.Size / 2f);// - new Vector2(0, trackerOffset);
+		HUDManager.instance.PlaySound(extendSFX);
 
 	}
 
