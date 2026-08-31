@@ -1,0 +1,19 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://cg3iy1ysg7fw4"]
+
+[ext_resource type="AudioStream" uid="uid://brcxpm1e8s0c1" path="res://Sound/SFX/CharacterSFX/Alice/AliceVocal1.wav" id="1_i4k7k"]
+[ext_resource type="AudioStream" uid="uid://csjmfux3uj4ks" path="res://Sound/SFX/CharacterSFX/Alice/AliceVocal2.wav" id="2_l34y6"]
+[ext_resource type="AudioStream" uid="uid://dr8fbf8g8tp6y" path="res://Sound/SFX/CharacterSFX/Alice/AliceVocal3.wav" id="3_nnq7d"]
+[ext_resource type="AudioStream" uid="uid://cn2k02pr33m7m" path="res://Sound/SFX/CharacterSFX/Alice/AliceVocal4.wav" id="4_nux3a"]
+[ext_resource type="AudioStream" uid="uid://cuwloy6pxw485" path="res://Sound/SFX/CharacterSFX/Alice/AliceVocal5.wav" id="5_fp2h2"]
+[ext_resource type="AudioStream" uid="uid://sysvhf60dpo7" path="res://Sound/SFX/CharacterSFX/Alice/AliceVocal6.wav" id="6_x7qtg"]
+
+[resource]
+random_pitch = 1.0594631
+random_volume_offset_db = 0.5
+streams_count = 6
+stream_0/stream = ExtResource("1_i4k7k")
+stream_1/stream = ExtResource("2_l34y6")
+stream_2/stream = ExtResource("3_nnq7d")
+stream_3/stream = ExtResource("4_nux3a")
+stream_4/stream = ExtResource("5_fp2h2")
+stream_5/stream = ExtResource("6_x7qtg")

@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dujk2c1ecb0p5"]
+
+[ext_resource type="Shader" uid="uid://c5hq3mrdat75f" path="res://Materials/Shaders/UIShaders/ContainerNoise.tres" id="1_sh3dl"]
+
+[resource]
+shader = ExtResource("1_sh3dl")

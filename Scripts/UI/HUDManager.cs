@@ -17,6 +17,8 @@ public partial class HUDManager : Control
 	[Export] TextureProgressBar healthBar;
 	[Export] TextureProgressBar posBar;
 	[Export] AudioStream inventoryInSFX, inventoryOutSFX;
+	[Export] AudioStream navSFX;
+	[Export] AudioStream uiConfirmSFX;
 	[Export] EquipmentScreen equipmentScreen;
 	[Export] DialogueState dialogueScreen;
 	[Export] LoreMenu loreMenu;
@@ -162,14 +164,35 @@ public partial class HUDManager : Control
 		interactShowing = show;
 	}
 
+	public void ToggleDialogueBranch(bool show)
+	{
+		if(show)
+			anim.Set("parameters/Main/Branch/transition_request", "in");
+		else
+			anim.Set("parameters/Main/Branch/transition_request", "out");
+
+
+	}
 	public void PlaySound(AudioStream sample)
 	{
 		aud.Stream = sample;
 		aud.Play();
 	}
 
-            #region Bars
-            public void SetStamina(float current, float max)
+	public void NavigationSound()
+	{
+		aud.Stream = navSFX;
+		aud.Play();
+	}
+
+	public void ConfirmSound()
+	{
+		aud.Stream = uiConfirmSFX;
+		aud.Play();
+	}
+
+	#region Bars
+	public void SetStamina(float current, float max)
 	{
 		staminaBar.MaxValue = max;
 		staminaBar.Value = current;

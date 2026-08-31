@@ -2,6 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://wuq1cy3olt2k" path="res://Materials/Font/Dongle-Regular.ttf" id="1_xtupr"]
 [ext_resource type="Script" uid="uid://cb7q55yeydgd5" path="res://Scripts/Data/Dialogue/DialogueContainer.cs" id="1_y77td"]
+[ext_resource type="Material" uid="uid://dujk2c1ecb0p5" path="res://Materials/Shaders/UIShaders/ContainerNoiseMat.tres" id="2_pb7y6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_07sgc"]
 content_margin_left = 0.0
@@ -187,7 +188,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.16666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.11764706, 0.12941177, 0.16078432, 1), Color(0.31048208, 0.4440521, 0.62833047, 0.6)]
+"values": [Color(0.11764706, 0.12941177, 0.16078432, 1), Color(0.69826585, 0.06862322, 0.2351079, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -239,7 +240,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.20000002),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.30980393, 0.44313726, 0.627451, 0.6), Color(0.11764706, 0.12941177, 0.16078432, 1)]
+"values": [Color(0.69803923, 0.06666667, 0.23529412, 1), Color(0.11764706, 0.12941177, 0.16078432, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -263,13 +264,15 @@ _data = {
 &"Unselect": SubResource("Animation_k54rx")
 }
 
-[node name="DialogueContainer" type="Panel" unique_id=1216362927 node_paths=PackedStringArray("text", "anim")]
+[node name="DialogueContainer" type="PanelContainer" unique_id=522050606 node_paths=PackedStringArray("text", "anim")]
 custom_minimum_size = Vector2(0, 98)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_07sgc")
 script = ExtResource("1_y77td")
 text = NodePath("Panel/RichTextLabel")
@@ -277,10 +280,8 @@ anim = NodePath("AnimationPlayer")
 
 [node name="Panel" type="PanelContainer" parent="." unique_id=327449100]
 self_modulate = Color(0.101960786, 0.101960786, 0.101960786, 0.6)
-layout_mode = 0
-offset_right = 461.5802
-offset_bottom = 98.0
-pivot_offset_ratio = Vector2(0.5, 0.5)
+material = ExtResource("2_pb7y6")
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vttpb")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=1158580497]

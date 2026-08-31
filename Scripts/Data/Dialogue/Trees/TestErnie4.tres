@@ -1,0 +1,117 @@
+[gd_resource type="Resource" script_class="DA_DialogueTree" format=3 uid="uid://70xn8ftpppli"]
+
+[ext_resource type="Script" uid="uid://dqcxnp70j7tlg" path="res://Scripts/Data/Dialogue/DA_DialogueTree.cs" id="1_18us0"]
+[ext_resource type="Script" uid="uid://bk5wmhn1jlwxv" path="res://Scripts/Data/Dialogue/DA_DialogueResponse.cs" id="2_1uafb"]
+[ext_resource type="Script" uid="uid://b17g4joiablx4" path="res://Scripts/Data/Dialogue/DA_DialogueNPCStatement.cs" id="3_8nx1h"]
+[ext_resource type="Script" uid="uid://ccvu56o3xnrqx" path="res://Scripts/Data/Dialogue/DA_DialogueBranch.cs" id="4_4llv2"]
+
+[sub_resource type="Resource" id="Resource_18us0"]
+script = ExtResource("3_8nx1h")
+text = "And don't worry about me. I'm perfectly safe in here."
+
+[sub_resource type="Resource" id="Resource_1uafb"]
+script = ExtResource("3_8nx1h")
+text = "Yes ma'am. I'm here to help you with the computers."
+nextNode = SubResource("Resource_18us0")
+
+[sub_resource type="Resource" id="Resource_8nx1h"]
+script = ExtResource("2_1uafb")
+text = "Wait... are you on the clock right now?"
+nextNode = SubResource("Resource_1uafb")
+
+[sub_resource type="Resource" id="Resource_4llv2"]
+script = ExtResource("4_4llv2")
+responses = Array[ExtResource("2_1uafb")]([SubResource("Resource_8nx1h")])
+
+[sub_resource type="Resource" id="Resource_8dpju"]
+script = ExtResource("2_1uafb")
+text = "You're oddly calm about this."
+nextNode = SubResource("Resource_4llv2")
+
+[sub_resource type="Resource" id="Resource_x8dpb"]
+script = ExtResource("4_4llv2")
+responses = Array[ExtResource("2_1uafb")]([SubResource("Resource_8dpju")])
+
+[sub_resource type="Resource" id="Resource_pnv0v"]
+script = ExtResource("3_8nx1h")
+text = "I'm sure they're just in another exhibit."
+nextNode = SubResource("Resource_x8dpb")
+
+[sub_resource type="Resource" id="Resource_aqng8"]
+script = ExtResource("3_8nx1h")
+text = "Oh. Don't worry. It's a big musuem."
+nextNode = SubResource("Resource_pnv0v")
+
+[sub_resource type="Resource" id="Resource_73hb2"]
+script = ExtResource("2_1uafb")
+text = "What? No! I need help finding my friends!"
+nextNode = SubResource("Resource_aqng8")
+
+[sub_resource type="Resource" id="Resource_ym3wc"]
+script = ExtResource("3_8nx1h")
+text = "And don't worry about me. I'm perfectly safe in here."
+
+[sub_resource type="Resource" id="Resource_wi7iu"]
+script = ExtResource("3_8nx1h")
+text = "Yes ma'am. I'm here to help you with the computers."
+nextNode = SubResource("Resource_ym3wc")
+
+[sub_resource type="Resource" id="Resource_ibfuy"]
+script = ExtResource("2_1uafb")
+text = "Wait... are you on the clock right now?"
+nextNode = SubResource("Resource_wi7iu")
+
+[sub_resource type="Resource" id="Resource_ukrlf"]
+script = ExtResource("4_4llv2")
+responses = Array[ExtResource("2_1uafb")]([SubResource("Resource_ibfuy")])
+
+[sub_resource type="Resource" id="Resource_wpvmy"]
+script = ExtResource("2_1uafb")
+text = "Sorry I didnt mean it."
+nextNode = SubResource("Resource_ukrlf")
+
+[sub_resource type="Resource" id="Resource_majmi"]
+script = ExtResource("4_4llv2")
+responses = Array[ExtResource("2_1uafb")]([SubResource("Resource_wpvmy")])
+
+[sub_resource type="Resource" id="Resource_m55vv"]
+script = ExtResource("3_8nx1h")
+text = "I'm just trying to help."
+nextNode = SubResource("Resource_majmi")
+
+[sub_resource type="Resource" id="Resource_dm4on"]
+script = ExtResource("3_8nx1h")
+text = "Ma'am there's no need to get frustrated."
+nextNode = SubResource("Resource_m55vv")
+
+[sub_resource type="Resource" id="Resource_yr8q4"]
+script = ExtResource("2_1uafb")
+text = "Jesus ch- Yes. I've tried that."
+nextNode = SubResource("Resource_dm4on")
+
+[sub_resource type="Resource" id="Resource_kbeuo"]
+script = ExtResource("4_4llv2")
+responses = Array[ExtResource("2_1uafb")]([SubResource("Resource_yr8q4")])
+
+[sub_resource type="Resource" id="Resource_ogaef"]
+script = ExtResource("3_8nx1h")
+text = "Hmm. Have you tried turning the computer on and off?"
+nextNode = SubResource("Resource_kbeuo")
+
+[sub_resource type="Resource" id="Resource_ue128"]
+script = ExtResource("2_1uafb")
+text = "Yeah it's actually kinda difficult."
+nextNode = SubResource("Resource_ogaef")
+
+[sub_resource type="Resource" id="Resource_0dqn6"]
+script = ExtResource("4_4llv2")
+responses = Array[ExtResource("2_1uafb")]([SubResource("Resource_73hb2"), SubResource("Resource_ue128")])
+
+[sub_resource type="Resource" id="Resource_h22il"]
+script = ExtResource("3_8nx1h")
+text = "Oh. Hello! Do you need any help with that game?"
+nextNode = SubResource("Resource_0dqn6")
+
+[resource]
+script = ExtResource("1_18us0")
+startingNode = SubResource("Resource_h22il")

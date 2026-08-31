@@ -8,17 +8,24 @@ public partial class DialogueState : UIState
 	DA_DialogueNode currentNode;
 	int dialogueChoiceIndex = 0;
 	public Node3D npcPivot;
+	[Export] AudioStreamPlayer2D textDialogueAud;
 
 	PCStateMachine pc;
 	[Export] PackedScene dialogueBubble;
 	[Export] Control dialogueContainer;
+	[Export] Control dialoguePivot;
 
 	[Export] AudioStream bubbleInSFX;
 	[Export] AudioStream extendSFX;
+	[Export] AudioStream aliceVocals;
+	[Export] AudioStream ernieVocals; // temporary. Switch this out for whatever the dialogue needs
+
+	bool branchOpen = false;
+
 	public override UIState Enter()
 	{
 		base.Enter();
-		pc = ((PCStateMachine)GameMaster.Instance.GetPlayer().GetChild(0)); // bandaid. clean this up later
+		pc = ((PCStateMachine)GameMaster.Instance.GetPlayer().GetChild(0)); // ugly bandaid. clean this up later maybe
 		InitializeDialogue();
 		return this;
 	}
@@ -41,40 +48,64 @@ public partial class DialogueState : UIState
 
 	public override UIState NavForward()
 	{
+		if (branchOpen)
+		{
+			HUDManager.instance.ConfirmSound();
+		}
 		ProgressDialogue();
 		return null;
 	}
 
-	private void DestroyOldDialogue()
+	private async void DestroyOldDialogue()
 	{
+		foreach (var child in dialogueContainer.GetChildren())
+		{
+			((DialogueContainer)child).FadeOut();
+		}
+
+		await ToSignal(GetTree().CreateTimer(.2f), SceneTreeTimer.SignalName.Timeout);
+
 		foreach (var child in dialogueContainer.GetChildren())
 		{
 			child.QueueFree();
 		}
 	}
 
-	public void SetupNPCDialogue(DA_DialogueNPCStatement statement)
+	public async void SetupNPCDialogue(DA_DialogueNPCStatement statement)
 	{
 		DestroyOldDialogue();
+		await ToSignal(GetTree().CreateTimer(.2f), SceneTreeTimer.SignalName.Timeout);
 		var bubble = dialogueBubble.Instantiate();
 		dialogueContainer.AddChild(bubble);
-		((DialogueContainer)bubble).Populate(statement.text);
-		dialogueContainer.Position = GameMaster.Instance.mainCamRef.UnprojectPosition(npcPivot.GlobalPosition) - (dialogueContainer.Size / 2f);// - new Vector2(0, trackerOffset);
+		((DialogueContainer)bubble).Populate(statement.text, textDialogueAud,ernieVocals);
+		dialoguePivot.Position = GameMaster.Instance.mainCamRef.UnprojectPosition(npcPivot.GlobalPosition) - (dialogueContainer.Size / 2f);// - new Vector2(0, trackerOffset);
 		HUDManager.instance.PlaySound(bubbleInSFX);
 	}
 
-	public void SetupBranch(DA_DialogueBranch branch)
+	public async void SetupBranch(DA_DialogueBranch branch)
 	{
 		dialogueChoiceIndex = 0;
 		DestroyOldDialogue();
+		await ToSignal(GetTree().CreateTimer(.22f), SceneTreeTimer.SignalName.Timeout);
+		DialogueContainer first = null;
 		foreach (var response in branch.responses)
 		{
 			var bubble = dialogueBubble.Instantiate();
 			dialogueContainer.AddChild(bubble);
-			((DialogueContainer)bubble).Populate(response.text);
+			bool multi = branch.responses.Count > 1;
+			((DialogueContainer)bubble).Populate(response.text,textDialogueAud,aliceVocals,multi);
+			if(first == null)
+			{
+				first = (DialogueContainer)bubble;
+				first.Select();
+			}
 		}
-		((DialogueContainer)dialogueContainer.GetChild(0)).Select();
-		dialogueContainer.Position = (GameMaster.Instance.mainCamRef.UnprojectPosition(pc.trackingPoint.GlobalPosition)) - (dialogueContainer.Size / 2f);// - new Vector2(0, trackerOffset);
+		if (branch.responses.Count > 1)
+		{
+			branchOpen = true;
+			HUDManager.instance.ToggleDialogueBranch(true);
+		}
+		dialoguePivot.Position = (GameMaster.Instance.mainCamRef.UnprojectPosition(pc.trackingPoint.GlobalPosition)) - (dialogueContainer.Size / 2f);// - new Vector2(0, trackerOffset);
 		HUDManager.instance.PlaySound(extendSFX);
 
 	}
@@ -90,6 +121,8 @@ public partial class DialogueState : UIState
 			{
 				((DialogueContainer)dialogueContainer.GetChild(oldIndex)).Unselect();
 				((DialogueContainer)dialogueContainer.GetChild(dialogueChoiceIndex)).Select();
+				HUDManager.instance.NavigationSound();
+
 			}
 
 		}
@@ -107,6 +140,7 @@ public partial class DialogueState : UIState
 			{
 				((DialogueContainer)dialogueContainer.GetChild(oldIndex)).Unselect();
 				((DialogueContainer)dialogueContainer.GetChild(dialogueChoiceIndex)).Select();
+				HUDManager.instance.NavigationSound();
 			}
 		}
 		return base.NavDown();
@@ -121,9 +155,15 @@ public partial class DialogueState : UIState
 			SetupBranch((DA_DialogueBranch)node);
 	}
 
-	public void ProgressDialogue()
+	public async void ProgressDialogue()
 	{
-		if(currentNode is DA_DialogueNPCStatement)
+		if (branchOpen)
+		{
+			branchOpen = false;
+			HUDManager.instance.ToggleDialogueBranch(false);
+			await ToSignal(GetTree().CreateTimer(.2f), SceneTreeTimer.SignalName.Timeout);
+		}
+		if (currentNode is DA_DialogueNPCStatement)
 		{
 			//animate
 			currentNode = ((DA_DialogueNPCStatement)currentNode).nextNode;
@@ -143,6 +183,7 @@ public partial class DialogueState : UIState
 
 		if(currentNode == null)
 		{
+			await ToSignal(GetTree().CreateTimer(.2f), SceneTreeTimer.SignalName.Timeout);
 			ExitDialogue();
 		}
 		else
@@ -155,6 +196,7 @@ public partial class DialogueState : UIState
 	{
 		DestroyOldDialogue();
 		HUDManager.instance.SwitchState(null);
+		pc?.ForceUninteract();
 
 	}
 

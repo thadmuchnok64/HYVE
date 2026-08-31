@@ -7,12 +7,17 @@
 [ext_resource type="AudioStream" uid="uid://c2miio3fhmad0" path="res://Sound/SFX/UISounds/InventoryOut.wav" id="3_s8js7"]
 [ext_resource type="PackedScene" uid="uid://vj8h1ijhircq" path="res://Prefab Nodes/UI/inventory_slot.tscn" id="4_6edwv"]
 [ext_resource type="AudioStream" uid="uid://coabpuspj6thk" path="res://Sound/SFX/UISounds/Interact.wav" id="4_8c5fg"]
+[ext_resource type="AudioStream" uid="uid://cdwm70lsaljy1" path="res://Sound/SFX/UISounds/Navigate.wav" id="4_34c0n"]
+[ext_resource type="AudioStream" uid="uid://cehlx4oy4tdat" path="res://Sound/SFX/UISounds/UIConfirm.wav" id="5_3x3ay"]
 [ext_resource type="Script" uid="uid://dvtoai47x8tv5" path="res://Scripts/UI/EquipmentScreen.cs" id="6_s8js7"]
 [ext_resource type="PackedScene" uid="uid://c5njx8bc4ou8o" path="res://Prefab Nodes/UI/dialogue_container.tscn" id="6_vttpb"]
 [ext_resource type="Script" uid="uid://c0vx601tbwyfb" path="res://Scripts/UI/DialogueState.cs" id="6_wtek5"]
 [ext_resource type="AudioStream" uid="uid://swpa54oqtrcb" path="res://Sound/SFX/UISounds/Bubble.wav" id="8_2iunn"]
 [ext_resource type="Script" uid="uid://dquqccdjlrf80" path="res://Scripts/UI/LoreMenu.cs" id="8_4stpt"]
 [ext_resource type="AudioStream" uid="uid://b6fryowtt8wix" path="res://Sound/SFX/UISounds/Extend.wav" id="9_0y4yj"]
+[ext_resource type="AudioStream" uid="uid://cg3iy1ysg7fw4" path="res://Sound/SFX/CharacterSFX/Alice/AliceVoice.tres" id="10_0y4yj"]
+[ext_resource type="AudioStream" uid="uid://cjhs0ktlvenbd" path="res://Sound/SFX/CharacterSFX/Ernie/ErnieVoice.tres" id="11_jeds5"]
+[ext_resource type="Material" uid="uid://dujk2c1ecb0p5" path="res://Materials/Shaders/UIShaders/ContainerNoiseMat.tres" id="12_ioirw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_07sgc"]
 content_margin_left = 0.0
@@ -32,6 +37,29 @@ content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
 bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jeds5"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_34c0n"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
@@ -121,6 +149,110 @@ bg_color = Color(0.06666667, 0.06666667, 0.06666667, 1)
 border_width_top = 2
 border_color = Color(1, 1, 1, 0.75)
 corner_detail = 1
+
+[sub_resource type="Animation" id="Animation_34c0n"]
+resource_name = "DialogueBranchClose"
+length = 0.13333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DialogueManager/PanelContainer:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DialogueManager/PanelContainer/VBoxContainer/MarginContainer3:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.099999994),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DialogueManager/PanelContainer/VBoxContainer/MarginContainer2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.099999994),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DialogueManager/PanelContainer:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_ioirw"]
+resource_name = "DialogueBranchOpen"
+length = 0.13333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DialogueManager/PanelContainer:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10000001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DialogueManager/PanelContainer/VBoxContainer/MarginContainer3:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.10000001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DialogueManager/PanelContainer/VBoxContainer/MarginContainer2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.10000001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DialogueManager/PanelContainer:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.10000001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1.1), Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_1iqsm"]
 resource_name = "DialogueIn"
@@ -522,6 +654,54 @@ tracks/12/keys = {
 "update": 0,
 "values": [Vector2(0.8, 0.8)]
 }
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("DialogueManager/PanelContainer:self_modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("DialogueManager/PanelContainer/VBoxContainer/MarginContainer3:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("DialogueManager/PanelContainer/VBoxContainer/MarginContainer2:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("DialogueManager/PanelContainer:scale")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_6edwv"]
 resource_name = "TrackingReticleIn"
@@ -565,6 +745,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dpc2c"]
 _data = {
+&"DialogueBranchClose": SubResource("Animation_34c0n"),
+&"DialogueBranchOpen": SubResource("Animation_ioirw"),
 &"DialogueIn": SubResource("Animation_1iqsm"),
 &"InteractTextIn": SubResource("Animation_vttpb"),
 &"InteractTextOut": SubResource("Animation_wtek5"),
@@ -584,7 +766,15 @@ _data = {
 
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_vttpb"]
 
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_ioirw"]
+
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_lbk5n"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ioirw"]
+animation = &"DialogueBranchClose"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_34c0n"]
+animation = &"DialogueBranchOpen"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_645e3"]
 animation = &"TrackingReticleIn"
@@ -614,6 +804,16 @@ animation = &"InteractTextOut"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2pel7"]
 animation = &"DialogueIn"
 play_mode = 1
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_3x3ay"]
+input_0/name = "in"
+input_0/auto_advance = false
+input_0/break_loop_at_end = false
+input_0/reset = true
+input_1/name = "out"
+input_1/auto_advance = false
+input_1/break_loop_at_end = false
+input_1/reset = true
 
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_07sgc"]
 input_0/name = "in"
@@ -674,8 +874,8 @@ input_1/break_loop_at_end = false
 input_1/reset = true
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_2pel7"]
-graph_offset = Vector2(-270.65314, 260.23758)
-nodes/output/position = Vector2(1106.6666, 640)
+graph_offset = Vector2(-353.2451, 1509.3696)
+nodes/output/position = Vector2(1266.6666, 866.6667)
 nodes/DialogueIn/node = SubResource("AnimationNodeAnimation_07sgc")
 nodes/DialogueIn/position = Vector2(-573.3333, 80)
 nodes/Dialogue/node = SubResource("AnimationNodeTransition_07sgc")
@@ -716,17 +916,25 @@ nodes/Interact/position = Vector2(-26.666666, 1466.6666)
 "nodes/Add2 4/position" = Vector2(893.3333, 213.33333)
 "nodes/Add2 5/node" = SubResource("AnimationNodeAdd2_vttpb")
 "nodes/Add2 5/position" = Vector2(826.6667, 626.6667)
-node_connections = [&"output", 0, &"Add2 5", &"Dialogue", 0, &"DialogueIn", &"Dialogue", 1, &"Animation", &"Add2", 0, &"LockOn", &"Add2", 1, &"Dialogue", &"LockOn", 0, &"Animation 2", &"LockOn", 1, &"Animation 3", &"Inventory", 0, &"Animation 4", &"Inventory", 1, &"Animation 5", &"Add2 2", 0, &"Add2", &"Add2 2", 1, &"Inventory", &"Add2 3", 0, &"Add2 2", &"Add2 3", 1, &"Lore", &"Lore", 0, &"Animation 6", &"Lore", 1, &"Animation 7", &"Interact", 0, &"Animation 8", &"Interact", 1, &"Animation 9", &"Add2 5", 0, &"Add2 3", &"Add2 5", 1, &"Interact"]
+"nodes/Animation 10/node" = SubResource("AnimationNodeAnimation_ioirw")
+"nodes/Animation 10/position" = Vector2(-213.33333, 2053.3333)
+"nodes/Animation 11/node" = SubResource("AnimationNodeAnimation_34c0n")
+"nodes/Animation 11/position" = Vector2(-213.33333, 1880)
+nodes/Branch/node = SubResource("AnimationNodeTransition_3x3ay")
+nodes/Branch/position = Vector2(106.666664, 2013.3334)
+"nodes/Add2 6/node" = SubResource("AnimationNodeAdd2_ioirw")
+"nodes/Add2 6/position" = Vector2(1049.6124, 856.248)
+node_connections = [&"output", 0, &"Add2 6", &"Dialogue", 0, &"DialogueIn", &"Dialogue", 1, &"Animation", &"Add2", 0, &"LockOn", &"Add2", 1, &"Dialogue", &"LockOn", 0, &"Animation 2", &"LockOn", 1, &"Animation 3", &"Inventory", 0, &"Animation 4", &"Inventory", 1, &"Animation 5", &"Add2 2", 0, &"Add2", &"Add2 2", 1, &"Inventory", &"Add2 3", 0, &"Add2 2", &"Add2 3", 1, &"Lore", &"Lore", 0, &"Animation 6", &"Lore", 1, &"Animation 7", &"Interact", 0, &"Animation 8", &"Interact", 1, &"Animation 9", &"Add2 5", 0, &"Add2 3", &"Add2 5", 1, &"Interact", &"Branch", 0, &"Animation 11", &"Branch", 1, &"Animation 10", &"Add2 6", 0, &"Add2 5", &"Add2 6", 1, &"Branch"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6edwv"]
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_645e3"]
 states/Main/node = SubResource("AnimationNodeBlendTree_2pel7")
-states/Main/position = Vector2(418.6667, 91)
+states/Main/position = Vector2(419.33334, 91.22222)
 states/Start/position = Vector2(200, 91)
 transitions = ["Start", "Main", SubResource("AnimationNodeStateMachineTransition_6edwv")]
-graph_offset = Vector2(-308, -72)
+graph_offset = Vector2(31, -5)
 
 [node name="Control" type="Control" unique_id=593094546 node_paths=PackedStringArray("anim", "aud", "dialogueBox", "staminaBar", "healthBar", "posBar", "equipmentScreen", "dialogueScreen", "loreMenu", "interactText", "tracker")]
 layout_mode = 3
@@ -744,6 +952,8 @@ healthBar = NodePath("HPBar")
 posBar = NodePath("PostureBar")
 inventoryInSFX = ExtResource("2_645e3")
 inventoryOutSFX = ExtResource("3_s8js7")
+navSFX = ExtResource("4_34c0n")
+uiConfirmSFX = ExtResource("5_3x3ay")
 equipmentScreen = NodePath("VSplitContainer")
 dialogueScreen = NodePath("DialogueManager")
 loreMenu = NodePath("LorePopup")
@@ -785,7 +995,7 @@ offset_bottom = 40.0
 pivot_offset = Vector2(16, 16)
 texture = ExtResource("2_6edwv")
 
-[node name="DialogueManager" type="Panel" parent="." unique_id=1361374250 node_paths=PackedStringArray("dialogueContainer")]
+[node name="DialogueManager" type="Panel" parent="." unique_id=1361374250 node_paths=PackedStringArray("textDialogueAud", "dialogueContainer", "dialoguePivot")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -796,16 +1006,69 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_07sgc")
 script = ExtResource("6_wtek5")
+textDialogueAud = NodePath("DialogueAudio")
 dialogueBubble = ExtResource("6_vttpb")
-dialogueContainer = NodePath("VBoxContainer")
+dialogueContainer = NodePath("PanelContainer/VBoxContainer/MarginContainer/VBoxContainer")
+dialoguePivot = NodePath("PanelContainer")
 bubbleInSFX = ExtResource("8_2iunn")
 extendSFX = ExtResource("9_0y4yj")
+aliceVocals = ExtResource("10_0y4yj")
+ernieVocals = ExtResource("11_jeds5")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DialogueManager" unique_id=1951262533]
+[node name="PanelContainer" type="PanelContainer" parent="DialogueManager" unique_id=495979309]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_right = 490.0
-offset_bottom = 383.0
-pivot_offset_ratio = Vector2(0, 1)
+offset_left = -597.583
+offset_top = 83.22
+offset_right = -52.583008
+offset_bottom = 151.22
+theme_override_styles/panel = SubResource("StyleBoxFlat_jeds5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogueManager/PanelContainer" unique_id=1042889573]
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="DialogueManager/PanelContainer/VBoxContainer" unique_id=604703794]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 128
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 128
+theme_override_constants/margin_bottom = 6
+
+[node name="Panel" type="Panel" parent="DialogueManager/PanelContainer/VBoxContainer/MarginContainer3" unique_id=216355111]
+self_modulate = Color(0.69803923, 0.06666667, 0.23529412, 1)
+material = ExtResource("12_ioirw")
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_34c0n")
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueManager/PanelContainer/VBoxContainer" unique_id=832940324]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogueManager/PanelContainer/VBoxContainer/MarginContainer" unique_id=1951262533]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="DialogueManager/PanelContainer/VBoxContainer" unique_id=827905996]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 128
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 128
+theme_override_constants/margin_bottom = 18
+
+[node name="Panel" type="Panel" parent="DialogueManager/PanelContainer/VBoxContainer/MarginContainer2" unique_id=1605145987]
+self_modulate = Color(0.69803923, 0.06666667, 0.23529412, 1)
+material = ExtResource("12_ioirw")
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_34c0n")
+
+[node name="DialogueAudio" type="AudioStreamPlayer2D" parent="DialogueManager" unique_id=381211307]
 
 [node name="Container" type="Container" parent="." unique_id=1702806090]
 layout_mode = 1
@@ -1136,6 +1399,10 @@ parameters/Main/Interact/transition_request = ""
 parameters/Main/Interact/current_index = 1
 "parameters/Main/Add2 4/add_amount" = 0.0
 "parameters/Main/Add2 5/add_amount" = 1.0
+parameters/Main/Branch/current_state = "out"
+parameters/Main/Branch/transition_request = ""
+parameters/Main/Branch/current_index = 0
+"parameters/Main/Add2 6/add_amount" = 1.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1852951004]
 bus = &"UI"
