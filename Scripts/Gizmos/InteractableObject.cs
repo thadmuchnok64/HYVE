@@ -3,8 +3,7 @@ using System;
 
 public partial class InteractableObject : Node3D
 {
-
-    [Export] protected string failureMessage;
+	[Export(PropertyHint.MultilineText)] protected string defaultMessage;
 	[Export] public string animationMeta; // used by main character animator
     public bool interactSuccess = false;
 

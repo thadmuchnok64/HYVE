@@ -38,7 +38,7 @@ public partial class Door : InteractableObject
         else
         {
             interactSuccess = false;
-            HUDManager.instance.QueueDialogue(failureMessage);
+            HUDManager.instance.QueueDialogue(defaultMessage);
         }
     }
 

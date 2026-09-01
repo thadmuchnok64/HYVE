@@ -95,6 +95,18 @@ colors = PackedColorArray(0.49560577, 0.2641982, 2.8878452e-07, 1, 0.9381065, 0.
 gradient = SubResource("Gradient_j7cva")
 fill_from = Vector2(1, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3x3ay"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 16
+
 [sub_resource type="Theme" id="Theme_dpc2c"]
 default_font = ExtResource("2_2pel7")
 default_font_size = 37
@@ -260,7 +272,7 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Panel:scale")
+tracks/0/path = NodePath("PanelContainer/Panel:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -272,7 +284,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Panel:modulate")
+tracks/1/path = NodePath("PanelContainer/Panel:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -501,7 +513,7 @@ length = 0.16666667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Panel:scale")
+tracks/0/path = NodePath("PanelContainer/Panel:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -513,7 +525,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Panel:modulate")
+tracks/1/path = NodePath("PanelContainer/Panel:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -946,7 +958,7 @@ grow_vertical = 2
 script = ExtResource("1_07sgc")
 anim = NodePath("AnimationTree")
 aud = NodePath("AudioStreamPlayer2D")
-dialogueBox = NodePath("Panel/RichTextLabel")
+dialogueBox = NodePath("PanelContainer/Panel/MarginContainer/RichTextLabel")
 staminaBar = NodePath("StaminaBar")
 healthBar = NodePath("HPBar")
 posBar = NodePath("PostureBar")
@@ -1117,36 +1129,39 @@ nine_patch_stretch = true
 texture_under = SubResource("GradientTexture2D_6mp8t")
 texture_progress = SubResource("GradientTexture2D_kjdm0")
 
-[node name="Panel" type="Panel" parent="." unique_id=818163467]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1333990671]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.24000001
-anchor_top = 0.768
-anchor_right = 0.762
-anchor_bottom = 1.0
-offset_left = -0.480011
-offset_top = 0.33599854
-offset_right = -6.1035156e-05
-offset_bottom = -44.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset_ratio = Vector2(0.5, 0.5)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=1551213275]
-layout_mode = 1
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 6.0
-offset_top = 4.0
-offset_right = -4.8239746
-offset_bottom = -6.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 242.0
+offset_top = 610.0
+offset_right = -241.0
+offset_bottom = -36.0
+
+[node name="Panel" type="PanelContainer" parent="PanelContainer" unique_id=1403423771]
+self_modulate = Color(0.69803923, 0.06666667, 0.23529412, 1)
+material = ExtResource("12_ioirw")
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3x3ay")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/Panel" unique_id=597359693]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/Panel/MarginContainer" unique_id=1551213275]
+layout_mode = 2
 theme = SubResource("Theme_dpc2c")
-theme_override_colors/default_color = Color(0.36150184, 0.40902737, 0.47500587, 1)
+theme_override_colors/default_color = Color(0.95389456, 0.91058755, 0.9625303, 1)
 theme_override_constants/line_separation = -32
 text = "pingas"
+fit_content = true
+scroll_active = false
 
 [node name="InteractPanel" type="Panel" parent="." unique_id=183540399]
 modulate = Color(1, 1, 1, 0)

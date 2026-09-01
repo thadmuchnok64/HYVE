@@ -67,6 +67,8 @@ public partial class HUDManager : Control
 
 	private void AnimateInDialogue()
 	{
+		if (pendingDialogues.Count <= 0)
+			return;
 		dialogueBox.Text = pendingDialogues.Dequeue();
 		anim.Set("parameters/Main/Dialogue/transition_request", "in");
     }

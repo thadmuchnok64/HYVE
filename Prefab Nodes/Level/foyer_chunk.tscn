@@ -989,7 +989,7 @@ anim = NodePath("AnimationPlayer")
 timeToFreePlayer = 2.8
 prySfx = ExtResource("9_eo7lt")
 pryOpenSfx = ExtResource("10_delvv")
-failureMessage = "The door is stuck and I dont see a handle. Might be able to pry it open with something..."
+defaultMessage = "The door is stuck and there's no handle. Might be able to pry it open with something."
 animationMeta = "pry"
 
 [node name="LeftPivot" type="Node3D" parent="Foyer2/CultureDoors" unique_id=506948067]
