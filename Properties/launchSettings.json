@@ -8,10 +8,10 @@
 	  "workingDirectory": ".",
 	  "nativeDebugging": true
 	},
-	"Godot Debug CellRoom": {
+	"Godot Debug root": {
 	  "commandName": "Executable",
 	  "executablePath": "C:/Users/Thad/Desktop/Godot_v4.6.1-stable_mono_win64/Godot_v4.6.1-stable_mono_win64/Godot_v4.6.1-stable_mono_win64.exe",
-	  "commandLineArgs": "--upwards ./Prefab Nodes/Level/cell_room.tscn --verbose",
+	  "commandLineArgs": "--upwards ./Prefab Nodes/Level/maingame.tscn --verbose",
 	  "workingDirectory": ".",
 	  "nativeDebugging": true
 	}

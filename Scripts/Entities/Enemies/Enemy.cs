@@ -23,7 +23,7 @@ public partial class Enemy : Entity
 	// Called when the node enters the scene tree for the first time
 	// 
 
-	public void SwitchState(EnemyState state)
+	public virtual void SwitchState(EnemyState state)
 	{
 		if (state == null)
 			return;
