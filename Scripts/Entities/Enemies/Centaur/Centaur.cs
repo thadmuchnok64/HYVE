@@ -4,10 +4,23 @@ using System.Diagnostics;
 
 public partial class Centaur : Enemy
 {
+	 
+	[Export] protected Mesh headlessMesh2;
+	[Export] int firstDecapitationThreshhold = 100;
+	bool decapitated = false;
 
-	public override void SwitchState(EnemyState state)
+	public void CheckForPrimaryDecapitation()
 	{
-		base.SwitchState(state);
-		GD.Print(currentState.Name);
+		if (decapitated)
+			return;
+		if(health <= firstDecapitationThreshhold)
+		{
+			var inst = bloodSplat.Instantiate();
+			cb.AddSibling(inst);
+			((Node3D)inst).GlobalPosition = bloodPoint.GlobalPosition;
+			meshInstance.Mesh = headlessMesh2;
+		}
+
 	}
+
 }

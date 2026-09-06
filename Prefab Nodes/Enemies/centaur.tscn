@@ -5,9 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://crjantm3hckse" path="res://Meshes/Characters/Enemies/Centaur/Centaur_1.png" id="3_bu1u3"]
 [ext_resource type="Script" uid="uid://do173n15lvf0a" path="res://Scripts/Entities/Enemies/Centaur/Centaur.cs" id="4_8pvjw"]
 [ext_resource type="Script" uid="uid://dn60qksmgdtgc" path="res://Scripts/Entities/Enemies/IHE_Idle.cs" id="5_h8r3k"]
+[ext_resource type="ArrayMesh" uid="uid://fnauycnxuty7" path="res://Meshes/Characters/Enemies/Centaur/HeadlessCentaur1.tres" id="5_nud7n"]
+[ext_resource type="ArrayMesh" uid="uid://80rpoonhyhyo" path="res://Meshes/Characters/Enemies/Centaur/HeadlessCentaur2.tres" id="6_h8r3k"]
 [ext_resource type="Script" uid="uid://xh1sunvigxw0" path="res://Scripts/Entities/Enemies/IHE_Shamble.cs" id="6_jm8pr"]
+[ext_resource type="PackedScene" uid="uid://crat431nw3eln" path="res://Prefab Nodes/Effects/blood_chunks.tscn" id="7_jm8pr"]
 [ext_resource type="Script" uid="uid://b8snm5xkoqgnw" path="res://Scripts/Entities/Enemies/IHE_Attack.cs" id="7_olo3s"]
-[ext_resource type="Script" uid="uid://cx2mdb18nwimt" path="res://Scripts/Entities/Enemies/IHE_Recoil.cs" id="8_aje4m"]
+[ext_resource type="PackedScene" uid="uid://c2bpajyvfiufj" path="res://Prefab Nodes/Effects/blood_chunks_small.tscn" id="8_olo3s"]
+[ext_resource type="Script" uid="uid://dahtwigdasqk8" path="res://Scripts/Entities/Enemies/Centaur/Centaur_Recoil.cs" id="9_bu1u3"]
 [ext_resource type="Script" uid="uid://b7buriel0y11c" path="res://Scripts/Entities/Enemies/IHE_Death.cs" id="9_wplv4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2kdya"]
@@ -4474,7 +4478,23 @@ nodes/Animation/node = SubResource("AnimationNodeAnimation_vog5u")
 nodes/Animation/position = Vector2(133.33333, 146.66667)
 node_connections = [&"output", 0, &"Animation"]
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h8r3k"]
+animation = &"root|Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jm8pr"]
+animation = &"root|Recoil"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_olo3s"]
+
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_14mvi"]
+graph_offset = Vector2(-429, -53)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_jm8pr")
+nodes/Animation/position = Vector2(-220, 360)
+nodes/strike/node = SubResource("AnimationNodeOneShot_olo3s")
+nodes/strike/position = Vector2(60, 160)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_h8r3k")
+"nodes/Animation 2/position" = Vector2(-200, 100)
+node_connections = [&"output", 0, &"strike", &"strike", 0, &"Animation 2", &"strike", 1, &"Animation"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vog5u"]
 advance_mode = 2
@@ -4550,7 +4570,7 @@ states/moving/position = Vector2(562, 16.0247)
 states/recoil/node = SubResource("AnimationNodeBlendTree_14mvi")
 states/recoil/position = Vector2(430.3333, 192.66667)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_vog5u"), "idle", "moving", SubResource("AnimationNodeStateMachineTransition_jffxs"), "idle", "recoil", SubResource("AnimationNodeStateMachineTransition_rdfjr"), "moving", "recoil", SubResource("AnimationNodeStateMachineTransition_bvgyr"), "attack", "recoil", SubResource("AnimationNodeStateMachineTransition_co4t2"), "recoil", "death", SubResource("AnimationNodeStateMachineTransition_1kpu4"), "idle", "death", SubResource("AnimationNodeStateMachineTransition_5dhka"), "moving", "death", SubResource("AnimationNodeStateMachineTransition_2ynxn"), "attack", "death", SubResource("AnimationNodeStateMachineTransition_1ofh1"), "moving", "idle", SubResource("AnimationNodeStateMachineTransition_lp4e6"), "recoil", "moving", SubResource("AnimationNodeStateMachineTransition_mjo6q"), "recoil", "idle", SubResource("AnimationNodeStateMachineTransition_sfk7y"), "attack", "moving", SubResource("AnimationNodeStateMachineTransition_mno03"), "moving", "attack", SubResource("AnimationNodeStateMachineTransition_674nk")]
-graph_offset = Vector2(175, -11)
+graph_offset = Vector2(54, -134)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2imxq"]
 height = 1.8597412
@@ -5010,9 +5030,13 @@ parameters/conditions/death = false
 parameters/conditions/idle = false
 parameters/conditions/moving = false
 parameters/conditions/recoil = false
+parameters/recoil/strike/active = false
+parameters/recoil/strike/internal_active = false
+parameters/recoil/strike/request = 0
 
 [node name="Enemy" type="Node3D" parent="." unique_id=1652376623 node_paths=PackedStringArray("nav", "cb", "meshRoot", "anim", "startingState", "detectionSphere", "meshInstance", "bloodPoint", "trackingPoint")]
 script = ExtResource("4_8pvjw")
+headlessMesh2 = ExtResource("5_nud7n")
 nav = NodePath("../NavigationAgent3D")
 cb = NodePath("..")
 meshRoot = NodePath("../MeshRoot")
@@ -5020,6 +5044,9 @@ anim = NodePath("../MeshRoot/AnimationTree")
 startingState = NodePath("States/IDLE")
 detectionSphere = NodePath("../Area3D2")
 meshInstance = NodePath("../MeshRoot/root/Skeleton3D/Centaur")
+headlessMesh = ExtResource("6_h8r3k")
+bloodSplat = ExtResource("7_jm8pr")
+bloodSplatSmall = ExtResource("8_olo3s")
 bloodPoint = NodePath("../MeshRoot/root/Skeleton3D/BoneAttachment3D2")
 trackingPoint = NodePath("../MeshRoot/root/Skeleton3D/BoneAttachment3D3/Trackpoint")
 maxHealth = 250
@@ -5061,10 +5088,11 @@ cooldownBetweenAttack = 2.0
 animMetaState = "attack"
 
 [node name="RECOIL" type="Node3D" parent="Enemy/States" unique_id=603272234 node_paths=PackedStringArray("movingState", "deadState")]
-script = ExtResource("8_aje4m")
+script = ExtResource("9_bu1u3")
 movingState = NodePath("../PERSUE")
 deadState = NodePath("../DEATH")
 animMetaState = "recoil"
+animMeta = "strike"
 
 [node name="DEATH" type="Node3D" parent="Enemy/States" unique_id=1992044611]
 script = ExtResource("9_wplv4")
