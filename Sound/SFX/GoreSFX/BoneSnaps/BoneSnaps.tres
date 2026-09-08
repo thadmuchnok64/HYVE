@@ -1,0 +1,13 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://diwpn04cu0y1k"]
+
+[ext_resource type="AudioStream" uid="uid://c7shpi8laq14d" path="res://Sound/SFX/GoreSFX/BoneSnaps/Snap1.wav" id="1_boanr"]
+[ext_resource type="AudioStream" uid="uid://blm58lgnlhwj6" path="res://Sound/SFX/GoreSFX/BoneSnaps/Snap2.wav" id="2_3fvs8"]
+[ext_resource type="AudioStream" uid="uid://cmre28mfd10le" path="res://Sound/SFX/GoreSFX/BoneSnaps/Snap3.wav" id="3_t3o0k"]
+[ext_resource type="AudioStream" uid="uid://bxcdia785nhpj" path="res://Sound/SFX/GoreSFX/BoneSnaps/Snap4.wav" id="4_8xobm"]
+
+[resource]
+streams_count = 4
+stream_0/stream = ExtResource("1_boanr")
+stream_1/stream = ExtResource("2_3fvs8")
+stream_2/stream = ExtResource("3_t3o0k")
+stream_3/stream = ExtResource("4_8xobm")

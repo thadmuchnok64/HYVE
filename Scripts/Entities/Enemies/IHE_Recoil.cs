@@ -3,11 +3,11 @@ using System;
 
 public partial class IHE_Recoil : EnemyState
 {
-	[Export] float recoilTime = .3f;
-	[Export] EnemyState movingState;
-    [Export] EnemyState deadState;
+	[Export] protected float recoilTime = .3f;
+	[Export] protected EnemyState movingState;
+    [Export] protected EnemyState deadState;
 
-    float timer = 0;
+    protected float timer = 0;
 
 	public override EnemyState Enter(Enemy enemy)
 	{

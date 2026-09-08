@@ -941,10 +941,20 @@ light_data = ExtResource("5_8qap1")
 transform = Transform3D(-100, 8.742277e-06, 1.8189894e-12, 8.7422795e-06, 100, 7.549791e-06, 0, 7.5497906e-06, -100, 3.3681607, 7.367433, 24.215435)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="CeilingLight2" unique_id=1769128004]
-transform = Transform3D(0.01, -8.742282e-10, 8.742278e-10, -8.7422813e-10, -4.3711357e-10, 0.01, -8.74228e-10, -0.01, -4.3711373e-10, -0.027901664, -0.012512386, -0.01349242)
+transform = Transform3D(0.01, -8.742282e-10, 8.7422786e-10, -8.742282e-10, -4.3711357e-10, 0.01, -8.74228e-10, -0.01, -4.3711373e-10, -0.00318297, -0.012512378, -0.012719259)
+light_energy = 2.605
+light_indirect_energy = 1.631
 light_bake_mode = 1
-spot_range = 7.2061434
-spot_angle = 58.668793
+spot_range = 11.138937
+spot_angle = 63.347507
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="CeilingLight2" unique_id=893801642]
+transform = Transform3D(0.01, -8.742282e-10, 8.742279e-10, -8.7422825e-10, -4.3711357e-10, 0.01, -8.74228e-10, -0.01, -4.3711373e-10, -0.07818657, -0.0125123635, -0.012719259)
+light_energy = 2.605
+light_indirect_energy = 1.631
+light_bake_mode = 1
+spot_range = 11.138937
+spot_angle = 63.347507
 
 [node name="CeilingLight3" parent="." unique_id=169994049 instance=ExtResource("5_kkshb")]
 transform = Transform3D(100, -8.742274e-06, -8.7422795e-06, 8.742279e-06, 100, 7.549791e-06, 8.742278e-06, -7.5497915e-06, 100, 3.3681607, 7.367433, 26.777708)
