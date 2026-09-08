@@ -52,8 +52,8 @@ public partial class IHE_Idle: EnemyState
 	{
 		float desiredAngle = enem.meshRoot.Basis.Z.SignedAngleTo((GameMaster.Instance.GetPlayer().GlobalPosition.ReplaceY(0) - enem.meshRoot.GlobalPosition.ReplaceY(0)).Normalized(), Vector3.Up);
 		float clampedAngle = Mathf.Clamp(desiredAngle, -(float)delta * maxTurnPerSec * Mathf.Pi, (float)delta * maxTurnPerSec * Mathf.Pi);
-        if (clampedAngle > .05)
             enem.meshRoot.RotateY(clampedAngle);
+
 		return base.PhysicsProcess(delta);
 
 	}
@@ -66,7 +66,7 @@ public partial class IHE_Idle: EnemyState
 			{
 				foreach (IHE_Attack atk in attacks)
 				{
-					if (atk.IsAttackValid())
+					if (atk.IsAttackValid(enem))
 						return atk;
 				}
 			}

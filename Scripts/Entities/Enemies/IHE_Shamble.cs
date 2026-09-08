@@ -63,7 +63,7 @@ public partial class IHE_Shamble : EnemyState
 		{
 			foreach (IHE_Attack atk in attacks)
 			{
-				if (atk.IsAttackValid())
+				if (atk.IsAttackValid(enem))
 					return atk;
 			}
 		}

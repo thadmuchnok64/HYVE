@@ -15,9 +15,12 @@ public partial class IHE_Attack: EnemyState
 	float attackTimer;
 	float cooldownTimer = 0;
 
-	public virtual bool IsAttackValid()
+	public virtual bool IsAttackValid(Enemy enemy)
 	{
-		return cooldownTimer <= 0 && GlobalPosition.DistanceTo(GameMaster.Instance.GetPlayer().GlobalPosition)<attackDistance;
+		if (enemy != null)
+			enem = enemy;
+		var valid = cooldownTimer <= 0 && GlobalPosition.DistanceTo(GameMaster.Instance.GetPlayer().GlobalPosition) < attackDistance;
+		return valid;
 	}
 	public override void _Process(double delta)
 	{
@@ -30,7 +33,7 @@ public partial class IHE_Attack: EnemyState
 		attackTimer -= (float)delta;
 		if (attackTimer <= 0)
 		{
-			if (followUpAttack != null && followUpAttack.IsAttackValid())
+			if (followUpAttack != null && followUpAttack.IsAttackValid(enem))
 				return followUpAttack;
 			else
 				return idleState;

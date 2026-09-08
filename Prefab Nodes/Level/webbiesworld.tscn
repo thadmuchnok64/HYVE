@@ -10,8 +10,17 @@
 [ext_resource type="PackedScene" uid="uid://wplgpqqopawx" path="res://Prefab Nodes/Level/cell_room.tscn" id="8_6upen"]
 
 [sub_resource type="Environment" id="Environment_eh2h0"]
+ssao_enabled = true
+ssao_radius = 1.64
+ssao_intensity = 2.82
+ssao_power = 1.9792619
+ssao_sharpness = 0.0
 sdfgi_enabled = true
 glow_enabled = true
+glow_normalized = true
+glow_intensity = 0.07
+glow_strength = 1.78
+glow_bloom = 0.75
 fog_enabled = true
 fog_light_color = Color(0.27297902, 0.2334632, 0.66977835, 1)
 fog_light_energy = 0.1
@@ -49,6 +58,7 @@ material_override = ExtResource("2_wy5dc")
 environment = SubResource("Environment_eh2h0")
 
 [node name="Foyer2" parent="." index="7" unique_id=1853759377 instance=ExtResource("4_41q34")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0052218437, -0.0082604885, 0.0014009471)
 
 [node name="ScienceHub" parent="." index="8" unique_id=2006222443 instance=ExtResource("4_l6ol3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5211537, -0.99660873, 1.2815322)
