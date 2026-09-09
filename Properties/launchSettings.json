@@ -8,10 +8,10 @@
 	  "workingDirectory": ".",
 	  "nativeDebugging": true
 	},
-	"Godot Debug webbiesworld": {
+	"Godot Debug CultureSection": {
 	  "commandName": "Executable",
 	  "executablePath": "C:/Users/Thad/Desktop/Godot_v4.6.1-stable_mono_win64/Godot_v4.6.1-stable_mono_win64/Godot_v4.6.1-stable_mono_win64.exe",
-	  "commandLineArgs": "--upwards ./Prefab Nodes/Level/webbiesworld.tscn --verbose",
+	  "commandLineArgs": "--upwards ./Prefab Nodes/Level/culture_section.tscn --verbose",
 	  "workingDirectory": ".",
 	  "nativeDebugging": true
 	}
