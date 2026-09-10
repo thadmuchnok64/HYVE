@@ -940,7 +940,7 @@ transform = Transform3D(-4.371139e-08, -0.7485045, 0.6631297, 1, -3.271817e-08, 
 script = ExtResource("8_y8edc")
 note = ExtResource("9_x0owy")
 
-[node name="Crowbar" parent="ScienceHub/Crowbar" index="0" unique_id=1743716423]
+[node name="Crowbar" parent="ScienceHub/Crowbar" index="0" unique_id=1570130808]
 material_override = ExtResource("10_efecf")
 
 [node name="Area3D" type="Area3D" parent="ScienceHub/Crowbar" unique_id=1333049203 node_paths=PackedStringArray("interactable")]
@@ -960,7 +960,7 @@ transform = Transform3D(-4.371139e-08, -0.7485045, 0.6631297, 1, -3.271817e-08, 
 script = ExtResource("8_y8edc")
 note = ExtResource("12_xuvwy")
 
-[node name="Crowbar" parent="ScienceHub/Crowbar2" index="0" unique_id=1743716423]
+[node name="Crowbar" parent="ScienceHub/Crowbar2" index="0" unique_id=1570130808]
 material_override = ExtResource("10_efecf")
 
 [node name="Area3D" type="Area3D" parent="ScienceHub/Crowbar2" unique_id=2070788045 node_paths=PackedStringArray("interactable")]
@@ -980,7 +980,7 @@ transform = Transform3D(-4.371139e-08, -0.7485045, 0.6631297, 1, -3.271817e-08, 
 script = ExtResource("8_y8edc")
 note = ExtResource("13_2a024")
 
-[node name="Crowbar" parent="ScienceHub/Crowbar3" index="0" unique_id=1743716423]
+[node name="Crowbar" parent="ScienceHub/Crowbar3" index="0" unique_id=1570130808]
 material_override = ExtResource("10_efecf")
 
 [node name="Area3D" type="Area3D" parent="ScienceHub/Crowbar3" unique_id=1227128166 node_paths=PackedStringArray("interactable")]

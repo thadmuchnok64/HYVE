@@ -10,6 +10,7 @@ public partial class PC_Sprint : PCState
 	[Export] PCState walkState;
 	[Export] PCState recoilState;
     [Export] PCState attackState;
+	[Export] PCState fallingState;
 	[Export] float attackStaminaCost = 60;
 
 
@@ -52,14 +53,18 @@ public partial class PC_Sprint : PCState
 	public override PCState PhysicsProcess(double delta)
 	{
 		base._PhysicsProcess(delta);
-		/*
+        /*
 		if (cb.Velocity.Y < 0.2f && !cb.IsOnFloor())
 		{
 			return fallState;
 		}
 		*/
-		//movement
-		Vector2 movement = new Vector2(Input.GetAxis("MoveRight", "MoveLeft"), Input.GetAxis("MoveDown", "MoveUp"));
+        //movement
+        if (!cb.IsOnFloor())
+        {
+            return fallingState;
+        }
+        Vector2 movement = new Vector2(Input.GetAxis("MoveRight", "MoveLeft"), Input.GetAxis("MoveDown", "MoveUp"));
 		if (movement.Length() > .1f)
 		{
 			_Move(movement, delta);

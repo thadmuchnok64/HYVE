@@ -14,7 +14,7 @@
 [ext_resource type="ArrayMesh" uid="uid://ce33xkjtt64o0" path="res://Meshes/Levels/ScienceHub/BathroomMeshes/WetFloorSign.tres" id="10_8j8wa"]
 [ext_resource type="Material" uid="uid://cf42ifvr8erwf" path="res://Meshes/Levels/ScienceHub/CommonProps_Screen.tres" id="11_onvgr"]
 [ext_resource type="ArrayMesh" uid="uid://dmk1eumg288x7" path="res://Meshes/Levels/ScienceHub/BathroomMeshes/FakeWindow.tres" id="12_2ufme"]
-[ext_resource type="PackedScene" uid="uid://dxl4e1f080g55" path="res://Prefab Nodes/Decor/fluorescent_lamp.tscn" id="13_d422r"]
+[ext_resource type="PackedScene" uid="uid://dxl4e1f080g55" path="res://Prefab Nodes/Decor/Manufactured/fluorescent_lamp.tscn" id="13_d422r"]
 [ext_resource type="ArrayMesh" uid="uid://cvqohsonvx8a2" path="res://Meshes/Levels/ScienceHub/BathroomMeshes/FluorescentLamp.tres" id="13_qdefa"]
 [ext_resource type="ArrayMesh" uid="uid://qldy0d50c2fl" path="res://Meshes/Levels/ScienceHub/BathroomMeshes/BathroomWestMen.tres" id="15_bc2iw"]
 [ext_resource type="ArrayMesh" uid="uid://bmcgsy0ntrspb" path="res://Meshes/Levels/ScienceHub/BathroomMeshes/PlasticTrashcan.tres" id="16_kbb0o"]
@@ -47,7 +47,7 @@ transform = Transform3D(-4.371139e-08, -0.7485045, 0.6631297, 1, -3.271817e-08, 
 script = ExtResource("3_romi1")
 heldCollectable = ExtResource("4_ml1s4")
 
-[node name="Crowbar" parent="Crowbar" index="0" unique_id=1743716423]
+[node name="Crowbar" parent="Crowbar" index="0" unique_id=1570130808]
 material_override = ExtResource("3_na8v6")
 
 [node name="Area3D" type="Area3D" parent="Crowbar" unique_id=1123787085 node_paths=PackedStringArray("interactable")]

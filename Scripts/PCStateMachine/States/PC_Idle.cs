@@ -12,8 +12,10 @@ public partial class PC_Idle : PCState
 	[Export] PCState interactState;
 	[Export] PCState trackingState;
 	[Export] PCState inventoryState;
+	[Export] PCState fallingState;
 
-	[Export] float attackStaminaCost = 25f;
+
+    [Export] float attackStaminaCost = 25f;
 
 	[Export] float dragForce;
 
@@ -64,6 +66,10 @@ public partial class PC_Idle : PCState
 		}
 		*/
 		//movement
+		if (!cb.IsOnFloor())
+		{
+			return fallingState;
+		}
 		Vector2 movement = new Vector2(Input.GetAxis("MoveLeft", "MoveRight"), Input.GetAxis("MoveUp", "MoveDown"));
 		if (movement.Length() > .1f)
 		{
@@ -124,6 +130,7 @@ public partial class PC_Idle : PCState
 		}
 		return base.Process(delta);
 	}
+	
 
 	public override PCState HitByEnemyEvent()
 	{

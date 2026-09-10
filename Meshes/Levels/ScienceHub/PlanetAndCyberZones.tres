@@ -8,4 +8,6 @@
 render_priority = 0
 shader = ExtResource("1_yyqgw")
 shader_parameter/MainTex2 = ExtResource("3_mlu50")
+shader_parameter/DepthFade = true
 shader_parameter/Emission = ExtResource("2_yyqgw")
+shader_parameter/EmissiveBoost = 2.545

@@ -12,7 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://do1fp0gjlsa7a" path="res://Sound/SFX/GizmoSFX/Prying.wav" id="9_eo7lt"]
 [ext_resource type="AudioStream" uid="uid://bb5iuk3e55xvb" path="res://Sound/SFX/GizmoSFX/CultureDoorPry.wav" id="10_delvv"]
 [ext_resource type="ArrayMesh" uid="uid://d4gax26yxjrgn" path="res://Meshes/Levels/Foyer/RightCultureDoorFoyer.tres" id="10_vywq4"]
-[ext_resource type="PackedScene" uid="uid://ml1x0ebtustx" path="res://Prefab Nodes/Decor/ceiling_light.tscn" id="11_risvt"]
+[ext_resource type="PackedScene" uid="uid://ml1x0ebtustx" path="res://Prefab Nodes/Decor/Manufactured/ceiling_light.tscn" id="11_risvt"]
 [ext_resource type="AudioStream" uid="uid://c22clmf3civ14" path="res://Sound/Ambeince/FoyerAmbience.wav" id="12_2vcjp"]
 [ext_resource type="Script" uid="uid://c6igaenalehqd" path="res://Scripts/Gizmos/GizmoTrigger.cs" id="13_7gl3i"]
 [ext_resource type="Material" uid="uid://d4gxvwk31gh2g" path="res://Materials/Shaders/BaseFoyerCeiling.tres" id="13_delvv"]

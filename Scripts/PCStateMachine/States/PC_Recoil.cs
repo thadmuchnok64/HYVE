@@ -5,6 +5,7 @@ public partial class PC_Recoil : PCState
 {
 
 	[Export] PCState idleState;
+	[Export] PCState fallingState;
 	[Export] float smallLength = .8f;
 	[Export] float bigLength = 1f;
 	[Export] float fallLength = 1.5f;
@@ -30,8 +31,18 @@ public partial class PC_Recoil : PCState
 		return base.Process(delta);
 	}
 
+    public override PCState PhysicsProcess(double delta)
+    {
+        if (!cb.IsOnFloor())
+        {
+            return fallingState;
+        }
+        return base.PhysicsProcess(delta);
 
-	public override PCState Enter()
+    }
+
+
+    public override PCState Enter()
 	{
 		timer = 0;
 

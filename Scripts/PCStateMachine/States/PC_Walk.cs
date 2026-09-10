@@ -13,6 +13,7 @@ public partial class PC_Walk : PCState
     [Export] PCState interactState;
 	[Export] PCState trackingState;
 	[Export] PCState inventoryState;
+	[Export] PCState fallingState;
 
 
 
@@ -72,14 +73,19 @@ public partial class PC_Walk : PCState
 	public override PCState PhysicsProcess(double delta)
 	{
 		base._PhysicsProcess(delta);
-		/*
+        /*
 		if (cb.Velocity.Y < 0.2f && !cb.IsOnFloor())
 		{
 			return fallState;
 		}
 		*/
-		//movement
-		Vector2 movement = new Vector2(Input.GetAxis("MoveRight", "MoveLeft"), Input.GetAxis("MoveDown", "MoveUp"));
+
+        if (!cb.IsOnFloor())
+        {
+            return fallingState;
+        }
+        //movement
+        Vector2 movement = new Vector2(Input.GetAxis("MoveRight", "MoveLeft"), Input.GetAxis("MoveDown", "MoveUp"));
 		if (movement.Length() > .1f)
 		{
 			_Move(movement, delta);

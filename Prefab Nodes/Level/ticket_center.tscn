@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://273r6xirxig2"]
 
 [ext_resource type="PackedScene" uid="uid://vo2aljivvp64" path="res://Meshes/Levels/TicketCenter/TicketCenter.fbx" id="1_p552r"]
-[ext_resource type="PackedScene" uid="uid://ml1x0ebtustx" path="res://Prefab Nodes/Decor/ceiling_light.tscn" id="2_ue2rx"]
+[ext_resource type="PackedScene" uid="uid://ml1x0ebtustx" path="res://Prefab Nodes/Decor/Manufactured/ceiling_light.tscn" id="2_ue2rx"]
+
 
 [node name="TicketCenter" unique_id=598597323 instance=ExtResource("1_p552r")]
 

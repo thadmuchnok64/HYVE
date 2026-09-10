@@ -1,7 +1,10 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://bh7b4ruxx45kj"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bh7b4ruxx45kj"]
 
-[ext_resource type="Texture2D" uid="uid://ckgqpgixqnn2p" path="res://Meshes/Levels/Foyer/culturePropsNew.png" id="1_du5kr"]
+[ext_resource type="Shader" uid="uid://itrnkg3h08cb" path="res://Materials/Shaders/BaseSceneShader.tres" id="1_5u370"]
+[ext_resource type="Texture2D" uid="uid://cb7nwbbparmuo" path="res://Meshes/Levels/CultureSection/CultureProps RGB Alpha.png" id="2_mi43n"]
 
 [resource]
-albedo_texture = ExtResource("1_du5kr")
-emission_enabled = true
+render_priority = 0
+shader = ExtResource("1_5u370")
+shader_parameter/MainTex2 = ExtResource("2_mi43n")
+shader_parameter/DepthFade = true

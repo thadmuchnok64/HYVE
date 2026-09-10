@@ -17,7 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://crfueujujr2vs" path="res://Sound/SFX/GizmoSFX/BloxorRipoff/Strike.wav" id="13_b83ur"]
 [ext_resource type="PackedScene" uid="uid://bx2l71b74rhhu" path="res://Prefab Nodes/Gizmos/SuperBlockMan/bm_level_2.tscn" id="13_cv547"]
 [ext_resource type="Texture2D" uid="uid://xaoo5s0gpg1x" path="res://Textures/SuperBlockMan/SuperBlockManBG.png" id="15_0jfhw"]
-[ext_resource type="PackedScene" uid="uid://dxl4e1f080g55" path="res://Prefab Nodes/Decor/fluorescent_lamp.tscn" id="15_hmif5"]
+[ext_resource type="PackedScene" uid="uid://dxl4e1f080g55" path="res://Prefab Nodes/Decor/Manufactured/fluorescent_lamp.tscn" id="15_hmif5"]
 [ext_resource type="AudioStream" uid="uid://c5pa1y264hqmi" path="res://Sound/SFX/GizmoSFX/BloxorRipoff/Respawn.wav" id="16_pam1m"]
 [ext_resource type="AudioStream" uid="uid://coagxvq6ebrhb" path="res://Sound/SFX/GizmoSFX/BloxorRipoff/Win.wav" id="18_414dc"]
 [ext_resource type="AudioStream" uid="uid://beltfrvjavs1g" path="res://Sound/Ambeince/cyberzone.wav" id="18_2143x"]
@@ -29,6 +29,7 @@
 [ext_resource type="Script" uid="uid://dx8y7glmimc1v" path="res://Scripts/Gizmos/Dialogue/DialogueTrigger.cs" id="26_hqm83"]
 [ext_resource type="Material" uid="uid://c38lev3y670ds" path="res://Meshes/Characters/Ernie/Ernie.tres" id="27_fr7wf"]
 [ext_resource type="Material" uid="uid://bbyjufc1gc2gd" path="res://Meshes/Levels/Foyer/Glass.tres" id="29_efxmc"]
+
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efxmc"]
 albedo_color = Color(0.0027943752, 0.219127, 0.8512977, 1)

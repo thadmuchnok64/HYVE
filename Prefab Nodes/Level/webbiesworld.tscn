@@ -3,11 +3,16 @@
 [ext_resource type="PackedScene" uid="uid://0t8wbl46pinl" path="res://Meshes/Levels/webbiesworld.fbx" id="1_wy5dc"]
 [ext_resource type="Material" uid="uid://bhlxo0yigxwyn" path="res://Materials/Concc.tres" id="2_wy5dc"]
 [ext_resource type="PackedScene" uid="uid://cuget6kdt5gdr" path="res://Prefab Nodes/Level/foyer_chunk.tscn" id="4_41q34"]
+[ext_resource type="PackedScene" uid="uid://c75shw2582cms" path="res://Meshes/Weapons/Crowbar.fbx" id="4_dm0xv"]
 [ext_resource type="PackedScene" uid="uid://bfkneivelesgn" path="res://Prefab Nodes/Level/science_hub.tscn" id="4_l6ol3"]
 [ext_resource type="PackedScene" uid="uid://bax53t8rkxthc" path="res://Prefab Nodes/Level/bathrooms_west.tscn" id="5_l6ol3"]
+[ext_resource type="Script" uid="uid://cfgt0c0c2bq8l" path="res://Scripts/Gizmos/CollectablePickup.cs" id="5_v3qr8"]
+[ext_resource type="Resource" uid="uid://cil3x3kqvjc4i" path="res://Scripts/Data/Collectibles/Crowbar.tres" id="6_a3h5c"]
 [ext_resource type="PackedScene" uid="uid://bf1lryf0pqnq2" path="res://Prefab Nodes/Level/cyber_space.tscn" id="6_qq8me"]
 [ext_resource type="PackedScene" uid="uid://fcuhh2pwxbkh" path="res://Prefab Nodes/Level/culture_section.tscn" id="7_3vkgj"]
+[ext_resource type="Material" uid="uid://bkgehhliamt20" path="res://Meshes/Weapons/Crowbar.tres" id="7_llblj"]
 [ext_resource type="PackedScene" uid="uid://wplgpqqopawx" path="res://Prefab Nodes/Level/cell_room.tscn" id="8_6upen"]
+[ext_resource type="Script" uid="uid://c6igaenalehqd" path="res://Scripts/Gizmos/GizmoTrigger.cs" id="8_knh72"]
 
 [sub_resource type="Environment" id="Environment_eh2h0"]
 ssao_enabled = true
@@ -29,28 +34,31 @@ fog_depth_curve = 1.3195081
 fog_depth_begin = 0.0
 fog_depth_end = 50.0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_12ktk"]
+size = Vector3(1.5529175, 0.97436523, 0.79589844)
+
 [node name="webbiesworld" unique_id=1219178865 instance=ExtResource("1_wy5dc")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Biology Exhibit" parent="." index="0" unique_id=1388957979]
+[node name="Biology Exhibit" parent="." index="0" unique_id=155281634]
 visible = false
 material_override = ExtResource("2_wy5dc")
 
-[node name="DNA Strand" parent="." index="1" unique_id=231693703]
+[node name="DNA Strand" parent="." index="1" unique_id=757926570]
 visible = false
 
-[node name="Entrance" parent="." index="2" unique_id=1727876722]
+[node name="Entrance" parent="." index="2" unique_id=2085643205]
 material_override = ExtResource("2_wy5dc")
 
-[node name="Foyer" parent="." index="3" unique_id=258597294]
+[node name="Foyer" parent="." index="3" unique_id=689052654]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -0.0110349655, 1.9073486e-06, -0.015669823)
 visible = false
 material_override = ExtResource("2_wy5dc")
 
-[node name="Saturn" parent="." index="4" unique_id=1450302877]
+[node name="Saturn" parent="." index="4" unique_id=1107771963]
 visible = false
 
-[node name="Science Area" parent="." index="5" unique_id=1017214395]
+[node name="Science Area" parent="." index="5" unique_id=181230493]
 visible = false
 material_override = ExtResource("2_wy5dc")
 
@@ -59,6 +67,25 @@ environment = SubResource("Environment_eh2h0")
 
 [node name="Foyer2" parent="." index="7" unique_id=1853759377 instance=ExtResource("4_41q34")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0052218437, -0.0082604885, 0.0014009471)
+
+[node name="Crowbar" parent="Foyer2" index="2" unique_id=224241035 instance=ExtResource("4_dm0xv")]
+transform = Transform3D(-4.371139e-08, -0.7485045, 0.6631297, 1, -3.271817e-08, 2.898632e-08, 0, 0.6631297, 0.7485045, 1.3197908, 0.7786859, 2.8698125)
+script = ExtResource("5_v3qr8")
+heldCollectable = ExtResource("6_a3h5c")
+
+[node name="Crowbar" parent="Foyer2/Crowbar" index="0" unique_id=1570130808]
+material_override = ExtResource("7_llblj")
+
+[node name="Area3D" type="Area3D" parent="Foyer2/Crowbar" index="1" unique_id=718429356 node_paths=PackedStringArray("interactable")]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("8_knh72")
+interactable = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Foyer2/Crowbar/Area3D" index="0" unique_id=2029915486]
+transform = Transform3D(1, 8.941059e-13, -4.4719518e-13, 0, 1, 0, 0, 0, 1, -0.33145142, 0.5343056, 1.9073486e-06)
+shape = SubResource("BoxShape3D_12ktk")
+debug_color = Color(0.45031464, 1, 0.48679012, 1)
 
 [node name="ScienceHub" parent="." index="8" unique_id=2006222443 instance=ExtResource("4_l6ol3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5211537, -0.99660873, 1.2815322)
@@ -74,3 +101,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9378429, -0.99660873, 0.79
 
 [node name="CellRoom" parent="." index="12" unique_id=1235085517 instance=ExtResource("8_6upen")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52, -0.975, 1.29)
+
+[editable path="Foyer2/Crowbar"]

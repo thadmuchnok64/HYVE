@@ -1,4 +1,16 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://bfogcyper3t6m"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bfogcyper3t6m"]
+
+[ext_resource type="Shader" uid="uid://itrnkg3h08cb" path="res://Materials/Shaders/BaseSceneShader.tres" id="1_5q7cu"]
+
+[sub_resource type="Gradient" id="Gradient_x4ork"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.19434929, 0.19434926, 0.19434926, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6andr"]
+gradient = SubResource("Gradient_x4ork")
 
 [resource]
-albedo_color = Color(0.1584723, 0.15847233, 0.1584723, 1)
+render_priority = 0
+shader = ExtResource("1_5q7cu")
+shader_parameter/MainTex2 = SubResource("GradientTexture1D_6andr")
+shader_parameter/DepthFade = true

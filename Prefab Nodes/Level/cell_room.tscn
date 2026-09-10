@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://dt44fkolvt4vu" path="res://Meshes/Levels/ScienceHub/Cells/CellRoom.tres" id="1_xt4m7"]
 [ext_resource type="Material" uid="uid://bhot8p24p8ab3" path="res://Meshes/Levels/ScienceHub/Cells/CellOrganelles.tres" id="2_gkck1"]
-[ext_resource type="PackedScene" uid="uid://ml1x0ebtustx" path="res://Prefab Nodes/Decor/ceiling_light.tscn" id="3_gkck1"]
+[ext_resource type="PackedScene" uid="uid://ml1x0ebtustx" path="res://Prefab Nodes/Decor/Manufactured/ceiling_light.tscn" id="3_gkck1"]
 [ext_resource type="LightmapGIData" uid="uid://blfuh5kt3quqr" path="res://Prefab Nodes/Level/GI/cell_room.lmbake" id="4_5whaa"]
 [ext_resource type="PackedScene" uid="uid://bodb77m78ws52" path="res://Prefab Nodes/Gizmos/Interactable_Plaque.tscn" id="4_jpd1b"]
 
