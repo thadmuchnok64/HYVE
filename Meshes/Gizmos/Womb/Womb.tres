@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://c865p2k6255s8"]
+
+[ext_resource type="Shader" uid="uid://itrnkg3h08cb" path="res://Materials/Shaders/BaseSceneShader.tres" id="1_3w3kr"]
+[ext_resource type="Texture2D" uid="uid://br8wlaabxyhxr" path="res://Meshes/Gizmos/Womb/CeilingWomb_Womb_Emissive.1001.png" id="2_axwn7"]
+[ext_resource type="Texture2D" uid="uid://be8baucs13ump" path="res://Meshes/Gizmos/Womb/CeilingWomb_Womb_BaseMap.1001.png" id="3_xpqs0"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_3w3kr")
+shader_parameter/MainTex2 = ExtResource("3_xpqs0")
+shader_parameter/DepthFade = true
+shader_parameter/Emission = ExtResource("2_axwn7")
+shader_parameter/EmissiveBoost = 1.0

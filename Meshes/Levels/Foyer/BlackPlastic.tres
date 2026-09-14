@@ -14,3 +14,4 @@ render_priority = 0
 shader = ExtResource("1_5q7cu")
 shader_parameter/MainTex2 = SubResource("GradientTexture1D_6andr")
 shader_parameter/DepthFade = true
+shader_parameter/EmissiveBoost = 1.0

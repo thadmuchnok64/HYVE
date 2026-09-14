@@ -12,6 +12,8 @@
 [ext_resource type="Material" uid="uid://cw63d7caifjhq" path="res://Meshes/Levels/CultureSection/ArtEntrances.tres" id="8_262kh"]
 [ext_resource type="Shader" uid="uid://itrnkg3h08cb" path="res://Materials/Shaders/BaseSceneShader.tres" id="8_x4ork"]
 [ext_resource type="PackedScene" uid="uid://d2psktshs862r" path="res://Prefab Nodes/Decor/Organic/rock.tscn" id="11_hnv4b"]
+[ext_resource type="PackedScene" uid="uid://nrpla1tycom4" path="res://Prefab Nodes/Enemies/scrawny_grunt.tscn" id="13_6andr"]
+[ext_resource type="PackedScene" uid="uid://cs7tnirfuo0gc" path="res://Prefab Nodes/Enemies/centaur.tscn" id="14_n3680"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_20s0t"]
 resource_name = "CultureProps"
@@ -357,6 +359,7 @@ render_priority = 0
 shader = ExtResource("8_x4ork")
 shader_parameter/MainTex2 = ExtResource("4_j1mw5")
 shader_parameter/DepthFade = true
+shader_parameter/EmissiveBoost = 1.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_28n7p"]
 _surfaces = [{
@@ -1400,11 +1403,12 @@ light_data = ExtResource("5_8qap1")
 transform = Transform3D(-100, 8.742277e-06, 1.8189894e-12, 8.7422795e-06, 100, 7.549791e-06, 0, 7.5497906e-06, -100, 3.3681607, 7.367433, 24.215435)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="CeilingLight2" unique_id=1769128004]
-transform = Transform3D(0.01, -8.742282e-10, 8.7422786e-10, -8.742282e-10, -4.3711357e-10, 0.01, -8.74228e-10, -0.01, -4.3711373e-10, -0.00318297, -0.012512378, -0.012719259)
-light_energy = 2.605
-light_indirect_energy = 0.541
+transform = Transform3D(0.009969049, -9.652396e-10, 0.0007861578, -0.0007861578, -3.6469583e-10, 0.009969049, -9.335812e-10, -0.01, -4.3945042e-10, -0.0031829737, -0.012512371, -0.012719259)
+light_color = Color(0.5890018, 0.7746504, 0.79608923, 1)
+light_energy = 2.942
+light_indirect_energy = 0.625
 light_bake_mode = 1
-spot_range = 11.138937
+spot_range = 21.48
 spot_angle = 63.347507
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="CeilingLight2" unique_id=893801642]
@@ -1762,3 +1766,15 @@ mesh = SubResource("ArrayMesh_x4ork")
 transform = Transform3D(-71.36698, -59.851303, -7.677351e-06, -2.6280127e-06, -1.214711e-05, 93.74345, -51.795013, 82.467545, 1.1669934e-05, 10.58756, 0.9124545, 28.997377)
 material_override = ExtResource("1_mfqci")
 mesh = SubResource("ArrayMesh_n3680")
+
+[node name="ScrawnyGrunt" parent="." unique_id=604358297 instance=ExtResource("13_6andr")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 10.27008, 0.91830385, 25.760052)
+
+[node name="ScrawnyGrunt2" parent="." unique_id=2012719351 instance=ExtResource("13_6andr")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 22.411053, 2.1678715, 24.285582)
+
+[node name="ScrawnyGrunt3" parent="." unique_id=219482229 instance=ExtResource("13_6andr")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 21.664452, 2.1678715, 25.70463)
+
+[node name="Centaur" parent="." unique_id=1848885120 instance=ExtResource("14_n3680")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 21.52564, 2.0395515, 22.44409)

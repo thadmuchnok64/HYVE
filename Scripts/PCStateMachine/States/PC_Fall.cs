@@ -7,6 +7,9 @@ public partial class PC_Fall : PCState
 	[Export] PCState idleState;
 	[Export] PCState walkState;
 	[Export] PCState sprintState;
+	[Export] GpuParticles3D landingParticles;
+
+	[Export] AudioStream landingFX;
 
 	[Export] float maxFallVel = 5f;
 	[Export] Curve velocityFalloff;
@@ -35,7 +38,8 @@ public partial class PC_Fall : PCState
 			cb.Velocity = cb.Velocity.ReplaceY(0);
 			cb.MoveAndSlide();
 			anim.Set($"parameters/conditions/landing", true);
-
+			landingParticles.Emitting = true;
+			SoundManager.Instance.RequesetSFXSoundAtLocation(landingFX, landingParticles.GlobalPosition,.7f);
 			Vector2 movement = new Vector2(Input.GetAxis("MoveLeft", "MoveRight"), Input.GetAxis("MoveUp", "MoveDown"));
 			if (movement.Length() > .1f)
 			{
