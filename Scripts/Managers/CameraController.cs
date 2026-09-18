@@ -9,12 +9,18 @@ public partial class CameraController : Camera3D
 	[Export] float timeToSwitchPos = .3f;
 	[Export] Curve cameraCurve;
 	[Export] Node3D mouseRay;
+	[Export] float typicalFOV = 30;
+	[Export] float trackingFOV = 25f;
 	MouseInteractable selectedMouseObject = null;
 	float timer = 5;
 	Vector3 prevPosition = Vector3.Zero;
 	Quaternion prevRot;
 
 	bool mouseInteracting = false;
+	float targetFOV = 30f;
+	float oldFOV;
+	float fovTimer = 0;
+	[Export] float timeToShiftFov = .3f;
 	public void SetTrackingObject(Node3D newObj) // might change this later to use camera states instead.
 	{
 		prevPosition = GlobalPosition;
@@ -26,6 +32,7 @@ public partial class CameraController : Camera3D
 	public override void _Ready()
 	{
 		base._Ready();
+		targetFOV = typicalFOV;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -40,6 +47,7 @@ public partial class CameraController : Camera3D
 		mouseRay.GlobalPosition = ProjectPosition(GetViewport().GetMousePosition(),.1f);
 		mouseRay.LookAt(ProjectPosition(GetViewport().GetMousePosition(), 1f));
 		MouseUpdate();
+		UpdateFov(delta);
 		base._Process(delta);
     }
 
@@ -82,6 +90,26 @@ public partial class CameraController : Camera3D
 				MousePress();
 			}
 		}
+	}
+
+	private void UpdateFov(double delta)
+	{
+		fovTimer += (float)delta;
+		Fov = Mathf.Lerp(oldFOV, targetFOV, (fovTimer / timeToShiftFov).Clamp01());
+	}
+
+	public void TrackingFOV()
+	{
+		fovTimer = 0;
+		oldFOV = Fov;
+		targetFOV = trackingFOV;
+	}
+
+	public void ResetFOV()
+	{
+		fovTimer = 0;
+		oldFOV = Fov;
+		targetFOV = typicalFOV;
 	}
 
 	private void MousePress()

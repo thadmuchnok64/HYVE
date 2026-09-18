@@ -26,6 +26,7 @@ public partial class HUDManager : Control
 	[Export] AudioStream interactSFX;
 	[Export] float shakeRate = 10;
 	[Export] float shakeLevel = 4;
+	[Export] AudioStream trackOnSFX, trackOffSFX;
 
     [Export] float trackerOffset = 32;
 
@@ -112,9 +113,17 @@ public partial class HUDManager : Control
 	public void ShowTracker(bool showing)
 	{
 		if (showing)
+		{
 			anim.Set("parameters/Main/LockOn/transition_request", "in");
+			aud.Stream = trackOnSFX;
+			aud.Play();
+		}
 		else
+		{
 			anim.Set("parameters/Main/LockOn/transition_request", "out");
+			aud.Stream = trackOffSFX;
+			aud.Play();
+		}
 	}
 
 	public bool ToggleInventory(InventoryManager inventoryToOpen)

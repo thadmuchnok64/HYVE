@@ -12,7 +12,9 @@
 [ext_resource type="Script" uid="uid://dvtoai47x8tv5" path="res://Scripts/UI/EquipmentScreen.cs" id="6_s8js7"]
 [ext_resource type="PackedScene" uid="uid://c5njx8bc4ou8o" path="res://Prefab Nodes/UI/dialogue_container.tscn" id="6_vttpb"]
 [ext_resource type="Script" uid="uid://c0vx601tbwyfb" path="res://Scripts/UI/DialogueState.cs" id="6_wtek5"]
+[ext_resource type="AudioStream" uid="uid://m4lib1go45an" path="res://Sound/SFX/UISounds/TrackOn.wav" id="7_swgnb"]
 [ext_resource type="AudioStream" uid="uid://swpa54oqtrcb" path="res://Sound/SFX/UISounds/Bubble.wav" id="8_2iunn"]
+[ext_resource type="AudioStream" uid="uid://c3o7pcoa1mi62" path="res://Sound/SFX/UISounds/TrackOff.wav" id="8_3gvfd"]
 [ext_resource type="Script" uid="uid://dquqccdjlrf80" path="res://Scripts/UI/LoreMenu.cs" id="8_4stpt"]
 [ext_resource type="AudioStream" uid="uid://b6fryowtt8wix" path="res://Sound/SFX/UISounds/Extend.wav" id="9_0y4yj"]
 [ext_resource type="AudioStream" uid="uid://cg3iy1ysg7fw4" path="res://Sound/SFX/CharacterSFX/Alice/AliceVoice.tres" id="10_0y4yj"]
@@ -971,6 +973,8 @@ dialogueScreen = NodePath("DialogueManager")
 loreMenu = NodePath("LorePopup")
 interactText = NodePath("InteractPanel/RichTextLabel")
 interactSFX = ExtResource("4_8c5fg")
+trackOnSFX = ExtResource("7_swgnb")
+trackOffSFX = ExtResource("8_3gvfd")
 tracker = NodePath("PhyiscalUI/Panel")
 
 [node name="PhyiscalUI" type="Panel" parent="." unique_id=1942192926]

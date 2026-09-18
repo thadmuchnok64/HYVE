@@ -16,6 +16,7 @@ public partial class PCStateMachine : Entity
 	[Export] float maxStamina;
 	[Export] RayCast3D interactionRay;
 	[Export] Area3D lockOnArea;
+	[Export] Node3D lockonCameraPoint;
 
 	[Export] PCState startingState;
 	[Export] public AudioStreamPlayer3D aud;
@@ -41,6 +42,8 @@ public partial class PCStateMachine : Entity
 	float postureTimer = 0;
 	public Node3D trackingObject;
 	public bool tracking = false;
+	private float trackingRotOld = 0;
+	private float trackingRotDelta = 0;
 
 
 	public bool ConsumeStamina(float cost)
@@ -168,7 +171,15 @@ public partial class PCStateMachine : Entity
 		camPoint.RotateY(camDelta.X * camSensitivity * (float)delta);
 		camPivot.RotateZ(camDelta.Y * camSensitivity * (float)delta);
 		camPivot.Rotation = new Vector3(camPivot.Rotation.X, camPivot.Rotation.Y, Mathf.Clamp(camPivot.Rotation.Z, -30f, 30f));
-
+		if (tracking)
+		{
+			//tracking rotation
+			var newAngle = Vector3.Forward.SignedAngleTo(GlobalPosition - trackingObject.GlobalPosition,Vector3.Up);
+			trackingRotDelta = newAngle - trackingRotOld;
+			trackingRotOld = newAngle;
+			if(trackingRotDelta != 0)
+			camPoint.RotateY(trackingRotDelta);
+		}
 	}
 
 	private void InteractUI()
@@ -260,6 +271,7 @@ public partial class PCStateMachine : Entity
 		{
 			tracking = false;
 			HUDManager.instance.ShowTracker(tracking);
+			cam.ResetFOV();
 			return null;
 		}
 		var potentialBodies = lockOnArea.GetOverlappingBodies().ToList();
@@ -267,8 +279,10 @@ public partial class PCStateMachine : Entity
 		if (bodies.Count <= 0)
 			return null;
 		tracking = true;
-		HUDManager.instance.ShowTracker(tracking);
+		cam.TrackingFOV();
 		trackingObject = potentialBodies.MinBy(b => lockOnArea.GlobalPosition.DistanceTo(b.GlobalPosition));
+		trackingRotOld = Vector3.Forward.SignedAngleTo(GlobalPosition - trackingObject.GlobalPosition, Vector3.Up);
+		HUDManager.instance.ShowTracker(tracking);
 		return trackingObject;
 	}
 

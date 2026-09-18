@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://c766sg0pqk4a1"]
+
+[ext_resource type="Shader" uid="uid://itrnkg3h08cb" path="res://Materials/Shaders/BaseSceneShader.tres" id="1_rfbyd"]
+[ext_resource type="Texture2D" uid="uid://cjjhl5n7yxnf0" path="res://Meshes/Levels/TicketCenter/FrontOffice RGB Alpha.png" id="2_kmdky"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_rfbyd")
+shader_parameter/MainTex2 = ExtResource("2_kmdky")
+shader_parameter/DepthFade = true
+shader_parameter/EmissiveBoost = 1.0
