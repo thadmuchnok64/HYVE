@@ -1,0 +1,9 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://dfqg5yfsef188"]
+
+[ext_resource type="AudioStream" uid="uid://dtbqknm2s1h1r" path="res://Sound/SFX/GoreSFX/Spawns/SpawnWomb.wav" id="1_kni6n"]
+
+[resource]
+random_pitch = 1.1892071
+random_volume_offset_db = 2.0
+streams_count = 1
+stream_0/stream = ExtResource("1_kni6n")

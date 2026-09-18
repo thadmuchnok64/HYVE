@@ -61,6 +61,15 @@ public static class StaticHelpers
 
     }
 
+	public static Vector2 RandomVector2D()
+	{
+		Random rand = new Random();
+		var x = (float)(rand.NextDouble() - .5f);
+		var y = (float)(rand.NextDouble() - .5f);
+		return new Vector2(x, y).Normalized();
+
+	}
+
 	public static Vector3 AddSpreadToDirection(this Vector3 vec, float spreadRadians)
 	{
 		Random rand = new Random();

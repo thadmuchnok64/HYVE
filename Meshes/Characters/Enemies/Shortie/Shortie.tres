@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bjrpp831a5ugp"]
+
+[ext_resource type="Texture2D" uid="uid://b0x72870p12ei" path="res://Meshes/Characters/Enemies/Shortie/ShortiesSubstance_Meat_BaseMap.1001.png" id="1_xehjf"]
+[ext_resource type="Texture2D" uid="uid://bipnc6v07rvix" path="res://Meshes/Characters/Enemies/Shortie/ShortiesSubstance_Meat_Emissive.1001.png" id="2_o2uti"]
+
+[resource]
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_xehjf")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 2.0
+emission_operator = 1
+emission_texture = ExtResource("2_o2uti")
