@@ -8,10 +8,13 @@ public partial class ProjectileState : EnemyState
 	[Export] float verticalLaunchVel = 5;
 	[Export] float gravity = 9.8f;
 	[Export] EnemyState landingState;
+	[Export] Node3D meshPivot;
+	[Export] GpuParticles3D launchingParticles;
 
 	public override EnemyState Enter(Enemy enemy)
 	{
 		base.Enter(enemy);
+		launchingParticles.Emitting = true;
 		var hVel = StaticHelpers.RandomVector2D() * horizontalLaunchVel;
 
 		enem.cb.Velocity = new Vector3(hVel.X, verticalLaunchVel, hVel.Y);
@@ -20,7 +23,7 @@ public partial class ProjectileState : EnemyState
 
 	public override EnemyState Process(double delta)
 	{
-		enem.meshRoot.LookAt(enem.cb.GlobalPosition + enem.cb.Velocity);
+		meshPivot.LookAt(enem.cb.GlobalPosition + enem.cb.Velocity);
 		return base.Process(delta);
 	}
 

@@ -3,7 +3,6 @@ using System;
 
 public partial class BloodSplatChunk : RigidBody3D
 {
-	[Export] PackedScene bloodSplatDecal;
 	[Export] BloodDecalType bloodDecalType;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()

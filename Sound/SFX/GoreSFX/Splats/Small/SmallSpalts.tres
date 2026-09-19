@@ -1,0 +1,13 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://36rga01nwrtq"]
+
+[ext_resource type="AudioStream" uid="uid://b7kthr1am2iwv" path="res://Sound/SFX/GoreSFX/Splats/Small/Splat1.wav" id="1_wib3c"]
+[ext_resource type="AudioStream" uid="uid://bu6sq0mmy8vdh" path="res://Sound/SFX/GoreSFX/Splats/Small/Splat2.wav" id="2_evnlj"]
+[ext_resource type="AudioStream" uid="uid://cnnwbg18c4wam" path="res://Sound/SFX/GoreSFX/Splats/Small/Splat3.wav" id="3_silqw"]
+
+[resource]
+random_pitch = 1.122462
+random_volume_offset_db = 2.0
+streams_count = 3
+stream_0/stream = ExtResource("1_wib3c")
+stream_1/stream = ExtResource("2_evnlj")
+stream_2/stream = ExtResource("3_silqw")

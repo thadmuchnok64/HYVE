@@ -10,6 +10,7 @@ public partial class WombSpawn : EnemyState
 	[Export] Node3D spawnParent;
 	[Export] float transitionTime = .3f;
 	[Export] AudioStream spawnSFX;
+	[Export] GpuParticles3D spawnParticles;
 	float timer = 0;
 
 
@@ -32,6 +33,7 @@ public partial class WombSpawn : EnemyState
 	{
 		SoundManager.Instance.RequesetSFXSoundAtLocation(spawnSFX, spawnPoint.GlobalPosition);
 		var newEnemy = enemyToSpawn.Instantiate();
+		spawnParticles.Emitting = true;
 		spawnParent.AddChild(newEnemy);
 		((Node3D)newEnemy).GlobalPosition = spawnPoint.GlobalPosition;
 

@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dpvkewydg2do0" path="res://Scripts/Entities/Enemies/Shortie/WombSpawn.cs" id="4_kf0ri"]
 [ext_resource type="PackedScene" uid="uid://6pj2vispio3l" path="res://Prefab Nodes/Enemies/shortie.tscn" id="5_0tsns"]
 [ext_resource type="AudioStream" uid="uid://dfqg5yfsef188" path="res://Sound/SFX/GoreSFX/Spawns/Spawns.tres" id="6_kf0ri"]
+[ext_resource type="PackedScene" uid="uid://c7va7e74tityp" path="res://Prefab Nodes/Effects/blood_mist_pulse.tscn" id="7_0tsns"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ndi2"]
 resource_name = "Meat"
@@ -211,13 +212,14 @@ script = ExtResource("3_cf8i0")
 spawnState = NodePath("../Spawn")
 animMetaState = "idle"
 
-[node name="Spawn" type="Node3D" parent="States" unique_id=382277969 node_paths=PackedStringArray("spawnPoint", "idleState", "spawnParent")]
+[node name="Spawn" type="Node3D" parent="States" unique_id=382277969 node_paths=PackedStringArray("spawnPoint", "idleState", "spawnParent", "spawnParticles")]
 script = ExtResource("4_kf0ri")
 enemyToSpawn = ExtResource("5_0tsns")
 spawnPoint = NodePath("../../SpawnPoint")
 idleState = NodePath("../Idle")
 spawnParent = NodePath("../../Children")
 spawnSFX = ExtResource("6_kf0ri")
+spawnParticles = NodePath("../../BloodMistPulse")
 animMetaState = "birth"
 
 [node name="SpawnPoint" type="Marker3D" parent="." unique_id=464618213]
@@ -231,3 +233,6 @@ collision_mask = 2
 shape = SubResource("SphereShape3D_cf8i0")
 
 [node name="Children" type="Node3D" parent="." unique_id=1000055851]
+
+[node name="BloodMistPulse" parent="." unique_id=554541527 instance=ExtResource("7_0tsns")]
+transform = Transform3D(1.0000002, 0, 0, 0, -0.9999999, -8.742277e-08, 0, 8.742277e-08, -0.99999994, 0, 0.8701779, 0)

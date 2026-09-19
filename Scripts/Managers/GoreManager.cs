@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 
 public enum GoreType { FLESH, BONE, BRAIN}
-public enum BloodDecalType { SMALL, LARGE, MASSIVE }
+public enum BloodDecalType { SMALL, MEDIUM, LARGE, MASSIVE }
 
 public partial class GoreManager : Node3D
 {
@@ -14,18 +14,20 @@ public partial class GoreManager : Node3D
 	[Export] Godot.Collections.Array<PackedScene> brainPrefabs;
 
 	[Export] int maxSmallBloodDecals = 48;
+	[Export] int maxMediumBloodDecals = 40;
 	[Export] int maxLargeBloodDecals = 32;
 
 	[Export] PackedScene smallBloodDecal;
 	[Export] PackedScene largeBloodDecal;
+	[Export] PackedScene mediumBloodDecal;
 
 	[Export] AudioStream splatSFX;
 
-    List <DecalEffect> smallBloodDecalList,largeBloodDecalList;
+    List <DecalEffect> smallBloodDecalList,largeBloodDecalList, mediumBloodDecalList;
 	[Export] float smallBloodSplatVolume = .5f;
     [Export] float largeBloodSplatVolume = .9f;
 
-    int smallBloodItr, largeBloodItr;
+    int smallBloodItr, largeBloodItr, mediumBloodItr;
 
 	public static GoreManager Instance;
 	// Called when the node enters the scene tree for the first time.
@@ -42,15 +44,25 @@ public partial class GoreManager : Node3D
 
 		smallBloodDecalList = new List<DecalEffect>();
 		largeBloodDecalList = new List<DecalEffect>();
+		mediumBloodDecalList = new List<DecalEffect>();
 
-		for(int i = 0; i < maxSmallBloodDecals; i++)
+		for (int s = 0; s < maxSmallBloodDecals; s++)
 		{
 			var dec = (DecalEffect)smallBloodDecal.Instantiate();
 			AddChild(dec);
 			smallBloodDecalList.Add(dec);
 			dec.Visible = false;
 		}
-        for (int i = 0; i < maxLargeBloodDecals; i++)
+
+		for (int m = 0; m < maxMediumBloodDecals; m++)
+		{
+			var dec = (DecalEffect)mediumBloodDecal.Instantiate();
+			AddChild(dec);
+			mediumBloodDecalList.Add(dec);
+			dec.Visible = false;
+
+		}
+		for (int l = 0; l < maxLargeBloodDecals; l++)
         {
             var dec = (DecalEffect)largeBloodDecal.Instantiate();
             AddChild(dec);
@@ -92,12 +104,14 @@ public partial class GoreManager : Node3D
 
 	public void RequestBloodSplatAtLocation(Vector3 globalPos,BloodDecalType type)
 	{
-		PackedScene dec;
 		switch (type)
 		{
 			case BloodDecalType.SMALL:
                 SmallBlood(globalPos);
                 break;
+			case BloodDecalType.MEDIUM:
+				MediumBlood(globalPos);
+				break;
 			case BloodDecalType.LARGE:
 				LargeBlood(globalPos);
                 break;
@@ -120,11 +134,25 @@ public partial class GoreManager : Node3D
         }
 	}
 
-    public void LargeBlood(Vector3 pos)
+	public void MediumBlood(Vector3 pos)
+	{
+		mediumBloodDecalList[mediumBloodItr].Reset();
+		mediumBloodDecalList[mediumBloodItr].GlobalPosition = pos;
+		mediumBloodDecalList[mediumBloodItr].Visible = true;
+		mediumBloodItr++;
+		SoundManager.Instance.RequesetSFXSoundAtLocation(splatSFX, pos, smallBloodSplatVolume);
+		if (mediumBloodItr >= mediumBloodDecalList.Count)
+		{
+			mediumBloodItr = 0;
+		}
+	}
+
+
+	public void LargeBlood(Vector3 pos)
     {
-        largeBloodDecalList[smallBloodItr].Reset();
-        largeBloodDecalList[smallBloodItr].GlobalPosition = pos;
-        largeBloodDecalList[smallBloodItr].Visible = true;
+        largeBloodDecalList[largeBloodItr].Reset();
+        largeBloodDecalList[largeBloodItr].GlobalPosition = pos;
+        largeBloodDecalList[largeBloodItr].Visible = true;
         largeBloodItr++;
         SoundManager.Instance.RequesetSFXSoundAtLocation(splatSFX, pos, largeBloodSplatVolume);
 
