@@ -64,7 +64,7 @@ public partial class Enemy : Entity
 
 	}
 
-	public void HitEnemyFromDirection(float damage, float postureDamage, SwingDirection dir)
+	public virtual void HitEnemyFromDirection(float damage, float postureDamage, SwingDirection dir)
 	{
 		TakeDamage(damage);
 		TakePostureDamage(postureDamage);

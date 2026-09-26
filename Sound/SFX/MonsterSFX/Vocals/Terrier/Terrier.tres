@@ -1,0 +1,13 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://dmyvrp25ytoiq"]
+
+[ext_resource type="AudioStream" uid="uid://c53kxhw23frvf" path="res://Sound/SFX/MonsterSFX/Vocals/Terrier/terrier1.wav" id="1_gebji"]
+[ext_resource type="AudioStream" uid="uid://uxslgqw2eeur" path="res://Sound/SFX/MonsterSFX/Vocals/Terrier/terrier2.wav" id="2_ef3u4"]
+[ext_resource type="AudioStream" uid="uid://c80mdw7v4x8u1" path="res://Sound/SFX/MonsterSFX/Vocals/Terrier/terrier3.wav" id="3_1fmq3"]
+
+[resource]
+random_pitch = 1.122462
+random_volume_offset_db = 2.0
+streams_count = 3
+stream_0/stream = ExtResource("1_gebji")
+stream_1/stream = ExtResource("2_ef3u4")
+stream_2/stream = ExtResource("3_1fmq3")

@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cnbns2nf5v1r5"
+uid="uid://dfc1r6f4eac63"
 path="res://.godot/imported/ShortieWomb.fbx-70df07fa51e1f94bf9cfbd2c13ed67e6.scn"
 
 [deps]
@@ -37,7 +37,19 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"meshes": {
+"Sphere": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Meshes/Characters/Enemies/Shortie/Anims/shortieWomb.tres",
+"save_to_file/path": "uid://52wqf0n8hh8t"
+}
+}
+}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1

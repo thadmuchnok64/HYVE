@@ -13,8 +13,8 @@ public partial class IHE_Recoil : EnemyState
 	{
 		base.Enter(enemy);
 		timer = 0;
+		if(enem.nav != null)
 		enem.nav.TargetPosition = GameMaster.Instance.GetPlayer().Position;
-		// parameters/recoil/OneShot/request
 		enem.anim.Set($"parameters/{animMetaState}/{animMeta}/request", (int)AnimationNodeOneShot.OneShotRequest.Fire);
 		return null;
 	}
@@ -23,7 +23,10 @@ public partial class IHE_Recoil : EnemyState
 		timer += (float)delta;
 		if (timer>recoilTime)
 		{
-			return movingState;
+			if(enem.alive)
+				return movingState;
+			else
+				return deadState;
 		}
 		return null;
 	}

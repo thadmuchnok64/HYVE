@@ -7,6 +7,7 @@ public partial class WombSpawn : EnemyState
 	[Export] PackedScene enemyToSpawn;
 	[Export] Node3D spawnPoint;
 	[Export] EnemyState idleState;
+	[Export] EnemyState recoilState;
 	[Export] Node3D spawnParent;
 	[Export] float transitionTime = .3f;
 	[Export] AudioStream spawnSFX;
@@ -37,5 +38,10 @@ public partial class WombSpawn : EnemyState
 		spawnParent.AddChild(newEnemy);
 		((Node3D)newEnemy).GlobalPosition = spawnPoint.GlobalPosition;
 
+	}
+
+	public override EnemyState HitEvent()
+	{
+		return recoilState;
 	}
 }

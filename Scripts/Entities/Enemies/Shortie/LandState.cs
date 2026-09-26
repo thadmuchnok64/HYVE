@@ -7,6 +7,7 @@ public partial class LandState : EnemyState
 	[Export] GpuParticles3D launchingParticles;
 	[Export] GpuParticles3D splatParticles;
 	[Export] EnemyState runningState;
+	[Export] EnemyState deadState;
 	[Export] Node3D meshPivot;
 
 	[Export] AudioStream splatSFX;
@@ -30,7 +31,12 @@ public partial class LandState : EnemyState
 	{
 		timer += (float)delta;
 		if (timer > timeToTransition)
-			return runningState;
+		{
+			if(enem.alive)
+				return runningState;
+			else
+				return deadState;
+		}
 		return base.Process(delta);
 	}
 }

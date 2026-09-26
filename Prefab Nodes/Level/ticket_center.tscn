@@ -292,8 +292,15 @@ transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -19.041908, 6.234099, -2.81004)
 
 [node name="OmniLight3D" parent="Entrance/Fluorescent Lamp2" index="0" unique_id=2135986967]
-transform = Transform3D(0.010000001, 0, 0, 0, 0.010000002, -3.330669e-16, 0, 3.330669e-16, 0.010000002, -0.019879863, 3.7252903e-09, -0.02961567)
+transform = Transform3D(0.010000001, 0, 0, 0, 0.010000002, -5.551115e-16, 0, 5.551115e-16, 0.010000002, -0.041155934, -5.5879354e-09, -0.036838442)
 light_energy = 1.2
+omni_range = 7.155
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Entrance/Fluorescent Lamp2" unique_id=812007690]
+transform = Transform3D(0.010000001, 0, 0, 0, 0.010000002, -6.661338e-16, 0, 6.661338e-16, 0.010000002, -0.001214087, 3.7252903e-09, -0.029431697)
+light_color = Color(0.6047947, 0.49247724, 0.2647636, 1)
+light_energy = 2.017
+light_bake_mode = 1
 omni_range = 7.155
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Entrance/Fluorescent Lamp2" unique_id=357293726]
@@ -380,3 +387,4 @@ light_data = ExtResource("5_0vr8b")
 [editable path="Entrance"]
 [editable path="Entrance/Fluorescent Lamp2"]
 [editable path="Entrance/Fluorescent Lamp5"]
+[editable path="Entrance/ShortieWomb"]
