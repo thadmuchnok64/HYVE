@@ -1,0 +1,25 @@
+[gd_resource type="Environment" format=3 uid="uid://msnupmdjwrrn"]
+
+[resource]
+background_mode = 1
+ambient_light_source = 2
+ambient_light_color = Color(0.72479427, 0.9507436, 0.898399, 1)
+ambient_light_energy = 0.0
+ssao_enabled = true
+ssao_radius = 1.64
+ssao_intensity = 2.82
+ssao_power = 1.9792619
+ssao_sharpness = 0.0
+sdfgi_enabled = true
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 0.06
+glow_strength = 1.7
+glow_bloom = 0.75
+fog_enabled = true
+fog_light_color = Color(0.4319616, 0.41336387, 0.89003026, 1)
+fog_light_energy = 0.1
+fog_density = 0.15
+fog_depth_curve = 1.3195081
+fog_depth_begin = 0.0
+fog_depth_end = 50.0

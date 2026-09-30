@@ -1,4 +1,15 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://bkgehhliamt20"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bkgehhliamt20"]
+
+[ext_resource type="Shader" uid="uid://dotqnjoimydtx" path="res://Meshes/Characters/Ray/CharacterShader3.gdshader" id="1_f4jgd"]
+
+[sub_resource type="Gradient" id="Gradient_l1hx2"]
+colors = PackedColorArray(0.16470589, 0.22352941, 0.42352942, 1, 0.09637647, 0.111085035, 0.22695166, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_d5iai"]
+gradient = SubResource("Gradient_l1hx2")
 
 [resource]
-albedo_color = Color(0.045978516, 0.12322719, 0.24362835, 1)
+render_priority = 0
+shader = ExtResource("1_f4jgd")
+shader_parameter/Albedo = SubResource("GradientTexture1D_d5iai")
+shader_parameter/Emissiveness = 0.0

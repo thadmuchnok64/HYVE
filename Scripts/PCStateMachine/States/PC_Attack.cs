@@ -8,11 +8,14 @@ public partial class PC_Attack : PCState
 	[Export] PCState idleState;
 	[Export] PCState attackFollowup;
 	[Export] PCState recoilState;
+	[Export] PCState blockState;
+
 	[Export] float followUpMinTime = -1; // -1 = cant followup
 	[Export] float tempLength = .8f;
-	[Export] float attackStaminaCost = 25f;
+	[Export] public float attackStaminaCost = 25f;
 	[Export] string animMeta2;
 	[Export] AttackType attackType;
+	[Export] bool canSteerDirection = true;
 
 	bool crouching = false;
 	float timer;
@@ -37,15 +40,20 @@ public partial class PC_Attack : PCState
 	{
 		base._PhysicsProcess(delta);
 
-        Vector2 movement = new Vector2(Input.GetAxis("MoveRight", "MoveLeft"), Input.GetAxis("MoveDown", "MoveUp"));
-        if (movement.Length() > .1f)
-        {
-            _Move(movement, delta);
-        }
-        else
-        {
-            _SlowGroundMovement(delta);
-        }
+		Vector2 movement;
+		if(!canSteerDirection)
+		movement = new Vector2(0,1);
+		else
+		movement = new Vector2(Input.GetAxis("MoveRight", "MoveLeft"), Input.GetAxis("MoveDown", "MoveUp"));
+
+		if (movement.Length() > .1f)
+		{
+			_Move(movement, delta);
+		}
+		else
+		{
+			_SlowGroundMovement(delta);
+		}
         //Gravity
         //_ApplyGravity(delta);
 
@@ -76,7 +84,13 @@ public partial class PC_Attack : PCState
 	{
 		timer += (float)delta;
 		if (timer > tempLength)
+		{
+			if (Input.IsActionPressed("Block"))
+			{
+				return blockState;
+			}
 			return idleState;
+		}
 		return base.Process(delta);
 	}
 
@@ -89,13 +103,14 @@ public partial class PC_Attack : PCState
 			cb.Velocity = new Vector3(0, cb.Velocity.Y, 0);
 			return;
 		}
+
 		cb.Velocity = cb.Velocity.Normalized() * newLen;
 	}
 
 	public override PCState Enter()
 	{
 		timer = 0;
-		stateMachine.currentWeapon.SetAttackType(attackType);
+		stateMachine.currentWeapon.SetCurrentHitbox(attackType);
 		anim.Set($"parameters/{animMetaState}/Transition/transition_request", animMeta);
 		if (animMeta2 != null)
 		{

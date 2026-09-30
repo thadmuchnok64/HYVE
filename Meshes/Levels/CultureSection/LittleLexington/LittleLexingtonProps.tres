@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://xncikai1b0gr"]
+
+[ext_resource type="Shader" uid="uid://itrnkg3h08cb" path="res://Materials/Shaders/BaseSceneShader.tres" id="1_f8btg"]
+[ext_resource type="Texture2D" uid="uid://dj13nai7fo1rg" path="res://Meshes/Levels/CultureSection/LittleLexington/LittleLexingtonn_LittleLexingtonProps_Emission.1001.png" id="2_emvj1"]
+[ext_resource type="Texture2D" uid="uid://b7vvxnmpvggsn" path="res://Meshes/Levels/CultureSection/LittleLexington/LittleLexingtonn_LittleLexingtonProps_AlbedoTransparency.1001.png" id="2_f8btg"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_f8btg")
+shader_parameter/MainTex2 = ExtResource("2_f8btg")
+shader_parameter/DepthFade = true
+shader_parameter/Emission = ExtResource("2_emvj1")
+shader_parameter/EmissiveBoost = 2.0

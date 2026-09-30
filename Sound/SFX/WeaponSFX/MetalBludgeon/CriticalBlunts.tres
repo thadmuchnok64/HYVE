@@ -1,0 +1,13 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://b61lvast4d5q7"]
+
+[ext_resource type="AudioStream" uid="uid://c8jse1ukia4cb" path="res://Sound/SFX/WeaponSFX/MetalBludgeon/CriticalBlunt1.wav" id="1_hnksc"]
+[ext_resource type="AudioStream" uid="uid://u8cp8ulxo6q0" path="res://Sound/SFX/WeaponSFX/MetalBludgeon/CriticalBlunt2.wav" id="2_hlpxb"]
+[ext_resource type="AudioStream" uid="uid://c6tr6yf7htod1" path="res://Sound/SFX/WeaponSFX/MetalBludgeon/CriticalBlunt3.wav" id="3_bcriu"]
+[ext_resource type="AudioStream" uid="uid://b2xkhrhpfsdxt" path="res://Sound/SFX/WeaponSFX/MetalBludgeon/CriticalBlunt4.wav" id="4_ic70o"]
+
+[resource]
+streams_count = 4
+stream_0/stream = ExtResource("1_hnksc")
+stream_1/stream = ExtResource("2_hlpxb")
+stream_2/stream = ExtResource("3_bcriu")
+stream_3/stream = ExtResource("4_ic70o")

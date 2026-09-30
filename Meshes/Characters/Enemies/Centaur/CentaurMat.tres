@@ -1,11 +1,12 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://dhd1idbjgujag"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dhd1idbjgujag"]
 
-[ext_resource type="Texture2D" uid="uid://qth55g1jr5sb" path="res://Meshes/Characters/Enemies/Centaur/CentaurSubstance_Centaur_Albedo.png" id="1_5wx0i"]
-[ext_resource type="Texture2D" uid="uid://dpyw1hgofkty4" path="res://Meshes/Characters/Enemies/Centaur/CentaurSubstance_Centaur_Emission.png" id="2_ebpfr"]
+[ext_resource type="Shader" uid="uid://dotqnjoimydtx" path="res://Meshes/Characters/Ray/CharacterShader3.gdshader" id="1_ebpfr"]
+[ext_resource type="Texture2D" uid="uid://bw28dtytqomi8" path="res://Meshes/Characters/Enemies/Centaur/Centaur_0.png" id="2_127yv"]
+[ext_resource type="Texture2D" uid="uid://crjantm3hckse" path="res://Meshes/Characters/Enemies/Centaur/Centaur_1.png" id="3_15igr"]
 
 [resource]
-diffuse_mode = 3
-specular_mode = 1
-albedo_texture = ExtResource("1_5wx0i")
-emission_enabled = true
-emission_texture = ExtResource("2_ebpfr")
+render_priority = 0
+shader = ExtResource("1_ebpfr")
+shader_parameter/Albedo = ExtResource("2_127yv")
+shader_parameter/Emission = ExtResource("3_15igr")
+shader_parameter/Emissiveness = 1.0

@@ -6,6 +6,7 @@ public partial class PC_BlockRecoil : PCState
 
 	[Export] PCState idleState;
 	[Export] PCState blockState;
+	[Export] PC_Attack attackState;
 	[Export] float timeToTransition = .4f;
 	[Export] AudioStream blockSFX;
 	float timer;
@@ -28,7 +29,10 @@ public partial class PC_BlockRecoil : PCState
 	{
 		if (@event.IsActionPressed("Attack"))
 		{
-
+			if (!stateMachine.ConsumeStamina(attackState.attackStaminaCost))
+				return null;
+			anim.Set($"parameters/{animMetaState}/{animMeta}/request", (int)AnimationNodeOneShot.OneShotRequest.Abort);
+			return attackState;
 		}
 		if (@event.IsActionReleased("Block"))
 		{

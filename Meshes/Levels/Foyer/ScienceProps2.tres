@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://8q0w30l73jrr"]
+
+[ext_resource type="Shader" uid="uid://itrnkg3h08cb" path="res://Materials/Shaders/BaseSceneShader.tres" id="1_o3om2"]
+[ext_resource type="Texture2D" uid="uid://c4uhoxeryfejw" path="res://Meshes/Levels/Foyer/Foyer_ScienceProps_Emissive.1001.png" id="2_2rr5v"]
+[ext_resource type="Texture2D" uid="uid://cwno5watolfyc" path="res://Meshes/Levels/Foyer/Foyer_ScienceProps_BaseMap.1001.png" id="3_o8d2o"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_o3om2")
+shader_parameter/MainTex2 = ExtResource("3_o8d2o")
+shader_parameter/DepthFade = true
+shader_parameter/Emission = ExtResource("2_2rr5v")
+shader_parameter/EmissiveBoost = 2.5

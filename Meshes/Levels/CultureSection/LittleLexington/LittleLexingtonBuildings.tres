@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dg0eiwniya7x5"]
+
+[ext_resource type="Shader" uid="uid://itrnkg3h08cb" path="res://Materials/Shaders/BaseSceneShader.tres" id="1_w8ag6"]
+[ext_resource type="Texture2D" uid="uid://cd4f8p8big0e1" path="res://Meshes/Levels/CultureSection/LittleLexington/LittleLexingtonn_LittleLexington.001_BaseMap.1001.png" id="2_3r8rv"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_w8ag6")
+shader_parameter/MainTex2 = ExtResource("2_3r8rv")
+shader_parameter/DepthFade = true
+shader_parameter/EmissiveBoost = 1.0

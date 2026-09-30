@@ -8,3 +8,4 @@ render_priority = 0
 shader = ExtResource("1_vq01f")
 shader_parameter/MainTex2 = ExtResource("2_vq01f")
 shader_parameter/DepthFade = true
+shader_parameter/EmissiveBoost = 1.0

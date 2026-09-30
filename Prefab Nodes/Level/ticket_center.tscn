@@ -263,7 +263,7 @@ material_override = ExtResource("3_r6ksl")
 material_override = ExtResource("3_r6ksl")
 
 [node name="Entrance" parent="Entrance" index="9" unique_id=950950749]
-transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0.923551, 1.0004092, -0.7632017)
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0.9247641, 0.997471, -0.75961185)
 material_override = ExtResource("2_ue2rx")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Entrance/Entrance" index="0" unique_id=1153053785]

@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cay1skqct2y3f"]
+
+[ext_resource type="Shader" uid="uid://dotqnjoimydtx" path="res://Meshes/Characters/Ray/CharacterShader3.gdshader" id="1_f28qa"]
+[ext_resource type="Texture2D" uid="uid://bya1ujjx87rye" path="res://Meshes/Characters/Ray/Rav_0.png" id="2_c2uyo"]
+[ext_resource type="Texture2D" uid="uid://cgw8hwpvilkn8" path="res://Meshes/Characters/Ray/Rav_1.png" id="3_uxfe0"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_f28qa")
+shader_parameter/Albedo = ExtResource("2_c2uyo")
+shader_parameter/Emission = ExtResource("3_uxfe0")
+shader_parameter/Emissiveness = 2.0

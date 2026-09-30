@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bfrlr4ichpswj"]
+
+[ext_resource type="Shader" uid="uid://itrnkg3h08cb" path="res://Materials/Shaders/BaseSceneShader.tres" id="1_wvyda"]
+[ext_resource type="Texture2D" uid="uid://bhk73pt3fw3m2" path="res://Meshes/Levels/Foyer/Foyer_Substance_Foyer_BaseMap.1001.png" id="2_qrkac"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_wvyda")
+shader_parameter/MainTex2 = ExtResource("2_qrkac")
+shader_parameter/DepthFade = true
+shader_parameter/EmissiveBoost = 1.0

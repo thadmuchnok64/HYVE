@@ -15,6 +15,7 @@
 [ext_resource type="Material" uid="uid://bkgehhliamt20" path="res://Meshes/Weapons/Crowbar.tres" id="7_llblj"]
 [ext_resource type="PackedScene" uid="uid://wplgpqqopawx" path="res://Prefab Nodes/Level/cell_room.tscn" id="8_6upen"]
 [ext_resource type="Script" uid="uid://c6igaenalehqd" path="res://Scripts/Gizmos/GizmoTrigger.cs" id="8_knh72"]
+[ext_resource type="PackedScene" uid="uid://d25mmdw0spf4t" path="res://Prefab Nodes/Level/little_lexington.tscn" id="16_llblj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mq5vi"]
 resource_name = "Womb"
@@ -199,26 +200,6 @@ states/Idle/node = SubResource("AnimationNodeBlendTree_llblj")
 states/Idle/position = Vector2(430, 79.333336)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_knh72")]
 
-[sub_resource type="Environment" id="Environment_eh2h0"]
-ssao_enabled = true
-ssao_radius = 1.64
-ssao_intensity = 2.82
-ssao_power = 1.9792619
-ssao_sharpness = 0.0
-sdfgi_enabled = true
-glow_enabled = true
-glow_normalized = true
-glow_intensity = 0.07
-glow_strength = 1.78
-glow_bloom = 0.75
-fog_enabled = true
-fog_light_color = Color(0.27297902, 0.2334632, 0.66977835, 1)
-fog_light_energy = 0.1
-fog_density = 0.2
-fog_depth_curve = 1.3195081
-fog_depth_begin = 0.0
-fog_depth_end = 50.0
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_12ktk"]
 size = Vector3(1.5529175, 0.97436523, 0.79589844)
 
@@ -270,10 +251,7 @@ visible = false
 visible = false
 material_override = ExtResource("2_wy5dc")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="7" unique_id=933197714]
-environment = SubResource("Environment_eh2h0")
-
-[node name="Foyer2" parent="." index="8" unique_id=1853759377 instance=ExtResource("4_41q34")]
+[node name="Foyer2" parent="." index="7" unique_id=1853759377 instance=ExtResource("4_41q34")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0052218437, -0.0082604885, 0.0014009471)
 
 [node name="Crowbar" parent="Foyer2" index="2" unique_id=224241035 instance=ExtResource("4_dm0xv")]
@@ -295,19 +273,21 @@ transform = Transform3D(1, 8.941059e-13, -4.4719518e-13, 0, 1, 0, 0, 0, 1, -0.33
 shape = SubResource("BoxShape3D_12ktk")
 debug_color = Color(0.45031464, 1, 0.48679012, 1)
 
-[node name="ScienceHub" parent="." index="9" unique_id=2006222443 instance=ExtResource("4_l6ol3")]
+[node name="ScienceHub" parent="." index="8" unique_id=2006222443 instance=ExtResource("4_l6ol3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5211537, -0.99660873, 1.2815322)
 
-[node name="BathroomsWest" parent="." index="10" unique_id=159575775 instance=ExtResource("5_l6ol3")]
+[node name="BathroomsWest" parent="." index="9" unique_id=159575775 instance=ExtResource("5_l6ol3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52, -0.975, 1.29)
 
-[node name="CyberSpace" parent="." index="11" unique_id=2057402354 instance=ExtResource("6_qq8me")]
+[node name="CyberSpace" parent="." index="10" unique_id=2057402354 instance=ExtResource("6_qq8me")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5211537, -0.99660873, 1.2815322)
 
-[node name="CultureSection" parent="." index="12" unique_id=90287977 instance=ExtResource("7_3vkgj")]
+[node name="CultureSection" parent="." index="11" unique_id=90287977 instance=ExtResource("7_3vkgj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9378429, -0.99660873, 0.7992169)
 
-[node name="CellRoom" parent="." index="13" unique_id=1235085517 instance=ExtResource("8_6upen")]
+[node name="CellRoom" parent="." index="12" unique_id=1235085517 instance=ExtResource("8_6upen")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52, -0.975, 1.29)
+
+[node name="LittleLexington" parent="." index="13" unique_id=1845496749 instance=ExtResource("16_llblj")]
 
 [editable path="Foyer2/Crowbar"]

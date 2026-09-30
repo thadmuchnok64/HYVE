@@ -49,6 +49,8 @@ public partial class ShortieWomb : Enemy
 
 	public bool canProduceMoreChildren()
 	{
+		if (!agrod)
+			return false;
 		currentChildren = 0;
 		foreach(Node3D c in childrenParent.GetChildren())
 		{

@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://d28rvvrv6byh6"]
+
+[ext_resource type="Shader" uid="uid://itrnkg3h08cb" path="res://Materials/Shaders/BaseSceneShader.tres" id="1_erh4c"]
+[ext_resource type="Texture2D" uid="uid://cxil80p4h2gab" path="res://Meshes/Levels/CultureSection/LittleLexington/LittleLexingtonn_LittleLexingtonBG_AlbedoTransparency.1001.png" id="2_erh4c"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_erh4c")
+shader_parameter/MainTex2 = ExtResource("2_erh4c")
+shader_parameter/DepthFade = true
+shader_parameter/EmissiveBoost = 1.0

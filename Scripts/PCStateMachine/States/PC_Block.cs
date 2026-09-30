@@ -13,7 +13,7 @@ public partial class PC_Block : PCState
 
     public override PCState Enter()
     {
-        anim.Set($"parameters/{animMetaState}/{animMeta}/request", (int)AnimationNodeOneShot.OneShotRequest.FadeOut);
+        //anim.Set($"parameters/{animMetaState}/{animMeta}/request", (int)AnimationNodeOneShot.OneShotRequest.Abort);
         return base.Enter();
     }
     public override PCState ManageInput(InputEvent @event)

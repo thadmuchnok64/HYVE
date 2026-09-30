@@ -23,7 +23,6 @@ buses/default_bus_layout="uid://d4b3r8cupuudt"
 
 window/size/viewport_width=1600
 window/size/viewport_height=900
-window/size/mode=4
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
@@ -182,3 +181,14 @@ UIBack={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+
+[shader_globals]
+
+impactFrame={
+"type": "bool",
+"value": false
+}
+depthCulling={
+"type": "bool",
+"value": true
+}

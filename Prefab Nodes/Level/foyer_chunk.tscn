@@ -1,11 +1,11 @@
 [gd_scene format=4 uid="uid://cuget6kdt5gdr"]
 
 [ext_resource type="Material" uid="uid://bbyjufc1gc2gd" path="res://Meshes/Levels/Foyer/Glass.tres" id="2_3moxy"]
-[ext_resource type="Material" uid="uid://dwj0ljkaqpijl" path="res://Meshes/Levels/Foyer/ScienceProps.tres" id="3_vywq4"]
+[ext_resource type="Material" uid="uid://8q0w30l73jrr" path="res://Meshes/Levels/Foyer/ScienceProps2.tres" id="2_is6q0"]
 [ext_resource type="Material" uid="uid://dk6dodbe2cys8" path="res://Meshes/Levels/Foyer/CommonProps.tres" id="4_eo7lt"]
 [ext_resource type="Material" uid="uid://bfogcyper3t6m" path="res://Meshes/Levels/Foyer/BlackPlastic.tres" id="5_delvv"]
 [ext_resource type="Material" uid="uid://bh7b4ruxx45kj" path="res://Meshes/Levels/Foyer/CultureProps.tres" id="6_ck1pf"]
-[ext_resource type="Material" uid="uid://c2xf0cor7uqnq" path="res://Meshes/Levels/Foyer/LifeProps.tres" id="7_is6q0"]
+[ext_resource type="Material" uid="uid://xwsl0c4jen0y" path="res://Meshes/Levels/Foyer/LifeProps2.tres" id="6_is6q0"]
 [ext_resource type="Material" uid="uid://dwx2echydimvu" path="res://Materials/Shaders/BaseFoyer.tres" id="8_3moxy"]
 [ext_resource type="ArrayMesh" uid="uid://jotond8kela1" path="res://Meshes/Levels/Foyer/FoyerMesh.res" id="8_delvv"]
 [ext_resource type="ArrayMesh" uid="uid://ti4h3mho47bb" path="res://Meshes/Levels/Foyer/LeftCultureDoorFoyer.tres" id="9_3moxy"]
@@ -887,7 +887,7 @@ mesh = SubResource("ArrayMesh_1yw4n")
 
 [node name="BeakerInner" type="MeshInstance3D" parent="Foyer2" unique_id=1307864011]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -2.2173598, 0.8527409, -6.55603)
-material_override = ExtResource("3_vywq4")
+material_override = ExtResource("2_is6q0")
 mesh = SubResource("ArrayMesh_8s8ss")
 
 [node name="Books" type="MeshInstance3D" parent="Foyer2" unique_id=1793726052]
@@ -907,6 +907,11 @@ mesh = SubResource("ArrayMesh_1wtlo")
 
 [node name="CeilingLight" type="MeshInstance3D" parent="Foyer2" unique_id=329892607]
 transform = Transform3D(100.000015, -1.2049568e-06, 4.4290196e-06, -4.4290196e-06, -50.66209, 86.2169, 1.2049572e-06, -86.2169, -50.66209, 1.4148891, 6.4076447, 0.28552663)
+material_override = ExtResource("4_eo7lt")
+mesh = SubResource("ArrayMesh_8jmea")
+
+[node name="CeilingLight3" type="MeshInstance3D" parent="Foyer2" unique_id=1980484353]
+transform = Transform3D(100.000015, -1.2049568e-06, 4.4290196e-06, -4.4290196e-06, -50.66209, 86.2169, 1.2049572e-06, -86.2169, -50.66209, -5.0377197, 6.4076447, 5.877374)
 material_override = ExtResource("4_eo7lt")
 mesh = SubResource("ArrayMesh_8jmea")
 
@@ -933,12 +938,12 @@ mesh = SubResource("ArrayMesh_xx10h")
 
 [node name="Cube_009" type="MeshInstance3D" parent="Foyer2" unique_id=633128712]
 transform = Transform3D(70.71119, 70.710014, 0.14449058, -0.39435622, 0.19001961, 99.99903, 70.70905, -70.71108, 0.41321513, 0.120908, 3.053875, -5.212839)
-material_override = ExtResource("3_vywq4")
+material_override = ExtResource("2_is6q0")
 mesh = SubResource("ArrayMesh_m3a15")
 
 [node name="Cube_012" type="MeshInstance3D" parent="Foyer2" unique_id=1910054441]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 4.144563, 3.8857055, 3.2536774)
-material_override = ExtResource("7_is6q0")
+material_override = ExtResource("6_is6q0")
 mesh = SubResource("ArrayMesh_gm50t")
 
 [node name="Foyer" type="MeshInstance3D" parent="Foyer2" unique_id=1530459414]
@@ -1004,17 +1009,17 @@ mesh = SubResource("ArrayMesh_xetxb")
 
 [node name="Saturn" type="MeshInstance3D" parent="Foyer2" unique_id=1018879584]
 transform = Transform3D(66.40488, 44.61381, 1.9501313e-06, 1.3690091e-13, -3.496911e-06, 80, 44.61381, -66.40488, -2.9026492e-06, 0.35915276, 0.823, -2.6988826)
-material_override = ExtResource("3_vywq4")
+material_override = ExtResource("2_is6q0")
 mesh = SubResource("ArrayMesh_p7d0g")
 
 [node name="ScienceSignWire" type="MeshInstance3D" parent="Foyer2" unique_id=1692693097]
 transform = Transform3D(70.710686, -70.710686, -5.9604645e-06, 0, -1.192093e-05, 100.000015, -70.710686, -70.710686, -1.1920929e-05, 0.41757625, 3.6243885, -4.8036814)
-material_override = ExtResource("3_vywq4")
+material_override = ExtResource("2_is6q0")
 mesh = SubResource("ArrayMesh_7tk2l")
 
 [node name="Sphere" type="MeshInstance3D" parent="Foyer2" unique_id=532633390]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -2.6599798, 3.4620821, -5.3480964)
-material_override = ExtResource("3_vywq4")
+material_override = ExtResource("2_is6q0")
 mesh = SubResource("ArrayMesh_otqjx")
 
 [node name="Sphere_001" type="MeshInstance3D" parent="Foyer2" unique_id=42997541]
@@ -1028,9 +1033,9 @@ mesh = SubResource("ArrayMesh_j2x1j")
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Foyer2" unique_id=1699128054]
 transform = Transform3D(0.9246585, -0.36233655, -0.11712839, -0.11992907, -0.56902975, 0.8135246, -0.36141917, -0.73818535, -0.56961274, -0.007750784, 6.106614, 1.0765412)
-light_color = Color(1.4267299, 1.1901761, 0.62369174, 1)
-light_energy = 5.557
-light_indirect_energy = 2.259
+light_color = Color(0.79698795, 0.9806014, 1.1688981, 1)
+light_energy = 3.0
+light_indirect_energy = 0.2
 light_volumetric_fog_energy = 1.035
 light_specular = 5.685
 light_bake_mode = 1
@@ -1038,11 +1043,23 @@ shadow_enabled = true
 spot_range = 26.082762
 spot_angle = 62.478573
 
+[node name="SpotLight3D5" type="SpotLight3D" parent="Foyer2" unique_id=1996685995]
+transform = Transform3D(0.8057008, -0.5356458, -0.25284368, 0.11885835, -0.27197987, 0.9549344, -0.5802749, -0.79944396, -0.15546843, -5.4108157, 5.4955735, 7.200369)
+light_color = Color(0.79698795, 0.9806014, 1.1688981, 1)
+light_energy = 1.1
+light_indirect_energy = 0.2
+light_volumetric_fog_energy = 1.035
+light_specular = 5.685
+light_bake_mode = 1
+shadow_enabled = true
+spot_range = 26.082762
+spot_angle = 33.29
+
 [node name="SpotLight3D4" type="SpotLight3D" parent="Foyer2" unique_id=398814033]
 transform = Transform3D(0.98724735, 0.055660494, -0.1491466, 0.06801519, 0.6995933, 0.7112969, 0.1439331, -0.71237016, 0.68688583, -0.7061426, 4.2500644, -2.2682703)
-light_color = Color(1.0359572, 1.2821603, 1.2308499, 1)
-light_energy = 2.742
-light_indirect_energy = 2.259
+light_color = Color(0.79698795, 0.9806014, 1.1688981, 1)
+light_energy = 3.0
+light_indirect_energy = 0.2
 light_volumetric_fog_energy = 1.035
 light_specular = 5.685
 light_bake_mode = 1
@@ -1052,9 +1069,9 @@ spot_angle = 62.478573
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="Foyer2" unique_id=1856344515]
 transform = Transform3D(0.7708559, 0.106273204, -0.62808216, 0.3916692, 0.6985146, 0.5988929, 0.5023707, -0.7076606, 0.49683017, 1.9946284, 4.6325483, 2.2584856)
-light_color = Color(1.4267299, 1.1901761, 0.62369174, 1)
-light_energy = 8.927
-light_indirect_energy = 1.37
+light_color = Color(0.79698795, 0.9806014, 1.1688981, 1)
+light_energy = 3.0
+light_indirect_energy = 0.5
 light_volumetric_fog_energy = 1.035
 light_specular = 5.685
 light_bake_mode = 1
@@ -1126,4 +1143,7 @@ transform = Transform3D(0.65386975, 0, -0.7566071, -2.6880087e-15, 1, 4.7824154e
 shape = SubResource("BoxShape3D_vywq4")
 
 [node name="LightmapGI" type="LightmapGI" parent="." unique_id=1189358844]
+generate_probes_subdiv = 3
 light_data = ExtResource("13_i373o")
+
+[editable path="Foyer2/CeilingLight2"]

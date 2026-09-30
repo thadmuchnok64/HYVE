@@ -1,14 +1,12 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://djtgr6oejev05"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://djtgr6oejev05"]
 
 [ext_resource type="Texture2D" uid="uid://ni7m50wx780f" path="res://Meshes/Characters/Enemies/Clinger/ClingerSubstance_Clinger_BaseMap.1001.png" id="1_1oaqp"]
+[ext_resource type="Shader" uid="uid://dotqnjoimydtx" path="res://Meshes/Characters/Ray/CharacterShader3.gdshader" id="1_6in7h"]
 [ext_resource type="Texture2D" uid="uid://do1io0wc1xcxx" path="res://Meshes/Characters/Enemies/Clinger/ClingerSubstance_Clinger_Emissive.1001.png" id="2_6in7h"]
 
 [resource]
-diffuse_mode = 3
-specular_mode = 1
-albedo_texture = ExtResource("1_1oaqp")
-emission_enabled = true
-emission = Color(0.99999994, 0.0071985554, 0.0018276209, 1)
-emission_energy_multiplier = 3.8
-emission_operator = 1
-emission_texture = ExtResource("2_6in7h")
+render_priority = 0
+shader = ExtResource("1_6in7h")
+shader_parameter/Albedo = ExtResource("1_1oaqp")
+shader_parameter/Emission = ExtResource("2_6in7h")
+shader_parameter/Emissiveness = 6.18
