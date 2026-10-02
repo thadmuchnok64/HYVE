@@ -1,4 +1,4 @@
-[gd_resource type="ArrayMesh" format=4 uid="uid://80rpoonhyhyo"]
+[gd_resource type="ArrayMesh" format=4 uid="uid://bxs746gapf1o1"]
 
 [ext_resource type="Texture2D" uid="uid://bw28dtytqomi8" path="res://Meshes/Characters/Enemies/Centaur/Centaur_0.png" id="1_eaeay"]
 [ext_resource type="Texture2D" uid="uid://crjantm3hckse" path="res://Meshes/Characters/Enemies/Centaur/Centaur_1.png" id="2_o27yy"]
