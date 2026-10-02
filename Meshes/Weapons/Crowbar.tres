@@ -1,6 +1,7 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://bkgehhliamt20"]
 
 [ext_resource type="Shader" uid="uid://dotqnjoimydtx" path="res://Meshes/Characters/Ray/CharacterShader3.gdshader" id="1_f4jgd"]
+[ext_resource type="Texture2D" uid="uid://c0mmqd2u4qqi6" path="res://Materials/Masks/Noise1.png" id="2_l1hx2"]
 
 [sub_resource type="Gradient" id="Gradient_l1hx2"]
 colors = PackedColorArray(0.16470589, 0.22352941, 0.42352942, 1, 0.09637647, 0.111085035, 0.22695166, 1)
@@ -12,4 +13,5 @@ gradient = SubResource("Gradient_l1hx2")
 render_priority = 0
 shader = ExtResource("1_f4jgd")
 shader_parameter/Albedo = SubResource("GradientTexture1D_d5iai")
+shader_parameter/tex_frg_14 = ExtResource("2_l1hx2")
 shader_parameter/Emissiveness = 0.0

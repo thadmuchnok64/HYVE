@@ -24,11 +24,11 @@ void fragment() {
 
 
 // ColorConstant:17
-	vec4 n_out17p0 = vec4(0.375987, 0.039702, 0.085615, 1.000000);
+	vec4 n_out17p0 = vec4(0.3, 0.039702, 0.05, 1.000000);
 
 
 // ColorConstant:16
-	vec4 n_out16p0 = vec4(0.698039, 0.066667, 0.235294, 1.000000);
+	vec4 n_out16p0 = vec4(0.8, 0.066667, 0.08, 1.000000);
 
 
 // Input:18

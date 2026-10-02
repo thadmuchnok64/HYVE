@@ -84,12 +84,9 @@ public partial class PCState : Node3D
 		else
 		{
 			cb.Velocity = (new Vector3(addedForce.X, cb.Velocity.Y, addedForce.Z));
-			//GD.Print("trigger backflip");
-
 		}
-		//anim.Run();
-		//storedHForc 
 	}
+
 
 	public virtual PCState HitByEnemyEvent() {
 		return null;

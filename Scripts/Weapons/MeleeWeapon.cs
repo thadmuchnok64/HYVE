@@ -62,9 +62,8 @@ public partial class MeleeWeapon : Weapon
 	public override void FirstHitEvent()
 	{
 		base.FirstHitEvent();
-		aud.Stream = criticalSFX;
+		aud.Stream = impactSFX.PickRandom();
 		aud.Play();
-		TimeManager.instance.Hitstop();
 	}
 
 	public override void KillingBlow()
@@ -72,6 +71,7 @@ public partial class MeleeWeapon : Weapon
 		base.KillingBlow();
 		aud.Stream = killingSFX;
 		aud.Play();
+		TimeManager.instance.Hitstop();
 
 	}
 

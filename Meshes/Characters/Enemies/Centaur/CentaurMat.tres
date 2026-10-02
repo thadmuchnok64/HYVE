@@ -3,10 +3,12 @@
 [ext_resource type="Shader" uid="uid://dotqnjoimydtx" path="res://Meshes/Characters/Ray/CharacterShader3.gdshader" id="1_ebpfr"]
 [ext_resource type="Texture2D" uid="uid://bw28dtytqomi8" path="res://Meshes/Characters/Enemies/Centaur/Centaur_0.png" id="2_127yv"]
 [ext_resource type="Texture2D" uid="uid://crjantm3hckse" path="res://Meshes/Characters/Enemies/Centaur/Centaur_1.png" id="3_15igr"]
+[ext_resource type="Texture2D" uid="uid://c0mmqd2u4qqi6" path="res://Materials/Masks/Noise1.png" id="4_127yv"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_ebpfr")
 shader_parameter/Albedo = ExtResource("2_127yv")
+shader_parameter/tex_frg_14 = ExtResource("4_127yv")
 shader_parameter/Emission = ExtResource("3_15igr")
 shader_parameter/Emissiveness = 1.0

@@ -3,10 +3,12 @@
 [ext_resource type="Shader" uid="uid://dotqnjoimydtx" path="res://Meshes/Characters/Ray/CharacterShader3.gdshader" id="1_f28qa"]
 [ext_resource type="Texture2D" uid="uid://bya1ujjx87rye" path="res://Meshes/Characters/Ray/Rav_0.png" id="2_c2uyo"]
 [ext_resource type="Texture2D" uid="uid://cgw8hwpvilkn8" path="res://Meshes/Characters/Ray/Rav_1.png" id="3_uxfe0"]
+[ext_resource type="Texture2D" uid="uid://c0mmqd2u4qqi6" path="res://Materials/Masks/Noise1.png" id="4_c2uyo"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_f28qa")
 shader_parameter/Albedo = ExtResource("2_c2uyo")
+shader_parameter/tex_frg_14 = ExtResource("4_c2uyo")
 shader_parameter/Emission = ExtResource("3_uxfe0")
 shader_parameter/Emissiveness = 2.0

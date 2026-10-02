@@ -3,10 +3,12 @@
 [ext_resource type="Shader" uid="uid://dotqnjoimydtx" path="res://Meshes/Characters/Ray/CharacterShader3.gdshader" id="1_o2uti"]
 [ext_resource type="Texture2D" uid="uid://b0x72870p12ei" path="res://Meshes/Characters/Enemies/Shortie/ShortiesSubstance_Meat_BaseMap.1001.png" id="1_xehjf"]
 [ext_resource type="Texture2D" uid="uid://bipnc6v07rvix" path="res://Meshes/Characters/Enemies/Shortie/ShortiesSubstance_Meat_Emissive.1001.png" id="2_o2uti"]
+[ext_resource type="Texture2D" uid="uid://c0mmqd2u4qqi6" path="res://Materials/Masks/Noise1.png" id="4_ryevx"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_o2uti")
 shader_parameter/Albedo = ExtResource("1_xehjf")
+shader_parameter/tex_frg_14 = ExtResource("4_ryevx")
 shader_parameter/Emission = ExtResource("2_o2uti")
 shader_parameter/Emissiveness = 1.0
