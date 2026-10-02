@@ -1,0 +1,81 @@
+[gd_resource type="Resource" script_class="DA_DialogueTree" format=3 uid="uid://dqo4qfg6onqhp"]
+
+[ext_resource type="Script" uid="uid://dqcxnp70j7tlg" path="res://Scripts/Data/Dialogue/DA_DialogueTree.cs" id="1_vxyrg"]
+[ext_resource type="Script" uid="uid://bk5wmhn1jlwxv" path="res://Scripts/Data/Dialogue/DA_DialogueResponse.cs" id="2_7q26o"]
+[ext_resource type="Script" uid="uid://ccvu56o3xnrqx" path="res://Scripts/Data/Dialogue/DA_DialogueBranch.cs" id="3_180nx"]
+[ext_resource type="Script" uid="uid://b17g4joiablx4" path="res://Scripts/Data/Dialogue/DA_DialogueNPCStatement.cs" id="4_5mhsk"]
+
+[sub_resource type="Resource" id="Resource_vxyrg"]
+script = ExtResource("3_180nx")
+responses = Array[ExtResource("2_7q26o")]([])
+
+[sub_resource type="Resource" id="Resource_7q26o"]
+script = ExtResource("4_5mhsk")
+text = "We can't build a society where we trust eachother without the truth, ma'am."
+nextNode = SubResource("Resource_vxyrg")
+
+[sub_resource type="Resource" id="Resource_180nx"]
+script = ExtResource("4_5mhsk")
+text = "Without honesty... how can we trust eachother?"
+nextNode = SubResource("Resource_7q26o")
+
+[sub_resource type="Resource" id="Resource_5mhsk"]
+script = ExtResource("4_5mhsk")
+text = "Ma'am I'm going to need you to be honest with me..."
+nextNode = SubResource("Resource_180nx")
+
+[sub_resource type="Resource" id="Resource_nt28i"]
+script = ExtResource("4_5mhsk")
+text = "You did? Wait, no you didn't!"
+nextNode = SubResource("Resource_5mhsk")
+
+[sub_resource type="Resource" id="Resource_py4cg"]
+script = ExtResource("2_7q26o")
+text = "Yep! All done!"
+nextNode = SubResource("Resource_nt28i")
+
+[sub_resource type="Resource" id="Resource_6lpxq"]
+script = ExtResource("3_180nx")
+responses = Array[ExtResource("2_7q26o")]([])
+
+[sub_resource type="Resource" id="Resource_4gk5o"]
+script = ExtResource("2_7q26o")
+text = "That is an absolutely brilliant idea."
+nextNode = SubResource("Resource_6lpxq")
+
+[sub_resource type="Resource" id="Resource_uwfhf"]
+script = ExtResource("3_180nx")
+responses = Array[ExtResource("2_7q26o")]([SubResource("Resource_4gk5o")])
+
+[sub_resource type="Resource" id="Resource_lp3pa"]
+script = ExtResource("4_5mhsk")
+text = "If you get stuck, try backtracking the block to flip its orientation."
+nextNode = SubResource("Resource_uwfhf")
+
+[sub_resource type="Resource" id="Resource_05iom"]
+script = ExtResource("4_5mhsk")
+text = "Look, you just need to make it to level 5 before I'm allowed to give you your prize."
+nextNode = SubResource("Resource_lp3pa")
+
+[sub_resource type="Resource" id="Resource_1321f"]
+script = ExtResource("4_5mhsk")
+text = "Don't feel down! It's a tough game."
+nextNode = SubResource("Resource_05iom")
+
+[sub_resource type="Resource" id="Resource_aa7om"]
+script = ExtResource("2_7q26o")
+text = "No I didn't..."
+nextNode = SubResource("Resource_1321f")
+
+[sub_resource type="Resource" id="Resource_b42y6"]
+script = ExtResource("3_180nx")
+responses = Array[ExtResource("2_7q26o")]([SubResource("Resource_py4cg"), SubResource("Resource_aa7om")])
+
+[sub_resource type="Resource" id="Resource_vo1l1"]
+script = ExtResource("4_5mhsk")
+text = "Hello ma'am. Did you beat that game yet?"
+nextNode = SubResource("Resource_b42y6")
+
+[resource]
+script = ExtResource("1_vxyrg")
+startingNode = SubResource("Resource_vo1l1")

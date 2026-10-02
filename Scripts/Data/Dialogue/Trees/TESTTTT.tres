@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="DA_DialogueTree" format=3]
+
+[ext_resource type="Script" path="res://Scripts/Data/Dialogue/DA_DialogueTree.cs" id="1_7d377"]
+[ext_resource type="Script" path="res://Scripts/Data/Dialogue/DA_DialogueResponse.cs" id="2_ocpc1"]
+[ext_resource type="Script" path="res://Scripts/Data/Dialogue/DA_DialogueNPCStatement.cs" id="3_7vraw"]
+[ext_resource type="Script" path="res://Scripts/Data/Dialogue/DA_DialogueBranch.cs" id="4_f571w"]
+
+[sub_resource type="Resource" id="Resource_0sa1j"]
+script = ExtResource("3_7vraw")
+text = "1"
+
+[sub_resource type="Resource" id="Resource_dn2r4"]
+script = ExtResource("2_ocpc1")
+text = "3"
+nextNode = SubResource("Resource_0sa1j")
+
+[sub_resource type="Resource" id="Resource_t8cvw"]
+script = ExtResource("3_7vraw")
+text = "2"
+
+[sub_resource type="Resource" id="Resource_ju2qb"]
+script = ExtResource("2_ocpc1")
+text = "2"
+nextNode = SubResource("Resource_t8cvw")
+
+[sub_resource type="Resource" id="Resource_iksi5"]
+script = ExtResource("3_7vraw")
+text = "3"
+
+[sub_resource type="Resource" id="Resource_84amy"]
+script = ExtResource("2_ocpc1")
+text = "1"
+nextNode = SubResource("Resource_iksi5")
+
+[sub_resource type="Resource" id="Resource_86fb0"]
+script = ExtResource("4_f571w")
+responses = Array[ExtResource("2_ocpc1")]([SubResource("Resource_dn2r4"), SubResource("Resource_ju2qb"), SubResource("Resource_84amy")])
+
+[sub_resource type="Resource" id="Resource_bvxh1"]
+script = ExtResource("3_7vraw")
+text = "1"
+nextNode = SubResource("Resource_86fb0")
+
+[resource]
+script = ExtResource("1_7d377")
+startingNode = SubResource("Resource_bvxh1")

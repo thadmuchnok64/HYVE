@@ -5,7 +5,7 @@ public partial class DialogueTrigger : InteractableObject
 {
 	[Export] Node3D camPivot;
 	PCStateMachine pc;
-	[Export] DA_DialogueTree dialogue;
+	[Export] NPCEntity entity;
 	[Export] Node3D dialoguePivot;
 
 	[Export] Node3D playerPivot;
@@ -28,10 +28,14 @@ public partial class DialogueTrigger : InteractableObject
 	{
 		base.TriggerGizmo(pc);
 		this.pc = pc;
-		currentPlayerPos = pc.cb.GlobalPosition;
-		((CameraController)GameMaster.Instance.mainCamRef).SetTrackingObject(camPivot);
-		HUDManager.instance.RequestDialogue(dialogue, dialoguePivot);
-		timer = 0;
+		DA_DialogueTree nextDialogue = entity.getCurrentDialogue();
+		if (nextDialogue != null)
+		{
+			currentPlayerPos = pc.cb.GlobalPosition;
+			((CameraController)GameMaster.Instance.mainCamRef).SetTrackingObject(camPivot);
+			HUDManager.instance.RequestDialogue(nextDialogue, dialoguePivot);
+			timer = 0;
+		}
 	}
 
 	public override bool ManageInput(InputEvent @event)

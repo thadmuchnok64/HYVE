@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 public partial class DialogueGraphCreator : Control
@@ -95,15 +96,32 @@ public partial class DialogueGraphCreator : Control
 			var connections = graphEdit.GetConnectionListFromNode(d.Name);
 			if (connections.Count > 0)
 			{
-				int i = ((DialoguePlayerStatement)d).responses.Count -1;
+				int i = ((DialoguePlayerStatement)d).responses.Count - 1;
+				List<string> outputs = new List<string>();
+				List<int> ports = new List<int>();
+
 				foreach (var c in connections)
 				{
 					string name = (StringName)c["to_node"];
-					if (name != d.Name)
+					if (name != d.Name) // include only output nodes
+					{
+						ports.Add((int)c["from_port"]);
+						outputs.Add((StringName)c["to_node"]);
+					}
+				}
+				List<string> sortedOutputs = outputs;
+				for (int x = 0; x < outputs.Count; x++)
+				{
+					sortedOutputs[ports[x]] = outputs[x];
+				}
+				sortedOutputs.Reverse();
+				foreach (var c in sortedOutputs)
+				{
+					if (c != d.Name)
 					{
 						DA_DialogueResponse response = new DA_DialogueResponse();
 						response.text = ((DialoguePlayerStatement)d).responses[i].Text;
-						var child = (DialogueNode)graphEdit.GetChildren().Where(n => n is DialogueNode && n.Name == name).First();
+						var child = (DialogueNode)graphEdit.GetChildren().Where(n => n is DialogueNode && n.Name == c).First();
 						response.nextNode = ParseNode(child);
 						statement.responses.Add(response);
 						i--;

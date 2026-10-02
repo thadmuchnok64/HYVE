@@ -1,0 +1,14 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://c1v864cte0ucw"]
+
+[ext_resource type="AudioStream" uid="uid://b53pof8f1cx0n" path="res://Sound/Ambeince/ForestAmbience/WindChime1.wav" id="1_u7srl"]
+[ext_resource type="AudioStream" uid="uid://5kae7ha121mk" path="res://Sound/Ambeince/ForestAmbience/WindChime2.wav" id="2_o8lmm"]
+[ext_resource type="AudioStream" uid="uid://bnl7p0wb8lx0x" path="res://Sound/Ambeince/ForestAmbience/WindChime3.wav" id="3_2n2um"]
+
+[resource]
+playback_mode = 1
+random_pitch = 1.122462
+random_volume_offset_db = 2.0
+streams_count = 3
+stream_0/stream = ExtResource("1_u7srl")
+stream_1/stream = ExtResource("2_o8lmm")
+stream_2/stream = ExtResource("3_2n2um")

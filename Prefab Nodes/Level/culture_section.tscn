@@ -17,6 +17,10 @@
 [ext_resource type="PackedScene" uid="uid://nrpla1tycom4" path="res://Prefab Nodes/Enemies/scrawny_grunt.tscn" id="13_6andr"]
 [ext_resource type="ArrayMesh" uid="uid://devrmhoa4f32" path="res://Meshes/Levels/CultureSection/Meshes/CultureLobby.tres" id="13_k3dhd"]
 [ext_resource type="PackedScene" uid="uid://cs7tnirfuo0gc" path="res://Prefab Nodes/Enemies/centaur.tscn" id="14_n3680"]
+[ext_resource type="Script" uid="uid://d2yvfuxlk6dbs" path="res://Scripts/Gizmos/AmbientSoundPlayer.cs" id="18_meo7q"]
+[ext_resource type="AudioStream" uid="uid://b5txa6j75vkyq" path="res://Sound/Ambeince/WindBlowing.wav" id="19_ueo3g"]
+[ext_resource type="AudioStream" uid="uid://cljmgincu3s8q" path="res://Sound/Ambeince/ForestAmbience/Birds.tres" id="20_ueo3g"]
+[ext_resource type="AudioStream" uid="uid://c1v864cte0ucw" path="res://Sound/Ambeince/ForestAmbience/Chimes.tres" id="21_m676j"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_20s0t"]
 resource_name = "CultureProps"
@@ -1624,3 +1628,32 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 21.6
 
 [node name="Centaur" parent="." unique_id=1848885120 instance=ExtResource("14_n3680")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 21.52564, 2.0395515, 22.44409)
+
+[node name="Wind" type="AudioStreamPlayer3D" parent="." unique_id=1701860130]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.329061, 6.563453, 25.371574)
+volume_db = -3.0
+max_distance = 20.05
+playback_type = 1
+script = ExtResource("18_meo7q")
+audToPlay = ExtResource("19_ueo3g")
+looping = true
+
+[node name="birds" type="AudioStreamPlayer3D" parent="." unique_id=257318805]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.127391, 5.5766263, 30.83637)
+volume_db = -2.0
+max_distance = 10.0
+playback_type = 1
+script = ExtResource("18_meo7q")
+audToPlay = ExtResource("20_ueo3g")
+minTimeForNextSound = 8.0
+maxTimeForNextSound = 48.0
+
+[node name="Chimes" type="AudioStreamPlayer3D" parent="." unique_id=864170418]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.66818, 5.5766263, 21.062294)
+volume_db = -2.0
+max_distance = 10.0
+playback_type = 1
+script = ExtResource("18_meo7q")
+audToPlay = ExtResource("21_m676j")
+minTimeForNextSound = 6.0
+maxTimeForNextSound = 24.0
