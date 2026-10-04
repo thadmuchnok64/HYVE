@@ -947,7 +947,7 @@ material_override = ExtResource("6_is6q0")
 mesh = SubResource("ArrayMesh_gm50t")
 
 [node name="Foyer" type="MeshInstance3D" parent="Foyer2" unique_id=1530459414]
-transform = Transform3D(100.000015, 0, 0, 0, -4.3711393e-06, 100, 0, -100.00001, -4.371139e-06, 0, 0, 0)
+transform = Transform3D(100.000015, 0, 0, 0, -4.3711393e-06, 100, 0, -100.00001, -4.371139e-06, -0.007406175, 0, 0.014957428)
 material_override = ExtResource("8_3moxy")
 mesh = ExtResource("8_delvv")
 
