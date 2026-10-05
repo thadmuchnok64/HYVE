@@ -228,26 +228,26 @@ libraries/ = SubResource("AnimationLibrary_12ktk")
 tree_root = SubResource("AnimationNodeStateMachine_12ktk")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="Biology Exhibit" parent="." index="1" unique_id=1388957979]
+[node name="Biology Exhibit" parent="." index="1" unique_id=1023486503]
 visible = false
 material_override = ExtResource("2_wy5dc")
 
-[node name="DNA Strand" parent="." index="2" unique_id=231693703]
+[node name="DNA Strand" parent="." index="2" unique_id=1127217814]
 visible = false
 
-[node name="Entrance" parent="." index="3" unique_id=1727876722]
+[node name="Entrance" parent="." index="3" unique_id=1855619115]
 visible = false
 material_override = ExtResource("2_wy5dc")
 
-[node name="Foyer" parent="." index="4" unique_id=258597294]
+[node name="Foyer" parent="." index="4" unique_id=749035228]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -0.0110349655, 1.9073486e-06, -0.015669823)
 visible = false
 material_override = ExtResource("2_wy5dc")
 
-[node name="Saturn" parent="." index="5" unique_id=1450302877]
+[node name="Saturn" parent="." index="5" unique_id=843870637]
 visible = false
 
-[node name="Science Area" parent="." index="6" unique_id=1017214395]
+[node name="Science Area" parent="." index="6" unique_id=1488288920]
 visible = false
 material_override = ExtResource("2_wy5dc")
 
@@ -259,7 +259,7 @@ transform = Transform3D(-4.371139e-08, -0.7485045, 0.6631297, 1, -3.271817e-08, 
 script = ExtResource("5_v3qr8")
 heldCollectable = ExtResource("6_a3h5c")
 
-[node name="Crowbar" parent="Foyer2/Crowbar" index="0" unique_id=1743716423]
+[node name="Crowbar" parent="Foyer2/Crowbar" index="0" unique_id=1971059597]
 material_override = ExtResource("7_llblj")
 
 [node name="Area3D" type="Area3D" parent="Foyer2/Crowbar" index="1" unique_id=718429356 node_paths=PackedStringArray("interactable")]
