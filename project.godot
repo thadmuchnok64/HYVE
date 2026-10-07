@@ -192,3 +192,7 @@ depthCulling={
 "type": "bool",
 "value": true
 }
+bloodColor={
+"type": "vec4",
+"value": Vector4(0, 0, 0, 1)
+}
