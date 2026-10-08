@@ -7,9 +7,10 @@ varying bool var_impactFrame;
 
 global uniform bool impactFrame;
 uniform sampler2D Albedo;
-uniform sampler2D tex_frg_14;
+uniform sampler2D noiseTex;
 uniform sampler2D Emission;
 uniform float Emissiveness = 1.0;
+uniform float bloodAmount =.7;
 
 
 
@@ -36,28 +37,36 @@ void fragment() {
 
 
 // Texture2D:14
-	vec4 n_out14p0 = texture(tex_frg_14, n_out18p0);
+	vec4 noise = texture(noiseTex, n_out18p0);
+
+// blood noise
+	float bloodNoise = texture(noiseTex, UV*vec2(2,2)).r;
 
 
 // Mix:15
-	vec3 n_out15p0 = mix(vec3(n_out17p0.xyz), vec3(n_out16p0.xyz), vec3(n_out14p0.xyz));
+	vec3 n_out15p0 = mix(vec3(n_out17p0.xyz), vec3(n_out16p0.xyz), vec3(noise.xyz));
 
 
-	vec3 n_out3p0;
+	vec3 col;
+	vec3 bloodColor = vec3(.3,.02,.03);
 // If:3
 	float n_in3p1 = 0.01000;
 	float n_in3p2 = 0.01000;
 	if(abs((n_out4p0 ? 1.0 : 0.0) - n_in3p1) < n_in3p2)
 	{
-		n_out3p0 = vec3(n_out6p0.xyz);
+		col = vec3(n_out6p0.xyz);
+		float bloodCutoff = step(bloodAmount,bloodNoise);
+		col = mix(col,bloodColor,bloodCutoff);
 	}
 	else if((n_out4p0 ? 1.0 : 0.0) < n_in3p1)
 	{
-		n_out3p0 = vec3(n_out6p0.xyz);
+		col = vec3(n_out6p0.xyz);
+				float bloodCutoff = smoothstep(bloodAmount-.3f,bloodAmount,bloodNoise);
+		col = mix(bloodColor,col,bloodCutoff);
 	}
 	else
 	{
-		n_out3p0 = n_out15p0;
+		col = n_out15p0;
 	}
 
 
@@ -101,7 +110,7 @@ void fragment() {
 
 
 // Output:0
-	ALBEDO = n_out3p0;
+	ALBEDO = col;
 	METALLIC = n_out12p0;
 	ROUGHNESS = n_out13p0;
 	SPECULAR = n_out12p0;
