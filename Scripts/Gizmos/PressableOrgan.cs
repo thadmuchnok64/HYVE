@@ -6,6 +6,7 @@ public partial class PressableOrgan : InteractableObject
 	[Export] Node3D playerWarpPosition;
 	[Export] AnimationPlayer anim;
 	[Export] float timeToFreePlayer = 2f;
+	[Export] AudioStream airPressureSFX;
 	bool used = false;
 	PCStateMachine pc;
 	float activeTimer = 0f;
@@ -30,6 +31,7 @@ public partial class PressableOrgan : InteractableObject
 			//active = true;
 			anim.Active = true;
 			anim.Play("press");
+		SoundManager.Instance.RequesetSFXSoundAtLocation(airPressureSFX, GlobalPosition);
 			this.pc = pc;
 			pc.cb.GlobalPosition = playerWarpPosition.GlobalPosition;
 			pc.RotateMesh(playerWarpPosition.GlobalRotation);

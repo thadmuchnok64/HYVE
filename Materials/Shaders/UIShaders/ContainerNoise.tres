@@ -3,13 +3,26 @@
 [sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_ub75j"]
 operator = 2
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_n4nbn"]
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_ub75j"]
+input_name = "time"
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cigie"]
-noise = SubResource("FastNoiseLite_n4nbn")
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_n4nbn"]
+default_input_values = [0, 0.0, 1, 0.015]
+operator = 2
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_cigie"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_ub75j"]
+parameter_name = "Texture2DParameter"
+texture_repeat = 1
+
+[sub_resource type="ImageTexture" id="ImageTexture_plm44"]
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_plm44"]
-texture = SubResource("NoiseTexture2D_cigie")
+source = 5
+texture = SubResource("ImageTexture_plm44")
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_o28dp"]
 input_name = "screen_uv"
@@ -37,9 +50,9 @@ mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2(880, 560)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_plm44")
-nodes/fragment/2/position = Vector2(-613.3333, 426.66666)
+nodes/fragment/2/position = Vector2(-620, 420)
 nodes/fragment/3/node = SubResource("VisualShaderNodeInput_o28dp")
-nodes/fragment/3/position = Vector2(-1026.6666, 466.66666)
+nodes/fragment/3/position = Vector2(-1500, 600)
 nodes/fragment/4/node = SubResource("VisualShaderNodeRemap_v8ljs")
 nodes/fragment/4/position = Vector2(280, 666.6667)
 nodes/fragment/5/node = SubResource("VisualShaderNodeFloatOp_r1oth")
@@ -54,5 +67,13 @@ nodes/fragment/9/node = SubResource("VisualShaderNodeInput_e3b5s")
 nodes/fragment/9/position = Vector2(279.72464, 361.85217)
 nodes/fragment/10/node = SubResource("VisualShaderNodeVectorOp_ub75j")
 nodes/fragment/10/position = Vector2(633.35394, 486.10547)
-nodes/fragment/connections = PackedInt32Array(3, 0, 2, 0, 2, 0, 5, 0, 6, 0, 5, 1, 5, 0, 7, 0, 7, 0, 8, 0, 6, 0, 8, 1, 8, 0, 4, 0, 9, 0, 10, 0, 4, 0, 10, 1, 10, 0, 0, 0)
+nodes/fragment/11/node = SubResource("VisualShaderNodeInput_ub75j")
+nodes/fragment/11/position = Vector2(-1400, 340)
+nodes/fragment/12/node = SubResource("VisualShaderNodeFloatOp_n4nbn")
+nodes/fragment/12/position = Vector2(-1040, 340)
+nodes/fragment/13/node = SubResource("VisualShaderNodeVectorOp_cigie")
+nodes/fragment/13/position = Vector2(-840, 480)
+nodes/fragment/14/node = SubResource("VisualShaderNodeTexture2DParameter_ub75j")
+nodes/fragment/14/position = Vector2(-1040, 720)
+nodes/fragment/connections = PackedInt32Array(6, 0, 5, 1, 5, 0, 7, 0, 7, 0, 8, 0, 6, 0, 8, 1, 8, 0, 4, 0, 9, 0, 10, 0, 4, 0, 10, 1, 10, 0, 0, 0, 11, 0, 12, 0, 12, 0, 13, 0, 3, 0, 13, 1, 2, 0, 5, 0, 13, 0, 2, 0, 14, 0, 2, 2)
 nodes/light/0/position = Vector2(386.66666, 160)
