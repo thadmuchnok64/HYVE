@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://c6igaenalehqd" path="res://Scripts/Gizmos/GizmoTrigger.cs" id="13_7gl3i"]
 [ext_resource type="Material" uid="uid://d4gxvwk31gh2g" path="res://Materials/Shaders/BaseFoyerCeiling.tres" id="13_delvv"]
 [ext_resource type="LightmapGIData" uid="uid://c5qpgioif52j7" path="res://Prefab Nodes/Level/GI/foyer_chunk.lmbake" id="13_i373o"]
+[ext_resource type="Texture2D" uid="uid://fxvy7s6kwkel" path="res://Textures/splatter.png" id="19_ck1pf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q847i"]
 resource_name = "Glass"
@@ -876,6 +877,75 @@ size = Vector3(1.2167969, 3.4329834, 1.2822266)
 [sub_resource type="BoxShape3D" id="BoxShape3D_vywq4"]
 size = Vector3(5.371643, 2.9518433, 5.9866943)
 
+[sub_resource type="Curve" id="Curve_is6q0"]
+_data = [Vector2(0, 0), 0.0, 0.044253286, 0, 0, Vector2(0.48873875, 0.12190533), -0.030161254, -0.030161254, 0, 0, Vector2(1, 0), -0.048336625, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_eg27v"]
+curve = SubResource("Curve_is6q0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bhu1e"]
+emission_shape = 1
+emission_sphere_radius = 7.0
+angle_min = 1.0728835e-05
+angle_max = 1.0728835e-05
+spread = 180.0
+angular_velocity_min = -10.000016
+angular_velocity_max = 9.999984
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -0.10000224
+linear_accel_max = 0.09999776
+radial_accel_min = -2.2351742e-06
+radial_accel_max = -2.2351742e-06
+scale_min = 17.0
+scale_max = 35.85
+color = Color(0.73396957, 0.74498343, 0.70529294, 1)
+alpha_curve = SubResource("CurveTexture_eg27v")
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_end7w"]
+transparency = 1
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.8627451, 0.92941177, 1, 0.05490196)
+albedo_texture = ExtResource("19_ck1pf")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_risvt"]
+material = SubResource("ORMMaterial3D_end7w")
+size = Vector2(1, 1)
+orientation = 2
+
+[sub_resource type="Curve" id="Curve_ck1pf"]
+_data = [Vector2(0, 0), 0.0, 3.3075168, 0, 0, Vector2(0.50450456, 1), -0.030161254, -0.030161254, 0, 0, Vector2(1, 0), -2.7215648, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_is6q0"]
+curve = SubResource("Curve_ck1pf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_eg27v"]
+emission_shape = 1
+emission_sphere_radius = 8.0
+angle_min = 1.0728835e-05
+angle_max = 1.0728835e-05
+spread = 180.0
+angular_velocity_min = -10.000016
+angular_velocity_max = 9.999984
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -0.10000224
+linear_accel_max = 0.09999776
+radial_accel_min = -2.2351742e-06
+radial_accel_max = -2.2351742e-06
+scale_min = 0.03
+scale_max = 0.12
+color = Color(0.41995803, 0.61316717, 0.79505175, 1)
+alpha_curve = SubResource("CurveTexture_is6q0")
+
 [node name="Foyer" type="Node3D" unique_id=1853759377]
 
 [node name="Foyer2" type="Node3D" parent="." unique_id=1853604356]
@@ -1056,15 +1126,15 @@ spot_range = 26.082762
 spot_angle = 33.29
 
 [node name="SpotLight3D4" type="SpotLight3D" parent="Foyer2" unique_id=398814033]
-transform = Transform3D(0.98724735, 0.055660494, -0.1491466, 0.06801519, 0.6995933, 0.7112969, 0.1439331, -0.71237016, 0.68688583, -0.7061426, 4.2500644, -2.2682703)
+transform = Transform3D(0.2518571, 0.6643576, -0.7037024, -0.72511417, 0.6111086, 0.31742042, 0.6409192, 0.43031996, 0.6356472, -3.1388893, 4.250064, -1.9485466)
 light_color = Color(0.79698795, 0.9806014, 1.1688981, 1)
-light_energy = 3.0
+light_energy = 3.73
 light_indirect_energy = 0.2
 light_volumetric_fog_energy = 1.035
 light_specular = 5.685
 light_bake_mode = 1
 shadow_enabled = true
-spot_range = 15.646015
+spot_range = 7.0698314
 spot_angle = 62.478573
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="Foyer2" unique_id=1856344515]
@@ -1145,5 +1215,23 @@ shape = SubResource("BoxShape3D_vywq4")
 [node name="LightmapGI" type="LightmapGI" parent="." unique_id=1189358844]
 generate_probes_subdiv = 3
 light_data = ExtResource("13_i373o")
+
+[node name="effects" type="Node3D" parent="." unique_id=775196888]
+
+[node name="Mist" type="GPUParticles3D" parent="effects" unique_id=575878877]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3811193, 0)
+amount = 24
+lifetime = 8.0
+preprocess = 8.0
+process_material = SubResource("ParticleProcessMaterial_bhu1e")
+draw_pass_1 = SubResource("PlaneMesh_risvt")
+
+[node name="DustSpecs" type="GPUParticles3D" parent="effects" unique_id=1034217384]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.084631, 2.3811193, 0)
+amount = 16
+lifetime = 8.0
+preprocess = 8.0
+process_material = SubResource("ParticleProcessMaterial_eg27v")
+draw_pass_1 = SubResource("PlaneMesh_risvt")
 
 [editable path="Foyer2/CeilingLight2"]

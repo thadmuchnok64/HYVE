@@ -25,6 +25,8 @@ public partial class PC_Interact : PCState
     {
         if (interactable != null)
 		{
+			if (!@event.IsPressed())
+				return null;
 			if (interactable.ManageInput(@event))
 			{
 				return idleState;

@@ -4,6 +4,7 @@ render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_back, diffuse
 
 // Varyings
 varying bool var_impactFrame;
+varying float bloodMask;
 
 global uniform bool impactFrame;
 uniform sampler2D Albedo;
@@ -11,6 +12,8 @@ uniform sampler2D noiseTex;
 uniform sampler2D Emission;
 uniform float Emissiveness = 1.0;
 uniform float bloodAmount =.7;
+global uniform vec4 bloodColor;
+global uniform vec4 bloodAccent;
 
 
 
@@ -39,8 +42,16 @@ void fragment() {
 // Texture2D:14
 	vec4 noise = texture(noiseTex, n_out18p0);
 
+//Emission
+	vec4 emissiveMask;
+	emissiveMask = texture(Emission, UV);
+
 // blood noise
-	float bloodNoise = texture(noiseTex, UV*vec2(2,2)).r;
+	float bloodNoise = texture(noiseTex, UV*vec2(4.0f,2.0f)).r;
+	bloodNoise = bloodNoise * (1.0f-emissiveMask.r);
+	vec3 bloodTexture = mix(bloodColor,bloodAccent,bloodNoise).rgb;
+	float bloodCutoff = smoothstep(bloodAmount-.05f,bloodAmount,bloodNoise);
+	bloodMask = bloodCutoff;
 
 
 // Mix:15
@@ -48,21 +59,18 @@ void fragment() {
 
 
 	vec3 col;
-	vec3 bloodColor = vec3(.3,.02,.03);
 // If:3
 	float n_in3p1 = 0.01000;
 	float n_in3p2 = 0.01000;
 	if(abs((n_out4p0 ? 1.0 : 0.0) - n_in3p1) < n_in3p2)
 	{
 		col = vec3(n_out6p0.xyz);
-		float bloodCutoff = step(bloodAmount,bloodNoise);
-		col = mix(col,bloodColor,bloodCutoff);
+		col = mix(col,bloodTexture.rgb,bloodCutoff);
 	}
 	else if((n_out4p0 ? 1.0 : 0.0) < n_in3p1)
 	{
 		col = vec3(n_out6p0.xyz);
-				float bloodCutoff = smoothstep(bloodAmount-.3f,bloodAmount,bloodNoise);
-		col = mix(bloodColor,col,bloodCutoff);
+		col = mix(bloodTexture.rgb,col,bloodCutoff);
 	}
 	else
 	{
@@ -78,17 +86,12 @@ void fragment() {
 	float n_out13p0 = 1.000000;
 
 
-	vec4 n_out8p0;
-// Texture2D:8
-	n_out8p0 = texture(Emission, UV);
-
-
 // FloatParameter:21
 	float n_out21p0 = Emissiveness;
 
 
 // VectorOp:20
-	vec4 n_out20p0 = n_out8p0 * vec4(n_out21p0);
+	vec4 n_out20p0 = emissiveMask * vec4(n_out21p0);
 
 
 	vec3 n_out11p0;
@@ -129,7 +132,7 @@ void light() {
 	light = clamp(smoothstep(0.02,.15, light),.01,.9); // Here
 	
 	vec3 diffuse = vec3(light) * LIGHT_COLOR / PI;
-	
+	diffuse = diffuse* mix(1.0f, 0.9f,bloodMask);
 		bool n_out4p0 = impactFrame;
 			float n_in11p1 = 0.01000;
 	float n_in11p2 = 0.01000;
