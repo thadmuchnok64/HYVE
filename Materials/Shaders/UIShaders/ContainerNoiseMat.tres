@@ -1,6 +1,8 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://dujk2c1ecb0p5"]
 
 [ext_resource type="Shader" uid="uid://c5hq3mrdat75f" path="res://Materials/Shaders/UIShaders/ContainerNoise.tres" id="1_sh3dl"]
+[ext_resource type="Texture2D" uid="uid://c0mmqd2u4qqi6" path="res://Materials/Masks/Noise1.png" id="2_16dkd"]
 
 [resource]
 shader = ExtResource("1_sh3dl")
+shader_parameter/Texture2DParameter = ExtResource("2_16dkd")
