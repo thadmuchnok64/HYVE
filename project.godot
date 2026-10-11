@@ -190,7 +190,7 @@ impactFrame={
 }
 depthCulling={
 "type": "bool",
-"value": false
+"value": true
 }
 bloodColor={
 "type": "vec4",

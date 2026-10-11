@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ml1x0ebtustx" path="res://Prefab Nodes/Decor/Manufactured/ceiling_light.tscn" id="3_gkck1"]
 [ext_resource type="LightmapGIData" uid="uid://blfuh5kt3quqr" path="res://Prefab Nodes/Level/GI/cell_room.lmbake" id="4_5whaa"]
 [ext_resource type="PackedScene" uid="uid://bodb77m78ws52" path="res://Prefab Nodes/Gizmos/Interactable_Plaque.tscn" id="4_jpd1b"]
+[ext_resource type="Script" uid="uid://b82d64h3cc51h" path="res://Scripts/Gizmos/NucleusDoor.cs" id="5_ixvg6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b2vq2"]
 resource_name = "BioSection"
@@ -355,6 +356,95 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_r8i1m")
 
+[sub_resource type="Animation" id="Animation_jpd1b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NucleusDoor:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.4210853e-14, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NucleusDoor:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1g28i"]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NucleusDoor:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.4210853e-14, 0, -0.5856801), Vector3(1.4210853e-14, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NucleusDoor:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.0002695846, -0.008741245, -3.4262237e-09), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ixvg6"]
+resource_name = "open"
+length = 0.56666666
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NucleusDoor:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.4210853e-14, 0, 0), Vector3(1.4210853e-14, 0, -0.5856801)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NucleusDoor:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.0002695846, -0.008741245, -3.4262237e-09)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1g28i"]
+_data = {
+&"RESET": SubResource("Animation_jpd1b"),
+&"close": SubResource("Animation_1g28i"),
+&"open": SubResource("Animation_ixvg6")
+}
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_ie6gi"]
 _surfaces = [{
 "aabb": AABB(-0.021506539, -0.07655856, -0.010176245, 0.052564304, 0.08212809, 0.030744081),
@@ -595,15 +685,20 @@ defaultMessage = "These are centrioles. They're like the skeleton or constructiv
 transform = Transform3D(0.70710814, 0, 0.7071069, -4.4237822e-09, 1, 2.8312206e-07, -0.70710796, 0, 0.70710695, 0.4530058, 0, -0.45300388)
 shape = SubResource("BoxShape3D_jpd1b")
 
-[node name="Nucleus" type="MeshInstance3D" parent="CellRoom" unique_id=1073647236]
-transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -16.88252, 1.5007155, -28.787973)
+[node name="Nucleus" type="MeshInstance3D" parent="CellRoom" unique_id=1073647236 node_paths=PackedStringArray("anim")]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -16.88252, 1.4485822, -28.787973)
 material_override = ExtResource("2_gkck1")
 mesh = SubResource("ArrayMesh_lh8yw")
+script = ExtResource("5_ixvg6")
+anim = NodePath("AnimationPlayer")
 
-[node name="NucleusDoor" type="MeshInstance3D" parent="CellRoom" unique_id=1755108028]
-transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -16.88252, 1.5007155, -28.787973)
+[node name="NucleusDoor" type="MeshInstance3D" parent="CellRoom/Nucleus" unique_id=1755108028]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, -1.4210855e-14, 0, 1.4210855e-14, 1.0000001, 0, 0, 0)
 material_override = ExtResource("2_gkck1")
 mesh = SubResource("ArrayMesh_pk57m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CellRoom/Nucleus" unique_id=360675769]
+libraries/ = SubResource("AnimationLibrary_1g28i")
 
 [node name="Ribosomes" type="MeshInstance3D" parent="CellRoom" unique_id=352623217]
 transform = Transform3D(78.19774, 62.330673, 2.9802322e-06, 2.9802322e-06, -1.1920929e-05, 99.99999, 62.330673, -78.19774, -1.1920929e-05, -11.71991, 2.8914163, -32.330055)

@@ -158,7 +158,7 @@ input_name = "time"
 [sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_sbh50"]
 
 [sub_resource type="VisualShaderNodeRemap" id="VisualShaderNodeRemap_m0jvo"]
-default_input_values = [1, 6.0, 2, 10.0, 3, 0.0, 4, 1.0]
+default_input_values = [1, 5.0, 2, 9.0, 3, 0.0, 4, 1.0]
 
 [sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_ftdw6"]
 default_input_values = [0, 0.0, 1, 1600.0]
@@ -306,7 +306,7 @@ operator = 2
 [sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_m80ho"]
 
 [sub_resource type="VisualShaderNodeRemap" id="VisualShaderNodeRemap_gvotb"]
-default_input_values = [1, 5.0, 2, 18.0, 3, 0.0, 4, 1.0]
+default_input_values = [1, 4.0, 2, 16.0, 3, 0.0, 4, 1.0]
 
 [sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_1xorl"]
 operator = 1

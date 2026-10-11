@@ -8,6 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://b1jp5kb581i07" path="res://Prefab Nodes/Gizmos/Containers/cabinent_openable.tscn" id="6_7n0ei"]
 [ext_resource type="Script" uid="uid://c6igaenalehqd" path="res://Scripts/Gizmos/GizmoTrigger.cs" id="7_8plfa"]
 [ext_resource type="Script" uid="uid://dpmgb1v831qi7" path="res://Scripts/Gizmos/PressableOrgan.cs" id="7_wiyxw"]
+[ext_resource type="AudioStream" uid="uid://dxgqfb1indnvf" path="res://Sound/SFX/GizmoSFX/AirRelease.wav" id="8_fj7i3"]
+[ext_resource type="PackedScene" uid="uid://nrpla1tycom4" path="res://Prefab Nodes/Enemies/scrawny_grunt.tscn" id="10_4uhwy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4uhwy"]
+size = Vector3(0.022705078, 0.0126953125, 0.01849121)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wiyxw"]
 data = PackedVector3Array(0.0165, -0.014099999, 0, 0.0055, -0.014099999, 0, 0.0055, -0.014099999, 0.016099999, 0.0055, -0.014099999, 0.016099999, 0.0157, -0.014099999, 0.042, 0.0165, -0.014099999, 0, -0.0734, -0.014099999, 0, -0.0734, -0.0923, 0, -0.074499995, -0.0923, 0.042, -0.074499995, -0.0923, 0.042, -0.074499995, -0.014099999, 0.042, -0.0734, -0.014099999, 0, -0.0036, -0.014099999, 0.0185, -0.0157, -0.014099999, 0.042, 0.0157, -0.014099999, 0.042, 0.0157, -0.014099999, 0.042, 0.0036, -0.014099999, 0.0185, -0.0036, -0.014099999, 0.0185, -0.028299998, -0.014099999, 0.042, -0.0157, -0.014099999, 0.042, -0.0165, -0.014099999, 0, -0.0165, -0.014099999, 0, -0.0295, -0.014099999, 0, -0.028299998, -0.014099999, 0.042, 0.0231, -0.014099999, 0.042, 0.0242, -0.014099999, 0, 0.0165, -0.014099999, 0, 0.0165, -0.014099999, 0, 0.0157, -0.014099999, 0.042, 0.0231, -0.014099999, 0.042, 0.0242, -0.0923, 0, 0.0242, -0.014099999, 0, 0.0231, -0.014099999, 0.042, 0.0231, -0.014099999, 0.042, 0.0231, -0.0923, 0.042, 0.0242, -0.0923, 0, -0.0165, -0.014099999, 0, -0.0157, -0.014099999, 0.042, -0.0055, -0.014099999, 0.016099999, -0.0055, -0.014099999, 0.016099999, -0.0055, -0.014099999, 0, -0.0165, -0.014099999, 0, -0.0055, -0.014099999, 0.016099999, -0.0157, -0.014099999, 0.042, -0.0036, -0.014099999, 0.0185, 0.0055, -0.014099999, 0.016099999, 0.0036, -0.014099999, 0.0185, 0.0157, -0.014099999, 0.042, -0.0734, -0.0923, 0, -0.0295, -0.0923, 0, -0.030599998, -0.0923, 0.042, -0.030599998, -0.0923, 0.042, -0.074499995, -0.0923, 0.042, -0.0734, -0.0923, 0, -0.0295, -0.014099999, 0, -0.0734, -0.014099999, 0, -0.074499995, -0.014099999, 0.042, -0.074499995, -0.014099999, 0.042, -0.028299998, -0.014099999, 0.042, -0.0295, -0.014099999, 0, -0.0295, -0.0923, 0, 0.0242, -0.0923, 0, 0.0231, -0.0923, 0.042, 0.0231, -0.0923, 0.042, -0.030599998, -0.0923, 0.042, -0.0295, -0.0923, 0, -0.0734, -0.014099999, 0, -0.0295, -0.014099999, 0, -0.0295, -0.0923, 0, -0.0295, -0.0923, 0, -0.0734, -0.0923, 0, -0.0734, -0.014099999, 0, 0.0242, -0.0923, 0, -0.0295, -0.0923, 0, -0.0295, -0.014099999, 0, -0.0295, -0.014099999, 0, 0.0242, -0.014099999, 0, 0.0242, -0.0923, 0, -0.074499995, -0.014099999, 0.042, -0.074499995, -0.0923, 0.042, 0.0231, -0.0923, 0.042, 0.0231, -0.0923, 0.042, 0.0231, -0.014099999, 0.042, -0.074499995, -0.014099999, 0.042)
@@ -125,6 +130,12 @@ material_override = ExtResource("2_np1yp")
 [node name="Gurney" parent="Hosptital" index="4" unique_id=972809687]
 material_override = ExtResource("2_np1yp")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Hosptital/Gurney" index="0" unique_id=1891580406]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hosptital/Gurney/StaticBody3D" unique_id=1260719673]
+transform = Transform3D(1.0000005, 0, 0, 0, 1.0000007, -2.842171e-14, 0, 2.842171e-14, 1.0000007, 0.00036621094, 0, 0.004245607)
+shape = SubResource("BoxShape3D_4uhwy")
+
 [node name="Heart" parent="Hosptital" index="5" unique_id=444197440]
 material_override = ExtResource("2_np1yp")
 
@@ -146,6 +157,7 @@ script = ExtResource("7_wiyxw")
 playerWarpPosition = NodePath("Pivot")
 anim = NodePath("AnimationPlayer")
 arrow = NodePath("../PressureTank/PressureTankArrow")
+airSound = ExtResource("8_fj7i3")
 animationMeta = "press"
 
 [node name="Pivot" type="Marker3D" parent="Hosptital/Lungs" index="0" unique_id=753976597]
@@ -183,6 +195,20 @@ interactText = "Press Lungs"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53430176, 0)
 shape = SubResource("BoxShape3D_wiyxw")
 debug_color = Color(0.9411765, 0.85882354, 0.6, 1)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=402062958]
+transform = Transform3D(1, 0, 0, 0, -0.7790426, 0.62697095, 0, -0.62697095, -0.7790426, 17.13966, 4.5675206, -10.4507885)
+light_color = Color(0.8186324, 0.20237109, 0.13498515, 1)
+light_energy = 2.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=446113873]
+transform = Transform3D(0.880572, 0.2242027, -0.41752377, 0.31013235, 0.39355206, 0.86541, 0.35834467, -0.8915435, 0.2770184, 17.13966, 4.2762613, -14.42263)
+light_color = Color(0.9785817, 0.80665976, 0.737566, 1)
+light_energy = 3.0
+spot_angle = 61.94904
+
+[node name="ScrawnyGrunt" parent="." unique_id=604358297 instance=ExtResource("10_4uhwy")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 17.68184, 1.2766203, -16.032028)
 
 [editable path="Fluorescent Lamp"]
 [editable path="Fluorescent Lamp2"]
