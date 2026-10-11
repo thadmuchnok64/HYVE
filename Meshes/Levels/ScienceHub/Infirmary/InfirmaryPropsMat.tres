@@ -2,10 +2,12 @@
 
 [ext_resource type="Shader" uid="uid://itrnkg3h08cb" path="res://Materials/Shaders/BaseSceneShader.tres" id="1_n7nhj"]
 [ext_resource type="Texture2D" uid="uid://48qxxomnu3p" path="res://Meshes/Levels/ScienceHub/Infirmary/MedicalProps RGB Alpha.png" id="2_4hsut"]
+[ext_resource type="Texture2D" uid="uid://4k81g8bw04gc" path="res://Meshes/Levels/ScienceHub/Infirmary/MedicalProps Emission.png" id="2_n7nhj"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_n7nhj")
 shader_parameter/MainTex2 = ExtResource("2_4hsut")
 shader_parameter/DepthFade = true
-shader_parameter/EmissiveBoost = 1.0
+shader_parameter/Emission = ExtResource("2_n7nhj")
+shader_parameter/EmissiveBoost = 0.5

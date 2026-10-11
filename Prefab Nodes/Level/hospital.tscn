@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dm3tyri5ch2wq"]
+[gd_scene format=4 uid="uid://dm3tyri5ch2wq"]
 
 [ext_resource type="PackedScene" uid="uid://cmnr14l7n2q2d" path="res://Meshes/Levels/ScienceHub/Infirmary/Hosptital.fbx" id="1_yr5gn"]
 [ext_resource type="Material" uid="uid://blyngkkippwlj" path="res://Meshes/Levels/ScienceHub/Infirmary/InfirmaryPropsMat.tres" id="2_np1yp"]
@@ -49,6 +49,47 @@ _data = {
 &"press": SubResource("Animation_fj7i3")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cpq2s"]
+resource_name = "MedicalProps"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.9063355, 0.45969298, 0.4885652, 1)
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_gc5ox"]
+_surfaces = [{
+"aabb": AABB(-0.00010644193, -2.5206451e-05, -0.00013250523, 0.00021288385, 5.0412902e-05, 0.00077645027),
+"format": 34359742465,
+"index_count": 96,
+"index_data": PackedByteArray("AAABAAIAAwABAAAAAgAEAAAABAACAAUAAAAGAAMABQAHAAQABwAFAAgAAAAEAAkACQAEAAcACAAKAAcABwAKAAkACgAIAAsACwAMAAoACQAKAAwADAALAA0ADQAOAAwADAAOAAkADgANAA8ACQAOABAADwAQAA4ACQARAAAAEAARAAkABgAAABEAEgAQAA8AEQAQABIADwATABIAEgATABQAEgAVABEAEQAVAAYAFAAVABIAAwAGABUAFQAUAAMA"),
+"name": "MedicalProps",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 22,
+"vertex_data": PackedByteArray("5MOjuHFy0zfxvMM45MOjuHFy07fxvMM4kznfuHFy07cIDtu2r4kluHFy07fmyxg6kznfuHFy0zcIDtu28bzDuHFy07fxvMO4r4kluHFy0zfmyxg68bzDuHFy0zfxvMO4AAAAAHFy07ca8Qq5AAAAAHFy0zcIDtu2AAAAAHFy0zca8Qq58bzDOHFy07fxvMO48bzDOHFy0zfxvMO4kznfOHFy07cIDtu2kznfOHFy0zcIDtu25MOjOHFy07fxvMM45MOjOHFy0zfxvMM4AAAAAHFy0zfxvMM4r4klOHFy0zfmyxg6r4klOHFy07fmyxg6AAAAAHFy07dszig6AAAAAHFy0zdszig6")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_2daxd"]
+resource_name = "Cube_183"
+lightmap_size_hint = Vector2i(10, 6)
+_surfaces = [{
+"aabb": AABB(-0.00010644193, -2.5206451e-05, -0.00013250523, 0.00021288385, 5.0412902e-05, 0.00077645027),
+"attribute_data": PackedByteArray("4mhZPhabNj+mWQY/HQ1qP3YQXj7qkTY/GloGP7m2QT+sxV0+OQU5P5rhCT+Lj0A/Jo5ZPlS0OD8m4Qk/8OVoP0+9Sz5skzY/5gtsPwtecj4Yi1I+h4g2PwDBaz+TwzM+al9SPnxsOD/mC28/q6oqPrM1Sz5XmDg//XFvPwAAgD66gkc+vIc2PwCa/z0dDWo/T71LPmyTNj+dnf89ubZBP7M1Sz5XmDg/0OwNPouPQD+6gkc+u744PwLrDT7w5Wg/4zxKPhViOj9mZuY+q6qqPf4VTT4Dzzk/zcwMP6uqqj2gBlI+rFk6P83MDD8AAIA+dX9RPjJOOz9mZuY+AACAPpbYVT4Y/iw/O3dbPxC4QD7iaFk+Fps2Pxt2az87Uuo9GItSPoeINj8AwWs/k8MzPrzoUj7EViw/mplZP03sZT4N/k8+eP0sP/DCWz8AAIA+T71LPmyTNj/mC2w/C15yPmpfUj58bDg/5gtvP6uqKj4mjlk+VLQ4P86lbj+rqqo9zkxXPjjrOT8Sj3E/s92vPaAGUj6sWTo/MzNzP8UwHz51f1E+Mk47P5qZGT4AAIA+oAZSPqxZOj/NzEw9AACAPs5MVz446zk/zcxMPauqqj0Splk+MLo6P5qZGT6rqqo9KmNZPjRtLD8m5eo+AABAP5bYVT4Y/iw/PuTqPmRWaD+86FI+xFYsP2Zm5j6rqmo/i91TPkA9Kz9OZ+Y+R1RCP4vdUz5APSs/zcxMPauqaj+86FI+xFYsPwrUTD1HVEI/Df5PPnj9LD/KwnA9AABAP+H+Sz5xFSw/jbtwPWRWaD8qY1k+NG0sPybl6j4AAEA/dhBePuqRNj8aWgY/ubZBP+JoWT4WmzY/plkGPx0Naj+W2FU+GP4sPz7k6j5kVmg/Df5PPnj9LD/KwnA9AABAP0+9Sz5skzY/nZ3/Pbm2QT+6gkc+vIc2PwCa/z0dDWo/4f5LPnEVLD+Nu3A9ZFZoP7qCRz67vjg/AusNPvDlaD+zNUs+V5g4P9DsDT6Lj0A//hVNPgPPOT+amRk+R1RCP+M8Sj4VYjo/y5cZPquqaj/+FU0+A885PxtCcj+olW0+szVLPleYOD/9cW8/AACAPmpfUj58bDg/5gtvP6uqKj6gBlI+rFk6PzMzcz/FMB8+Jo5ZPlS0OD8m4Qk/8OVoP6zFXT45BTk/muEJP4uPQD8Splk+MLo6P83MDD9HVEI/zkxXPjjrOT9azAw/q6pqPw=="),
+"format": 34359742519,
+"index_count": 96,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAATABIAEgAVABQAFgASABEAEQAXABYAFgAXABgAGAAZABYAGgAbABwAHAAdABoAHgAfACAAIAAhAB4AIgAjACQAJAAlACIAJgAnACgAKAApACYAKgArACwALAAtACoALgAvADAAMAAxAC4AMgAzADQANAA1ADIANgA3ADgAOAA5ADYA"),
+"material": SubResource("StandardMaterial3D_cpq2s"),
+"name": "MedicalProps",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 58,
+"vertex_data": PackedByteArray("5MOjuHFy0zfxvMM45MOjuHFy07fxvMM4kznfuHFy07cIDtu2kznfuHFy0zcIDtu25MOjOHFy0zfxvMM4AAAAAHFy0zfxvMM4AAAAAHFy0zcIDtu2kznfOHFy0zcIDtu25MOjOHFy07fxvMM45MOjOHFy0zfxvMM4kznfOHFy0zcIDtu2kznfOHFy07cIDtu28bzDOHFy07fxvMO48bzDOHFy0zfxvMO4AAAAAHFy0zca8Qq5AAAAAHFy07ca8Qq5r4kluHFy0zfmyxg65MOjuHFy0zfxvMM4AAAAAHFy0zfxvMM4AAAAAHFy0zdszig6r4klOHFy0zfmyxg65MOjOHFy0zfxvMM4AAAAAHFy0zcIDtu2kznfuHFy0zcIDtu28bzDuHFy0zfxvMO4AAAAAHFy0zca8Qq5AAAAAHFy07ca8Qq5AAAAAHFy0zca8Qq58bzDuHFy0zfxvMO48bzDuHFy07fxvMO4r4kluHFy07fmyxg6r4kluHFy0zfmyxg6AAAAAHFy0zdszig6AAAAAHFy07dszig6AAAAAHFy07dszig6AAAAAHFy0zdszig6r4klOHFy0zfmyxg6r4klOHFy07fmyxg6r4kluHFy07fmyxg65MOjuHFy07fxvMM45MOjuHFy0zfxvMM4r4kluHFy0zfmyxg6r4klOHFy0zfmyxg65MOjOHFy0zfxvMM45MOjOHFy07fxvMM4r4klOHFy07fmyxg6kznfOHFy07cIDtu2kznfOHFy0zcIDtu28bzDOHFy0zfxvMO48bzDOHFy07fxvMO48bzDOHFy0zfxvMO4kznfOHFy0zcIDtu2AAAAAHFy0zcIDtu2AAAAAHFy0zca8Qq5kznfuHFy0zcIDtu2kznfuHFy07cIDtu28bzDuHFy07fxvMO48bzDuHFy0zfxvMO4TRz/fxeCu4RNHP9/aHuBgE0c/3/NhSCNTRz/f9WHuJH/f///AABdw/9///8AAMnB/3///wAAksP/f///AADRxLHj/38KgeH/seP/f3V+hPyx4/9/O4yk/rHj/3/Nkur9//8o2vch4d7//yjayiHR3v//KNo2Ivfe//8o2mMiB9//f///AAAT2P9///99CP+//3///9YC/7//f///JgD/v/9///9hMP+//3///wAAu8H/f///7Q3/v/9///9yEf+//3///3IQ/7//f///cg3/vwAAKNrnNE21AAAo2g8znLYAACjaZTeIswAAKNofOU+yPjL/fywuDpA+Mv9/8C7ojz4y/3+4LSWQPjL/f/UsTJDAzf9/BFvl0MDN/39BWabOwM3/fwtcM9LAzf9/wF1g1FwJ/39VUbSBXAn/f257KoBcCf9/nXdNgFwJ/38qT8iBovb/f7t71OKi9v9/jX/0/KL2/38yf4j6ovb/f4p7heH//8mQrlyt/f//yZDRZlj+///JkI9TFP3//8mQg0uN/P9///8AAGHE/3///wAAgMb/f///AAB0xP9///8AAHjCAADJkKR5OJgAAMmQfXstkQAAyZD0d6eeAADJkHJ2Z6Q=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_gc5ox")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_wiyxw"]
 size = Vector3(0.2775879, 2.111084, 1.7070313)
 
@@ -88,6 +129,7 @@ material_override = ExtResource("2_np1yp")
 material_override = ExtResource("2_np1yp")
 
 [node name="Infirmary" parent="Hosptital" index="6" unique_id=66385338]
+transform = Transform3D(1.1920929e-05, -100, -1.4901161e-05, -2.9802322e-06, -1.1920929e-05, 99.99999, -100, -5.9604645e-06, 0, 11.940442, 1.0990651, -14.915065)
 material_override = ExtResource("2_w5381")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Hosptital/Infirmary" index="0" unique_id=163452619]
@@ -98,11 +140,12 @@ shape = SubResource("ConcavePolygonShape3D_wiyxw")
 [node name="InfirmaryEntrance" parent="Hosptital" index="7" unique_id=1123922132]
 visible = false
 
-[node name="Lungs" parent="Hosptital" index="8" unique_id=1690926959 node_paths=PackedStringArray("playerWarpPosition", "anim")]
+[node name="Lungs" parent="Hosptital" index="8" unique_id=1690926959 node_paths=PackedStringArray("playerWarpPosition", "anim", "arrow")]
 material_override = ExtResource("2_np1yp")
 script = ExtResource("7_wiyxw")
 playerWarpPosition = NodePath("Pivot")
 anim = NodePath("AnimationPlayer")
+arrow = NodePath("../PressureTank/PressureTankArrow")
 animationMeta = "press"
 
 [node name="Pivot" type="Marker3D" parent="Hosptital/Lungs" index="0" unique_id=753976597]
@@ -119,6 +162,14 @@ material_override = ExtResource("2_np1yp")
 
 [node name="PressureTank" parent="Hosptital" index="11" unique_id=187563701]
 material_override = ExtResource("2_np1yp")
+
+[node name="PressureTankArrow" type="MeshInstance3D" parent="Hosptital/PressureTank" index="0" unique_id=2003561300]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, -1.4210855e-14, 0, 1.4210855e-14, 1.0000001, -0.0030157417, 0.0027216226, 7.6144934e-06)
+material_override = ExtResource("2_np1yp")
+mesh = SubResource("ArrayMesh_2daxd")
+
+[node name="PressureTankArrow" parent="Hosptital" index="12" unique_id=1432629780]
+visible = false
 
 [node name="Area3D" type="Area3D" parent="." unique_id=281232609 node_paths=PackedStringArray("interactable")]
 transform = Transform3D(0.013752727, 0, -0.99990547, 0, 1, 0, 0.99990547, 0, 0.013752727, 15.340887, 1.9563675, -8.481175)
