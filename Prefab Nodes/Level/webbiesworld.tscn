@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://c6igaenalehqd" path="res://Scripts/Gizmos/GizmoTrigger.cs" id="8_knh72"]
 [ext_resource type="PackedScene" uid="uid://d25mmdw0spf4t" path="res://Prefab Nodes/Level/little_lexington.tscn" id="16_llblj"]
 [ext_resource type="PackedScene" uid="uid://dm3tyri5ch2wq" path="res://Prefab Nodes/Level/hospital.tscn" id="17_knh72"]
+[ext_resource type="PackedScene" uid="uid://dl37pnmxah45k" path="res://Prefab Nodes/Level/animal_exhibit.tscn" id="18_12ktk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mq5vi"]
 resource_name = "Womb"
@@ -293,5 +294,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52, -0.975, 1.29)
 
 [node name="Hospital" parent="." index="14" unique_id=1128191875 instance=ExtResource("17_knh72")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5110732, -0.9903972, 1.2849306)
+
+[node name="AnimalExhibit" parent="." index="15" unique_id=62283799 instance=ExtResource("18_12ktk")]
 
 [editable path="Foyer2/Crowbar"]

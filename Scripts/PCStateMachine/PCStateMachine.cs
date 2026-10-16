@@ -33,6 +33,8 @@ public partial class PCStateMachine : Entity
 	[Export] Node3D mainCamPoint, inventoryCamPoint;
 	[Export] public Node3D trackingPoint;
 
+	[Export] public float animationDelta; //intended to be used for a variety of different interactions (see MonkeyBars.cs for an example)
+
 
 	[Export] Godot.Collections.Array<GpuParticles3D> slidingParticles;
 	PCState currentState;
