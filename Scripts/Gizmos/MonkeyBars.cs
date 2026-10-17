@@ -12,6 +12,7 @@ public partial class MonkeyBars : InteractableObject
 	Node3D currentPivot;
 	bool wantsToMove = false;
 	bool wantsToMoveForward;
+	[Export] AudioStream barGrabSFX;
 	public override void TriggerGizmo(PCStateMachine pc)
 	{
 		inUse = true;
@@ -27,6 +28,7 @@ public partial class MonkeyBars : InteractableObject
 	{
 		if (inUse)
 		{
+			GD.Print(pc.animationDelta);
 			if (wantsToMove)
 			{
 				ManageMovement((float)delta);
@@ -110,6 +112,7 @@ public partial class MonkeyBars : InteractableObject
 							wantsToMove = false;
 							currentPivot = (Node3D)barPivotParent.GetChild(barPivotParent.GetChildren().IndexOf(currentPivot) + 1);
 							pc.cb.GlobalPosition = currentPivot.GlobalPosition + new Vector3(0, playerYOffset, 0);
+							SoundManager.Instance.RequesetSFXSoundAtLocation(barGrabSFX,currentPivot.GlobalPosition);
 
 						}
 					}
@@ -125,6 +128,7 @@ public partial class MonkeyBars : InteractableObject
 							wantsToMove = false;
 							currentPivot = (Node3D)barPivotParent.GetChild(barPivotParent.GetChildren().IndexOf(currentPivot) - 1);
 							pc.cb.GlobalPosition = currentPivot.GlobalPosition + new Vector3(0, playerYOffset, 0);
+							SoundManager.Instance.RequesetSFXSoundAtLocation(barGrabSFX, currentPivot.GlobalPosition);
 
 						}
 					}

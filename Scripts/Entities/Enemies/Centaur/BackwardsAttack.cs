@@ -9,7 +9,6 @@ public partial class BackwardsAttack : IHE_Attack
 		enem = enemy;
 		if (enem.meshRoot.GlobalBasis.Z.Dot(GameMaster.Instance.GetPlayer().GlobalPosition - enem.meshRoot.GlobalPosition) < -dotCutoff)
 		{
-			GD.Print("pass");
 			return base.IsAttackValid(enem);
 		}
 		else
