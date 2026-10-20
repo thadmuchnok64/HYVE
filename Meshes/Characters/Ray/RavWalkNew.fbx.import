@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cjs0qjq2o7i6o"
+uid="uid://5whyugqgdr2p"
 path="res://.godot/imported/RavWalkNew.fbx-0fb3b3709d57dfff8fc610a907d36453.scn"
 
 [deps]
@@ -44,7 +44,7 @@ _subresources={
 "save_to_file/fallback_path": "res://Meshes/Characters/Ray/Walk.anim",
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "uid://bgos4f0t36mkg",
-"settings/loop_mode": 1,
+"settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
 "slice_1/name": "",

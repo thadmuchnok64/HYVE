@@ -1,0 +1,13 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://dc402gji5uvif"]
+
+[ext_resource type="AudioStream" uid="uid://1vhdsohdaxwk" path="res://Sound/SFX/MonsterSFX/Vocals/Caribou/CaribouPain1.wav" id="1_q8uru"]
+[ext_resource type="AudioStream" uid="uid://ddkxao2vjnhh7" path="res://Sound/SFX/MonsterSFX/Vocals/Caribou/CaribouPain2.wav" id="2_wm7jm"]
+[ext_resource type="AudioStream" uid="uid://b84uqm035pgw3" path="res://Sound/SFX/MonsterSFX/Vocals/Caribou/CaribouPain3.wav" id="3_3tg56"]
+[ext_resource type="AudioStream" uid="uid://ciixdd2sf225g" path="res://Sound/SFX/MonsterSFX/Vocals/Caribou/CaribouPain4.wav" id="4_cyeln"]
+
+[resource]
+streams_count = 4
+stream_0/stream = ExtResource("1_q8uru")
+stream_1/stream = ExtResource("2_wm7jm")
+stream_2/stream = ExtResource("3_3tg56")
+stream_3/stream = ExtResource("4_cyeln")

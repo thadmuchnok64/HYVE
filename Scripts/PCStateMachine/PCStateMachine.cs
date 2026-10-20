@@ -19,6 +19,7 @@ public partial class PCStateMachine : Entity
 	[Export] Node3D lockonCameraPoint;
 
 	[Export] PCState startingState;
+	[Export] PCState fallingState;
 	[Export] public AudioStreamPlayer3D aud;
 	[Export] bool debugState = false;
 	[Export] Godot.Collections.Array<AudioStream> footsteps;
@@ -233,6 +234,11 @@ public partial class PCStateMachine : Entity
 	public void ForceUninteract()
 	{
 		ChangeState(currentState.BreakInteractEvent());
+	}
+
+	public void ForceFall()
+	{
+		ChangeState(fallingState);
 	}
 
 	public void EnableWeapon()

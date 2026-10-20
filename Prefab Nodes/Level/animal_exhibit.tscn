@@ -30,7 +30,7 @@ transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1
 shape = SubResource("ConcavePolygonShape3D_hfh5m")
 
 [node name="JungleGym" parent="AnimalExhibit" index="4" unique_id=1263455922 node_paths=PackedStringArray("barPivotParent")]
-transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -21.476728, 1.3755172, -17.811764)
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -21.476728, 1.936976, -17.811764)
 material_override = ExtResource("2_vqlet")
 script = ExtResource("2_kvx52")
 barPivotParent = NodePath("Bars")
@@ -100,6 +100,7 @@ shape = SubResource("BoxShape3D_kvx52")
 debug_color = Color(1, 0.80859524, 0.39436868, 1)
 
 [node name="LongJungleBars" parent="AnimalExhibit" index="5" unique_id=1831997575 node_paths=PackedStringArray("barPivotParent")]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -14.00021, 3.7889776, -20.854055)
 material_override = ExtResource("2_vqlet")
 script = ExtResource("2_kvx52")
 barPivotParent = NodePath("Bars2")

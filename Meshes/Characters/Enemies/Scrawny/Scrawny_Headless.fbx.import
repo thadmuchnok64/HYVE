@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://tlsmkhk05jd5"
+uid="uid://bmvfwmahbgwp"
 path="res://.godot/imported/Scrawny_Headless.fbx-16caf92229c3f81b9ca6fcb1fc9d938f.scn"
 
 [deps]
@@ -47,6 +47,15 @@ _subresources={
 "save_to_file/enabled": true,
 "save_to_file/fallback_path": "res://Meshes/Characters/Enemies/Scrawny/ScrawnyHeadless.tres",
 "save_to_file/path": "uid://d22gfwljhhx6n"
+},
+"Plane_006": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Meshes/Characters/Enemies/Scrawny/Scrawny.tres",
+"save_to_file/path": "uid://bgh251lhiru36"
 }
 }
 }

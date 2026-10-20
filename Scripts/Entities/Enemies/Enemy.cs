@@ -15,8 +15,11 @@ public partial class Enemy : Entity
     [Export] protected PackedScene bloodSplat;
     [Export] protected PackedScene bloodSplatSmall;
 	[Export] Godot.Collections.Array<AudioStream> sfx;
+	[Export] AudioStream agroSFX;
+	[Export] AudioStream painSFX;
 
-    [Export] protected Node3D bloodPoint;
+
+	[Export] protected Node3D bloodPoint;
 	[Export] public Node3D trackingPoint;
 	[Export] public bool agrod = false;
     protected EnemyState currentState;
@@ -56,9 +59,13 @@ public partial class Enemy : Entity
 
 	public void FindDetectedObjects()
 	{
+		if (agrod)
+			return;
 		if (detectionSphere.HasOverlappingBodies())
 		{
 			agrod = true;
+			if (agroSFX != null)
+				SoundManager.Instance.RequesetSFXSoundAtLocation(agroSFX, GlobalPosition);
 			SwitchState(currentState.DetectPlayerEvent());
 		}
 
@@ -72,8 +79,9 @@ public partial class Enemy : Entity
         var inst = bloodSplatSmall.Instantiate();
         cb.AddSibling(inst);
         ((Node3D)inst).GlobalPosition = bloodPoint.GlobalPosition;
-
-        var state = currentState.HitEvent();
+		if (alive && painSFX != null)
+			SoundManager.Instance.RequesetSFXSoundAtLocation(painSFX, GlobalPosition);
+		var state = currentState.HitEvent();
         if (state != null)
 		{
 			SwitchState(state);
@@ -86,11 +94,17 @@ public partial class Enemy : Entity
         var inst = bloodSplat.Instantiate();
         cb.AddSibling(inst);
         ((Node3D)inst).GlobalPosition = bloodPoint.GlobalPosition;
-        meshInstance.Mesh = headlessMesh;
-
+		ChangeHeadmesh();
     }
 
-    public void PlaySound(int soundIndex)
+	private async void ChangeHeadmesh()
+	{
+		await ToSignal(GetTree().CreateTimer(0.2f), SceneTreeTimer.SignalName.Timeout);
+		meshInstance.Mesh = headlessMesh;
+
+	}
+
+	public void PlaySound(int soundIndex)
 	{
 		SoundManager.Instance.RequesetSFXSoundAtLocation(sfx[soundIndex], GlobalPosition);
 	}

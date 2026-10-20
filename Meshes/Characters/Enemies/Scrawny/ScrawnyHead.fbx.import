@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://fs8xlwbqqwat"
-path="res://.godot/imported/Scrawny_Head.fbx-47856877183d7458d6499d102f64669d.scn"
+uid="uid://ckllj17dhh2u6"
+path="res://.godot/imported/ScrawnyHead.fbx-a0943f091c606a320cc9bdbb6133d2ff.scn"
 
 [deps]
 
-source_file="res://Meshes/Characters/Enemies/Scrawny/Scrawny_Head.fbx"
-dest_files=["res://.godot/imported/Scrawny_Head.fbx-47856877183d7458d6499d102f64669d.scn"]
+source_file="res://Meshes/Characters/Enemies/Scrawny/ScrawnyHead.fbx"
+dest_files=["res://.godot/imported/ScrawnyHead.fbx-a0943f091c606a320cc9bdbb6133d2ff.scn"]
 
 [params]
 
@@ -37,7 +37,19 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"meshes": {
+"Plane_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Meshes/Characters/Enemies/Scrawny/ScrawnyHead.tres",
+"save_to_file/path": "uid://evpmacpfluqv"
+}
+}
+}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1

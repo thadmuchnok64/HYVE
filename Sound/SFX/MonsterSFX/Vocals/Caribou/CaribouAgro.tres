@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://da8po6pve15cn"]
+
+[ext_resource type="AudioStream" uid="uid://cu70dwat7q2m0" path="res://Sound/SFX/MonsterSFX/Vocals/Caribou/AnimalisticGrunt1.wav" id="1_iv3gd"]
+[ext_resource type="AudioStream" uid="uid://cseehjgjd7s7w" path="res://Sound/SFX/MonsterSFX/Vocals/Caribou/AnimalisticGrunt2.wav" id="2_orqqv"]
+[ext_resource type="AudioStream" uid="uid://chfnwkm07ftks" path="res://Sound/SFX/MonsterSFX/Vocals/Caribou/AnimalisticGrunt3.wav" id="3_s6ucm"]
+
+[resource]
+streams_count = 3
+stream_0/stream = ExtResource("1_iv3gd")
+stream_1/stream = ExtResource("2_orqqv")
+stream_2/stream = ExtResource("3_s6ucm")

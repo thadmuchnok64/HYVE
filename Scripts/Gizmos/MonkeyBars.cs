@@ -13,22 +13,38 @@ public partial class MonkeyBars : InteractableObject
 	bool wantsToMove = false;
 	bool wantsToMoveForward;
 	[Export] AudioStream barGrabSFX;
+	bool linked = false;
+	Vector3 initialPos;
 	public override void TriggerGizmo(PCStateMachine pc)
 	{
 		inUse = true;
+		linked = false;
 		interactSuccess = true;
 		this.pc = pc;
 		currentPivot = (Node3D)barPivotParent.GetChildren().MinBy(n => ((Node3D)n).GlobalPosition.DistanceTo(pc.GlobalPosition));
 
-		pc.cb.GlobalPosition = currentPivot.GlobalPosition + new Vector3(0,playerYOffset,0);
+		pc.cb.GlobalPosition = currentPivot.GlobalPosition.ReplaceY(pc.cb.GlobalPosition.Y);// + new Vector3(0,playerYOffset,0);
 		pc.RotateMesh(currentPivot.GlobalRotation);
+		pc.anim.Set("parameters/interact/JumpMonkeyBar/request", (int)AnimationNodeOneShot.OneShotRequest.Fire);
+		initialPos = pc.GlobalPosition;
 		//}
 	}
 	public override void _Process(double delta)
 	{
 		if (inUse)
 		{
-			GD.Print(pc.animationDelta);
+			if (!linked)
+			{
+
+				if (pc.animationDelta <= .94f)
+					pc.cb.GlobalPosition = initialPos.Lerp(currentPivot.GlobalPosition + new Vector3(0, playerYOffset, 0), pc.animationDelta.Clamp01());
+				else
+				{
+					pc.cb.GlobalPosition = currentPivot.GlobalPosition + new Vector3(0, playerYOffset, 0);//  currentPivot.GlobalPosition + new Vector3(0, playerYOffset, 0);
+					linked = true;
+				}
+					return;
+			}
 			if (wantsToMove)
 			{
 				ManageMovement((float)delta);
@@ -123,6 +139,7 @@ public partial class MonkeyBars : InteractableObject
 					{
 						pc.cb.GlobalPosition = currentPivot.GlobalPosition.Lerp(((Node3D)barPivotParent.GetChild(barPivotParent.GetChildren().IndexOf(currentPivot) -1)).GlobalPosition, (pc.animationDelta).Clamp01()) + new Vector3(0, playerYOffset, 0);
 						pc.RotateMesh(currentPivot.GlobalRotation);
+
 						if (pc.animationDelta >= .95f)
 						{
 							wantsToMove = false;
@@ -141,12 +158,11 @@ public partial class MonkeyBars : InteractableObject
 	{
 		if (@event.IsActionPressed("Interact"))
 		{
-			pc.ForceUninteract();
+			pc.cb.Velocity = Vector3.Zero;
+			pc.cb.MoveAndSlide();
+			pc.ForceFall();
 			inUse = false;
 		}
-
-
-
 			return false;
 	}
 
