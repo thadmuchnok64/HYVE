@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://3yem1xmujtq3"]
+
+[ext_resource type="Shader" uid="uid://itrnkg3h08cb" path="res://Materials/Shaders/BaseSceneShader.tres" id="1_bakij"]
+[ext_resource type="Texture2D" uid="uid://ca2gpur2k1xvy" path="res://Meshes/Levels/ScienceHub/AnimalLand/AnimalLandProps RGB Alpha.png" id="2_xt3x2"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_bakij")
+shader_parameter/MainTex2 = ExtResource("2_xt3x2")
+shader_parameter/DepthFade = true
+shader_parameter/EmissiveBoost = 1.0

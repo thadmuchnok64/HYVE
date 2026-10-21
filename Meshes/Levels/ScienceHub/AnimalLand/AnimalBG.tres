@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://8srtjiewb3mk"]
+
+[ext_resource type="Shader" uid="uid://itrnkg3h08cb" path="res://Materials/Shaders/BaseSceneShader.tres" id="1_qwujg"]
+[ext_resource type="Texture2D" uid="uid://dmk06p4gqqa2f" path="res://Meshes/Levels/ScienceHub/AnimalLand/AnimalRoomBG RGB Alpha.png" id="2_isqq5"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_qwujg")
+shader_parameter/MainTex2 = ExtResource("2_isqq5")
+shader_parameter/DepthFade = true
+shader_parameter/EmissiveBoost = 1.0
