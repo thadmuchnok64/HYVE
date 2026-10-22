@@ -1,5 +1,8 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://bbyjufc1gc2gd"]
 
+[ext_resource type="Texture2D" uid="uid://c0mmqd2u4qqi6" path="res://Materials/Masks/Noise1.png" id="1_6q7c1"]
+
 [resource]
 transparency = 1
 albedo_color = Color(0.20091099, 0.26293585, 0.2593891, 0.4745098)
+albedo_texture = ExtResource("1_6q7c1")
