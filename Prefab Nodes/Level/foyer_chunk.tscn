@@ -19,6 +19,8 @@
 [ext_resource type="Material" uid="uid://d4gxvwk31gh2g" path="res://Materials/Shaders/BaseFoyerCeiling.tres" id="13_delvv"]
 [ext_resource type="LightmapGIData" uid="uid://c5qpgioif52j7" path="res://Prefab Nodes/Level/GI/foyer_chunk.lmbake" id="13_i373o"]
 [ext_resource type="Texture2D" uid="uid://fxvy7s6kwkel" path="res://Textures/splatter.png" id="19_ck1pf"]
+[ext_resource type="PackedScene" uid="uid://cgd5ds7sq3rm0" path="res://Prefab Nodes/Decor/Manufactured/Vents/vent_door_segment.tscn" id="20_eg27v"]
+[ext_resource type="PackedScene" uid="uid://dgc2xt7e35v3v" path="res://Prefab Nodes/Decor/Manufactured/Vents/vent_segment.tscn" id="21_bhu1e"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q847i"]
 resource_name = "Glass"
@@ -1064,7 +1066,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 3.5527137e-15, 0, 3.5527137e-15, 0.999999
 shape = SubResource("BoxShape3D_3moxy")
 
 [node name="FoyerCelingSupports" type="MeshInstance3D" parent="Foyer2" unique_id=1657469900]
-transform = Transform3D(0, 100, 2.9802322e-06, 2.9802322e-06, 0, 100, 100, 2.9802322e-06, 0, -2.3485608, 7.8759975, 9.684608)
+transform = Transform3D(0, 100, 2.9802322e-06, 2.9802322e-06, 0, 100, 100, 2.9802322e-06, 0, -3.30132, 7.8759975, 9.684608)
 mesh = SubResource("ArrayMesh_1g2lg")
 
 [node name="FoyerUpper" type="MeshInstance3D" parent="Foyer2" unique_id=1351936890]
@@ -1233,5 +1235,11 @@ lifetime = 8.0
 preprocess = 8.0
 process_material = SubResource("ParticleProcessMaterial_eg27v")
 draw_pass_1 = SubResource("PlaneMesh_risvt")
+
+[node name="VentSegmentOpen" parent="." unique_id=417367827 instance=ExtResource("20_eg27v")]
+transform = Transform3D(-4.3711393e-06, 100.00001, 1.1920929e-05, 0, -1.1920929e-05, 100.00001, 100.000015, 4.371139e-06, 5.210804e-13, -7.865795, 6.017362, -3.7558553)
+
+[node name="VentSegment" parent="." unique_id=1280405715 instance=ExtResource("21_bhu1e")]
+transform = Transform3D(-4.3711393e-06, 100.00001, 1.1920929e-05, 0, -1.1920929e-05, 100.00001, 100.000015, 4.371139e-06, 5.210804e-13, -7.857467, 6.0202007, -9.756971)
 
 [editable path="Foyer2/CeilingLight2"]
