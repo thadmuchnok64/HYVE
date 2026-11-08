@@ -1,11 +1,13 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://vxyh8kr7khoe"]
 
 [ext_resource type="Shader" uid="uid://itrnkg3h08cb" path="res://Materials/Shaders/BaseSceneShader.tres" id="1_5tngh"]
-[ext_resource type="Texture2D" uid="uid://6xh5ubwihgon" path="res://Meshes/Levels/ScienceHub/Textures/ScienceHub_Emissive.png" id="2_ne0yn"]
-[ext_resource type="Texture2D" uid="uid://na3xvkekxsiv" path="res://Meshes/Levels/ScienceHub/Textures/ScienceHub_Base_color.png" id="3_hf5yo"]
+[ext_resource type="Texture2D" uid="uid://vkeg6ijo8w65" path="res://Meshes/Levels/ScienceHub/Textures/ScienceHub RGB Alpha.png" id="2_flm6q"]
+[ext_resource type="Texture2D" uid="uid://d2fxtw0jghgnq" path="res://Meshes/Levels/ScienceHub/Textures/ScienceHub Emission.png" id="2_ne0yn"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_5tngh")
-shader_parameter/MainTex2 = ExtResource("3_hf5yo")
+shader_parameter/MainTex2 = ExtResource("2_flm6q")
+shader_parameter/DepthFade = true
 shader_parameter/Emission = ExtResource("2_ne0yn")
+shader_parameter/EmissiveBoost = 1.0

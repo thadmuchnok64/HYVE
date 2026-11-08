@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b8epokitw38p8"
+uid="uid://c78t3lgmc2vvp"
 path="res://.godot/imported/ScienceHub.fbx-8e1ca201dfaa9acca2fca4e1a60f7895.scn"
 
 [deps]
@@ -24,7 +24,7 @@ nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
-meshes/light_baking=1
+meshes/light_baking=2
 meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true
@@ -40,7 +40,7 @@ materials/extract_path=""
 _subresources={
 "meshes": {
 "Cube_002": {
-"generate/lightmap_uv": 1,
+"generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
@@ -48,23 +48,32 @@ _subresources={
 "save_to_file/fallback_path": "res://Meshes/Levels/ScienceHub/ScienceAreaMain.tres",
 "save_to_file/path": "uid://doe3nnxgjbfvr"
 },
-"Cube_038": {
+"Cylinder_002": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Meshes/Levels/ScienceHub/CyberZoneEntrance.tres",
-"save_to_file/path": "uid://dy7jrj3odmvmb"
+"save_to_file/fallback_path": "res://Meshes/Levels/ScienceHub/BigHamsterWheel.tres",
+"save_to_file/path": "uid://ba3x55awbj506"
 },
-"Cube_063": {
+"Cylinder_003": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Meshes/Levels/ScienceHub/ScienceArea001.tres",
-"save_to_file/path": "uid://bffuqobo6vosb"
+"save_to_file/fallback_path": "res://Meshes/Levels/ScienceHub/Cogwheel.tres",
+"save_to_file/path": "uid://bh8klekudiqub"
+},
+"Cylinder_005": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Meshes/Levels/ScienceHub/cogItem.tres",
+"save_to_file/path": "uid://bowox3bx4jhap"
 }
 }
 }

@@ -49,6 +49,10 @@ public partial class PC_Interact : PCState
 			return idleState;
 		if(interactable.interactSuccess)
         anim.Set($"parameters/{animMetaState}/Transition/transition_request", interactable.animationMeta);
+		else
+			anim.Set($"parameters/{animMetaState}/Transition/transition_request", "think");
+
+
 		/*
 		if (animMeta2 != null)
 		{

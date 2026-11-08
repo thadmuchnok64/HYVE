@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://uth3q2hrek3j"]
 
-[ext_resource type="PackedScene" uid="uid://b8r8v1ti844ff" path="res://Meshes/Characters/Ray/Rav.fbx" id="1_iej68"]
-[ext_resource type="Material" uid="uid://guitsb6ognur" path="res://Meshes/Characters/Ray/Ray.tres" id="2_nbfut"]
+[ext_resource type="PackedScene" uid="uid://b8r8v1ti844ff" path="res://Meshes/Characters/Sierra/Rav.fbx" id="1_iej68"]
+[ext_resource type="Material" uid="uid://guitsb6ognur" path="res://Meshes/Characters/Sierra/Ray.tres" id="2_nbfut"]
 
 [node name="Rav" unique_id=848185395 instance=ExtResource("1_iej68")]
 

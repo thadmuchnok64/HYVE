@@ -1,0 +1,22 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cay1skqct2y3f"]
+
+[ext_resource type="Shader" uid="uid://dotqnjoimydtx" path="res://Meshes/Characters/Sierra/CharacterShader3.gdshader" id="1_2i2xs"]
+[ext_resource type="Texture2D" uid="uid://b18r786jlgn87" path="res://Meshes/Characters/Sierra/Textures/Rae RGB Alpha.png" id="2_jvnf1"]
+[ext_resource type="Texture2D" uid="uid://syjsoh7kp8dp" path="res://Meshes/Characters/Sierra/Textures/Sierra_E_0.png" id="3_ve7wr"]
+[ext_resource type="Texture2D" uid="uid://b1ainsxmamf3w" path="res://Meshes/Characters/Sierra/Textures/Sierra_E_FaceArray.png" id="4_ml0s8"]
+[ext_resource type="Texture2D" uid="uid://ccqritnpmt52d" path="res://Meshes/Characters/Sierra/Textures/Sierra_RGB_FaceArray.png" id="5_4eo7u"]
+[ext_resource type="Texture2D" uid="uid://c0mmqd2u4qqi6" path="res://Materials/Masks/Noise1.png" id="6_mrcg6"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_2i2xs")
+shader_parameter/Albedo = ExtResource("2_jvnf1")
+shader_parameter/noiseTex = ExtResource("6_mrcg6")
+shader_parameter/Emission = ExtResource("3_ve7wr")
+shader_parameter/Emissiveness = 2.0
+shader_parameter/bloodAmount = -0.17
+shader_parameter/changeableFaces = true
+shader_parameter/faceArray = ExtResource("5_4eo7u")
+shader_parameter/emissionArray = ExtResource("4_ml0s8")
+shader_parameter/eye = 0
+shader_parameter/mouth = 0

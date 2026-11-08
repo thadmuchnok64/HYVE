@@ -11,8 +11,19 @@ public partial class HamsterWheel : AreaInteractable
     [Export] Godot.Collections.Array<float> extraRatios;
 	[Export] AudioStreamPlayer3D aud;
 	[Export] AudioStream clickSFX;
+	[Export] Node3D platform;
+	[Export] MeshInstance3D ropeMesh;
+	[Export] float platformMinY = 0;
+	[Export] float platformMaxY = 3.322f;
+	[Export] ChainParticleTrigger platformParticles;
+	[Export] AudioStream platformSettleSound;
+	[Export] Node3D missingGear;
+	float platformDelta = 0;
+	bool hasMissingGear = false;
+	bool platformLowered = false;
 
-    [Export] float speedLossPerSec = .25f;
+
+	[Export] float speedLossPerSec = .25f;
 	float speed = 0;
 	float currentSubangle = 0;
 	// Called when the node enters the scene tree for the first time.
@@ -37,6 +48,9 @@ public partial class HamsterWheel : AreaInteractable
 			speed = speed * (Mathf.Lerp(1, speedLossPerSec, (float)delta));
 			SpinWheel();
 		}
+		if(hasMissingGear)
+		ManagePlatform(speed*(float)delta);
+
 	}
 
 	private void SpinWheel()
@@ -47,9 +61,14 @@ public partial class HamsterWheel : AreaInteractable
 		int i = 0;
 		foreach(Node3D p in extraPivots)
 		{
+			if (!p.Visible)
+			{
+				goto exit;
+			}
 			p.Rotation = new Vector3(newRot * extraRatios[i], pivot.Rotation.Y, pivot.Rotation.Z);
             i++;
 		}
+		exit:
 		if(Mathf.Floor(pivot.RotationDegrees.X/45f) != currentSubangle)
 		{
 			currentSubangle = Mathf.Floor(pivot.RotationDegrees.X / 45f);
@@ -57,4 +76,30 @@ public partial class HamsterWheel : AreaInteractable
 			aud.Play();
         }
     }
+
+	private void ManagePlatform(float delta)
+	{
+		platformDelta = (platformDelta + (float)delta*10f).Clamp01();
+		platform.Position = platform.Position.ReplaceY(Mathf.Lerp(platformMaxY,platformMinY,platformDelta));
+		ropeMesh.SetBlendShapeValue(0, 1 - platformDelta);
+		if(platformLowered == false && platformDelta > .99f)
+		{
+			platformLowered = true;
+			platformParticles.Launch();
+			SoundManager.Instance.RequesetSFXSoundAtLocation(platformSettleSound, platform.GlobalPosition,2f);
+		} else if (platformDelta < .98f)
+		{
+			platformLowered = false;
+		}
+	}
+
+	public async void InsertGear()
+	{
+		await ToSignal(GetTree().CreateTimer(.4f), SceneTreeTimer.SignalName.Timeout);
+
+		hasMissingGear = true;
+		missingGear.Visible = true;
+		SoundManager.Instance.RequesetSFXSoundAtLocation(platformSettleSound, missingGear.GlobalPosition,1.5f);
+	}
+
 }

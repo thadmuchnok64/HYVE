@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://clenj1qe38awy"]
 
-[ext_resource type="Shader" uid="uid://dotqnjoimydtx" path="res://Meshes/Characters/Ray/CharacterShader3.gdshader" id="1_tgmk8"]
+[ext_resource type="Shader" uid="uid://dotqnjoimydtx" path="res://Meshes/Characters/Sierra/CharacterShader3.gdshader" id="1_tgmk8"]
 [ext_resource type="Texture2D" uid="uid://d1vgep8v0qubr" path="res://Meshes/Characters/Enemies/Scrawny/ScrawnySubstance_Skin_BaseMap.1001.png" id="2_xm3in"]
 [ext_resource type="Texture2D" uid="uid://cp4aog76kpr5a" path="res://Meshes/Characters/Enemies/Scrawny/ScrawnySubstance_Skin_Emissive.1001.png" id="3_jt6js"]
 

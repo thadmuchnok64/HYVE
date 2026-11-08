@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://mjjahq401oe8"]
+
+[ext_resource type="Shader" uid="uid://itrnkg3h08cb" path="res://Materials/Shaders/BaseSceneShader.tres" id="1_wv5eu"]
+[ext_resource type="Texture2D" uid="uid://b82s43i4xs7j7" path="res://Meshes/Levels/ScienceHub/Textures/ScienceHub2 RGB Alpha.png" id="2_yecab"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_wv5eu")
+shader_parameter/MainTex2 = ExtResource("2_yecab")
+shader_parameter/DepthFade = true
+shader_parameter/EmissiveBoost = 1.0
