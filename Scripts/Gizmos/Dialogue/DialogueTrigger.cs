@@ -21,7 +21,6 @@ public partial class DialogueTrigger : InteractableObject
 			timer += (float)delta;
 			pc.SnapPlayerToPosition(currentPlayerPos.Lerp(playerPivot.GlobalPosition,Math.Clamp(timer/timeToSnapToPlayerPos,0,1)));
 			pc.MeshLookAt(dialoguePivot.GlobalPosition);
-
 		}
 	}
 	public override void TriggerGizmo(PCStateMachine pc)

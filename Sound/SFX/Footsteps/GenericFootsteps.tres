@@ -1,0 +1,15 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://rpvumfh2qmht"]
+
+[ext_resource type="AudioStream" uid="uid://ba5w1e5ii8yja" path="res://Sound/SFX/Footsteps/ESM_GF_fx_wood_one_shots_footstep_boots_dry_interior_13.wav" id="2_1h2ik"]
+[ext_resource type="AudioStream" uid="uid://o1wnhofansm2" path="res://Sound/SFX/Footsteps/ESM_GF_fx_wood_one_shots_footstep_boots_dry_interior_39.wav" id="3_c6o3y"]
+[ext_resource type="AudioStream" uid="uid://d33gcm5i4pk2t" path="res://Sound/SFX/Footsteps/ESM_GF_fx_wood_one_shots_footstep_boots_dry_interior_50.wav" id="4_ubdxb"]
+[ext_resource type="AudioStream" uid="uid://d3upcpw5ntf5e" path="res://Sound/SFX/Footsteps/ESM_GF_fx_wood_one_shots_footstep_boots_resonate_dry_interior_35.wav" id="5_6erpt"]
+
+[resource]
+random_pitch = 1.122462
+random_volume_offset_db = 2.0
+streams_count = 4
+stream_0/stream = ExtResource("2_1h2ik")
+stream_1/stream = ExtResource("3_c6o3y")
+stream_2/stream = ExtResource("4_ubdxb")
+stream_3/stream = ExtResource("5_6erpt")

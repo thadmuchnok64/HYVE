@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://gn3n2xwm45bp"
+uid="uid://y8hlpv1r623t"
 path="res://.godot/imported/Sierra.fbx-43ada1a77998ac39b3c2b4cfa287f23a.scn"
 
 [deps]
@@ -39,11 +39,11 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "animations": {
-"root|GlanceLeft": {
+"root|GlaceIdle": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Meshes/Characters/Sierra/CutsceneAnimations/glanceLeft.anim",
+"save_to_file/fallback_path": "res://Meshes/Characters/Sierra/CutsceneAnimations/glanceIdle.anim",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "uid://bmlcmyje6kpbi",
+"save_to_file/path": "uid://xmlwaj7gj0vr",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,

@@ -23,6 +23,7 @@ buses/default_bus_layout="uid://d4b3r8cupuudt"
 
 window/size/viewport_width=1600
 window/size/viewport_height=900
+window/size/mode=4
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
@@ -168,6 +169,8 @@ UIBack={
 
 [layer_names]
 
+3d_render/layer_2="Entities"
+3d_render/layer_5="CutsceneOnly"
 3d_physics/layer_1="Level"
 3d_physics/layer_2="Players"
 3d_physics/layer_3="Enemies"
