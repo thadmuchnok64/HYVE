@@ -102,7 +102,7 @@ public partial class DialogueGraphCreator : Control
 
             DA_CutsceneBreak statement = new DA_CutsceneBreak();
             //statement.text = d.
-            statement.cutsceneMeta = ((DialogueNPCStatement)d).responseText.Text;
+            statement.cutsceneMeta = ((DialogueCutsceneBreak)d).animationMeta.Text;
             var connections = graphEdit.GetConnectionListFromNode(d.Name);
             if (connections.Count > 0)
             {

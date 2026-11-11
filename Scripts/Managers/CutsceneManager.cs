@@ -30,8 +30,15 @@ public partial class CutsceneManager : Node
 		trigger = requestingAnim;
 		anim = requestingAnim.anim;
 		anim.Active = true;
-	}
+		RenderingServer.GlobalShaderParameterSet("depthCulling", false);
 
+	}
+	
+	public void CloseCutscene()
+	{
+		RenderingServer.GlobalShaderParameterSet("depthCulling", true);
+
+	}
 
 
 	public bool IsOccupied() { return anim != null; }

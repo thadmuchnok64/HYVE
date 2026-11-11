@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://cay1skqct2y3f" path="res://Meshes/Characters/Sierra/RayMat.tres" id="1_nxxcy"]
 [ext_resource type="Animation" uid="uid://dpw07pmblt00l" path="res://Meshes/Characters/Sierra/GenericInteract2.anim" id="2_5nwid"]
-[ext_resource type="Animation" uid="uid://bksdmt2my6d7j" path="res://Meshes/Characters/Sierra/CutsceneAnimations/glanceIdle.anim" id="2_dccqs"]
+[ext_resource type="Animation" uid="uid://xmlwaj7gj0vr" path="res://Meshes/Characters/Sierra/CutsceneAnimations/glanceIdle.anim" id="2_dccqs"]
 [ext_resource type="Animation" uid="uid://bmlcmyje6kpbi" path="res://Meshes/Characters/Sierra/CutsceneAnimations/glanceLeft.anim" id="2_lwkld"]
 [ext_resource type="Animation" uid="uid://pykyws0jus5r" path="res://Meshes/Characters/Sierra/CutsceneAnimations/glanceRecoil.anim" id="3_lwkld"]
 
@@ -21269,6 +21269,13 @@ material_override = ExtResource("1_nxxcy")
 mesh = SubResource("ArrayMesh_a8vun")
 skin = SubResource("Skin_kawoq")
 skeleton = NodePath("..")
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="root/Skeleton3D" unique_id=16370795]
+transform = Transform3D(0.99607617, 0.06718387, 0.05760191, 0.057084557, 0.009596646, -0.99832284, -0.06762392, 0.99769413, 0.005723685, 1.9184927e-09, 0.026229624, 1.3522849)
+bone_name = "head.x"
+bone_idx = 5
+
+[node name="DialogueTrackPoint" type="Marker3D" parent="root/Skeleton3D/BoneAttachment3D" unique_id=1190564135]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1019789921]
 libraries/ = SubResource("AnimationLibrary_m4r8i")

@@ -96,14 +96,19 @@ public partial class HUDManager : Control
 		return true;
     }
 
-	public void RequestDialogue(DA_DialogueTree tree,Node3D pivot)
+	public void RequestDialogue(DA_DialogueTree tree,Node3D pivot,Node3D altSierraPivot = null)
 	{
 		dialogueScreen.loadedDialogue = tree;
 		dialogueScreen.npcPivot = pivot;
+		dialogueScreen.altPCPivot = altSierraPivot;
 		SwitchState(dialogueScreen);
 
 	}
 
+	public bool IsDialogueOpen()
+	{
+		return currentState == dialogueScreen;
+	}
 
 	public void SnapTrackerToPoint(Vector3 globalPos,Camera3D cam)
 	{
@@ -156,6 +161,15 @@ public partial class HUDManager : Control
 		{
 			SwitchState(null);
 		}
+	}
+
+	public void ProgressDialogueViaCutsceneBreak()
+	{
+		if (currentState != dialogueScreen)
+		{
+			SwitchState(dialogueScreen);
+		}
+		dialogueScreen.ProgressDialogue();
 	}
 
 	bool interactShowing = false;

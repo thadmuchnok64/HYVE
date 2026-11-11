@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="DA_DialogueTree" format=3 uid="uid://i3k3gl4ufi3l"]
+
+[ext_resource type="Script" uid="uid://dqcxnp70j7tlg" path="res://Scripts/Data/Dialogue/DA_DialogueTree.cs" id="1_gsi4d"]
+[ext_resource type="Script" uid="uid://bk5wmhn1jlwxv" path="res://Scripts/Data/Dialogue/DA_DialogueResponse.cs" id="2_v234o"]
+[ext_resource type="Script" uid="uid://ccvu56o3xnrqx" path="res://Scripts/Data/Dialogue/DA_DialogueBranch.cs" id="3_twer0"]
+[ext_resource type="Script" uid="uid://bwjigf13d1rj" path="res://Scripts/Data/Dialogue/DA_CutsceneBreak.cs" id="4_vd02x"]
+[ext_resource type="Script" uid="uid://b17g4joiablx4" path="res://Scripts/Data/Dialogue/DA_DialogueNPCStatement.cs" id="5_5r84l"]
+
+[sub_resource type="Resource" id="Resource_low67"]
+script = ExtResource("3_twer0")
+responses = Array[ExtResource("2_v234o")]([null])
+
+[sub_resource type="Resource" id="Resource_32goh"]
+script = ExtResource("4_vd02x")
+cutsceneMeta = "charlie2"
+nextNode = SubResource("Resource_low67")
+
+[sub_resource type="Resource" id="Resource_egkgp"]
+script = ExtResource("5_5r84l")
+text = "hello"
+nextNode = SubResource("Resource_32goh")
+
+[sub_resource type="Resource" id="Resource_vvy5h"]
+script = ExtResource("4_vd02x")
+cutsceneMeta = "charlie1"
+nextNode = SubResource("Resource_egkgp")
+
+[sub_resource type="Resource" id="Resource_lh2ke"]
+script = ExtResource("2_v234o")
+text = "hi"
+nextNode = SubResource("Resource_vvy5h")
+
+[sub_resource type="Resource" id="Resource_8316m"]
+script = ExtResource("3_twer0")
+responses = Array[ExtResource("2_v234o")]([SubResource("Resource_lh2ke")])
+
+[resource]
+script = ExtResource("1_gsi4d")
+startingNode = SubResource("Resource_8316m")

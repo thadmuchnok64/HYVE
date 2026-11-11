@@ -8,6 +8,7 @@ public partial class DialogueState : UIState
 	DA_DialogueNode currentNode;
 	int dialogueChoiceIndex = 0;
 	public Node3D npcPivot;
+	public Node3D altPCPivot;
 	[Export] AudioStreamPlayer2D textDialogueAud;
 
 	PCStateMachine pc;
@@ -37,12 +38,15 @@ public partial class DialogueState : UIState
 
 		if (currentNode is DA_DialogueNPCStatement)
 			SetupNPCDialogue((DA_DialogueNPCStatement)currentNode);
+		else if (currentNode is DA_DialogueBranch)
+			SetupBranch((DA_DialogueBranch)currentNode);
 
 	}
 
 	public override UIState Exit()
 	{
 		pc.SetDefaultCamPoint();
+		altPCPivot = null;
 		return base.Exit();
 	}
 
@@ -78,7 +82,7 @@ public partial class DialogueState : UIState
 		var bubble = dialogueBubble.Instantiate();
 		dialogueContainer.AddChild(bubble);
 		((DialogueContainer)bubble).Populate(statement.text, textDialogueAud,ernieVocals);
-		dialoguePivot.Position = GameMaster.Instance.mainCamRef.UnprojectPosition(npcPivot.GlobalPosition) - (dialogueContainer.Size / 2f);// - new Vector2(0, trackerOffset);
+		dialoguePivot.Position = GetCurrentCam().UnprojectPosition(npcPivot.GlobalPosition) - (dialogueContainer.Size / 2f);// - new Vector2(0, trackerOffset);
 		HUDManager.instance.PlaySound(bubbleInSFX);
 	}
 
@@ -100,14 +104,31 @@ public partial class DialogueState : UIState
 				first.Select();
 			}
 		}
-		if (branch.responses.Count > 1)
-		{
+		//if (branch.responses.Count > 1)
+		//{
 			branchOpen = true;
 			HUDManager.instance.ToggleDialogueBranch(true);
-		}
-		dialoguePivot.Position = (GameMaster.Instance.mainCamRef.UnprojectPosition(pc.trackingPoint.GlobalPosition)) - (dialogueContainer.Size / 2f);// - new Vector2(0, trackerOffset);
+		//}
+		dialoguePivot.Position = (GetCurrentCam().UnprojectPosition(GetPCDialoguePivot())) - (dialogueContainer.Size / 2f);// - new Vector2(0, trackerOffset);
 		HUDManager.instance.PlaySound(extendSFX);
 
+	}
+
+	public Camera3D GetCurrentCam()
+	{
+		return GetViewport().GetCamera3D();
+	}
+
+	private Vector3 GetPCDialoguePivot()
+	{
+		if (altPCPivot != null)
+		{
+			return altPCPivot.GlobalPosition;
+		}
+		else
+		{
+			return pc.trackingPoint.GlobalPosition;
+		}
 	}
 
 	public override UIState NavUp()
@@ -151,12 +172,16 @@ public partial class DialogueState : UIState
 	{
 		if (node is DA_DialogueNPCStatement)
 			SetupNPCDialogue((DA_DialogueNPCStatement)node);
-		if(node is DA_CutsceneBreak)
-		{
-			CutsceneManager.instance.ProgressCutsceneBreak(((DA_CutsceneBreak)node).cutsceneMeta);
-		}
+		else if(node is DA_CutsceneBreak)
+			CutsceneBreak();
 		else if (node is DA_DialogueBranch)
 			SetupBranch((DA_DialogueBranch)node);
+	}
+
+	private void CutsceneBreak()
+	{
+		CutsceneManager.instance.ProgressCutsceneBreak(((DA_CutsceneBreak)currentNode).cutsceneMeta);
+		DestroyOldDialogue();
 	}
 
 	public async void ProgressDialogue()
@@ -172,12 +197,11 @@ public partial class DialogueState : UIState
 			//animate
 			currentNode = ((DA_DialogueNPCStatement)currentNode).nextNode;
         }
-        if (currentNode is DA_CutsceneBreak)
+        else if (currentNode is DA_CutsceneBreak)
         {
-            //animate
-            currentNode = ((DA_CutsceneBreak)currentNode).nextNode;
+			//animate
+			currentNode = ((DA_CutsceneBreak)currentNode).nextNode;
         }
-
         else if (currentNode is DA_DialogueBranch)
 		{
 			var branch = (DA_DialogueBranch)currentNode;
