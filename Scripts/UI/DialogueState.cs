@@ -151,6 +151,10 @@ public partial class DialogueState : UIState
 	{
 		if (node is DA_DialogueNPCStatement)
 			SetupNPCDialogue((DA_DialogueNPCStatement)node);
+		if(node is DA_CutsceneBreak)
+		{
+			CutsceneManager.instance.ProgressCutsceneBreak(((DA_CutsceneBreak)node).cutsceneMeta);
+		}
 		else if (node is DA_DialogueBranch)
 			SetupBranch((DA_DialogueBranch)node);
 	}
@@ -167,7 +171,14 @@ public partial class DialogueState : UIState
 		{
 			//animate
 			currentNode = ((DA_DialogueNPCStatement)currentNode).nextNode;
-		}else if (currentNode is DA_DialogueBranch)
+        }
+        if (currentNode is DA_CutsceneBreak)
+        {
+            //animate
+            currentNode = ((DA_CutsceneBreak)currentNode).nextNode;
+        }
+
+        else if (currentNode is DA_DialogueBranch)
 		{
 			var branch = (DA_DialogueBranch)currentNode;
 			if (branch.responses.Count == 1)

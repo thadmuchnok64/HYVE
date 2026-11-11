@@ -7,6 +7,7 @@ public partial class DialogueGraphCreator : Control
 {
 	[Export] PackedScene dialogueNode;
 	[Export] PackedScene playerNode;
+	[Export] PackedScene cutsceneBreak;
 
 	[Export] GraphEdit graphEdit;
 	[Export] TextEdit saveText;
@@ -29,6 +30,12 @@ public partial class DialogueGraphCreator : Control
 	public void NewResponse()
 	{
 		var newNode = playerNode.Instantiate();
+		graphEdit.AddChild(newNode);
+	}
+
+	public void NewCutsceneBreak()
+	{
+		var newNode = cutsceneBreak.Instantiate();
 		graphEdit.AddChild(newNode);
 	}
 	public void ConnectionRequest(StringName from, int fromPort, StringName to, int toPort)
@@ -90,7 +97,30 @@ public partial class DialogueGraphCreator : Control
 			return statement;
 
 		}
-		else if (d is DialoguePlayerStatement)
+        else if (d is DialogueCutsceneBreak)
+        {
+
+            DA_CutsceneBreak statement = new DA_CutsceneBreak();
+            //statement.text = d.
+            statement.cutsceneMeta = ((DialogueNPCStatement)d).responseText.Text;
+            var connections = graphEdit.GetConnectionListFromNode(d.Name);
+            if (connections.Count > 0)
+            {
+                foreach (var c in connections)
+                {
+                    string name = (StringName)c["to_node"];
+                    if (name != d.Name)
+                    {
+                        var child = (DialogueNode)graphEdit.GetChildren().Where(n => n is DialogueNode && n.Name == name).First();
+                        statement.nextNode = ParseNode(child);
+                    }
+                }
+            }
+
+            return statement;
+
+        }
+        else if (d is DialoguePlayerStatement)
 		{
 			DA_DialogueBranch statement = new DA_DialogueBranch();
 			var connections = graphEdit.GetConnectionListFromNode(d.Name);
