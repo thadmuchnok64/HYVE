@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dhqg4wjl8wcj1"]
+
+[ext_resource type="Shader" uid="uid://dotqnjoimydtx" path="res://Meshes/Characters/Sierra/CharacterShader3.gdshader" id="1_8mtat"]
+[ext_resource type="Texture2D" uid="uid://c1j0pipjvvt8m" path="res://Meshes/Characters/Charlie/Textures/Charlie_RGB0.png" id="2_nqrtk"]
+[ext_resource type="Texture2D" uid="uid://bemv6wgtvug06" path="res://Meshes/Characters/Charlie/Textures/CharlieFaceArray_Emissive.png" id="3_7lpty"]
+[ext_resource type="Texture2D" uid="uid://u3qn6wrgsemi" path="res://Meshes/Characters/Charlie/Textures/Charlie_E0.png" id="3_nqrtk"]
+[ext_resource type="Texture2D" uid="uid://bkvmftowi2l5y" path="res://Meshes/Characters/Charlie/Textures/CharlieFaceArray.png" id="4_yynin"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_8mtat")
+shader_parameter/Albedo = ExtResource("2_nqrtk")
+shader_parameter/Emission = ExtResource("3_nqrtk")
+shader_parameter/Emissiveness = 1.0
+shader_parameter/bloodAmount = 0.0
+shader_parameter/mouthEyeCutoffMod = 0.112
+shader_parameter/changeableFaces = true
+shader_parameter/faceArray = ExtResource("4_yynin")
+shader_parameter/emissionArray = ExtResource("3_7lpty")
+shader_parameter/eye = 1
+shader_parameter/mouth = 0

@@ -12,6 +12,7 @@ uniform sampler2D noiseTex;
 uniform sampler2D Emission;
 uniform float Emissiveness = 1.0;
 uniform float bloodAmount =.7;
+uniform float mouthEyeCutoffMod = .21f; // splits mouth images from eye images
 global uniform vec4 bloodColor;
 global uniform vec4 bloodAccent;
 
@@ -33,7 +34,7 @@ void fragment() {
 vec2 eyeUV = (UV*vec2(.25f,2.0f))+vec2(.125f*float(eye),0.0f);
 vec2 mouthUV = (UV*vec2(.25f,2.0f))+vec2(.125f*float(mouth),0.0f);
 float mouthMask = float(UV.r<.5f)*float(UV.g<.5f);
-float eyeMask = float(UV.r<.5f)*float(UV.g<.21f);
+float eyeMask = float(UV.r<.5f)*float(UV.g<mouthEyeCutoffMod);
 vec4 mouthCol = texture(faceArray,mouthUV);
 vec4 eyeCol = texture(faceArray,eyeUV);
 vec4 fixedEmission = texture(emissionArray,eyeUV);
