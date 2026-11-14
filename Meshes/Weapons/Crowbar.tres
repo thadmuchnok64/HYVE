@@ -14,6 +14,7 @@ shader = ExtResource("1_f4jgd")
 shader_parameter/Albedo = SubResource("GradientTexture1D_d5iai")
 shader_parameter/Emissiveness = 0.0
 shader_parameter/bloodAmount = 0.7
+shader_parameter/mouthEyeCutoffMod = 0.21
 shader_parameter/changeableFaces = false
 shader_parameter/eye = 0
 shader_parameter/mouth = 0
