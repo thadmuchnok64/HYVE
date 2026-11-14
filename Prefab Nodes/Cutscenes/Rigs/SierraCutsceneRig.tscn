@@ -4,7 +4,9 @@
 [ext_resource type="Animation" uid="uid://dpw07pmblt00l" path="res://Meshes/Characters/Sierra/GenericInteract2.anim" id="2_5nwid"]
 [ext_resource type="Animation" uid="uid://xmlwaj7gj0vr" path="res://Meshes/Characters/Sierra/CutsceneAnimations/glanceIdle.anim" id="2_dccqs"]
 [ext_resource type="Animation" uid="uid://bmlcmyje6kpbi" path="res://Meshes/Characters/Sierra/CutsceneAnimations/glanceLeft.anim" id="2_lwkld"]
+[ext_resource type="Animation" uid="uid://cp016rsnd6oel" path="res://Meshes/Characters/Sierra/CutsceneAnimations/glanceAngy.anim" id="2_uqihd"]
 [ext_resource type="Animation" uid="uid://pykyws0jus5r" path="res://Meshes/Characters/Sierra/CutsceneAnimations/glanceRecoil.anim" id="3_lwkld"]
+[ext_resource type="Animation" uid="uid://cfyocq8wkqemc" path="res://Meshes/Characters/Sierra/CutsceneAnimations/glanceSorry.anim" id="6_t3wsc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d0f77"]
 resource_name = "Rae"
@@ -20857,9 +20859,11 @@ _data = {
 &"Blinking": SubResource("Animation_uqihd"),
 &"RESET": SubResource("Animation_lwkld"),
 &"Talking": SubResource("Animation_dccqs"),
+&"glanceAngy": ExtResource("2_uqihd"),
 &"glanceIdle": ExtResource("2_dccqs"),
 &"glanceLeft": ExtResource("2_lwkld"),
 &"glanceRecoil": ExtResource("3_lwkld"),
+&"glanceSorry": ExtResource("6_t3wsc"),
 &"root|BackwardsWalk": SubResource("Animation_ol5kk"),
 &"root|Block": SubResource("Animation_vvfq0"),
 &"root|BlockFollowupAttack": SubResource("Animation_u7slr"),

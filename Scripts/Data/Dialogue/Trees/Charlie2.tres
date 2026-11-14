@@ -1,0 +1,118 @@
+[gd_resource type="Resource" script_class="DA_DialogueTree" format=3 uid="uid://cwigkwg6ka35f"]
+
+[ext_resource type="Script" uid="uid://dqcxnp70j7tlg" path="res://Scripts/Data/Dialogue/DA_DialogueTree.cs" id="1_8ppr0"]
+[ext_resource type="Script" uid="uid://bk5wmhn1jlwxv" path="res://Scripts/Data/Dialogue/DA_DialogueResponse.cs" id="2_8b4tq"]
+[ext_resource type="Script" uid="uid://bwjigf13d1rj" path="res://Scripts/Data/Dialogue/DA_CutsceneBreak.cs" id="3_wn5ui"]
+[ext_resource type="Script" uid="uid://ccvu56o3xnrqx" path="res://Scripts/Data/Dialogue/DA_DialogueBranch.cs" id="4_6m1me"]
+[ext_resource type="Script" uid="uid://b17g4joiablx4" path="res://Scripts/Data/Dialogue/DA_DialogueNPCStatement.cs" id="5_yq3rk"]
+
+[sub_resource type="Resource" id="Resource_8ppr0"]
+script = ExtResource("3_wn5ui")
+cutsceneMeta = "charlie6"
+
+[sub_resource type="Resource" id="Resource_8b4tq"]
+script = ExtResource("2_8b4tq")
+text = "Damnit..."
+nextNode = SubResource("Resource_8ppr0")
+
+[sub_resource type="Resource" id="Resource_wn5ui"]
+script = ExtResource("4_6m1me")
+responses = Array[ExtResource("2_8b4tq")]([SubResource("Resource_8b4tq")])
+
+[sub_resource type="Resource" id="Resource_6m1me"]
+script = ExtResource("2_8b4tq")
+text = "I'm sorry!"
+nextNode = SubResource("Resource_wn5ui")
+
+[sub_resource type="Resource" id="Resource_yq3rk"]
+script = ExtResource("4_6m1me")
+responses = Array[ExtResource("2_8b4tq")]([SubResource("Resource_6m1me")])
+
+[sub_resource type="Resource" id="Resource_lhekh"]
+script = ExtResource("2_8b4tq")
+text = "Come back!"
+nextNode = SubResource("Resource_yq3rk")
+
+[sub_resource type="Resource" id="Resource_j7kgf"]
+script = ExtResource("4_6m1me")
+responses = Array[ExtResource("2_8b4tq")]([SubResource("Resource_lhekh")])
+
+[sub_resource type="Resource" id="Resource_4w2b2"]
+script = ExtResource("5_yq3rk")
+text = "Wait no!"
+nextNode = SubResource("Resource_j7kgf")
+
+[sub_resource type="Resource" id="Resource_0oy30"]
+script = ExtResource("3_wn5ui")
+cutsceneMeta = "charlie5"
+nextNode = SubResource("Resource_4w2b2")
+
+[sub_resource type="Resource" id="Resource_p3h5v"]
+script = ExtResource("2_8b4tq")
+text = "HEY! Don't point that thing at me, little bastard!"
+nextNode = SubResource("Resource_0oy30")
+
+[sub_resource type="Resource" id="Resource_mc387"]
+script = ExtResource("4_6m1me")
+responses = Array[ExtResource("2_8b4tq")]([SubResource("Resource_p3h5v")])
+
+[sub_resource type="Resource" id="Resource_3eeed"]
+script = ExtResource("3_wn5ui")
+cutsceneMeta = "charlie4"
+nextNode = SubResource("Resource_mc387")
+
+[sub_resource type="Resource" id="Resource_w4qw1"]
+script = ExtResource("5_yq3rk")
+text = "No grown-ups. I don't talk to them."
+nextNode = SubResource("Resource_3eeed")
+
+[sub_resource type="Resource" id="Resource_jhay0"]
+script = ExtResource("3_wn5ui")
+cutsceneMeta = "charlie3"
+nextNode = SubResource("Resource_w4qw1")
+
+[sub_resource type="Resource" id="Resource_reiby"]
+script = ExtResource("2_8b4tq")
+text = "Lemme take a look at that."
+nextNode = SubResource("Resource_jhay0")
+
+[sub_resource type="Resource" id="Resource_w17n5"]
+script = ExtResource("4_6m1me")
+responses = Array[ExtResource("2_8b4tq")]([SubResource("Resource_reiby")])
+
+[sub_resource type="Resource" id="Resource_p6pju"]
+script = ExtResource("2_8b4tq")
+text = "Hey come over here bud."
+nextNode = SubResource("Resource_w17n5")
+
+[sub_resource type="Resource" id="Resource_p38tn"]
+script = ExtResource("4_6m1me")
+responses = Array[ExtResource("2_8b4tq")]([SubResource("Resource_p6pju")])
+
+[sub_resource type="Resource" id="Resource_eo3uj"]
+script = ExtResource("3_wn5ui")
+cutsceneMeta = "charlie2"
+nextNode = SubResource("Resource_p38tn")
+
+[sub_resource type="Resource" id="Resource_arhab"]
+script = ExtResource("5_yq3rk")
+text = "Owwie!"
+nextNode = SubResource("Resource_eo3uj")
+
+[sub_resource type="Resource" id="Resource_tpojd"]
+script = ExtResource("3_wn5ui")
+cutsceneMeta = "charlie1"
+nextNode = SubResource("Resource_arhab")
+
+[sub_resource type="Resource" id="Resource_7pbqv"]
+script = ExtResource("2_8b4tq")
+text = "You okay, little man?"
+nextNode = SubResource("Resource_tpojd")
+
+[sub_resource type="Resource" id="Resource_6wl3i"]
+script = ExtResource("4_6m1me")
+responses = Array[ExtResource("2_8b4tq")]([SubResource("Resource_7pbqv")])
+
+[resource]
+script = ExtResource("1_8ppr0")
+startingNode = SubResource("Resource_6wl3i")
