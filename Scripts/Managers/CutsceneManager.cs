@@ -31,13 +31,15 @@ public partial class CutsceneManager : Node
 		anim = requestingAnim.anim;
 		anim.Active = true;
 		RenderingServer.GlobalShaderParameterSet("depthCulling", false);
+        HUDManager.instance.PlayerInfoOut();
 
-	}
-	
-	public void CloseCutscene()
+
+    }
+
+    public void CloseCutscene()
 	{
 		RenderingServer.GlobalShaderParameterSet("depthCulling", true);
-
+		HUDManager.instance.PlayerInfoIn();
 	}
 
 

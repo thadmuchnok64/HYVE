@@ -510,6 +510,62 @@ tracks/2/keys = {
 "values": [Vector2(361, 58), Vector2(361, 67.5)]
 }
 
+[sub_resource type="Animation" id="Animation_swgnb"]
+resource_name = "PlayerInfoIn"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerInfo:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.20000002),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerInfo:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.20000002),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3gvfd"]
+resource_name = "PlayerInfoOut"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerInfo:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerInfo:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1)]
+}
+
 [sub_resource type="Animation" id="Animation_dpc2c"]
 length = 0.16666667
 tracks/0/type = "value"
@@ -716,6 +772,30 @@ tracks/16/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("PlayerInfo:modulate")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("PlayerInfo:scale")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.1, 1.1)]
+}
 
 [sub_resource type="Animation" id="Animation_6edwv"]
 resource_name = "TrackingReticleIn"
@@ -768,6 +848,8 @@ _data = {
 &"InventoryOut": SubResource("Animation_645e3"),
 &"LoreIn": SubResource("Animation_4stpt"),
 &"LoreOut": SubResource("Animation_8c5fg"),
+&"PlayerInfoIn": SubResource("Animation_swgnb"),
+&"PlayerInfoOut": SubResource("Animation_3gvfd"),
 &"RESET": SubResource("Animation_dpc2c"),
 &"TrackingReticleIn": SubResource("Animation_6edwv")
 }
@@ -782,6 +864,8 @@ _data = {
 
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_ioirw"]
 
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_swgnb"]
+
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_lbk5n"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ioirw"]
@@ -789,6 +873,12 @@ animation = &"DialogueBranchClose"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_34c0n"]
 animation = &"DialogueBranchOpen"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3gvfd"]
+animation = &"PlayerInfoIn"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y4gm0"]
+animation = &"PlayerInfoOut"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_645e3"]
 animation = &"TrackingReticleIn"
@@ -887,9 +977,19 @@ input_1/auto_advance = false
 input_1/break_loop_at_end = false
 input_1/reset = true
 
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_gyo4f"]
+input_0/name = "in"
+input_0/auto_advance = false
+input_0/break_loop_at_end = false
+input_0/reset = true
+input_1/name = "out"
+input_1/auto_advance = false
+input_1/break_loop_at_end = false
+input_1/reset = true
+
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_2pel7"]
-graph_offset = Vector2(-312.73233, 1794.8501)
-nodes/output/position = Vector2(1266.6666, 866.6667)
+graph_offset = Vector2(-225.47699, 2943.7852)
+nodes/output/position = Vector2(1540, 1100)
 nodes/DialogueIn/node = SubResource("AnimationNodeAnimation_07sgc")
 nodes/DialogueIn/position = Vector2(-573.3333, 80)
 nodes/Dialogue/node = SubResource("AnimationNodeTransition_07sgc")
@@ -938,7 +1038,15 @@ nodes/Branch/node = SubResource("AnimationNodeTransition_3x3ay")
 nodes/Branch/position = Vector2(106.666664, 2013.3334)
 "nodes/Add2 6/node" = SubResource("AnimationNodeAdd2_ioirw")
 "nodes/Add2 6/position" = Vector2(1049.6124, 856.248)
-node_connections = [&"output", 0, &"Add2 6", &"Dialogue", 0, &"DialogueIn", &"Dialogue", 1, &"Animation", &"Add2", 0, &"LockOn", &"Add2", 1, &"Dialogue", &"LockOn", 0, &"Animation 2", &"LockOn", 1, &"Animation 3", &"Inventory", 0, &"Animation 4", &"Inventory", 1, &"Animation 5", &"Add2 2", 0, &"Add2", &"Add2 2", 1, &"Inventory", &"Add2 3", 0, &"Add2 2", &"Add2 3", 1, &"Lore", &"Lore", 0, &"Animation 6", &"Lore", 1, &"Animation 7", &"Interact", 0, &"Animation 8", &"Interact", 1, &"Animation 9", &"Add2 5", 0, &"Add2 3", &"Add2 5", 1, &"Interact", &"Branch", 0, &"Animation 11", &"Branch", 1, &"Animation 10", &"Add2 6", 0, &"Add2 5", &"Add2 6", 1, &"Branch"]
+"nodes/Add2 7/node" = SubResource("AnimationNodeAdd2_swgnb")
+"nodes/Add2 7/position" = Vector2(1298.5043, 1090.0131)
+nodes/PlayerInfo/node = SubResource("AnimationNodeTransition_gyo4f")
+nodes/PlayerInfo/position = Vector2(340, 2360)
+"nodes/Animation 12/node" = SubResource("AnimationNodeAnimation_3gvfd")
+"nodes/Animation 12/position" = Vector2(80, 2340)
+"nodes/Animation 13/node" = SubResource("AnimationNodeAnimation_y4gm0")
+"nodes/Animation 13/position" = Vector2(60, 2580)
+node_connections = [&"output", 0, &"Add2 7", &"Dialogue", 0, &"DialogueIn", &"Dialogue", 1, &"Animation", &"Add2", 0, &"LockOn", &"Add2", 1, &"Dialogue", &"LockOn", 0, &"Animation 2", &"LockOn", 1, &"Animation 3", &"Inventory", 0, &"Animation 4", &"Inventory", 1, &"Animation 5", &"Add2 2", 0, &"Add2", &"Add2 2", 1, &"Inventory", &"Add2 3", 0, &"Add2 2", &"Add2 3", 1, &"Lore", &"Lore", 0, &"Animation 6", &"Lore", 1, &"Animation 7", &"Interact", 0, &"Animation 8", &"Interact", 1, &"Animation 9", &"Add2 5", 0, &"Add2 3", &"Add2 5", 1, &"Interact", &"Branch", 0, &"Animation 11", &"Branch", 1, &"Animation 10", &"Add2 6", 0, &"Add2 5", &"Add2 6", 1, &"Branch", &"Add2 7", 0, &"Add2 6", &"Add2 7", 1, &"PlayerInfo", &"PlayerInfo", 0, &"Animation 12", &"PlayerInfo", 1, &"Animation 13"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6edwv"]
 advance_mode = 2
@@ -961,9 +1069,9 @@ script = ExtResource("1_07sgc")
 anim = NodePath("AnimationTree")
 aud = NodePath("AudioStreamPlayer2D")
 dialogueBox = NodePath("PanelContainer/Panel/MarginContainer/RichTextLabel")
-staminaBar = NodePath("StaminaBar")
-healthBar = NodePath("HPBar")
-posBar = NodePath("PostureBar")
+staminaBar = NodePath("PlayerInfo/StaminaBar")
+healthBar = NodePath("PlayerInfo/HPBar")
+posBar = NodePath("PlayerInfo/PostureBar")
 inventoryInSFX = ExtResource("2_645e3")
 inventoryOutSFX = ExtResource("3_s8js7")
 navSFX = ExtResource("4_34c0n")
@@ -1100,7 +1208,14 @@ grow_horizontal = 2
 grow_vertical = 0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 
-[node name="HPBar" type="TextureProgressBar" parent="." unique_id=427969215]
+[node name="PlayerInfo" type="Panel" parent="." unique_id=918683039]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 616.0
+offset_bottom = 257.0
+scale = Vector2(1.1, 1.1)
+
+[node name="HPBar" type="TextureProgressBar" parent="PlayerInfo" unique_id=427969215]
 layout_mode = 1
 offset_left = 3.0
 offset_top = 3.0
@@ -1111,7 +1226,7 @@ nine_patch_stretch = true
 texture_under = SubResource("GradientTexture2D_6mp8t")
 texture_progress = SubResource("GradientTexture2D_teq5n")
 
-[node name="StaminaBar" type="TextureProgressBar" parent="." unique_id=431439518]
+[node name="StaminaBar" type="TextureProgressBar" parent="PlayerInfo" unique_id=431439518]
 layout_mode = 1
 offset_left = 3.0
 offset_top = 14.0
@@ -1122,7 +1237,7 @@ nine_patch_stretch = true
 texture_under = SubResource("GradientTexture2D_6mp8t")
 texture_progress = SubResource("GradientTexture2D_2npry")
 
-[node name="PostureBar" type="TextureProgressBar" parent="." unique_id=528049090]
+[node name="PostureBar" type="TextureProgressBar" parent="PlayerInfo" unique_id=528049090]
 layout_mode = 1
 offset_left = 3.0
 offset_top = 25.0
@@ -1210,9 +1325,9 @@ anchors_preset = -1
 anchor_left = 0.036000002
 anchor_right = 0.39100003
 anchor_bottom = 1.0
-offset_left = 34.999996
+offset_left = 29.527996
 offset_top = 53.0
-offset_right = 8.0399475
+offset_right = 2.5679626
 offset_bottom = -89.999756
 split_offsets = PackedInt32Array(200)
 dragging_enabled = false
@@ -1422,6 +1537,10 @@ parameters/Main/Branch/current_state = "out"
 parameters/Main/Branch/transition_request = ""
 parameters/Main/Branch/current_index = 1
 "parameters/Main/Add2 6/add_amount" = 1.0
+"parameters/Main/Add2 7/add_amount" = 1.0
+parameters/Main/PlayerInfo/current_state = "in"
+parameters/Main/PlayerInfo/transition_request = ""
+parameters/Main/PlayerInfo/current_index = 0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1852951004]
 bus = &"UI"
@@ -1433,9 +1552,9 @@ anchors_preset = -1
 anchor_left = 0.33200002
 anchor_right = 0.66800004
 anchor_bottom = 1.0
-offset_left = 28.99997
+offset_left = -21.46402
 offset_top = 58.0
-offset_right = 71.92792
+offset_right = 21.463928
 offset_bottom = -58.0
 grow_horizontal = 2
 grow_vertical = 2

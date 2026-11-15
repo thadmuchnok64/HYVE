@@ -19,5 +19,5 @@ shader_parameter/mouthEyeCutoffMod = 0.21
 shader_parameter/changeableFaces = true
 shader_parameter/faceArray = ExtResource("5_4eo7u")
 shader_parameter/emissionArray = ExtResource("4_ml0s8")
-shader_parameter/eye = 2
+shader_parameter/eye = 0
 shader_parameter/mouth = 0

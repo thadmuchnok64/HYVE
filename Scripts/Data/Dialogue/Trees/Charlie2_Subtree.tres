@@ -1,0 +1,36 @@
+[gd_resource type="Resource" format=3 uid="uid://d5ssb7ww7o3s"]
+
+[ext_resource type="Script" uid="uid://bk5wmhn1jlwxv" path="res://Scripts/Data/Dialogue/DA_DialogueResponse.cs" id="1_8pgo0"]
+[ext_resource type="Script" uid="uid://bwjigf13d1rj" path="res://Scripts/Data/Dialogue/DA_CutsceneBreak.cs" id="2_3e1g2"]
+[ext_resource type="Script" uid="uid://ccvu56o3xnrqx" path="res://Scripts/Data/Dialogue/DA_DialogueBranch.cs" id="3_ne07i"]
+
+[sub_resource type="Resource" id="Resource_8ppr0"]
+script = ExtResource("2_3e1g2")
+cutsceneMeta = "charlie6"
+
+[sub_resource type="Resource" id="Resource_8b4tq"]
+script = ExtResource("1_8pgo0")
+text = "Damnit..."
+nextNode = SubResource("Resource_8ppr0")
+
+[sub_resource type="Resource" id="Resource_wn5ui"]
+script = ExtResource("3_ne07i")
+responses = Array[ExtResource("1_8pgo0")]([SubResource("Resource_8b4tq")])
+
+[sub_resource type="Resource" id="Resource_6m1me"]
+script = ExtResource("1_8pgo0")
+text = "I'm sorry!"
+nextNode = SubResource("Resource_wn5ui")
+
+[sub_resource type="Resource" id="Resource_yq3rk"]
+script = ExtResource("3_ne07i")
+responses = Array[ExtResource("1_8pgo0")]([SubResource("Resource_6m1me")])
+
+[sub_resource type="Resource" id="Resource_lhekh"]
+script = ExtResource("1_8pgo0")
+text = "Wait no! Come back!"
+nextNode = SubResource("Resource_yq3rk")
+
+[resource]
+script = ExtResource("3_ne07i")
+responses = Array[ExtResource("1_8pgo0")]([SubResource("Resource_lhekh")])

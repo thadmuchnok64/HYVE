@@ -1576,7 +1576,7 @@ transform = Transform3D(-4.371139e-08, -0.7485045, 0.6631297, 1, -3.271817e-08, 
 script = ExtResource("8_y8edc")
 note = ExtResource("9_x0owy")
 
-[node name="Crowbar" parent="ScienceHub/Crowbar" index="0" unique_id=1743716423]
+[node name="Crowbar" parent="ScienceHub/Crowbar" index="0" unique_id=1971059597]
 material_override = ExtResource("10_efecf")
 
 [node name="Area3D" type="Area3D" parent="ScienceHub/Crowbar" unique_id=1333049203 node_paths=PackedStringArray("interactable")]
@@ -1596,7 +1596,7 @@ transform = Transform3D(-4.371139e-08, -0.7485045, 0.6631297, 1, -3.271817e-08, 
 script = ExtResource("8_y8edc")
 note = ExtResource("12_xuvwy")
 
-[node name="Crowbar" parent="ScienceHub/Crowbar2" index="0" unique_id=1743716423]
+[node name="Crowbar" parent="ScienceHub/Crowbar2" index="0" unique_id=1971059597]
 material_override = ExtResource("10_efecf")
 
 [node name="Area3D" type="Area3D" parent="ScienceHub/Crowbar2" unique_id=2070788045 node_paths=PackedStringArray("interactable")]
@@ -1616,7 +1616,7 @@ transform = Transform3D(-4.371139e-08, -0.7485045, 0.6631297, 1, -3.271817e-08, 
 script = ExtResource("8_y8edc")
 note = ExtResource("13_2a024")
 
-[node name="Crowbar" parent="ScienceHub/Crowbar3" index="0" unique_id=1743716423]
+[node name="Crowbar" parent="ScienceHub/Crowbar3" index="0" unique_id=1971059597]
 material_override = ExtResource("10_efecf")
 
 [node name="Area3D" type="Area3D" parent="ScienceHub/Crowbar3" unique_id=1227128166 node_paths=PackedStringArray("interactable")]
@@ -1765,7 +1765,7 @@ script = ExtResource("21_602me")
 heldCollectable = ExtResource("22_602me")
 soundOnCollect = ExtResource("7_hpfbv")
 
-[node name="Crowbar" parent="ScienceHub/Cogwheel" index="0" unique_id=1743716423]
+[node name="Crowbar" parent="ScienceHub/Cogwheel" index="0" unique_id=1971059597]
 transform = Transform3D(-4.371139e-06, -99.99999, 9.094947e-13, -1.1920931e-05, 9.094947e-13, 99.99999, -100, 4.3711384e-06, -1.1920929e-05, -1.2945538, 0.5733309, -0.048391093)
 material_override = ExtResource("6_03jnw")
 mesh = ExtResource("23_i542l")
@@ -2054,7 +2054,7 @@ transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1
 shape = SubResource("ConcavePolygonShape3D_efecf")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1414444425]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.313607, 4.923939, -21.377338)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.6326275, 4.923939, -21.377338)
 stream = ExtResource("10_7y3m2")
 volume_db = -35.188
 autoplay = true

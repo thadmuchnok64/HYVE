@@ -78,6 +78,15 @@ public partial class HUDManager : Control
         anim.Set("parameters/Main/Dialogue/transition_request", "out");
     }
 
+
+	public void PlayerInfoIn()
+	{
+        anim.Set("parameters/Main/PlayerInfo/transition_request", "in");
+    }
+
+    public void PlayerInfoOut() { 
+        anim.Set("parameters/Main/PlayerInfo/transition_request", "out");
+    }
     public bool TryAdvanceDialogue() // returns false if the dialogue has reached the end of the queue
 	{
 		if (pendingDialogues.Count <= 0)
