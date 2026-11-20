@@ -138,7 +138,16 @@ public partial class PC_Walk : PCState
 		}
 		else
 		{
-			anim.Set($"parameters/{animMetaState}/Transition/transition_request", "stand");
+
+			if (stateMachine.health > stateMachine.maxHealth / 2f || stateMachine.tracking)
+			{
+				anim.Set($"parameters/{animMetaState}/Transition/transition_request", "stand");
+			}
+			else
+			{
+				anim.Set($"parameters/{animMetaState}/Transition/transition_request", "limp");
+
+			}
 
 		}
 		return null;

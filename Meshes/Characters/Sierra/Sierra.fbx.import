@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b872j4cdfm200"
+uid="uid://ctmpqgq7pma73"
 path="res://.godot/imported/Sierra.fbx-43ada1a77998ac39b3c2b4cfa287f23a.scn"
 
 [deps]
@@ -39,11 +39,11 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "animations": {
-"root|GlanceAngy": {
+"root|WalkHold2": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Meshes/Characters/Sierra/CutsceneAnimations/glanceAngy.anim",
+"save_to_file/fallback_path": "res://Meshes/Characters/Sierra/Walk3.anim",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "uid://dhcrco20bpmc4",
+"save_to_file/path": "uid://c8su7enmk0a52",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
@@ -2095,11 +2095,11 @@ _subresources={
 "slice_99/start_frame": 0,
 "slices/amount": 0
 },
-"root|GlanceSorry": {
+"root|WalkLimp": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Meshes/Characters/Sierra/CutsceneAnimations/glanceSorry.anim",
+"save_to_file/fallback_path": "res://Meshes/Characters/Sierra/walkLimp.anim",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "uid://6e76s8xwgqrb",
+"save_to_file/path": "uid://d2cqwqeqchfp6",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,

@@ -4,7 +4,7 @@ using System;
 public partial class Entity : Node3D
 {
 
-	[Export] protected int maxHealth;
+	[Export] public int maxHealth;
 	[Export] protected int maxPosture;
 	public float health;
 	public float posture;
