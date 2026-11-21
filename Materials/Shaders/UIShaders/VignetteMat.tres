@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://d0l2kiwcal4tc"]
+
+[ext_resource type="Shader" uid="uid://bx5rqq86uxetr" path="res://Materials/Shaders/UIShaders/Vignette.tres" id="1_o8miu"]
+
+[resource]
+shader = ExtResource("1_o8miu")

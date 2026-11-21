@@ -17,9 +17,22 @@
 [ext_resource type="AudioStream" uid="uid://c3o7pcoa1mi62" path="res://Sound/SFX/UISounds/TrackOff.wav" id="8_3gvfd"]
 [ext_resource type="Script" uid="uid://dquqccdjlrf80" path="res://Scripts/UI/LoreMenu.cs" id="8_4stpt"]
 [ext_resource type="AudioStream" uid="uid://b6fryowtt8wix" path="res://Sound/SFX/UISounds/Extend.wav" id="9_0y4yj"]
+[ext_resource type="Material" uid="uid://d0l2kiwcal4tc" path="res://Materials/Shaders/UIShaders/VignetteMat.tres" id="9_3gvfd"]
 [ext_resource type="AudioStream" uid="uid://cg3iy1ysg7fw4" path="res://Sound/SFX/CharacterSFX/Alice/AliceVoice.tres" id="10_0y4yj"]
 [ext_resource type="AudioStream" uid="uid://cjhs0ktlvenbd" path="res://Sound/SFX/CharacterSFX/Ernie/ErnieVoice.tres" id="11_jeds5"]
 [ext_resource type="Material" uid="uid://dujk2c1ecb0p5" path="res://Materials/Shaders/UIShaders/ContainerNoiseMat.tres" id="12_ioirw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_swgnb"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_07sgc"]
 content_margin_left = 0.0
@@ -1085,6 +1098,16 @@ trackOnSFX = ExtResource("7_swgnb")
 trackOffSFX = ExtResource("8_3gvfd")
 tracker = NodePath("PhyiscalUI/Panel")
 
+[node name="Panel" type="Panel" parent="." unique_id=515457430]
+material = ExtResource("9_3gvfd")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_swgnb")
+
 [node name="PhyiscalUI" type="Panel" parent="." unique_id=1942192926]
 layout_mode = 1
 anchors_preset = 15
@@ -1328,7 +1351,7 @@ anchor_bottom = 1.0
 offset_left = 29.527996
 offset_top = 53.0
 offset_right = 2.5679626
-offset_bottom = -89.999756
+offset_bottom = -89.99982
 split_offsets = PackedInt32Array(200)
 dragging_enabled = false
 split_offset = 200
