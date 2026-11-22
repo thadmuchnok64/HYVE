@@ -19,7 +19,7 @@ nextNode = SubResource("Resource_0oy30")
 
 [sub_resource type="Resource" id="Resource_mc387"]
 script = ExtResource("4_6m1me")
-responses = Array[ExtResource("2_8b4tq")]([SubResource("Resource_p3h5v")])
+responses = [SubResource("Resource_p3h5v")]
 
 [sub_resource type="Resource" id="Resource_3eeed"]
 script = ExtResource("3_wn5ui")
@@ -43,7 +43,7 @@ nextNode = SubResource("Resource_jhay0")
 
 [sub_resource type="Resource" id="Resource_w17n5"]
 script = ExtResource("4_6m1me")
-responses = Array[ExtResource("2_8b4tq")]([SubResource("Resource_reiby")])
+responses = [SubResource("Resource_reiby")]
 
 [sub_resource type="Resource" id="Resource_p6pju"]
 script = ExtResource("2_8b4tq")
@@ -52,7 +52,7 @@ nextNode = SubResource("Resource_w17n5")
 
 [sub_resource type="Resource" id="Resource_p38tn"]
 script = ExtResource("4_6m1me")
-responses = Array[ExtResource("2_8b4tq")]([SubResource("Resource_p6pju")])
+responses = [SubResource("Resource_p6pju")]
 
 [sub_resource type="Resource" id="Resource_eo3uj"]
 script = ExtResource("3_wn5ui")
@@ -76,7 +76,7 @@ nextNode = SubResource("Resource_tpojd")
 
 [sub_resource type="Resource" id="Resource_6wl3i"]
 script = ExtResource("4_6m1me")
-responses = Array[ExtResource("2_8b4tq")]([SubResource("Resource_7pbqv")])
+responses = [SubResource("Resource_7pbqv")]
 
 [resource]
 script = ExtResource("1_8ppr0")

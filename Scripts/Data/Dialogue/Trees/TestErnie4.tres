@@ -21,7 +21,7 @@ nextNode = SubResource("Resource_1uafb")
 
 [sub_resource type="Resource" id="Resource_4llv2"]
 script = ExtResource("4_4llv2")
-responses = Array[ExtResource("2_1uafb")]([SubResource("Resource_8nx1h")])
+responses = [SubResource("Resource_8nx1h")]
 
 [sub_resource type="Resource" id="Resource_8dpju"]
 script = ExtResource("2_1uafb")
@@ -30,7 +30,7 @@ nextNode = SubResource("Resource_4llv2")
 
 [sub_resource type="Resource" id="Resource_x8dpb"]
 script = ExtResource("4_4llv2")
-responses = Array[ExtResource("2_1uafb")]([SubResource("Resource_8dpju")])
+responses = [SubResource("Resource_8dpju")]
 
 [sub_resource type="Resource" id="Resource_pnv0v"]
 script = ExtResource("3_8nx1h")
@@ -63,7 +63,7 @@ nextNode = SubResource("Resource_wi7iu")
 
 [sub_resource type="Resource" id="Resource_ukrlf"]
 script = ExtResource("4_4llv2")
-responses = Array[ExtResource("2_1uafb")]([SubResource("Resource_ibfuy")])
+responses = [SubResource("Resource_ibfuy")]
 
 [sub_resource type="Resource" id="Resource_wpvmy"]
 script = ExtResource("2_1uafb")
@@ -72,7 +72,7 @@ nextNode = SubResource("Resource_ukrlf")
 
 [sub_resource type="Resource" id="Resource_majmi"]
 script = ExtResource("4_4llv2")
-responses = Array[ExtResource("2_1uafb")]([SubResource("Resource_wpvmy")])
+responses = [SubResource("Resource_wpvmy")]
 
 [sub_resource type="Resource" id="Resource_m55vv"]
 script = ExtResource("3_8nx1h")
@@ -91,7 +91,7 @@ nextNode = SubResource("Resource_dm4on")
 
 [sub_resource type="Resource" id="Resource_kbeuo"]
 script = ExtResource("4_4llv2")
-responses = Array[ExtResource("2_1uafb")]([SubResource("Resource_yr8q4")])
+responses = [SubResource("Resource_yr8q4")]
 
 [sub_resource type="Resource" id="Resource_ogaef"]
 script = ExtResource("3_8nx1h")
@@ -105,7 +105,7 @@ nextNode = SubResource("Resource_ogaef")
 
 [sub_resource type="Resource" id="Resource_0dqn6"]
 script = ExtResource("4_4llv2")
-responses = Array[ExtResource("2_1uafb")]([SubResource("Resource_73hb2"), SubResource("Resource_ue128")])
+responses = [SubResource("Resource_73hb2"), SubResource("Resource_ue128")]
 
 [sub_resource type="Resource" id="Resource_h22il"]
 script = ExtResource("3_8nx1h")
