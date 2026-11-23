@@ -3,14 +3,14 @@
   "profiles": {
 	"Godot Debug": {
 	  "commandName": "Executable",
-	  "executablePath": "F:/Godot/Godot_v4.6.1-stable_mono_win64/Godot_v4.6.1-stable_mono_win64.exe",
+	  "executablePath": "C:/Users/Thad/Desktop/Godot_v4.6.1-stable_mono_win64/Godot_v4.6.1-stable_mono_win64/Godot_v4.6.1-stable_mono_win64.exe",
 	  "commandLineArgs": "--path . --verbose",
 	  "workingDirectory": ".",
 	  "nativeDebugging": true
 	},
 	"Godot Debug PC": {
 	  "commandName": "Executable",
-	  "executablePath": "F:/Godot/Godot_v4.6.1-stable_mono_win64/Godot_v4.6.1-stable_mono_win64.exe",
+	  "executablePath": "C:/Users/Thad/Desktop/Godot_v4.6.1-stable_mono_win64/Godot_v4.6.1-stable_mono_win64/Godot_v4.6.1-stable_mono_win64.exe",
 	  "commandLineArgs": "--upwards ./Prefab Nodes/PlayerController/pc.tscn --verbose",
 	  "workingDirectory": ".",
 	  "nativeDebugging": true

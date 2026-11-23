@@ -445,6 +445,62 @@ tracks/2/keys = {
 "values": [Vector2(1, 1), Vector2(0.9, 0.9)]
 }
 
+[sub_resource type="Animation" id="Animation_y4gm0"]
+resource_name = "ItemCollectIN"
+length = 0.46666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ItemCollectPanel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.41001755),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ItemCollectPanel:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.41001755),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gyo4f"]
+resource_name = "ItemCollectOut"
+length = 0.36666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ItemCollectPanel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ItemCollectPanel:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1)]
+}
+
 [sub_resource type="Animation" id="Animation_4stpt"]
 resource_name = "LoreIn"
 tracks/0/type = "value"
@@ -809,6 +865,30 @@ tracks/18/keys = {
 "update": 0,
 "values": [Vector2(1.1, 1.1)]
 }
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("ItemCollectPanel:modulate")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("ItemCollectPanel:scale")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.1, 1.1)]
+}
 
 [sub_resource type="Animation" id="Animation_6edwv"]
 resource_name = "TrackingReticleIn"
@@ -859,6 +939,8 @@ _data = {
 &"InteractTextOut": SubResource("Animation_wtek5"),
 &"InventoryIn": SubResource("Animation_lbk5n"),
 &"InventoryOut": SubResource("Animation_645e3"),
+&"ItemCollectIN": SubResource("Animation_y4gm0"),
+&"ItemCollectOut": SubResource("Animation_gyo4f"),
 &"LoreIn": SubResource("Animation_4stpt"),
 &"LoreOut": SubResource("Animation_8c5fg"),
 &"PlayerInfoIn": SubResource("Animation_swgnb"),
@@ -879,6 +961,8 @@ _data = {
 
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_swgnb"]
 
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_3gvfd"]
+
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_lbk5n"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ioirw"]
@@ -892,6 +976,12 @@ animation = &"PlayerInfoIn"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y4gm0"]
 animation = &"PlayerInfoOut"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gyo4f"]
+animation = &"ItemCollectIN"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g70vw"]
+animation = &"ItemCollectOut"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_645e3"]
 animation = &"TrackingReticleIn"
@@ -970,6 +1060,16 @@ input_1/auto_advance = false
 input_1/break_loop_at_end = false
 input_1/reset = true
 
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_xtspl"]
+input_0/name = "in"
+input_0/auto_advance = false
+input_0/break_loop_at_end = false
+input_0/reset = true
+input_1/name = "out"
+input_1/auto_advance = false
+input_1/break_loop_at_end = false
+input_1/reset = true
+
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_s8js7"]
 input_0/name = "in"
 input_0/auto_advance = false
@@ -1001,8 +1101,8 @@ input_1/break_loop_at_end = false
 input_1/reset = true
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_2pel7"]
-graph_offset = Vector2(-225.47699, 2943.7852)
-nodes/output/position = Vector2(1540, 1100)
+graph_offset = Vector2(517.29144, 601.7468)
+nodes/output/position = Vector2(1746.6666, 1280)
 nodes/DialogueIn/node = SubResource("AnimationNodeAnimation_07sgc")
 nodes/DialogueIn/position = Vector2(-573.3333, 80)
 nodes/Dialogue/node = SubResource("AnimationNodeTransition_07sgc")
@@ -1059,7 +1159,15 @@ nodes/PlayerInfo/position = Vector2(340, 2360)
 "nodes/Animation 12/position" = Vector2(80, 2340)
 "nodes/Animation 13/node" = SubResource("AnimationNodeAnimation_y4gm0")
 "nodes/Animation 13/position" = Vector2(60, 2580)
-node_connections = [&"output", 0, &"Add2 7", &"Dialogue", 0, &"DialogueIn", &"Dialogue", 1, &"Animation", &"Add2", 0, &"LockOn", &"Add2", 1, &"Dialogue", &"LockOn", 0, &"Animation 2", &"LockOn", 1, &"Animation 3", &"Inventory", 0, &"Animation 4", &"Inventory", 1, &"Animation 5", &"Add2 2", 0, &"Add2", &"Add2 2", 1, &"Inventory", &"Add2 3", 0, &"Add2 2", &"Add2 3", 1, &"Lore", &"Lore", 0, &"Animation 6", &"Lore", 1, &"Animation 7", &"Interact", 0, &"Animation 8", &"Interact", 1, &"Animation 9", &"Add2 5", 0, &"Add2 3", &"Add2 5", 1, &"Interact", &"Branch", 0, &"Animation 11", &"Branch", 1, &"Animation 10", &"Add2 6", 0, &"Add2 5", &"Add2 6", 1, &"Branch", &"Add2 7", 0, &"Add2 6", &"Add2 7", 1, &"PlayerInfo", &"PlayerInfo", 0, &"Animation 12", &"PlayerInfo", 1, &"Animation 13"]
+"nodes/Add2 9/node" = SubResource("AnimationNodeAdd2_3gvfd")
+"nodes/Add2 9/position" = Vector2(1546.6666, 1520)
+nodes/ItemCollect/node = SubResource("AnimationNodeTransition_xtspl")
+nodes/ItemCollect/position = Vector2(1173.3334, 2306.6667)
+"nodes/Animation 14/node" = SubResource("AnimationNodeAnimation_gyo4f")
+"nodes/Animation 14/position" = Vector2(933.3333, 2306.6667)
+"nodes/Animation 15/node" = SubResource("AnimationNodeAnimation_g70vw")
+"nodes/Animation 15/position" = Vector2(960.4797, 2555.6687)
+node_connections = [&"output", 0, &"Add2 9", &"Dialogue", 0, &"DialogueIn", &"Dialogue", 1, &"Animation", &"Add2", 0, &"LockOn", &"Add2", 1, &"Dialogue", &"LockOn", 0, &"Animation 2", &"LockOn", 1, &"Animation 3", &"Inventory", 0, &"Animation 4", &"Inventory", 1, &"Animation 5", &"Add2 2", 0, &"Add2", &"Add2 2", 1, &"Inventory", &"Add2 3", 0, &"Add2 2", &"Add2 3", 1, &"Lore", &"Lore", 0, &"Animation 6", &"Lore", 1, &"Animation 7", &"Interact", 0, &"Animation 8", &"Interact", 1, &"Animation 9", &"Add2 5", 0, &"Add2 3", &"Add2 5", 1, &"Interact", &"Branch", 0, &"Animation 11", &"Branch", 1, &"Animation 10", &"Add2 6", 0, &"Add2 5", &"Add2 6", 1, &"Branch", &"Add2 7", 0, &"Add2 6", &"Add2 7", 1, &"PlayerInfo", &"PlayerInfo", 0, &"Animation 12", &"PlayerInfo", 1, &"Animation 13", &"Add2 9", 0, &"Add2 7", &"Add2 9", 1, &"ItemCollect", &"ItemCollect", 0, &"Animation 14", &"ItemCollect", 1, &"Animation 15"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6edwv"]
 advance_mode = 2
@@ -1071,7 +1179,19 @@ states/Start/position = Vector2(200, 91)
 transitions = ["Start", "Main", SubResource("AnimationNodeStateMachineTransition_6edwv")]
 graph_offset = Vector2(31, -5)
 
-[node name="Control" type="Control" unique_id=593094546 node_paths=PackedStringArray("anim", "aud", "dialogueBox", "staminaBar", "healthBar", "posBar", "equipmentScreen", "dialogueScreen", "loreMenu", "interactText", "tracker")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3gvfd"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.69803923, 0.06666667, 0.23529412, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 5
+
+[node name="Control" type="Control" unique_id=593094546 node_paths=PackedStringArray("anim", "aud", "dialogueBox", "staminaBar", "healthBar", "posBar", "equipmentScreen", "dialogueScreen", "loreMenu", "interactText", "itemCollectText", "tracker")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1096,6 +1216,7 @@ interactText = NodePath("InteractPanel/RichTextLabel")
 interactSFX = ExtResource("4_8c5fg")
 trackOnSFX = ExtResource("7_swgnb")
 trackOffSFX = ExtResource("8_3gvfd")
+itemCollectText = NodePath("ItemCollectPanel/RichTextLabel")
 tracker = NodePath("PhyiscalUI/Panel")
 
 [node name="Panel" type="Panel" parent="." unique_id=515457430]
@@ -1351,7 +1472,7 @@ anchor_bottom = 1.0
 offset_left = 29.527996
 offset_top = 53.0
 offset_right = 2.5679626
-offset_bottom = -89.99982
+offset_bottom = -89.99988
 split_offsets = PackedInt32Array(200)
 dragging_enabled = false
 split_offset = 200
@@ -1564,6 +1685,10 @@ parameters/Main/Branch/current_index = 1
 parameters/Main/PlayerInfo/current_state = "in"
 parameters/Main/PlayerInfo/transition_request = ""
 parameters/Main/PlayerInfo/current_index = 0
+"parameters/Main/Add2 9/add_amount" = 1.0
+parameters/Main/ItemCollect/current_state = "out"
+parameters/Main/ItemCollect/transition_request = ""
+parameters/Main/ItemCollect/current_index = 1
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1852951004]
 bus = &"UI"
@@ -1599,3 +1724,39 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("2_2pel7")
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+[node name="ItemCollectPanel" type="Panel" parent="." unique_id=1448060893]
+modulate = Color(1, 1, 1, 0)
+material = ExtResource("12_ioirw")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.48100004
+anchor_right = 1.0
+offset_left = 163.88794
+offset_top = 204.0
+offset_right = -119.0
+offset_bottom = 263.81308
+grow_horizontal = 2
+scale = Vector2(1.1, 1.1)
+pivot_offset_ratio = Vector2(0.5, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_3gvfd")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ItemCollectPanel" unique_id=1581082103]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = 0.93457603
+offset_right = -19.0
+offset_bottom = 5.084114
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.9884636, 0.7578474, 0.77736765, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_2pel7")
+theme_override_font_sizes/normal_font_size = 38
+text = "SCREWDRIVER FOUND"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1

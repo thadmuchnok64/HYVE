@@ -27,8 +27,11 @@ public partial class HUDManager : Control
 	[Export] float shakeRate = 10;
 	[Export] float shakeLevel = 4;
 	[Export] AudioStream trackOnSFX, trackOffSFX;
+	[Export] RichTextLabel itemCollectText;
 
-    [Export] float trackerOffset = 32;
+
+
+	[Export] float trackerOffset = 32;
 
 	[Export] Control tracker;
 
@@ -87,7 +90,18 @@ public partial class HUDManager : Control
     public void PlayerInfoOut() { 
         anim.Set("parameters/Main/PlayerInfo/transition_request", "out");
     }
-    public bool TryAdvanceDialogue() // returns false if the dialogue has reached the end of the queue
+
+	public void ItemCollectIn(Collectable c)
+	{
+		anim.Set("parameters/Main/ItemCollect/transition_request", "in");
+		itemCollectText.Text = $"{c.DisplayName.ToUpper()} FOUND!";
+	}
+
+	public void ItemCollectOut()
+	{
+		anim.Set("parameters/Main/ItemCollect/transition_request", "out");
+	}
+	public bool TryAdvanceDialogue() // returns false if the dialogue has reached the end of the queue
 	{
 		if (pendingDialogues.Count <= 0)
 		{

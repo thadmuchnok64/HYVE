@@ -17,6 +17,7 @@ public partial class PCStateMachine : Entity
 	[Export] RayCast3D interactionRay;
 	[Export] Area3D lockOnArea;
 	[Export] Node3D lockonCameraPoint;
+	[Export] Node3D weaponPoint;
 
 	[Export] PCState startingState;
 	[Export] PCState fallingState;
@@ -30,9 +31,11 @@ public partial class PCStateMachine : Entity
 	[Export] float postureRecoveryPerSec = 10f;
 	[Export] float timeToRecoverPos = 1f;
 
-    [Export] CameraController cam;
+    [Export] public CameraController cam;
 	[Export] Node3D mainCamPoint, inventoryCamPoint;
 	[Export] public Node3D trackingPoint;
+
+	[Export] PC_ItemCollect itemCollectState;
 
 	[Export] public float animationDelta; //intended to be used for a variety of different interactions (see MonkeyBars.cs for an example)
 
@@ -315,6 +318,12 @@ public partial class PCStateMachine : Entity
 		return open;
     }
 
+	public void TriggerItemCollect(Collectable collectable)
+	{
+		ChangeState(itemCollectState);
+		itemCollectState.PopulateItem(collectable);
+	}
+
 	public void SetDefaultCamPoint()
 	{
 		cam.SetTrackingObject(mainCamPoint);
@@ -326,6 +335,11 @@ public partial class PCStateMachine : Entity
 		return currentState.animationName;
 	}
 	*/
+
+	public void SetWeaponVisibility(bool visible)
+	{
+		weaponPoint.Visible = visible;
+	}
 
 
 	#region Anim Events

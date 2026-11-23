@@ -21,6 +21,7 @@ buses/default_bus_layout="uid://d4b3r8cupuudt"
 
 [display]
 
+window/size/mode=4
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
@@ -173,6 +174,7 @@ UIBack={
 3d_physics/layer_3="Enemies"
 3d_physics/layer_4="Interactables"
 3d_physics/layer_5="MouseInteractables"
+3d_physics/layer_16="Undetectable"
 
 [physics]
 

@@ -9,7 +9,8 @@ public partial class CollectablePickup : InteractableObject
 	public override void TriggerGizmo(PCStateMachine pc)
 	{
 		pc.inventory.InsertCollectable(heldCollectable);
-		if(soundOnCollect!= null)
+		pc.TriggerItemCollect(heldCollectable);
+		if (soundOnCollect!= null)
 		SoundManager.Instance.RequesetSFXSoundAtLocation(soundOnCollect, GlobalPosition);
 		Visible = false;
 	}

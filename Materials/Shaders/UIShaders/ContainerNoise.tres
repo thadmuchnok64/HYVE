@@ -48,7 +48,7 @@ input_name = "color"
 [resource]
 mode = 1
 flags/light_only = false
-nodes/fragment/0/position = Vector2(880, 560)
+nodes/fragment/0/position = Vector2(1120, 546.6667)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_plm44")
 nodes/fragment/2/position = Vector2(-620, 420)
 nodes/fragment/3/node = SubResource("VisualShaderNodeInput_o28dp")

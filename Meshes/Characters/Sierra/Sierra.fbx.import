@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://0x7mc1uatlcb"
+uid="uid://dsil4di6pw3lc"
 path="res://.godot/imported/Sierra.fbx-43ada1a77998ac39b3c2b4cfa287f23a.scn"
 
 [deps]
@@ -39,11 +39,11 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "animations": {
-"root|Run": {
+"root|OverheadSwing": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Meshes/Characters/Sierra/Run.anim",
+"save_to_file/fallback_path": "res://Meshes/Characters/Sierra/OverheadStrike.anim",
 "save_to_file/keep_custom_tracks": "",
-"save_to_file/path": "uid://cmkkqs3goyoa",
+"save_to_file/path": "uid://5ti530guad47",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
